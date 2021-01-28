@@ -1,1 +1,2 @@
-# zero-the-hero-game
+# Zero The Hero
+Is my first commercial game
