@@ -39,21 +39,26 @@ func state_default() -> void:
 	movement_loop()
 	spriterdir_loop()
 	damage_loop()
-	
-	if is_on_wall() and movedir != Vector2(0, 0):
-		if spritedir == 'left' and test_move(transform, Vector2(-1, 0)):
-			anim_switch('push')
-		if spritedir == 'right' and test_move(transform, Vector2(1, 0)):
-			anim_switch('push')
-		if spritedir == 'up' and test_move(transform, Vector2(0, -1)):
-			anim_switch('push')
-		if spritedir == 'down' and test_move(transform, Vector2(0, 1)):
-			anim_switch('push')
-	elif movedir != Vector2(0, 0):
-		emit_signal("player_move")
-		anim_switch('walk')
-	else:
-		anim_switch('idle')
+
+	match movedir:
+		Vector2(-1, 0):
+			$AnimationPlayer.play("walking")
+			$Sprite.flip_h = true
+		Vector2(1, 0):
+			$AnimationPlayer.play("walking")
+			$Sprite.flip_h = false
+		Vector2(0, -1):
+			$AnimationPlayer.play("walking_up")
+		Vector2(-1, -1):
+			$AnimationPlayer.play("walking_up")
+		Vector2(0, 1):
+			$AnimationPlayer.play("walking_down")
+		Vector2(1, 1):
+			$AnimationPlayer.play("walking_down")
+		Vector2(-1, 1):
+			$AnimationPlayer.play("walking_down")
+		Vector2(0, 0):
+			$AnimationPlayer.play("idle")
 	
 	if Input.is_action_just_pressed("a"):
 		use_item(sword)
@@ -62,7 +67,7 @@ func state_default() -> void:
 		shoot_arrow()
 
 func state_swing() -> void:
-	anim_switch('idle')
+	#anim_switch('idle')
 	movement_loop()
 	damage_loop()
 	movedir = dir.center
