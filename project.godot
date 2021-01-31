@@ -93,13 +93,14 @@ _global_script_class_icons={
 [application]
 
 config/name="Zero the Hero"
-run/main_scene="res://areas/Plains/CentralAreaPlain.tscn"
+run/main_scene="res://levels/0-0.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
 dir="*res://engine/directions.gd"
 GameState="*res://engine/GameState.gd"
+LevelManager="*res://levels/LevelManager.gd"
 
 [display]
 

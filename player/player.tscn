@@ -8,13 +8,13 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 6, 7 )
 
-[sub_resource type="RectangleShape2D" id=14]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 7, 8 )
 
-[sub_resource type="OccluderPolygon2D" id=15]
+[sub_resource type="OccluderPolygon2D" id=3]
 polygon = PoolVector2Array( -4.48177, 7.64083, 3.98177, 7.4181, 5.54084, 3.07497, -0.138638, 1.5159, -6.1522, 3.85451 )
 
-[sub_resource type="Animation" id=19]
+[sub_resource type="Animation" id=4]
 resource_name = "idle"
 length = 0.1
 tracks/0/type = "value"
@@ -30,7 +30,7 @@ tracks/0/keys = {
 "values": [ 2 ]
 }
 
-[sub_resource type="Animation" id=16]
+[sub_resource type="Animation" id=5]
 resource_name = "walking"
 length = 0.3
 tracks/0/type = "value"
@@ -46,7 +46,7 @@ tracks/0/keys = {
 "values": [ 0, 1 ]
 }
 
-[sub_resource type="Animation" id=17]
+[sub_resource type="Animation" id=6]
 resource_name = "walking_down"
 length = 0.3
 tracks/0/type = "value"
@@ -62,7 +62,7 @@ tracks/0/keys = {
 "values": [ 2, 3 ]
 }
 
-[sub_resource type="Animation" id=18]
+[sub_resource type="Animation" id=7]
 resource_name = "walking_up"
 length = 0.1
 tracks/0/type = "value"
@@ -85,7 +85,7 @@ script = ExtResource( 1 )
 z_index = 1
 texture = ExtResource( 2 )
 hframes = 5
-frame = 4
+frame = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
@@ -94,18 +94,21 @@ shape = SubResource( 1 )
 visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
-shape = SubResource( 14 )
+shape = SubResource( 2 )
 
 [node name="SwordOnFireTimer" type="Timer" parent="."]
 wait_time = 3.0
 one_shot = true
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
-occluder = SubResource( 15 )
+occluder = SubResource( 3 )
 
 [node name="camera" parent="." instance=ExtResource( 3 )]
-visible = false
 current = true
+limit_left = 0
+limit_top = 0
+limit_right = 512
+limit_bottom = 512
 
 [node name="Bow" type="Sprite" parent="."]
 position = Vector2( 0.111919, 11.5817 )
@@ -117,10 +120,10 @@ texture = ExtResource( 5 )
 wait_time = 0.3
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/idle = SubResource( 19 )
-anims/walking = SubResource( 16 )
-anims/walking_down = SubResource( 17 )
-anims/walking_up = SubResource( 18 )
+anims/idle = SubResource( 4 )
+anims/walking = SubResource( 5 )
+anims/walking_down = SubResource( 6 )
+anims/walking_up = SubResource( 7 )
 [connection signal="ready" from="." to="." method="_on_player_ready"]
 [connection signal="timeout" from="SwordOnFireTimer" to="." method="_on_SwordOnFireTimer_timeout"]
 [connection signal="timeout" from="Bow/BowTimer" to="." method="_on_BowTimer_timeout"]

@@ -11,6 +11,7 @@ var health: int = max_health
 var type: String = 'enemy'
 var texture_default: Texture = null
 var texture_hurt: Texture = null
+var blood_particules = preload("res://enemies/BaseEnemy/Blood.tscn")
 
 func _ready() -> void:
 	if type == 'enemy':
@@ -102,6 +103,9 @@ func make_damage(body):
 			
 	if type == 'player' and health <= 0:
 		GameState.restart_game()
+		
+	var blood = blood_particules.instance()
+	add_child(blood)
 	
 	
 func use_item(item: PackedScene) -> void:

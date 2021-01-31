@@ -39,7 +39,9 @@ func state_default() -> void:
 	movement_loop()
 	spriterdir_loop()
 	damage_loop()
-
+	
+	LevelManager.check_current_level(movedir, global_position)
+	
 	match movedir:
 		Vector2(-1, 0):
 			$AnimationPlayer.play("walking")
