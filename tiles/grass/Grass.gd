@@ -1,12 +1,11 @@
 extends Node2D
 
-var fire_texture = load("res://tiles/grass/fire.png")
 var on_fire: bool = false
 var damage = 1
 	
 
 func _on_Timer_timeout():
-	$Sprite.visible = false
+	$AnimatedSprite.visible = false
 	$Timer.stop()
 	
 	for child in $Area2D2.get_overlapping_areas():
@@ -20,7 +19,7 @@ func _on_Timer_timeout():
 	
 func catch_fire():
 	on_fire = true
-	$Sprite.texture = fire_texture
+	$AnimatedSprite.play("fire")
 	$Timer.start()
 
 
