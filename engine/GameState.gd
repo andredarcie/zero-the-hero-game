@@ -1,7 +1,7 @@
 extends Node
 
 var island = preload("res://areas/test.tscn")
-var dungeon = preload("res://areas/Dungeon.tscn")
+#var dungeon = preload("res://areas/Dungeon.tscn")
 
 # New places
 var CentralAreaPlain = preload("res://areas/Plains/CentralAreaPlain.tscn")
@@ -14,7 +14,7 @@ var CentralAreaSoullessCastle = preload("res://areas/SoullessCastle/CentralAreaS
 var CentralAreaSwamp = preload("res://areas/Swamps/CentralAreaSwamp.tscn")
 var CentralAreaVillage = preload("res://areas/Villages/CentralAreaVillage.tscn")
 var CentralAreaVolcano = preload("res://areas/Volcano/CentralAreaVolcano.tscn")
-var CentralAreaDungeon = preload("res://areas/Dungeons/CentralAreaDungeon.tscn")
+#var CentralAreaDungeon = preload("res://areas/Dungeons/CentralAreaDungeon.tscn")
 
 var start_position_x: int = 0
 var start_position_y: int = 0
@@ -47,7 +47,8 @@ func go_to_scene(x: int, y: int, name: String):
 	elif name == "EnterCentralAreaVolcano":
 		get_tree().change_scene_to(CentralAreaVolcano)
 	elif name == "EnterCentralAreaDungeon":
-		get_tree().change_scene_to(CentralAreaDungeon)
+#		get_tree().change_scene_to(CentralAreaDungeon)
+		pass
 		
 	if name == "ExitCentralAreaDesert":
 		get_tree().change_scene_to(CentralAreaPlain)

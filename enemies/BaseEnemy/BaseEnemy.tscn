@@ -46,9 +46,6 @@ radius = 37.9681
 "enemies",
 ]]
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="Range" type="Area2D" parent="." groups=[
 "ranges",

@@ -47,7 +47,7 @@ func go_to_next_level(move_direction: Vector2, player_position: Vector2):
 	if current_level_y > LEVEL_MAX_SIZE_Y:
 		current_level_y = LEVEL_MAX_SIZE_Y
 		
-	print(str(current_level_x) + "-" + str(current_level_y) + ".tscn")
+		
 	var level = load("res://levels/" + str(current_level_x) + "-" + str(current_level_y) + ".tscn")
 	
 	if level != null:
