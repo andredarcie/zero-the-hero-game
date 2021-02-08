@@ -5,6 +5,8 @@ var sword_on_fire: bool = false
 var sword = preload('res://items/sword.tscn')
 var arrow_direction = DIRECTION.Up
 onready var arrow = preload("res://player/Arrow.tscn")
+onready var FootSteps = preload("res://player/FootSteps.tscn")
+var step_interval = 4
 
 signal player_move
 
@@ -35,6 +37,14 @@ func _physics_process(delta: float) -> void:
 	GameState.keys = min(GameState.keys, 9)
 	
 func state_default() -> void:
+	if step_interval > 0:
+		step_interval -= 1
+	elif step_interval == 0:
+		step_interval = 5
+		var foot_steps = FootSteps.instance()
+		foot_steps.global_position = $Foots.global_position
+		get_parent().add_child(foot_steps)
+	
 	controls_loop()
 	movement_loop()
 	spriterdir_loop()

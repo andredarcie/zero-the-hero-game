@@ -159,7 +159,7 @@ tracks/2/keys = {
 }
 
 [sub_resource type="RectangleShape2D" id=5]
-extents = Vector2( 2, 6 )
+extents = Vector2( 2.3025, 4.85089 )
 
 [node name="sword" type="Node2D"]
 position = Vector2( 0, 10 )
@@ -186,7 +186,6 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( -0.0049199, -2.07138 )
 shape = SubResource( 5 )
-__meta__ = {
-"_edit_lock_": true
-}
+[connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
