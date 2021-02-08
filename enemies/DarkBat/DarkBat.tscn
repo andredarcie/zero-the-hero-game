@@ -1,11 +1,14 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://enemies/DarkBat/DarkBat.gd" type="Script" id=1]
 [ext_resource path="res://enemies/Bat/bat.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 
+[sub_resource type="RectangleShape2D" id=2]
+
 [node name="DarkBat" type="KinematicBody2D"]
+collision_layer = 2
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
@@ -17,7 +20,19 @@ texture = ExtResource( 2 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
 
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource( 2 )
+
 [node name="ChangeMovimentDirection" type="Timer" parent="."]
 wait_time = 0.5
 autostart = true
+
+[node name="HurtTime" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
 [connection signal="timeout" from="ChangeMovimentDirection" to="." method="_on_ChangeMovimentDirection_timeout"]
+[connection signal="timeout" from="HurtTime" to="." method="_on_HurtTime_timeout"]

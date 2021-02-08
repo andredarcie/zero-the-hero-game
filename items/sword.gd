@@ -33,3 +33,9 @@ func get_fire_state():
 	
 func catch_fire():
 	get_parent().sword_catch_fire()
+
+
+func _on_Area2D_area_entered(area):
+	var partent = area.get_parent()
+	if partent.has_method("hurt"):
+		partent.hurt(self)
