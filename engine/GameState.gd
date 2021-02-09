@@ -109,3 +109,6 @@ func restart_game():
 	player_health = 3
 	player_max_health = 3
 	player_arrows = 10
+
+func get_player():
+	return get_tree().get_nodes_in_group('Player')[0]

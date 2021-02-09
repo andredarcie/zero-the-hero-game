@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-onready var player: Player = get_tree().get_root().get_node("Node2D/player")
+onready var player: Player = GameState.get_player()
 
 var last_player_position
 var move = Vector2.ZERO

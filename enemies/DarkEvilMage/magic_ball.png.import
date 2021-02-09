@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/evil_mage.png-566d092539d7139292fb03d712a5c994.stex"
+path="res://.import/magic_ball.png-3b63442183460f760d65cb5831f56b3e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://enemies/EvilMage/evil_mage.png"
-dest_files=[ "res://.import/evil_mage.png-566d092539d7139292fb03d712a5c994.stex" ]
+source_file="res://enemies/DarkEvilMage/magic_ball.png"
+dest_files=[ "res://.import/magic_ball.png-3b63442183460f760d65cb5831f56b3e.stex" ]
 
 [params]
 

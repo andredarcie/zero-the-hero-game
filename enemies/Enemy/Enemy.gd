@@ -1,4 +1,4 @@
-class_name DarkBat extends KinematicBody2D
+class_name Enemy extends KinematicBody2D
 
 enum Direction {
 	UP,
@@ -7,7 +7,7 @@ enum Direction {
 	RIGHT
 }
 
-onready var sprite_hurt = preload("res://enemies/Bat/bat_hurt.png")
+var sprite_hurt
 var sprite_default
 
 var rng = RandomNumberGenerator.new()

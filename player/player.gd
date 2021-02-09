@@ -25,6 +25,7 @@ func _init() -> void:
 func _ready() -> void:
 	speed = 90
 	$Bow.visible = false
+	add_to_group('Player')
 	
 
 func _physics_process(delta: float) -> void:

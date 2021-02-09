@@ -14,15 +14,25 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://enemies/BaseEnemy/BaseEnemy.gd"
 }, {
-"base": "KinematicBody2D",
-"class": "DarkBat",
+"base": "Enemy",
+"class": "Bat",
 "language": "GDScript",
-"path": "res://enemies/DarkBat/DarkBat.gd"
+"path": "res://enemies/Bat/Bat.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "DarkEvilMage",
+"language": "GDScript",
+"path": "res://enemies/DarkEvilMage/DarkEvilMage.gd"
 }, {
 "base": "Polygon2D",
 "class": "DialogBox",
 "language": "GDScript",
 "path": "res://engine/DialogBox.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "Enemy",
+"language": "GDScript",
+"path": "res://enemies/Enemy/Enemy.gd"
 }, {
 "base": "KinematicBody2D",
 "class": "Entity",
@@ -81,8 +91,10 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "BaseEnemy": "",
-"DarkBat": "",
+"Bat": "",
+"DarkEvilMage": "",
 "DialogBox": "",
+"Enemy": "",
 "Entity": "",
 "Follower": "",
 "Heart": "",
@@ -107,6 +119,7 @@ config/icon="res://icon.png"
 dir="*res://engine/directions.gd"
 GameState="*res://engine/GameState.gd"
 LevelManager="*res://levels/LevelManager.gd"
+Helpers="*res://engine/Helpers.gd"
 
 [display]
 
