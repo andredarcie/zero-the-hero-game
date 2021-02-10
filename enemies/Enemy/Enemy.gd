@@ -7,24 +7,26 @@ enum Direction {
 	RIGHT
 }
 
-var sprite_hurt
-var sprite_default
+var sprite_hurt: Texture
+var sprite_default: Texture
 
 var rng = RandomNumberGenerator.new()
 var move_direction = Vector2.ZERO
+var pushed_move_direction = Vector2.ZERO
+var is_hurt: bool = false
+
 var speed = 50
 var health = 1
-var is_hurt: bool = false
-var pushed_move_drection = Vector2.ZERO
 var damage = 1
 
-func _ready():
+func _ready() -> void:
 	sprite_default = $Sprite.texture
 	move_direction = get_random_direction()
 	
-func _physics_process(_delta):
+	
+func _physics_process(_delta) -> void:
 	if is_hurt:
-		move_and_slide(pushed_move_drection.normalized() * (speed * 2))
+		move_and_slide(pushed_move_direction.normalized() * (speed * 2))
 	else:
 		move_and_slide(move_direction.normalized() * speed)
 	
@@ -46,19 +48,19 @@ func get_random_direction() -> Vector2:
 	return Vector2.ZERO
 
 
-func _on_ChangeMovimentDirection_timeout():
+func _on_ChangeMovimentDirection_timeout() -> void:
 	move_direction = get_random_direction()
 
 
-func hurt(body : Node2D):
-	pushed_move_drection = global_transform.origin - body.global_transform.origin
+func hurt(body : Node2D) -> void:
+	pushed_move_direction = global_transform.origin - body.global_transform.origin
 	$Sprite.texture = sprite_hurt
 	$HurtTime.start()
 	is_hurt = true
 	health -= 1
 
 
-func _on_HurtTime_timeout():
+func _on_HurtTime_timeout() -> void:
 	$Sprite.texture = sprite_default
 	$HurtTime.stop()
 	is_hurt = false
@@ -66,6 +68,6 @@ func _on_HurtTime_timeout():
 		queue_free()
 
 
-func _on_Area2D_body_entered(body):
+func _on_Area2D_body_entered(body) -> void:
 	if body.has_method("make_damage"):
 		body.make_damage(self)
