@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/bow.png-797205bfbc6eceabbb7643fa4690f907.stex"
+path="res://.import/arrow.png-478799906f241dd476e2cd8c75b25038.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://player/bow.png"
-dest_files=[ "res://.import/bow.png-797205bfbc6eceabbb7643fa4690f907.stex" ]
+source_file="res://player/BowArrow/arrow.png"
+dest_files=[ "res://.import/arrow.png-478799906f241dd476e2cd8c75b25038.stex" ]
 
 [params]
 

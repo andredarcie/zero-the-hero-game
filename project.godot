@@ -69,10 +69,10 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://pickups/pickup.gd"
 }, {
-"base": "Entity",
+"base": "KinematicBody2D",
 "class": "Player",
 "language": "GDScript",
-"path": "res://player/player.gd"
+"path": "res://player/Player/player.gd"
 }, {
 "base": "Area2D",
 "class": "Switch",

@@ -2,12 +2,14 @@
 
 [ext_resource path="res://areas/Deserts/CentralAreaDesert.gd" type="Script" id=1]
 [ext_resource path="res://pickups/board/Board.tscn" type="PackedScene" id=2]
-[ext_resource path="res://player/player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://player/Player/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://pickups/teleporter/Teleporter.tscn" type="PackedScene" id=4]
 [ext_resource path="res://ui/hud.tscn" type="PackedScene" id=5]
 [ext_resource path="res://tiles/ForestTileMap.tscn" type="PackedScene" id=6]
 [ext_resource path="res://pickups/key/Key.tscn" type="PackedScene" id=7]
 [ext_resource path="res://enemies/Zombie/Zombie.tscn" type="PackedScene" id=8]
+
+
 
 [node name="CentralAreaDesert" type="Node2D"]
 position = Vector2( 0, 8 )

@@ -1,6 +1,6 @@
 extends Node2D
 
-var player_scene = preload("res://player/player.tscn")
+var player_scene = preload("res://player/Player/Player.tscn")
 var hud_scene = preload("res://ui/hud.tscn")
 
 func _enter_tree():

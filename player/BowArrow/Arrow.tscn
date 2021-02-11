@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://player/arrow.png" type="Texture" id=1]
-[ext_resource path="res://player/Arrow.gd" type="Script" id=2]
+[ext_resource path="res://player/BowArrow/arrow.png" type="Texture" id=1]
+[ext_resource path="res://player/BowArrow/Arrow.gd" type="Script" id=2]
 
 [sub_resource type="SegmentShape2D" id=1]
 a = Vector2( 0.232923, -7.89975 )

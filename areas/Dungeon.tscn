@@ -1,13 +1,15 @@
 [gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://areas/Dungeon.gd" type="Script" id=1]
-[ext_resource path="res://player/player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://player/Player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://tiles/TileMaps/DungeonTileMap.tscn" type="PackedScene" id=3]
 [ext_resource path="res://pickups/switch/Switch.tscn" type="PackedScene" id=4]
 [ext_resource path="res://pickups/thorn/UpDownBlock.tscn" type="PackedScene" id=5]
 [ext_resource path="res://enemies/Zombie/Zombie.tscn" type="PackedScene" id=6]
 [ext_resource path="res://pickups/teleporter/Teleporter.tscn" type="PackedScene" id=7]
 [ext_resource path="res://pickups/vase/Vase.tscn" type="PackedScene" id=9]
+
+
 
 [node name="Dungeon" type="Node2D"]
 script = ExtResource( 1 )
