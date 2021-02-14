@@ -14,7 +14,7 @@ var rng = RandomNumberGenerator.new()
 var move_direction = Vector2.ZERO
 var pushed_move_direction = Vector2.ZERO
 var is_hurt: bool = false
-
+var move_random_direction: bool = true
 var speed = 50
 var health = 1
 var damage = 1
@@ -27,7 +27,7 @@ func _ready() -> void:
 func _physics_process(_delta) -> void:
 	if is_hurt:
 		move_and_slide(pushed_move_direction.normalized() * (speed * 2))
-	else:
+	elif move_random_direction:
 		move_and_slide(move_direction.normalized() * speed)
 	
 	

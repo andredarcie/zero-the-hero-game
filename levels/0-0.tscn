@@ -14,13 +14,13 @@ tile_data = PoolIntArray( 0, 10, 0, 1, 10, 0, 2, 10, 0, 3, 10, 0, 4, 10, 0, 5, 1
 [node name="Enemies" type="Node" parent="." index="2"]
 
 [node name="Bat" parent="Enemies" index="0" instance=ExtResource( 3 )]
-position = Vector2( 227, 116 )
+position = Vector2( 224, 112 )
 
 [node name="Bat2" parent="Enemies" index="1" instance=ExtResource( 3 )]
-position = Vector2( 198, 174 )
+position = Vector2( 112, 208 )
 
 [node name="Bat3" parent="Enemies" index="2" instance=ExtResource( 3 )]
-position = Vector2( 350, 207 )
+position = Vector2( 336, 208 )
 
 [node name="Bat4" parent="Enemies" index="3" instance=ExtResource( 3 )]
 position = Vector2( 234, 276 )
@@ -29,94 +29,19 @@ position = Vector2( 234, 276 )
 position = Vector2( 339, 318 )
 
 [node name="Bat6" parent="Enemies" index="5" instance=ExtResource( 3 )]
-position = Vector2( 339, 318 )
+position = Vector2( 208, 432 )
 
 [node name="Bat7" parent="Enemies" index="6" instance=ExtResource( 3 )]
-position = Vector2( 332.764, 262.764 )
+position = Vector2( 432, 352 )
 
 [node name="Bat8" parent="Enemies" index="7" instance=ExtResource( 3 )]
-position = Vector2( 299.8, 208.419 )
+position = Vector2( 400, 464 )
 
 [node name="Bat9" parent="Enemies" index="8" instance=ExtResource( 3 )]
-position = Vector2( 345.236, 146.947 )
+position = Vector2( 448, 128 )
 
 [node name="Bat10" parent="Enemies" index="9" instance=ExtResource( 3 )]
-position = Vector2( 313.164, 109.529 )
-
-[node name="Bat11" parent="Enemies" index="10" instance=ExtResource( 3 )]
-position = Vector2( 238.328, 86.3658 )
-
-[node name="Bat12" parent="Enemies" index="11" instance=ExtResource( 3 )]
-position = Vector2( 200.91, 86.3658 )
-
-[node name="Bat13" parent="Enemies" index="12" instance=ExtResource( 3 )]
-position = Vector2( 157.256, 63.2024 )
-
-[node name="Bat14" parent="Enemies" index="13" instance=ExtResource( 3 )]
-position = Vector2( 137.657, 92.9387 )
-
-[node name="Bat15" parent="Enemies" index="14" instance=ExtResource( 3 )]
-position = Vector2( 91.3297, 191.829 )
-
-[node name="Bat16" parent="Enemies" index="15" instance=ExtResource( 3 )]
-position = Vector2( 139.438, 232.81 )
-
-[node name="Bat17" parent="Enemies" index="16" instance=ExtResource( 3 )]
-position = Vector2( 71.7299, 252.41 )
-
-[node name="Bat18" parent="Enemies" index="17" instance=ExtResource( 3 )]
-position = Vector2( 112.711, 272.01 )
-
-[node name="Bat19" parent="Enemies" index="18" instance=ExtResource( 3 )]
-position = Vector2( 88.657, 310.318 )
-
-[node name="Bat20" parent="Enemies" index="19" instance=ExtResource( 3 )]
-position = Vector2( 144.784, 312.1 )
-
-[node name="Bat21" parent="Enemies" index="20" instance=ExtResource( 3 )]
-position = Vector2( 137.532, 338.827 )
-
-[node name="Bat22" parent="Enemies" index="21" instance=ExtResource( 3 )]
-position = Vector2( 71.7299, 397.627 )
-
-[node name="Bat23" parent="Enemies" index="22" instance=ExtResource( 3 )]
-position = Vector2( 159.038, 407.426 )
-
-[node name="Bat24" parent="Enemies" index="23" instance=ExtResource( 3 )]
-position = Vector2( 139.438, 436.826 )
-
-[node name="Bat25" parent="Enemies" index="24" instance=ExtResource( 3 )]
-position = Vector2( 226.875, 436.826 )
-
-[node name="Bat26" parent="Enemies" index="25" instance=ExtResource( 3 )]
-position = Vector2( 197.875, 420.236 )
-
-[node name="Bat27" parent="Enemies" index="26" instance=ExtResource( 3 )]
-position = Vector2( 226.384, 392.618 )
-
-[node name="Bat28" parent="Enemies" index="27" instance=ExtResource( 3 )]
-position = Vector2( 259.347, 322.237 )
-
-[node name="Bat29" parent="Enemies" index="28" instance=ExtResource( 3 )]
-position = Vector2( 348.437, 346.291 )
-
-[node name="Bat30" parent="Enemies" index="29" instance=ExtResource( 3 )]
-position = Vector2( 423.273, 397.072 )
-
-[node name="Bat31" parent="Enemies" index="30" instance=ExtResource( 3 )]
-position = Vector2( 399.218, 420.236 )
-
-[node name="Bat32" parent="Enemies" index="31" instance=ExtResource( 3 )]
-position = Vector2( 354.673, 432.708 )
-
-[node name="Bat33" parent="Enemies" index="32" instance=ExtResource( 3 )]
-position = Vector2( 400.109, 447.854 )
-
-[node name="Bat34" parent="Enemies" index="33" instance=ExtResource( 3 )]
-position = Vector2( 463.363, 449.635 )
-
-[node name="Bat35" parent="Enemies" index="34" instance=ExtResource( 3 )]
-position = Vector2( 463.363, 449.635 )
+position = Vector2( 448, 240 )
 
 [node name="DynamicTileMap" type="Node" parent="." index="3"]
 
