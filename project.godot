@@ -39,6 +39,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://engine/entity.gd"
 }, {
+"base": "Enemy",
+"class": "FireMage",
+"language": "GDScript",
+"path": "res://enemies/FireMage/FireMage.gd"
+}, {
 "base": "KinematicBody2D",
 "class": "Follower",
 "language": "GDScript",
@@ -96,6 +101,7 @@ _global_script_class_icons={
 "DialogBox": "",
 "Enemy": "",
 "Entity": "",
+"FireMage": "",
 "Follower": "",
 "Heart": "",
 "Hud": "",
@@ -206,6 +212,7 @@ b={
 2d_physics/layer_1="player"
 2d_physics/layer_2="enemies"
 2d_physics/layer_3="grass"
+2d_physics/layer_4="background"
 
 [rendering]
 

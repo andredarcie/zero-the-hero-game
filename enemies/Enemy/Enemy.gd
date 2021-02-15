@@ -20,6 +20,7 @@ var health = 1
 var damage = 1
 
 func _ready() -> void:
+	add_to_group("Enemy")
 	sprite_default = $Sprite.texture
 	move_direction = get_random_direction()
 	

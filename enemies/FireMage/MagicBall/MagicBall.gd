@@ -42,3 +42,8 @@ func _on_DamageTimer_timeout():
 
 func get_fire_state():
 	return can_make_damage
+
+
+func _on_Area2D_body_entered(body):
+	if body.is_in_group("Enemy"):
+		print("Enemy")
