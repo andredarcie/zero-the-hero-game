@@ -33,17 +33,12 @@ func _on_Area2D_area_entered(area):
 	var parent = area.get_parent()
 	if parent.name == "sword":
 		invert_moviment = true
-		
 
 
 func _on_DamageTimer_timeout():
 	can_make_damage = true
-
-
-func get_fire_state():
-	return can_make_damage
-
+	
 
 func _on_Area2D_body_entered(body):
-	if body.is_in_group("Enemy"):
-		print("Enemy")
+	if can_make_damage and body.has_method("hurt"):
+		body.hurt(body)
