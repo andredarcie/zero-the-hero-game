@@ -42,6 +42,7 @@ func _ready() -> void:
 	$Bow.visible = false
 	add_to_group('Player')
 	texture_default = $Sprite.texture
+	texture_hurt = preload("res://player/Player/hero_hurt.png")
 
 
 func _physics_process(_delta: float) -> void:
