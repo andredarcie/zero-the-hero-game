@@ -5,6 +5,10 @@ onready var MagicBall: PackedScene = preload("res://enemies/FireMage/MagicBall/M
 onready var SceneNode = get_node("../../")
 var player_in_vision: bool = false
 
+func _ready():
+	health = 3
+	
+
 func shoot_magic_ball():
 	var magic_ball = MagicBall.instance()
 	magic_ball.global_position = global_position
