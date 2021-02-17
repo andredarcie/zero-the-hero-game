@@ -196,7 +196,7 @@ func damage_loop() -> void:
 			var drop = randi() % 2
 			if drop == 0:
 				instance_scene(preload("res://pickups/heart.tscn"))
-			instance_scene(preload("res://enemies/enemy_death.tscn"))
+			instance_scene(preload("res://enemies/Enemy/EnemyDeath/enemy_death.tscn"))
 			queue_free()
 		
 	for area in $hitbox.get_overlapping_areas():

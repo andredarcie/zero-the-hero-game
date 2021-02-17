@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/stalfaux_hurt.png-8a45ae0b5325df38e0925dc37fc9bdd3.stex"
+path="res://.import/alert.png-47c92b1cf974b21f7535da1d9aaec285.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://enemies/stalfaux_hurt.png"
-dest_files=[ "res://.import/stalfaux_hurt.png-8a45ae0b5325df38e0925dc37fc9bdd3.stex" ]
+source_file="res://enemies/Enemy/Balloons/alert.png"
+dest_files=[ "res://.import/alert.png-47c92b1cf974b21f7535da1d9aaec285.stex" ]
 
 [params]
 

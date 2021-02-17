@@ -31,3 +31,7 @@ func restart_game():
 
 func get_player():
 	return get_tree().get_nodes_in_group('Player')[0]
+	
+	
+func check_body_is_player(body) -> bool:
+	return body.is_in_group("Player")
