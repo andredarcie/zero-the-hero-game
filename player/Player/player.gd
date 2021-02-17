@@ -1,7 +1,7 @@
 class_name Player extends KinematicBody2D
 
 onready var FootSteps = preload("res://player/FootSteps/FootSteps.tscn")
-onready var blood_particules = preload("res://enemies/BaseEnemy/Blood.tscn")
+onready var blood_particules = preload("res://enemies/Enemy/Blood/Blood.tscn")
 
 var state: String = 'default'
 var step_interval = 4

@@ -9,20 +9,10 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "Entity",
-"class": "BaseEnemy",
-"language": "GDScript",
-"path": "res://enemies/BaseEnemy/BaseEnemy.gd"
-}, {
 "base": "Enemy",
 "class": "Bat",
 "language": "GDScript",
 "path": "res://enemies/Bat/Bat.gd"
-}, {
-"base": "KinematicBody2D",
-"class": "DarkEvilMage",
-"language": "GDScript",
-"path": "res://enemies/DarkEvilMage/DarkEvilMage.gd"
 }, {
 "base": "Polygon2D",
 "class": "DialogBox",
@@ -95,9 +85,7 @@ _global_script_classes=[ {
 "path": "res://enemies/Undead/Undead.gd"
 } ]
 _global_script_class_icons={
-"BaseEnemy": "",
 "Bat": "",
-"DarkEvilMage": "",
 "DialogBox": "",
 "Enemy": "",
 "Entity": "",
