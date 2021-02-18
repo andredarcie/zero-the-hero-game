@@ -28,6 +28,8 @@ func spread_the_blast_damage():
 		var parent = area.get_parent()
 		if parent.has_method("catch_fire"):
 			parent.catch_fire()
+		elif area.has_method("toggle_switch"):
+			area.toggle_switch()
 	
 	
 func destroy():
