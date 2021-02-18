@@ -7,6 +7,14 @@ var keys: int = 0
 var player_health: int = 3
 var player_max_health: int = 3
 var player_arrows: int = 10
+var player_bombs: int = 2
+
+enum SecondSlotItems {
+	Bombs
+	Arrow
+}
+
+var player_second_slot_item = SecondSlotItems.Bombs
 
 func go_to_scene(x: int, y: int, name: String):
 	start_position_x = x
@@ -27,6 +35,7 @@ func restart_game():
 	player_health = 3
 	player_max_health = 3
 	player_arrows = 10
+	player_bombs = 2
 
 
 func get_player():

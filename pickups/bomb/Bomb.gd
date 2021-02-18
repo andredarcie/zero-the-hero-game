@@ -13,8 +13,23 @@ func _ready():
 
 
 func _on_Timer_timeout():
+	$AnimationPlayer.playback_speed = 4
+	$AnimationPlayer.play("exploding")
+	
+
+func spread_the_blast_damage():
 	for body in $Range.get_overlapping_bodies():
 		if body.has_method("make_damage"):
 			body.make_damage(self)
-		
-	queue_free()
+		if body.has_method("hurt"):
+			body.hurt(self)
+			
+	for area in $Range.get_overlapping_areas():
+		var parent = area.get_parent()
+		if parent.has_method("catch_fire"):
+			parent.catch_fire()
+	
+	
+func destroy():
+	spread_the_blast_damage()
+	$Sprite.frame = 1

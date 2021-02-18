@@ -40,7 +40,7 @@ func _process(_delta: float) -> void:
 			
 	show_coins()
 	show_keys()
-	show_arrows()
+	show_second_slot_item()
 	
 	
 func show_coins():
@@ -49,5 +49,10 @@ func show_coins():
 func show_keys():
 	$VBoxContainer/KeysTextLabel.text = " keys: " + str(GameState.keys)
 	
-func show_arrows():
-	$VBoxContainer2/ArrowTextLabel.text = " arrows: " + str(GameState.player_arrows)
+func show_second_slot_item():
+	match (GameState.player_second_slot_item):
+		GameState.SecondSlotItems.Arrow:
+			$VBoxContainer2/ArrowTextLabel.text = " arrows: " + str(GameState.player_arrows)
+		GameState.SecondSlotItems.Bombs:
+			$VBoxContainer2/ArrowTextLabel.text = " bombs: " + str(GameState.player_bombs)
+		

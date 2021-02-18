@@ -2,6 +2,7 @@ class_name Player extends KinematicBody2D
 
 onready var FootSteps = preload("res://player/FootSteps/FootSteps.tscn")
 onready var blood_particules = preload("res://enemies/Enemy/Blood/Blood.tscn")
+onready var Bomb = preload("res://pickups/bomb/Bomb.tscn")
 
 var state: String = 'default'
 var step_interval = 4
@@ -93,12 +94,24 @@ func state_default() -> void:
 		use_item(sword)
 		
 	if Input.is_action_just_pressed("b"):
-		shoot_arrow()
+		if GameState.player_second_slot_item == GameState.SecondSlotItems.Arrow:
+			shoot_arrow()
+		elif GameState.player_second_slot_item == GameState.SecondSlotItems.Bombs:
+			throw_bomb()
+
 
 func state_swing() -> void:
 	movement_loop()
 	damage_loop()
 	movedir = dir.center
+	
+	
+func throw_bomb() -> void:
+	if GameState.player_bombs > 0:
+		GameState.player_bombs -= 1
+		var bomb = Bomb.instance()
+		bomb.global_position = $BombPlace.global_position
+		get_node('..').add_child(bomb)
 	
 
 func controls_loop() -> void:

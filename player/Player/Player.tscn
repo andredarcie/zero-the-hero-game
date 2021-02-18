@@ -127,6 +127,9 @@ anims/walking_up = SubResource( 7 )
 
 [node name="Foots" type="Position2D" parent="."]
 position = Vector2( -0.511095, 5.0396 )
+
+[node name="BombPlace" type="Position2D" parent="."]
+position = Vector2( -0.166855, 9.34388 )
 [connection signal="ready" from="." to="." method="_on_player_ready"]
 [connection signal="timeout" from="SwordOnFireTimer" to="." method="_on_SwordOnFireTimer_timeout"]
 [connection signal="timeout" from="Bow/BowTimer" to="." method="_on_BowTimer_timeout"]
