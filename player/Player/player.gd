@@ -227,7 +227,11 @@ func damage_loop() -> void:
 
 
 func make_damage(body) -> void:
-	health -= body.get('damage')
+	if body.get('damage') != null:
+		health -= body.get('damage')
+	else:
+		health -= 1
+		
 	hitstun = 10
 	knockdir = global_transform.origin - body.global_transform.origin
 		
