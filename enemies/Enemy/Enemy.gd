@@ -25,11 +25,13 @@ func _ready() -> void:
 	move_direction = get_random_direction()
 	
 	
-func _physics_process(_delta) -> void:
+func _physics_process(delta) -> void:
 	if is_hurt:
 		move_and_slide(pushed_move_direction.normalized() * (speed * 2))
 	elif move_random_direction:
-		move_and_slide(move_direction.normalized() * speed)
+		var collision = move_and_collide(move_direction.normalized() * speed * delta)
+		if collision:
+			move_direction = get_random_direction()
 	
 	
 func get_random_direction() -> Vector2:
