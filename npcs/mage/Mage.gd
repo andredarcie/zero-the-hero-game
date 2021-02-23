@@ -2,7 +2,7 @@ class_name Mage extends Node2D
 
 var dialogBox: DialogBox = null
 var characterName = 'Uncle Bob'
-var dialogs = ["Aperte a tecla X e descubra","Mas se não for desistir siga esse [wave]caminho."]
+var dialogs = ["Zero? Você é o cavaleiro andante?","Faz muito tempo que não vejo falar sobre 'One' a espada"]
 var talkAboutTheKey = false
 
 func _ready():
