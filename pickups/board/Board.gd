@@ -1,16 +1,18 @@
 extends Area2D
 
 export var message = ''
-onready var dialogBox: DialogBox = get_node("../hud/DialogBox") as DialogBox
+var dialogBox: DialogBox = null
 
 func _on_Board_body_entered(body):
-	if body.get("type") == null:
-		return 
-		
-	dialogBox.start_dialog("Board", [
-		message
-	])
+	if GameState.check_body_is_player(body):
+		if dialogBox == null:
+			dialogBox = get_node("../../hud/DialogBox") as DialogBox
+			
+		dialogBox.start_dialog("Board", [
+			message
+		])
 
 
 func _on_Board_body_exited(body):
-	dialogBox.end_dialog()
+	if GameState.check_body_is_player(body):
+		dialogBox.end_dialog()

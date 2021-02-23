@@ -6,6 +6,7 @@ func _ready():
 
 
 func _on_Heart_body_entered(body):
-	if body.has_method("gain_health"):
-		body.gain_health(1)
-		queue_free()
+	if GameState.check_body_is_player(body):
+		if body.has_method("gain_health"):
+			body.gain_health()
+			queue_free()

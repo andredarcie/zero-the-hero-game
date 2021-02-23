@@ -271,3 +271,13 @@ func instance_scene(scene: PackedScene) -> void:
 	var new_scene = scene.instance()
 	new_scene.global_position = global_position
 	get_parent().add_child(new_scene)
+
+
+func gain_max_health() -> void:
+	max_health += 1
+	GameState.player_max_health += 1
+	
+	
+func gain_health() -> void:
+	health += 1
+	GameState.player_health += 1

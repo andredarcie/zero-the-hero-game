@@ -7,8 +7,8 @@ enum DIRECTION {
 	down
 }
 
-var speed = 140
-export var max_distance = 100
+var speed = 110
+export var max_distance = 70
 export(DIRECTION) var direction = DIRECTION.down
 
 func _ready():

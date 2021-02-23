@@ -47,11 +47,28 @@ func go_to_next_level(move_direction: Vector2, player_position: Vector2):
 	if current_level_y > LEVEL_MAX_SIZE_Y:
 		current_level_y = LEVEL_MAX_SIZE_Y
 		
+	var scene_name = "res://levels/" + str(current_level_x) + "-" + str(current_level_y) + ".tscn"
+	change_scene(scene_name)
 		
-	var level = load("res://levels/" + str(current_level_x) + "-" + str(current_level_y) + ".tscn")
+		
+func go_to_dungeon() -> void:
+	current_player_position = GameState.get_player().global_position
+	
+	var scene_name = "res://levels/d" + str(current_level_x) + "-" + str(current_level_y) + ".tscn"
+	change_scene(scene_name)
+		
+		
+func go_to_land() -> void:
+	current_player_position = GameState.get_player().global_position
+	
+	var scene_name = "res://levels/" + str(current_level_x) + "-" + str(current_level_y) + ".tscn"
+	change_scene(scene_name)
+	
+		
+func change_scene(scene_name: String) -> void:
+	var level = load(scene_name)
 	
 	if level != null:
 		get_tree().change_scene_to(level)
 	else:
-		print("Failed to load the scene")
-		
+		print("Failed to load the scene: ", scene_name)

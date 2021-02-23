@@ -4,8 +4,8 @@ var start_position_x: int = 0
 var start_position_y: int = 0
 var coins: int = 10
 var keys: int = 0
-var player_health: int = 3
-var player_max_health: int = 3
+var player_health: int = 10
+var player_max_health: int = 10
 var player_arrows: int = 10
 var player_bombs: int = 2
 
