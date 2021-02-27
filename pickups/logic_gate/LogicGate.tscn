@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://pickups/logic_gate/logic_gate.png" type="Texture" id=1]
+[ext_resource path="res://pickups/logic_gate/LogicGate.gd" type="Script" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 2.39204, 4.88969 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 6.56947, 1.88425 )
+
+[node name="LogicGate" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+vframes = 2
+
+[node name="Input1" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Input1"]
+position = Vector2( -7.6267, -0.186836 )
+shape = SubResource( 1 )
+
+[node name="Input2" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Input2"]
+position = Vector2( 7.75126, -0.342894 )
+shape = SubResource( 1 )
+
+[node name="Output" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Output"]
+position = Vector2( -0.132439, 7.54868 )
+shape = SubResource( 2 )
