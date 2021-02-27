@@ -35,9 +35,17 @@ func toggle_switch():
 		$Sprite.texture = off_image
 		
 	self.set_all_thorns(self.active)
+	self.toggle_wire()
 	self.await_time = 10
 		
+
+func toggle_wire():
+	for child in get_overlapping_areas():
+		var parent =  child.get_parent()
+		if parent.is_in_group("Wire") and parent.has_method("toggle"):
+			parent.toggle("Up")
 	
+
 func set_all_thorns(param: bool):
 	for child in self.thorns:
 		if child is Area2D:
