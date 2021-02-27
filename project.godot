@@ -83,6 +83,11 @@ _global_script_classes=[ {
 "class": "Undead",
 "language": "GDScript",
 "path": "res://enemies/Undead/Undead.gd"
+}, {
+"base": "Node2D",
+"class": "Wire",
+"language": "GDScript",
+"path": "res://pickups/wire/Wire.gd"
 } ]
 _global_script_class_icons={
 "Bat": "",
@@ -99,7 +104,8 @@ _global_script_class_icons={
 "Switch": "",
 "TextBox": "",
 "TextName": "",
-"Undead": ""
+"Undead": "",
+"Wire": ""
 }
 
 [application]
