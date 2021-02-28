@@ -2,8 +2,8 @@ extends Node
 
 const LEVEL_MAX_SIZE_X = 32 * 16
 const LEVEL_MAX_SIZE_Y = 32 * 16
-var current_level_x = 0
-var current_level_y = 0
+var current_level_x = 4
+var current_level_y = 3
 var number_of_levels_in_x = 8
 var number_of_levels_in_y = 8
 var current_player_position = Vector2(16,16)
@@ -66,6 +66,7 @@ func go_to_land() -> void:
 	
 		
 func change_scene(scene_name: String) -> void:
+	print("goto: ", scene_name)
 	var level = load(scene_name)
 	
 	if level != null:
