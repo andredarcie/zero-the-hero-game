@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://levels/LevelBase.tscn" type="PackedScene" id=1]
 [ext_resource path="res://enemies/Undead/Undead.tscn" type="PackedScene" id=2]
 [ext_resource path="res://tiles/ForestTileMap.tscn" type="PackedScene" id=3]
 [ext_resource path="res://pickups/coin/Coin.tscn" type="PackedScene" id=4]
 [ext_resource path="res://tiles/grass/Grass.tscn" type="PackedScene" id=5]
+[ext_resource path="res://npcs/poet/Poet.tscn" type="PackedScene" id=6]
 
 [node name="1-0" instance=ExtResource( 1 )]
 
@@ -15,7 +16,7 @@ tile_data = PoolIntArray( 0, 10, 0, 1, 10, 0, 2, 10, 0, 3, 10, 0, 4, 10, 0, 5, 1
 [node name="Enemies" type="Node" parent="." index="2"]
 
 [node name="Undead" parent="Enemies" index="0" instance=ExtResource( 2 )]
-position = Vector2( 179.536, 96.1085 )
+position = Vector2( 440, 456 )
 
 [node name="Items" type="Node" parent="." index="3"]
 
@@ -49,3 +50,8 @@ position = Vector2( 104, 136 )
 
 [node name="Grass9" parent="Grass" index="8" instance=ExtResource( 5 )]
 position = Vector2( 104, 120 )
+
+[node name="Npcs" type="Node" parent="." index="5"]
+
+[node name="Poet" parent="Npcs" index="0" instance=ExtResource( 6 )]
+position = Vector2( 136, 80 )
