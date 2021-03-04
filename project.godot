@@ -52,7 +52,7 @@ _global_script_classes=[ {
 "base": "Node2D",
 "class": "Mage",
 "language": "GDScript",
-"path": "res://npcs/poet/Poet.gd"
+"path": "res://npcs/mage/Mage.gd"
 }, {
 "base": "Area2D",
 "class": "Pickup",
@@ -63,6 +63,11 @@ _global_script_classes=[ {
 "class": "Player",
 "language": "GDScript",
 "path": "res://player/Player/player.gd"
+}, {
+"base": "Node2D",
+"class": "Poet",
+"language": "GDScript",
+"path": "res://npcs/poet/Poet.gd"
 }, {
 "base": "Area2D",
 "class": "Switch",
@@ -101,6 +106,7 @@ _global_script_class_icons={
 "Mage": "",
 "Pickup": "",
 "Player": "",
+"Poet": "",
 "Switch": "",
 "TextBox": "",
 "TextName": "",

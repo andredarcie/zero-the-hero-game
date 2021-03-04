@@ -1,4 +1,4 @@
-class_name Mage extends Node2D
+class_name Poet extends Node2D
 
 var dialogBox: DialogBox = null
 var characterName = 'Poeta'
