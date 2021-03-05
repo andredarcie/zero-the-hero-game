@@ -54,6 +54,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://npcs/mage/Mage.gd"
 }, {
+"base": "Node2D",
+"class": "Npc",
+"language": "GDScript",
+"path": "res://npcs/npc/Npc.gd"
+}, {
 "base": "Area2D",
 "class": "Pickup",
 "language": "GDScript",
@@ -64,10 +69,10 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://player/Player/player.gd"
 }, {
-"base": "Node2D",
+"base": "Reference",
 "class": "Poet",
 "language": "GDScript",
-"path": "res://npcs/poet/Poet.gd"
+"path": "res://npcs/poet/Npc.gd"
 }, {
 "base": "Area2D",
 "class": "Switch",
@@ -104,6 +109,7 @@ _global_script_class_icons={
 "Hud": "",
 "Key": "",
 "Mage": "",
+"Npc": "",
 "Pickup": "",
 "Player": "",
 "Poet": "",

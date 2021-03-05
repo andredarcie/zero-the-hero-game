@@ -1,9 +1,8 @@
-class_name Poet extends Node2D
+class_name Npc extends Node2D
 
 var dialogBox: DialogBox = null
-var characterName = 'Poeta'
-var dialogs = ["Tenho em mim todos os sonhos do mundo."]
-var talkAboutTheKey = false
+var characterName: String = ''
+var dialogs = []
 
 func _ready():
 	dialogBox = get_tree().get_root().find_node("DialogBox", true, false) as DialogBox
