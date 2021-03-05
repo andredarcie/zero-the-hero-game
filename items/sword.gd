@@ -3,7 +3,7 @@ extends Node2D
 var type: String = ''
 var damage: int = 1
 var maxamount: int = 1
-onready var fire_sword_texture = load("res://items/fire_sword.png")
+onready var fire_sword_texture = load("res://items/sword_on_fire.png")
 onready var sword_texture = load("res://items/sword.png")
 	
 func _ready() -> void:
