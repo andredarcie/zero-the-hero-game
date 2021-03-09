@@ -148,6 +148,9 @@ position = Vector2( 96, 152 )
 [node name="Grass18" parent="Items" index="18" instance=ExtResource( 4 )]
 position = Vector2( 64, 120 )
 
+[node name="Grass19" parent="Items" index="19" instance=ExtResource( 4 )]
+position = Vector2( 64, 120 )
+
 [node name="TileMap" type="TileMap" parent="." index="2"]
 tile_set = SubResource( 2 )
 cell_size = Vector2( 16, 16 )
