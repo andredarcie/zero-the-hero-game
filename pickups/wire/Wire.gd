@@ -19,8 +19,12 @@ onready var Right: Area2D = $Right
 export(Types) var type
 
 var next_wire_name
+export var insible: bool = false
 
 func _ready():
+	if insible:
+		$Sprite.visible = false
+		
 	add_to_group("Wire")
 	
 	match type:
@@ -88,6 +92,7 @@ func get_next_area(area: Area2D):
 
 func _on_Timer_timeout():
 	$Timer.stop()
+	print(next_wire_name)
 	match next_wire_name:
 		"Up":
 			if type == Types.VERTICAL:

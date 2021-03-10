@@ -2,11 +2,16 @@ extends Node
 
 const LEVEL_MAX_SIZE_X = 32 * 16
 const LEVEL_MAX_SIZE_Y = 32 * 16
-var current_level_x = 4
-var current_level_y = 3
+var current_level_x = 0
+var current_level_y = 0
 var number_of_levels_in_x = 8
 var number_of_levels_in_y = 8
 var current_player_position = Vector2(16,16)
+
+func _ready():
+	var level = GameState.get_current_scene_name().split("-")
+	current_level_x = int(level[0])
+	current_level_y = int(level[1])
 
 func check_current_level(move_direction: Vector2, player_position: Vector2):		
 	if current_level_x != 0 and move_direction == Vector2.LEFT and player_position.x < 0:
