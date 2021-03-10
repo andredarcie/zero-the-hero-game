@@ -18,6 +18,7 @@ var knockdir: Vector2 = Vector2.ZERO
 var texture_default: Texture = null
 var texture_hurt: Texture = null
 
+var moving_directon_is_up = false
 # Items
 var sword = preload('res://items/sword.tscn')
 var sword_on_fire: bool = false
@@ -79,16 +80,24 @@ func state_default() -> void:
 			$Sprite.flip_h = false
 		Vector2(0, -1):
 			$AnimationPlayer.play("walking_up")
+			moving_directon_is_up = true
 		Vector2(-1, -1):
 			$AnimationPlayer.play("walking_up")
+			moving_directon_is_up = true
 		Vector2(0, 1):
 			$AnimationPlayer.play("walking_down")
+			moving_directon_is_up = false
 		Vector2(1, 1):
 			$AnimationPlayer.play("walking_down")
+			moving_directon_is_up = false
 		Vector2(-1, 1):
 			$AnimationPlayer.play("walking_down")
+			moving_directon_is_up = false
 		Vector2(0, 0):
-			$AnimationPlayer.play("idle")
+			if moving_directon_is_up:
+				$AnimationPlayer.play("idle_up")
+			else:
+				$AnimationPlayer.play("idle_down")
 	
 	if Input.is_action_just_pressed("a"):
 		use_item(sword)
