@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://pickups/thorn/UpDownBlock.gd" type="Script" id=2]
 
@@ -13,6 +13,18 @@ extents = Vector2( 7.91038, 8.03432 )
 
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 7.93119, 7.9172 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 1.90906, 3.01438 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 3.59567, 1.92304 )
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 1.80985, 2.61753 )
+
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 3.39725, 1.82382 )
 
 [node name="UpDownBlock" type="Area2D" groups=[
 "ranges",
@@ -38,3 +50,47 @@ shape = SubResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea"]
 shape = SubResource( 4 )
+
+[node name="Up" type="Area2D" parent="."]
+position = Vector2( -0.0992126, -10.1197 )
+collision_layer = 16
+collision_mask = 2147483664
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Up"]
+shape = SubResource( 5 )
+
+[node name="Right" type="Area2D" parent="."]
+position = Vector2( 11.4094, -0.0992126 )
+collision_layer = 16
+collision_mask = 16
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Right"]
+shape = SubResource( 6 )
+
+[node name="Down" type="Area2D" parent="."]
+position = Vector2( -0.198427, 11.0126 )
+collision_layer = 16
+collision_mask = 16
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Down"]
+shape = SubResource( 7 )
+
+[node name="Left" type="Area2D" parent="."]
+position = Vector2( -11.1118, 0.29764 )
+collision_layer = 16
+collision_mask = 16
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Left"]
+shape = SubResource( 8 )

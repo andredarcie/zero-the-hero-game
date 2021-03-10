@@ -219,6 +219,7 @@ b={
 2d_physics/layer_2="enemies"
 2d_physics/layer_3="grass"
 2d_physics/layer_4="background"
+2d_physics/layer_5="eletricity"
 
 [rendering]
 

@@ -88,6 +88,8 @@ func get_next_area(area: Area2D):
 			return
 		elif parent.is_in_group("LogicGate") and parent.has_method("toggle_input"):
 			parent.toggle_input(child.name)
+		elif parent.is_in_group("UpDownBlock") and parent.has_method("toggle"):
+			parent.toggle()
 
 
 func _on_Timer_timeout():
