@@ -5,8 +5,6 @@
 [ext_resource path="res://tiles/bonfire/Bonfire.tscn" type="PackedScene" id=3]
 [ext_resource path="res://tiles/grass/Grass.tscn" type="PackedScene" id=4]
 
-
-
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 16, 32, 0, 32, 0, 0, 16, 0 )
 
