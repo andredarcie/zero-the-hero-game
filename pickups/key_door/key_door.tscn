@@ -1,7 +1,9 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://tiles/locked_door.png" type="Texture" id=1]
-[ext_resource path="res://tiles/key_door.gd" type="Script" id=2]
+[ext_resource path="res://pickups/key_door/locked_door.png" type="Texture" id=1]
+[ext_resource path="res://pickups/key_door/key_door.gd" type="Script" id=2]
+
+
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 7.91347, 8.42731 )
