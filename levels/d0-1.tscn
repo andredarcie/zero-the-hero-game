@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://levels/LevelBase.tscn" type="PackedScene" id=1]
 [ext_resource path="res://enemies/Bat/Bat.tscn" type="PackedScene" id=2]
@@ -6,7 +6,8 @@
 [ext_resource path="res://pickups/key_door/key_door.tscn" type="PackedScene" id=4]
 [ext_resource path="res://pickups/key/Key.tscn" type="PackedScene" id=5]
 [ext_resource path="res://pickups/vase/Vase.tscn" type="PackedScene" id=6]
-[ext_resource path="res://enemies/Undead/Undead.tscn" type="PackedScene" id=7]
+[ext_resource path="res://enemies/FireMage/FireMage.tscn" type="PackedScene" id=7]
+[ext_resource path="res://enemies/Undead/Undead.tscn" type="PackedScene" id=8]
 [ext_resource path="res://tiles/TileMaps/dungeon_tile_map/DungeonTileMap.tscn" type="PackedScene" id=9]
 
 [node name="d0-1" instance=ExtResource( 1 )]
@@ -33,14 +34,17 @@ tile_data = PoolIntArray( 0, 4, 0, 1, 4, 0, 2, 4, 0, 3, 4, 0, 4, 4, 0, 5, 4, 0, 
 [node name="Bat" parent="Enemies" index="0" instance=ExtResource( 2 )]
 position = Vector2( 288, 56 )
 
-[node name="Undead" parent="Enemies" index="1" instance=ExtResource( 7 )]
+[node name="Undead" parent="Enemies" index="1" instance=ExtResource( 8 )]
 position = Vector2( 56, 280 )
 
-[node name="Undead2" parent="Enemies" index="2" instance=ExtResource( 7 )]
+[node name="Undead2" parent="Enemies" index="2" instance=ExtResource( 8 )]
 position = Vector2( 152, 304 )
 
-[node name="Undead3" parent="Enemies" index="3" instance=ExtResource( 7 )]
+[node name="Undead3" parent="Enemies" index="3" instance=ExtResource( 8 )]
 position = Vector2( 88, 344 )
+
+[node name="FireMage" parent="Enemies" index="4" instance=ExtResource( 7 )]
+position = Vector2( 232, 432 )
 
 [node name="Objects" type="Node" parent="." index="5"]
 
