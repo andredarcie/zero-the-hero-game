@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://enemies/Enemy/Enemy.tscn" type="PackedScene" id=1]
+[ext_resource path="res://enemies/Watchman/Watchman.gd" type="Script" id=2]
+
+[sub_resource type="StreamTexture" id=1]
+load_path = "res://.import/watchman.png-e31b08a5ac1291e6a7208beeac1466d7.stex"
+
+[node name="Watchman" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="ChangeMovimentDirection" parent="." index="3"]
+wait_time = 4.0
+
+[node name="Vision" type="RayCast2D" parent="." index="6"]
+modulate = Color( 0.627451, 0.137255, 0.137255, 1 )
+enabled = true
+cast_to = Vector2( 0, 70 )
+
+[node name="Sprite2" type="Sprite" parent="." index="7"]
+texture = SubResource( 1 )
+vframes = 2
