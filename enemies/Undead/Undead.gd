@@ -19,18 +19,19 @@ func _physics_process(delta):
 		if is_hurt:
 			move_and_slide(pushed_move_direction.normalized() * (speed * 2))
 		else:
-			if player == null:
-				player = GameState.get_player()
-				
 			move = global_position.direction_to(player.global_position) * (speed * 2)
 			move_and_slide(move, Vector2(0, 0))
 
 
 func _on_Vision_body_entered(body):
+	if player == null:
+		player = GameState.get_player()
+		
 	if GameState.check_body_is_player(body):
-		Ballon.texture = alert_texture
-		follow_player = true
-		move_random_direction = false
+		if GameState.check_line_of_sight(self, player):
+			Ballon.texture = alert_texture
+			follow_player = true
+			move_random_direction = false
 
 
 func _on_Vision_body_exited(body):
