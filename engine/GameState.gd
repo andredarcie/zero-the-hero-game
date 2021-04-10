@@ -39,8 +39,19 @@ func restart_game():
 
 
 func get_player():
-	return get_tree().get_nodes_in_group('Player')[0]
+	# return get_tree().get_nodes_in_group('Player')[0]
+	return get_node("/root").find_node("Player", true, false)
 	
 	
 func check_body_is_player(body) -> bool:
 	return body.is_in_group("Player")
+	
+	
+func check_line_of_sight(npc, player) -> bool:
+	var space = npc.get_world_2d().direct_space_state
+	var LOS_obstacle = space.intersect_ray(npc.global_position, player.global_position, [npc], npc.collision_mask)
+
+	if not LOS_obstacle:
+		return false
+		
+	return LOS_obstacle.collider == player
