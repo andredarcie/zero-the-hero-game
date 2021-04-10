@@ -39,14 +39,17 @@ tile_data = PoolIntArray( 0, 4, 0, 1, 4, 0, 2, 4, 0, 3, 4, 0, 4, 4, 0, 5, 4, 0, 
 [node name="Enemies" type="Node" parent="." index="4"]
 
 [node name="Path2D" type="Path2D" parent="Enemies" index="0"]
+visible = false
 position = Vector2( 152, 112 )
 curve = SubResource( 1 )
 script = ExtResource( 11 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Enemies/Path2D" index="0"]
+visible = false
 rotation = 1.5708
 
 [node name="Watchman" parent="Enemies/Path2D/PathFollow2D" index="0" instance=ExtResource( 10 )]
+visible = false
 rotation = -1.5708
 
 [node name="Bat" parent="Enemies" index="1" instance=ExtResource( 2 )]
