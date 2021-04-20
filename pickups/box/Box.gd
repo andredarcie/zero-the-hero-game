@@ -10,6 +10,7 @@ enum MOVE_DIRECTION {
 var pushing = false
 var end_position = Vector2.ZERO
 var time = 0
+var tile_size: float = 16
 
 onready var UpArea = $UpArea
 onready var DownArea = $DownArea
@@ -25,7 +26,7 @@ func _physics_process(delta):
 			pushing = false
 			
 	
-func set_move(move_direction):
+func move_box(move_direction):
 	if pushing:
 		return
 		
@@ -36,22 +37,22 @@ func set_move(move_direction):
 			if is_colliding(DownArea):
 				return
 				
-			move_vector = Vector2(0, 16)
+			move_vector = Vector2(0, tile_size)
 		MOVE_DIRECTION.Down:
 			if is_colliding(UpArea):
 				return
 				
-			move_vector = Vector2(0, -16)
+			move_vector = Vector2(0, -tile_size)
 		MOVE_DIRECTION.Left:
 			if is_colliding(RightArea):
 				return
 				
-			move_vector = Vector2(16, 0)
+			move_vector = Vector2(tile_size, 0)
 		MOVE_DIRECTION.Right:
 			if is_colliding(LeftArea):
 				return
 				
-			move_vector = Vector2(-16, 0)
+			move_vector = Vector2(-tile_size, 0)
 			
 	pushing = true
 	end_position = global_position + move_vector
@@ -61,16 +62,16 @@ func is_colliding(area: Area2D):
 		return body != null
 	
 func _on_UpArea_body_entered(body):
-	set_move(MOVE_DIRECTION.Up)
+	move_box(MOVE_DIRECTION.Up)
 	
 
 func _on_DownArea_body_entered(body):
-	set_move(MOVE_DIRECTION.Down)
+	move_box(MOVE_DIRECTION.Down)
 
 
 func _on_LeftArea_body_entered(body):
-	set_move(MOVE_DIRECTION.Left)
+	move_box(MOVE_DIRECTION.Left)
 
 
 func _on_RightArea_body_entered(body):
-	set_move(MOVE_DIRECTION.Right)
+	move_box(MOVE_DIRECTION.Right)
