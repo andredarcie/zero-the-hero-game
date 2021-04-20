@@ -47,7 +47,7 @@ func get_item(item, type, value, body):
 			elif type == ITEMS.heart:
 				GameState.player_health += 1
 			elif type == ITEMS.heart_container:
-				body.gain_max_health(1)
+				body.gain_max_health()
 			
 			if not salesman_is_dead:
 				$Salesman/Balloon.texture = ballon_texture
