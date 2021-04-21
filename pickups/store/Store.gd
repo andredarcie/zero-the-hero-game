@@ -3,13 +3,15 @@ extends Node2D
 onready var key_texture = load("res://pickups/key/key.png")
 onready var heart_texture = load("res://pickups/heart/heart.png")
 onready var heart_container_texture = load("res://pickups/heart/heart_container.png")
+onready var bomb_texture = load("res://pickups/bomb/bomb.png")
 
 onready var ballon_texture = load("res://pickups/store/ballon.png")
 
 enum ITEMS {
 	key,
 	heart,
-	heart_container
+	heart_container,
+	bomb
 }
 
 export(ITEMS) var item1_type
@@ -48,6 +50,8 @@ func get_item(item, type, value, body):
 				GameState.player_health += 1
 			elif type == ITEMS.heart_container:
 				body.gain_max_health()
+			elif type == ITEMS.bomb:
+				GameState.player_bombs += 1
 			
 			if not salesman_is_dead:
 				$Salesman/Balloon.texture = ballon_texture
@@ -64,6 +68,8 @@ func get_item_texture(item) -> Texture:
 		return heart_texture
 	elif item == ITEMS.heart_container:
 		return heart_container_texture
+	elif item == ITEMS.bomb:
+		return bomb_texture
 	
 	return Texture.new()
 
