@@ -21,12 +21,15 @@ texture = ExtResource( 3 )
 shape = SubResource( 1 )
 
 [node name="Vision" type="Area2D" parent="." index="6"]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Vision" index="0"]
 shape = SubResource( 2 )
 
 [node name="Balloon" type="Sprite" parent="." index="7"]
 position = Vector2( 0.198425, -19.7701 )
+
+[node name="InterrogationTime" type="Timer" parent="." index="8"]
+one_shot = true
 [connection signal="body_entered" from="Vision" to="." method="_on_Vision_body_entered"]
 [connection signal="body_exited" from="Vision" to="." method="_on_Vision_body_exited"]
+[connection signal="timeout" from="InterrogationTime" to="." method="_on_InterrogationTime_timeout"]
