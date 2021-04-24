@@ -14,7 +14,7 @@ tile_data = PoolIntArray( -65538, 0, 0, -65537, 0, 0, -131072, 0, 0, -131071, 0,
 [node name="Puzzles" type="Node" parent="." index="1"]
 
 [node name="Wire" parent="Puzzles" index="0" instance=ExtResource( 2 )]
-position = Vector2( 40, 48 )
+position = Vector2( 40.023, 47.99 )
 
 [node name="Wire2" parent="Puzzles" index="1" instance=ExtResource( 2 )]
 position = Vector2( 40, 64 )
