@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://tiles/grass/CutGrass/cut_grass.png" type="Texture" id=1]
 [ext_resource path="res://tiles/grass/CutGrass/CutGrass.gd" type="Script" id=2]
+[ext_resource path="res://tiles/grass/CutGrass/cut_grass_wind0.png" type="Texture" id=3]
+[ext_resource path="res://tiles/grass/CutGrass/cut_grass_wind1.png" type="Texture" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8, 8 )
@@ -9,8 +11,15 @@ extents = Vector2( 8, 8 )
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 8, 8 )
 
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 3 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "default",
+"speed": 2.0
+} ]
+
 [node name="CutGrass" type="Sprite"]
-texture = ExtResource( 1 )
 vframes = 2
 script = ExtResource( 2 )
 
@@ -23,4 +32,12 @@ shape = SubResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource( 2 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 3 )
+playing = true
+
+[node name="Sprite" type="Sprite" parent="."]
+visible = false
+texture = ExtResource( 1 )
 [connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
