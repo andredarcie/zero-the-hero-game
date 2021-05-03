@@ -10,7 +10,6 @@ enum Direction {
 var sprite_hurt: Texture
 var sprite_default: Texture
 
-onready var Blood: PackedScene = preload("res://enemies/Enemy/Blood/Blood.tscn")
 onready var PoolOfBlood: PackedScene = preload("res://enemies/Enemy/PoolOfBlood/PoolOfBlood.tscn")
 onready var SceneNode = get_node("../../")
 
@@ -22,8 +21,12 @@ var move_random_direction: bool = true
 var speed = 50
 var health = 1
 var damage = 1
+export (String) var unique_id
 
 func _ready() -> void:
+	if GameState.check_id(unique_id):
+		queue_free()
+		
 	add_to_group("Enemy")
 	sprite_default = $Sprite.texture
 	move_direction = get_random_direction()
@@ -72,12 +75,11 @@ func _on_HurtTime_timeout() -> void:
 	$HurtTime.stop()
 	is_hurt = false
 	if health <= 0:
-		var blood = Blood.instance()
 		var pool_of_blood = PoolOfBlood.instance()
-		blood.global_position = global_position
 		pool_of_blood.global_position = global_position
 		SceneNode.add_child(pool_of_blood)
-		SceneNode.add_child(blood)
+		
+		GameState.activate_id(unique_id)
 		queue_free()
 		
 

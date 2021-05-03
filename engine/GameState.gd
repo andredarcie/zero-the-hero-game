@@ -8,6 +8,9 @@ var player_health: int = 10
 var player_max_health: int = 10
 var player_arrows: int = 10
 var player_bombs: int = 2
+var unique_ids = {
+		"first_boss": false
+	}
 
 enum SecondSlotItems {
 	Bombs
@@ -55,3 +58,17 @@ func check_line_of_sight(npc, player) -> bool:
 		return false
 		
 	return LOS_obstacle.collider == player
+
+
+func activate_id(unique_id):
+	if unique_id != "":
+		unique_ids[unique_id] = true
+		
+	print(unique_ids)
+		
+		
+func check_id(unique_id: String) -> bool:
+	if unique_id != "":
+		return unique_ids[unique_id]
+	else:
+		return false
