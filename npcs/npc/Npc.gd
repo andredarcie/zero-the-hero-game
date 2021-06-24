@@ -1,8 +1,8 @@
 class_name Npc extends Node2D
 
 var dialogBox: DialogBox = null
-var characterName: String = 'Morte'
-var dialogs = ["Cavaleiro niilista! Aceita uma partida de xadrez por sua alma?"]
+var characterName: String = 'Death'
+var dialogs = ["Nihilist knight! Do you accept a game of chess for your soul?"]
 
 func _ready():
 	dialogBox = get_tree().get_root().find_node("DialogBox", true, false) as DialogBox

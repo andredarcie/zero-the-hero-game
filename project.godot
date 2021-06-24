@@ -129,7 +129,8 @@ _global_script_class_icons={
 [application]
 
 config/name="Zero the Hero"
-run/main_scene="res://levels/4-3.tscn"
+run/main_scene="res://engine/Screens/TitleScreen.tscn"
+boot_splash/bg_color=Color( 0, 0, 0, 1 )
 config/icon="res://icon.png"
 
 [autoload]
@@ -151,6 +152,7 @@ window/stretch/aspect="keep"
 [global]
 
 snap=false
+scene=false
 
 [gui]
 

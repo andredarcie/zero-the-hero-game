@@ -7,7 +7,7 @@ onready var mage_hurt: Texture = preload("res://enemies/FireMage/mage_hurt.png")
 var player_in_vision: bool = false
 
 func _ready():
-	health = 3
+	health = 1
 	sprite_hurt = mage_hurt
 	
 

@@ -9,9 +9,19 @@ var number_of_levels_in_y = 8
 var current_player_position = Vector2(16,16)
 
 func _ready():
-	var level = GameState.get_current_scene_name().split("-")
+	set_current_level_position()
+	
+
+func set_current_level_position():
+	var scene_name = GameState.get_current_scene_name()
+	
+	if scene_name == 'TitleScreen':
+		return
+		
+	var level = scene_name.split("-")
 	current_level_x = int(level[0])
 	current_level_y = int(level[1])
+	
 
 func check_current_level(move_direction: Vector2, player_position: Vector2):		
 	if current_level_x != 0 and move_direction == Vector2.LEFT and player_position.x < 0:

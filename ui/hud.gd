@@ -54,5 +54,5 @@ func show_second_slot_item():
 		GameState.SecondSlotItems.Arrow:
 			$VBoxContainer2/ArrowTextLabel.text = " arrows: " + str(GameState.player_arrows)
 		GameState.SecondSlotItems.Bombs:
-			$VBoxContainer2/ArrowTextLabel.text = " bombs: " + str(get_tree().get_root().get_child(3).name)
+			$VBoxContainer2/ArrowTextLabel.text = " Level: " + str(get_tree().get_root().get_child(3).name)
 		
