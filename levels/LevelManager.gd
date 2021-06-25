@@ -14,11 +14,12 @@ func _ready():
 
 func set_current_level_position():
 	var scene_name = GameState.get_current_scene_name()
-	
+	print(scene_name)
 	if scene_name == 'TitleScreen':
 		return
 		
 	var level = scene_name.split("-")
+	print(level)
 	current_level_x = int(level[0])
 	current_level_y = int(level[1])
 	
@@ -67,6 +68,8 @@ func go_to_next_level(move_direction: Vector2, player_position: Vector2):
 		
 		
 func go_to_dungeon() -> void:
+	print("dungeon")
+	print(current_level_x, current_level_y)
 	current_player_position = GameState.get_player().global_position
 	
 	var scene_name = "res://levels/d" + str(current_level_x) + "-" + str(current_level_y) + ".tscn"
