@@ -50,4 +50,13 @@ func _on_Area2D_body_entered(body):
 	times = times + 1
 
 func _on_Area2D_body_exited(body):
+	if not GameState.check_body_is_player(body):
+		return
+	
+	if dialogBox.is_dialog_ended():
+		return
+	
+	if times > 0:
+		times = times - 1
+		
 	dialogBox.end_dialog()
