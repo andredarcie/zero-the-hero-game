@@ -35,35 +35,44 @@ func check_current_level(move_direction: Vector2, player_position: Vector2):
 		go_to_next_level(move_direction, player_position)
 	
 
-func go_to_next_level(move_direction: Vector2, player_position: Vector2):
+func go_to_next_level(move_direction: Vector2, player_position: Vector2):	
 	match move_direction:
 		Vector2.UP:
 			current_player_position = Vector2(player_position.x, LEVEL_MAX_SIZE_Y)
 			current_level_y -= 1
+			GameState.hero_icon_on_map_position_y -= 3
 		Vector2.DOWN:
 			current_player_position = Vector2(player_position.x, 0)
 			current_level_y += 1
+			GameState.hero_icon_on_map_position_y += 3
 		Vector2.LEFT:
 			current_player_position = Vector2(LEVEL_MAX_SIZE_X, player_position.y)
 			current_level_x -= 1
+			GameState.hero_icon_on_map_position_x -= 3
 		Vector2.RIGHT:
 			current_player_position = Vector2(0, player_position.y)
 			current_level_x += 1
+			GameState.hero_icon_on_map_position_x += 3
 		
 		
 	if current_level_x < 0:
 		current_level_x = 0
+		GameState.hero_icon_on_map_position_x = 2
 	
 	if current_level_x > LEVEL_MAX_SIZE_X:
 		current_level_x = LEVEL_MAX_SIZE_X
+		GameState.hero_icon_on_map_position_x = 23
 		
 	if current_level_y < 0:
 		current_level_y = 0
+		GameState.hero_icon_on_map_position_x = 2
 	
 	if current_level_y > LEVEL_MAX_SIZE_Y:
 		current_level_y = LEVEL_MAX_SIZE_Y
+		GameState.hero_icon_on_map_position_x = 11
 		
 	var scene_name = "res://levels/" + str(current_level_x) + "-" + str(current_level_y) + ".tscn"
+		
 	change_scene(scene_name)
 		
 		
@@ -83,7 +92,7 @@ func go_to_land() -> void:
 	change_scene(scene_name)
 	
 		
-func change_scene(scene_name: String) -> void:
+func change_scene(scene_name: String) -> void:	
 	print("goto: ", scene_name)
 	var level = load(scene_name)
 	

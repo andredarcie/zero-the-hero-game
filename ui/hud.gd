@@ -2,13 +2,15 @@ class_name Hud extends CanvasLayer
 
 const HEART_ROW_SIZE: int = 8
 const HEART_OFFSET: int = 8
-
 var old_max_health
 
 func _ready() -> void:
+	add_to_group('Hud')
 	old_max_health = GameState.player_max_health
 	for i in GameState.player_max_health:
 		add_new_heart()
+		
+	$HeroIcon.position = Vector2(GameState.hero_icon_on_map_position_x, GameState.hero_icon_on_map_position_y)
 		
 
 func add_new_heart():

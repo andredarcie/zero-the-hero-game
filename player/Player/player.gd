@@ -22,6 +22,7 @@ var moving_directon_is_up = false
 # Items
 var sword = preload('res://items/sword.tscn')
 var sword_on_fire: bool = false
+var sword_sound_atack = preload("res://items/sword_atack.wav")
 
 onready var arrow = preload("res://player/BowArrow/Arrow.tscn")
 var arrow_direction = DIRECTION.Up
@@ -100,6 +101,8 @@ func state_default() -> void:
 				$AnimationPlayer.play("idle_down")
 	
 	if Input.is_action_just_pressed("a"):
+		$AudioStreamPlayer2D.stream = sword_sound_atack
+		$AudioStreamPlayer2D.play()
 		use_item(sword)
 		
 	if Input.is_action_just_pressed("b"):

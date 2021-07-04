@@ -2,6 +2,8 @@ extends Node
 
 var start_position_x: int = 0
 var start_position_y: int = 0
+var hero_icon_on_map_position_x: int = 14
+var hero_icon_on_map_position_y: int = 11
 var coins: int = 10
 var keys: int = 0
 var player_health: int = 20

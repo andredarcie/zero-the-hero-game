@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/grass_cuting.wav-f59b9332d9da8fdb2d185f8564c0d659.sample"
+
+[deps]
+
+source_file="res://npcs/mage/grass_cuting.wav"
+dest_files=[ "res://.import/grass_cuting.wav-f59b9332d9da8fdb2d185f8564c0d659.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
