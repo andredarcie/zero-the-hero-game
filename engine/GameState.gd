@@ -11,6 +11,8 @@ var player_max_health: int = 20
 var player_arrows: int = 10
 var player_bombs: int = 2
 var player_sword_cut_grass: bool = false
+var player_mushrooms: int = 0
+var player_special_gloves_to_get_mushrooms: bool = false
 
 var unique_ids = {
 		"first_boss": false
@@ -38,7 +40,9 @@ func get_current_scene_name() -> String:
 	
 	
 func restart_game():
-	get_tree().reload_current_scene()
+	LevelManager.current_player_position = Vector2(248, 392)
+	LevelManager.change_scene("res://levels/4-3.tscn")
+		
 	player_health = 3
 	player_max_health = 3
 	player_arrows = 10
@@ -48,6 +52,10 @@ func restart_game():
 func get_player():
 	# return get_tree().get_nodes_in_group('Player')[0]
 	return get_node("/root").find_node("Player", true, false)
+	
+	
+func get_hud():
+	return get_node("/root").find_node("hud", true, false)
 	
 	
 func check_body_is_player(body) -> bool:
@@ -76,3 +84,10 @@ func check_id(unique_id: String) -> bool:
 		return unique_ids[unique_id]
 	else:
 		return false
+		
+func get_item(name):
+	var hud : Hud = get_hud()
+	hud.get_item(name)
+	
+	if name == 'Mushroom':
+		player_mushrooms += player_mushrooms + 1
