@@ -37,6 +37,8 @@ func _on_Vision_body_entered(body):
 		player = GameState.get_player()
 		
 	if GameState.check_body_is_player(body):
+		$AudioStreamPlayer2D.stream = preload("res://sounds/effects/undead.wav")
+		$AudioStreamPlayer2D.play()
 		player_is_on_vision = true
 
 

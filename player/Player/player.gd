@@ -22,10 +22,12 @@ var moving_directon_is_up = false
 # Items
 var sword = preload('res://items/sword.tscn')
 var sword_on_fire: bool = false
-var sword_sound_atack = preload("res://items/sword_atack.wav")
+var sword_sound_atack_1 = preload("res://sounds/effects/sword_cut_1.wav")
+var sword_sound_atack_2 = preload("res://sounds/effects/sword_cut_2.wav")
 
 onready var arrow = preload("res://player/BowArrow/Arrow.tscn")
 var arrow_direction = DIRECTION.Up
+var rng = RandomNumberGenerator.new()
 
 enum DIRECTION {
 	Up,
@@ -101,7 +103,11 @@ func state_default() -> void:
 				$AnimationPlayer.play("idle_down")
 	
 	if Input.is_action_just_pressed("a"):
-		$AudioStreamPlayer2D.stream = sword_sound_atack
+		if rng.randi_range(0, 1) == 0:
+			$AudioStreamPlayer2D.stream =  sword_sound_atack_1
+		else:
+			$AudioStreamPlayer2D.stream =  sword_sound_atack_2
+
 		$AudioStreamPlayer2D.play()
 		use_item(sword)
 		

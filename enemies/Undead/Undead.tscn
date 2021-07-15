@@ -32,6 +32,9 @@ position = Vector2( 0.198425, -19.7701 )
 
 [node name="InterrogationTime" type="Timer" parent="." index="8"]
 one_shot = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." index="9"]
+
 [connection signal="body_entered" from="Vision" to="." method="_on_Vision_body_entered"]
 [connection signal="body_exited" from="Vision" to="." method="_on_Vision_body_exited"]
 [connection signal="timeout" from="InterrogationTime" to="." method="_on_InterrogationTime_timeout"]
