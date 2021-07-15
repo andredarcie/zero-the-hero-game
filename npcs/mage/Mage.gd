@@ -28,7 +28,7 @@ func _on_Area2D_body_entered(body):
 		times = times + 1
 		dialogBox.start_dialog(self.characterName, [
 		'Give up!',
-			"Everything I told you is a lie, you're just a character in a game posted on itch.io"
+		"Everything I told you is a lie, you're just a character in a game posted on itch.io"
 		])
 		return
 		

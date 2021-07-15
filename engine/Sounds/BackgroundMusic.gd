@@ -5,3 +5,9 @@ onready var wind_in_forest_sound : AudioStream = preload("res://sounds/backgroun
 func _ready():
 	$AudioStreamPlayer.stream = wind_in_forest_sound
 	$AudioStreamPlayer.play()
+	
+func stop():
+	$AudioStreamPlayer.stop()
+	
+func play():
+	$AudioStreamPlayer.play()

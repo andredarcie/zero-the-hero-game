@@ -23,6 +23,10 @@ var health = 1
 var damage = 1
 export (String) var unique_id
 
+# Audios
+var get_hurt_sound : AudioStream = null
+var dying_sound : AudioStream = null
+
 func _ready() -> void:
 	if GameState.check_id(unique_id):
 		queue_free()
@@ -63,6 +67,9 @@ func _on_ChangeMovimentDirection_timeout() -> void:
 
 
 func hurt(body : Node2D) -> void:
+	if get_hurt_sound:
+		SoundEffects.play_sound(get_hurt_sound)
+		
 	pushed_move_direction = global_transform.origin - body.global_transform.origin
 	$Sprite.texture = sprite_hurt
 	$HurtTime.start()
@@ -75,6 +82,9 @@ func _on_HurtTime_timeout() -> void:
 	$HurtTime.stop()
 	is_hurt = false
 	if health <= 0:
+		if dying_sound:
+			SoundEffects.play_sound(dying_sound)
+			
 		var pool_of_blood = PoolOfBlood.instance()
 		pool_of_blood.global_position = global_position
 		SceneNode.add_child(pool_of_blood)

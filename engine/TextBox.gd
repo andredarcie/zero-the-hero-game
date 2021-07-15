@@ -54,6 +54,7 @@ func end_dialog():
 	$"../Timer".stop()
 	set_visible(false)
 	dialog_ended = true
+	BackgroundMusic.play()
 
 func _on_TimerToShowAccept_timeout():
 	$"../TimerToShowAccept".stop()

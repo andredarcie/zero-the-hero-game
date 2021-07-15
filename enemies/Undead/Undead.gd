@@ -13,6 +13,8 @@ func _ready():
 	speed = 20
 	sprite_hurt = preload("res://enemies/Undead/undead_hurt.png")
 	health = 3
+	get_hurt_sound = preload("res://sounds/effects/undead.wav")
+	dying_sound = preload("res://sounds/effects/undead_dying.wav")
 
 
 func _physics_process(delta):
@@ -37,8 +39,6 @@ func _on_Vision_body_entered(body):
 		player = GameState.get_player()
 		
 	if GameState.check_body_is_player(body):
-		$AudioStreamPlayer2D.stream = preload("res://sounds/effects/undead.wav")
-		$AudioStreamPlayer2D.play()
 		player_is_on_vision = true
 
 

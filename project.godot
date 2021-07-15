@@ -139,7 +139,8 @@ dir="*res://engine/directions.gd"
 GameState="*res://engine/GameState.gd"
 LevelManager="*res://levels/LevelManager.gd"
 Helpers="*res://engine/Helpers.gd"
-BackgroundMusic="*res://engine/BackgroundMusic.tscn"
+BackgroundMusic="*res://engine/Sounds/BackgroundMusic.tscn"
+SoundEffects="*res://engine/Sounds/SoundEffects.tscn"
 
 [display]
 
