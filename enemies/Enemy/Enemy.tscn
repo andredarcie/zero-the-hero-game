@@ -4,8 +4,10 @@
 [ext_resource path="res://enemies/Enemy/Enemy.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 6.52627, 6.13137 )
 
 [sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 9.07272, 7.05735 )
 
 [sub_resource type="Animation" id=3]
 resource_name = "default"
@@ -27,9 +29,6 @@ tracks/0/keys = {
 [node name="Enemy" type="KinematicBody2D"]
 collision_layer = 2
 script = ExtResource( 2 )
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="Sprite" type="Sprite" parent="."]
 rotation = 0.174533
@@ -52,7 +51,7 @@ autostart = true
 wait_time = 0.5
 one_shot = true
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="EnemyAnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "default"
 anims/default = SubResource( 3 )
 
