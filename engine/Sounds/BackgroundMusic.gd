@@ -1,6 +1,5 @@
 extends Node2D
 
-onready var wind_in_forest_sound : AudioStream = preload("res://sounds/background/578921__bloodpixelhero__valley-of-hope.wav")
 onready var dungeon_sound : AudioStream = preload("res://sounds/background/577007__bloodpixelhero__inner-ghost.wav")
 onready var main_sound : AudioStream = preload("res://sounds/background/577561__bloodpixelhero__out-of-view.wav")
 
