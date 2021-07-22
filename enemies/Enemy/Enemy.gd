@@ -23,6 +23,8 @@ var health = 1
 var damage = 1
 export (String) var unique_id
 
+var enemy_is_dead: bool = false
+
 # Audios
 var get_hurt_sound : AudioStream = null
 var dying_sound : AudioStream = null
@@ -82,6 +84,8 @@ func _on_HurtTime_timeout() -> void:
 	$HurtTime.stop()
 	is_hurt = false
 	if health <= 0:
+		enemy_is_dead = true
+		
 		if dying_sound:
 			SoundEffects.play_sound(dying_sound)
 			

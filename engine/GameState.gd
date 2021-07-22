@@ -4,13 +4,13 @@ var start_position_x: int = 0
 var start_position_y: int = 0
 var hero_icon_on_map_position_x: int = 14
 var hero_icon_on_map_position_y: int = 11
-var coins: int = 10
+var coins: int = 1
 var keys: int = 0
-var player_health: int = 20
-var player_max_health: int = 20
-var player_arrows: int = 10
+var player_health: int = 3
+var player_max_health: int = 3
+var player_arrows: int = 2
 var player_bombs: int = 2
-var player_sword_cut_grass: bool = false
+var player_sword_cut_grass: bool = true
 var player_mushrooms: int = 0
 var player_special_gloves_to_get_mushrooms: bool = false
 
@@ -41,12 +41,15 @@ func get_current_scene_name() -> String:
 	
 func restart_game():
 	LevelManager.current_player_position = Vector2(248, 392)
-	LevelManager.change_scene("res://levels/4-3.tscn")
 		
 	player_health = 3
 	player_max_health = 3
 	player_arrows = 10
 	player_bombs = 2
+	keys = 0
+	coins = 1
+	
+	LevelManager.change_scene("res://engine/Screens/EndScreen.tscn")
 
 
 func get_player():

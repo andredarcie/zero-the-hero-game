@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/577007__bloodpixelhero__inner-ghost.wav-198c95b92dab26c8de22ac634b3cc64c.sample"
+
+[deps]
+
+source_file="res://sounds/background/577007__bloodpixelhero__inner-ghost.wav"
+dest_files=[ "res://.import/577007__bloodpixelhero__inner-ghost.wav-198c95b92dab26c8de22ac634b3cc64c.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

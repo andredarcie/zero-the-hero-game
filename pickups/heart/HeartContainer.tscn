@@ -13,4 +13,6 @@ shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
+vframes = 2
+
 [connection signal="body_entered" from="." to="." method="_on_HeartContainer_body_entered"]

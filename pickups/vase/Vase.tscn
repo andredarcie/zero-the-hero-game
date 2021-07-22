@@ -45,4 +45,5 @@ shape = SubResource( 2 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 3 )
 animation = "idle"
+
 [connection signal="area_entered" from="." to="." method="_on_Vase_area_entered"]

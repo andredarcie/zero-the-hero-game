@@ -25,9 +25,16 @@ script = ExtResource( 3 )
 
 [node name="Sprite" parent="." index="0"]
 rotation = 0.0
+z_index = 1
 texture = ExtResource( 2 )
 vframes = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="6"]
 autoplay = "Default"
 anims/Default = SubResource( 1 )
+
+[node name="Timer" type="Timer" parent="." index="7"]
+wait_time = 0.25
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

@@ -267,6 +267,7 @@ func make_damage(body) -> void:
 	knockdir = global_transform.origin - body.global_transform.origin
 		
 	if type == 'player':
+		SoundEffects.play_hero_hurt()
 		GameState.player_health = health
 			
 	if type == 'player' and health <= 0:

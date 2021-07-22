@@ -2,6 +2,7 @@ extends Area2D
 
 var rng = RandomNumberGenerator.new()
 onready var coin = preload("res://pickups/coin/Coin.tscn")
+onready var vase_sound = preload("res://pickups/vase/vase_sound.mp3")
 var broken: bool = false
 
 func _on_Vase_area_entered(area):
@@ -18,5 +19,6 @@ func _on_Vase_area_entered(area):
 				
 				
 			$AnimatedSprite.play("breaking")
+			SoundEffects.play_sound(vase_sound)
 			$StaticBody2D.queue_free()
 			broken = true

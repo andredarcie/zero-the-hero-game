@@ -19,6 +19,16 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://enemies/Bat/Bat.gd"
 }, {
+"base": "Enemy",
+"class": "BigSlime",
+"language": "GDScript",
+"path": "res://enemies/BigSlime/BigSlime.gd"
+}, {
+"base": "Sprite",
+"class": "BigSlimeFootSteps",
+"language": "GDScript",
+"path": "res://enemies/BigSlime/BigSlimeFootSteps.gd"
+}, {
 "base": "Polygon2D",
 "class": "DialogBox",
 "language": "GDScript",
@@ -112,6 +122,8 @@ _global_script_classes=[ {
 _global_script_class_icons={
 "AcceptTextBox": "",
 "Bat": "",
+"BigSlime": "",
+"BigSlimeFootSteps": "",
 "DialogBox": "",
 "Enemy": "",
 "Entity": "",

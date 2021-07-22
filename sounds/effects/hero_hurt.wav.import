@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/hero_hurt.wav-421e3c679103fe08f5172cdae38a0efd.sample"
+
+[deps]
+
+source_file="res://sounds/effects/hero_hurt.wav"
+dest_files=[ "res://.import/hero_hurt.wav-421e3c679103fe08f5172cdae38a0efd.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

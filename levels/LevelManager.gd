@@ -15,7 +15,7 @@ func _ready():
 func set_current_level_position():
 	var scene_name = GameState.get_current_scene_name()
 	print(scene_name)
-	if scene_name == 'TitleScreen':
+	if scene_name == 'TitleScreen' or scene_name == 'EndScreen':
 		return
 		
 	var level = scene_name.split("-")
@@ -72,7 +72,7 @@ func go_to_next_level(move_direction: Vector2, player_position: Vector2):
 		GameState.hero_icon_on_map_position_x = 11
 		
 	var scene_name = "res://levels/" + str(current_level_x) + "-" + str(current_level_y) + ".tscn"
-		
+	SoundEffects.play_enter()
 	change_scene(scene_name)
 		
 		
@@ -83,6 +83,8 @@ func go_to_dungeon() -> void:
 	
 	var scene_name = "res://levels/d" + str(current_level_x) + "-" + str(current_level_y) + ".tscn"
 	change_scene(scene_name)
+	SoundEffects.play_enter()
+	BackgroundMusic.play_dungeon_sound()
 		
 		
 func go_to_land() -> void:
@@ -90,6 +92,8 @@ func go_to_land() -> void:
 	
 	var scene_name = "res://levels/" + str(current_level_x) + "-" + str(current_level_y) + ".tscn"
 	change_scene(scene_name)
+	SoundEffects.play_enter()
+	BackgroundMusic.play_main_sound()
 	
 		
 func change_scene(scene_name: String) -> void:	

@@ -7,7 +7,7 @@ onready var mage_hurt: Texture = preload("res://enemies/FireMage/mage_hurt.png")
 var player_in_vision: bool = false
 
 func _ready():
-	health = 1
+	health = 5
 	sprite_hurt = mage_hurt
 	
 
@@ -17,7 +17,7 @@ func shoot_magic_ball():
 	SceneNode.add_child(magic_ball)
 	
 func load_magic_ball():
-	$AnimationPlayer.play("stop")
+	$EnemyAnimationPlayer.play("stop")
 	move_random_direction = false
 	$Sprite.texture = mage_magic_texture
 	$LoadingMagic.start()
@@ -35,7 +35,7 @@ func _on_Vision_body_exited(body):
 
 
 func _on_LoadingMagic_timeout():
-	$AnimationPlayer.play("default")
+	$EnemyAnimationPlayer.play("default")
 	move_random_direction = true
 	$LoadingMagic.stop()
 	$Sprite.texture = sprite_default

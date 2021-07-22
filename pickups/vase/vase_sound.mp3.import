@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/vase_sound.mp3-6a5d218479c375c3f482550a7b2b1f08.mp3str"
+
+[deps]
+
+source_file="res://pickups/vase/vase_sound.mp3"
+dest_files=[ "res://.import/vase_sound.mp3-6a5d218479c375c3f482550a7b2b1f08.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0
