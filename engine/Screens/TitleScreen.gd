@@ -4,7 +4,7 @@ onready var intro_sound : AudioStream = preload("res://sounds/effects/intro_mons
 
 func _input(event):
 	if event.is_action_pressed("ui_accept"):
-		SoundEffects.play_sound(intro_sound)
+		#SoundEffects.play_sound(intro_sound)
 		$Timer.start()
 
 func _on_Timer_timeout():

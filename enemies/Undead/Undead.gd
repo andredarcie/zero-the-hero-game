@@ -11,7 +11,6 @@ var player_is_on_vision: bool = false
 
 func _ready():
 	speed = 20
-	sprite_hurt = preload("res://enemies/Undead/undead_hurt.png")
 	health = 3
 	get_hurt_sound = preload("res://sounds/effects/undead.wav")
 	dying_sound = preload("res://sounds/effects/undead_dying.wav")

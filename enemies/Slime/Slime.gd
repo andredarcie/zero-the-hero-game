@@ -4,7 +4,6 @@ onready var FootSteps = preload("res://enemies/Slime/SlimeFootSteps.tscn")
 onready var SlimePool: PackedScene  = preload("res://enemies/Slime/SlimePool.tscn")
 
 func _ready():
-	self.sprite_hurt = preload("res://enemies/Slime/Slime.png")
 	self.PoolOfBlood = SlimePool
 	speed = 60
 	$ChangeMovimentDirection.wait_time = 0

@@ -5,6 +5,9 @@ onready var coin = preload("res://pickups/coin/Coin.tscn")
 onready var vase_sound = preload("res://pickups/vase/vase_sound.mp3")
 var broken: bool = false
 
+func _ready():
+	GameState.create(self)
+
 func _on_Vase_area_entered(area):
 	if not broken:
 		var parent = area.get_parent()
@@ -22,3 +25,5 @@ func _on_Vase_area_entered(area):
 			SoundEffects.play_sound(vase_sound)
 			$StaticBody2D.queue_free()
 			broken = true
+			
+			GameState.destroy(self)

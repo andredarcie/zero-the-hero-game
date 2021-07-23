@@ -14,10 +14,8 @@ var movedir := Vector2.ZERO
 var sprite_direction: String = 'down'
 var hitstun: int = 0
 var knockdir: Vector2 = Vector2.ZERO
-
 var texture_default: Texture = null
-var texture_hurt: Texture = null
-
+var invulnerable : bool = false
 var moving_directon_is_up = false
 # Items
 var sword = preload('res://items/sword.tscn')
@@ -47,9 +45,14 @@ func _ready() -> void:
 	$Bow.visible = false
 	add_to_group('Player')
 	texture_default = $Sprite.texture
-	texture_hurt = preload("res://player/Player/hero_hurt.png")
 
-
+func _process(delta):
+	if hitstun:
+		$Sprite.modulate.a = 0.5 if Engine.get_frames_drawn() % 2 == 0 else 1.0
+	else:
+		$Sprite.modulate.a = 1.0
+		
+		
 func _physics_process(_delta: float) -> void:
 	match state:
 		'default':
@@ -197,9 +200,10 @@ func _on_BowTimer_timeout() -> void:
 func movement_loop() -> void:
 	var motion
 	if hitstun == 0:
+		invulnerable = false
 		motion = movedir.normalized() * speed
 	else:
-		motion = knockdir.normalized() * 125
+		motion = knockdir.normalized() * 200
 		
 	# warning-ignore:return_value_discarded
 	move_and_slide(motion, Vector2(0, 0))
@@ -220,9 +224,7 @@ func spriterdir_loop() -> void:
 func damage_loop() -> void:	
 	if hitstun > 0:
 		hitstun -= 1
-		$Sprite.texture = texture_hurt
 	else:
-		$Sprite.texture = texture_default
 		if type == 'enemy' && health <= 0:
 			var drop = randi() % 2
 			if drop == 0:
@@ -258,6 +260,9 @@ func damage_loop() -> void:
 
 
 func make_damage(body) -> void:
+	if invulnerable:
+		return
+		
 	if body.get('damage') != null:
 		health -= body.get('damage')
 	else:
@@ -272,9 +277,10 @@ func make_damage(body) -> void:
 			
 	if type == 'player' and health <= 0:
 		GameState.restart_game()
-		
-	var blood = blood_particules.instance()
-	add_child(blood)
+	
+	invulnerable = true
+	#var blood = blood_particules.instance()
+	#add_child(blood)
 	
 	
 func use_item(item: PackedScene) -> void:

@@ -3,6 +3,7 @@ extends Sprite
 var rng = RandomNumberGenerator.new()
 
 func _ready():
+	GameState.create(self)
 	rng.randomize()
 	frame = rng.randi_range(0, 1)
 
@@ -16,3 +17,4 @@ func _on_Area2D_body_entered(body):
 		$AudioStreamPlayer2D.stream = preload("res://pickups/mushroom/cut.wav")
 		$AudioStreamPlayer2D.play()
 		GameState.get_item('Mushroom')
+		GameState.destroy(self)

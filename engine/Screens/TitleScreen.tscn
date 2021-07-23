@@ -101,7 +101,7 @@ texture = ExtResource( 5 )
 [node name="CanvasLayer" parent="." instance=ExtResource( 6 )]
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 2.0
+wait_time = 0.001
 one_shot = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

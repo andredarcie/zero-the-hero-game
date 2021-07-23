@@ -7,7 +7,6 @@ enum Direction {
 	RIGHT
 }
 
-var sprite_hurt: Texture
 var sprite_default: Texture
 
 onready var PoolOfBlood: PackedScene = preload("res://enemies/Enemy/PoolOfBlood/PoolOfBlood.tscn")
@@ -37,7 +36,12 @@ func _ready() -> void:
 	sprite_default = $Sprite.texture
 	move_direction = get_random_direction()
 	
-	
+func _process(delta):
+	if is_hurt:
+		$Sprite.modulate.a = 0.5 if Engine.get_frames_drawn() % 2 == 0 else 1.0
+	else:
+		$Sprite.modulate.a = 1.0
+		
 func _physics_process(delta) -> void:		
 	if is_hurt:
 		move_and_slide(pushed_move_direction.normalized() * (speed * 2))
@@ -73,14 +77,12 @@ func hurt(body : Node2D) -> void:
 		SoundEffects.play_sound(get_hurt_sound)
 		
 	pushed_move_direction = global_transform.origin - body.global_transform.origin
-	$Sprite.texture = sprite_hurt
 	$HurtTime.start()
 	is_hurt = true
 	health -= 1
 
 
 func _on_HurtTime_timeout() -> void:
-	$Sprite.texture = sprite_default
 	$HurtTime.stop()
 	is_hurt = false
 	if health <= 0:
@@ -95,6 +97,7 @@ func _on_HurtTime_timeout() -> void:
 		
 		GameState.activate_id(unique_id)
 		queue_free()
+	
 		
 
 func _on_Area2D_body_entered(body) -> void:

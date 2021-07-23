@@ -6,13 +6,14 @@ var hero_icon_on_map_position_x: int = 14
 var hero_icon_on_map_position_y: int = 11
 var coins: int = 1
 var keys: int = 0
-var player_health: int = 3
-var player_max_health: int = 3
+var player_health: int = 20
+var player_max_health: int = 20
 var player_arrows: int = 2
 var player_bombs: int = 2
 var player_sword_cut_grass: bool = true
 var player_mushrooms: int = 0
 var player_special_gloves_to_get_mushrooms: bool = false
+var persisted_objects = []
 
 var unique_ids = {
 		"first_boss": false
@@ -94,3 +95,18 @@ func get_item(name):
 	
 	if name == 'Mushroom':
 		player_mushrooms += player_mushrooms + 1
+		
+func get_unique_name(object):
+	var level_name = "scene:"+ get_tree().get_current_scene().get_name() + "--"
+	var position = "x-" + str(object.global_position.x) + "-y-" + str(object.global_position.y)  + "--"
+	
+	return level_name + position + object.name
+	
+func create(object):
+	var unique_name = GameState.get_unique_name(object)
+	
+	if GameState.persisted_objects.has(unique_name):
+		object.queue_free()
+
+func destroy(object):
+	persisted_objects.append(GameState.get_unique_name(object))
