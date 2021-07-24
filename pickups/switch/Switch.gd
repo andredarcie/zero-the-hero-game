@@ -3,13 +3,13 @@ class_name Switch extends Area2D
 var proximity: bool = false
 var active: bool = false
 var await_time: float = 0
-var thorns = []
+var objects = []
 
 var on_image: Texture = preload("res://pickups/switch/on.png")
 var off_image: Texture = preload("res://pickups/switch/off.png")
 
 func _ready() -> void:
-	self.thorns = get_children()
+	self.objects = get_children()
 	
 func _on_switch_body_entered(body: Node2D) -> void:
 	if body.get("type") == "player":
@@ -34,37 +34,16 @@ func toggle_switch():
 	else:
 		$Sprite.texture = off_image
 		
-	#self.set_all_thorns(self.active)
-	self.toggle_wire()
+	SoundEffects.play_switch_sound()
+	self.set_all_objects()
 	self.await_time = 10
-		
-
-func toggle_wire():
-	for child in $Up.get_overlapping_areas():
-		var parent =  child.get_parent()
-		if parent.is_in_group("Wire") and parent.has_method("toggle"):
-			parent.toggle("Down")
-			
-	for child in $Right.get_overlapping_areas():
-		var parent =  child.get_parent()
-		if parent.is_in_group("Wire") and parent.has_method("toggle"):
-			parent.toggle("Left")
-			
-	for child in $Down.get_overlapping_areas():
-		var parent =  child.get_parent()
-		if parent.is_in_group("Wire") and parent.has_method("toggle"):
-			parent.toggle("Up")
-			
-	for child in $Left.get_overlapping_areas():
-		var parent =  child.get_parent()
-		if parent.is_in_group("Wire") and parent.has_method("toggle"):
-			parent.toggle("Right")
 	
 
-func set_all_thorns(param: bool):
-	for child in self.thorns:
-		if child is Area2D:
-			child.active = param
+func set_all_objects():
+	for object in self.objects:
+		print(object.name)
+		if object.has_method("toggle"):
+			object.toggle()
 
 
 func _on_Switch_area_entered(area):

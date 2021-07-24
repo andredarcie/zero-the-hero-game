@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/open_down_switch.wav-7c9be466fe345ad5c3b4cc31932b9caf.sample"
+
+[deps]
+
+source_file="res://pickups/thorn/open_down_switch.wav"
+dest_files=[ "res://.import/open_down_switch.wav-7c9be466fe345ad5c3b4cc31932b9caf.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

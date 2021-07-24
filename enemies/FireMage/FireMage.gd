@@ -8,7 +8,6 @@ var player_in_vision: bool = false
 
 func _ready():
 	health = 5
-	sprite_hurt = mage_hurt
 	
 
 func shoot_magic_ball():

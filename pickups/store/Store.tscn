@@ -126,6 +126,7 @@ __meta__ = {
 [node name="Coin3" type="Sprite" parent="Item3"]
 position = Vector2( 11, 14.863 )
 texture = ExtResource( 4 )
+
 [connection signal="area_entered" from="Salesman" to="." method="_on_Salesman_area_entered"]
 [connection signal="timeout" from="Salesman/SalesmanHappyTimer" to="." method="_on_SalesmanHappyTimer_timeout"]
 [connection signal="body_entered" from="Item1" to="." method="_on_Item1_body_entered"]

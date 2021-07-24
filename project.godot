@@ -84,7 +84,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://player/Player/player.gd"
 }, {
-"base": "Reference",
+"base": "Npc",
 "class": "Poet",
 "language": "GDScript",
 "path": "res://npcs/poet/Npc.gd"
@@ -113,11 +113,6 @@ _global_script_classes=[ {
 "class": "Watchman",
 "language": "GDScript",
 "path": "res://enemies/Watchman/Watchman.gd"
-}, {
-"base": "Node2D",
-"class": "Wire",
-"language": "GDScript",
-"path": "res://pickups/wire/Wire.gd"
 } ]
 _global_script_class_icons={
 "AcceptTextBox": "",
@@ -140,8 +135,7 @@ _global_script_class_icons={
 "Switch": "",
 "TextName": "",
 "Undead": "",
-"Watchman": "",
-"Wire": ""
+"Watchman": ""
 }
 
 [application]

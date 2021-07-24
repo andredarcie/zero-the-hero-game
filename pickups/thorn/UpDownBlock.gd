@@ -27,7 +27,6 @@ func turn_desactive():
 	
 
 func toggle():
-	print('chamou', self.active)
 	self.active = !self.active
 	
 	if self.active:
