@@ -35,6 +35,7 @@ shadow_enabled = true
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 2 )
-frame = 1
+frame = 2
 playing = true
+
 [connection signal="area_entered" from="." to="." method="_on_Bonfire_area_entered"]
