@@ -8,4 +8,10 @@ func _enter_tree():
 	add_child(hud_scene.instance())
 	var player = player_scene.instance()
 	player.global_position = LevelManager.current_player_position
+	
+	if name.find("d") >= 0:
+		player.turn_dark()
+	else:
+		player.turn_light()
+		
 	add_child(player)

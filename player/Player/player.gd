@@ -306,3 +306,9 @@ func gain_max_health() -> void:
 func gain_health() -> void:
 	health += 1
 	GameState.player_health += 1
+	
+func turn_dark():
+	$camera/CanvasModulate.visible = true
+	
+func turn_light():
+	$camera/CanvasModulate.visible = false
