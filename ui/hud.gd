@@ -21,6 +21,20 @@ func add_new_heart():
 	
 	
 func _process(_delta: float) -> void:
+	if Input.is_action_pressed("a"):
+		$SlotX.frame = 3
+		$SlotX/TimerSlotX.start()
+		
+	if Input.is_action_pressed("b"):
+		if GameState.player_second_slot_item == GameState.SecondSlotItems.Bombs:
+			if GameState.player_bombs == 0:
+				$bomb.visible = false
+			else:
+				$bomb.visible = true
+				
+		$SlotZ.frame = 1
+		$SlotZ/TimerSlotZ.start()
+	
 	if old_max_health != GameState.player_max_health:
 		old_max_health = GameState.player_max_health
 		add_new_heart()
@@ -45,6 +59,8 @@ func _process(_delta: float) -> void:
 	show_second_slot_item()
 	
 	
+
+
 func show_coins():
 	$VBoxContainer/CoinTextLabel.text = " " + str(GameState.coins)
 	
@@ -62,3 +78,11 @@ func get_item(name):
 	$AddItem/AddItemText.text = '+1 ' + str(name)
 	
 	$AddItemAnimationPlayer.play('default')
+
+
+func _on_TimerSlotZ_timeout():
+	$SlotZ.frame = 0
+
+
+func _on_TimerSlotX_timeout():
+	$SlotX.frame = 2
