@@ -147,11 +147,13 @@ func controls_loop() -> void:
 
 func sword_catch_fire():
 	sword_on_fire = true
+	GameState.player_sword_on_fire = true
 	$SwordOnFireTimer.start()
 
 
 func _on_SwordOnFireTimer_timeout():
 	sword_on_fire = false
+	GameState.player_sword_on_fire = false
 	$SwordOnFireTimer.stop()
 	
 	

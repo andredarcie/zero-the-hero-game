@@ -3,6 +3,8 @@ class_name Hud extends CanvasLayer
 const HEART_ROW_SIZE: int = 8
 const HEART_OFFSET: int = 8
 var old_max_health
+var sword_on_fire_texture: Texture = preload("res://items/sword_on_fire.png")
+var sword_texture: Texture = preload("res://items/sword.png")
 
 func _ready() -> void:
 	add_to_group('Hud')
@@ -21,6 +23,11 @@ func add_new_heart():
 	
 	
 func _process(_delta: float) -> void:
+	if GameState.player_sword_on_fire:
+		$Sword.texture = sword_on_fire_texture
+	else:
+		$Sword.texture = sword_texture
+	
 	if Input.is_action_pressed("a"):
 		$SlotX.frame = 3
 		$SlotX/TimerSlotX.start()

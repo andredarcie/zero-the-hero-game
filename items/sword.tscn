@@ -210,8 +210,9 @@ tracks/3/keys = {
 extents = Vector2( 2.3025, 4.85089 )
 
 [node name="sword" type="Node2D"]
-position = Vector2( 0, -10 )
-z_index = -1
+position = Vector2( 0, 10 )
+rotation = 3.14159
+z_index = 1
 script = ExtResource( 2 )
 
 [node name="anim" type="AnimationPlayer" parent="."]
@@ -225,7 +226,6 @@ anims/swingup = SubResource( 4 )
 z_index = 1
 texture = ExtResource( 1 )
 vframes = 2
-frame = 1
 
 [node name="Area2D" type="Area2D" parent="."]
 z_index = -1

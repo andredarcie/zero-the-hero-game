@@ -6,6 +6,8 @@ var hero_icon_on_map_position_x: int = 14
 var hero_icon_on_map_position_y: int = 11
 var coins: int = 1
 var keys: int = 0
+
+# Player
 var player_health: int = 3
 var player_max_health: int = 3
 var player_arrows: int = 2
@@ -13,6 +15,9 @@ var player_bombs: int = 2
 var player_sword_cut_grass: bool = true
 var player_mushrooms: int = 0
 var player_special_gloves_to_get_mushrooms: bool = false
+var player_sword_on_fire: bool = false
+
+
 var persisted_objects = []
 
 var unique_ids = {
