@@ -25,23 +25,14 @@ position = Vector2( 360, 232 )
 [node name="Undead2" parent="Enemies" index="1" instance=ExtResource( 4 )]
 position = Vector2( 280, 312 )
 
-[node name="Undead3" parent="Enemies" index="2" instance=ExtResource( 4 )]
-position = Vector2( 192, 208 )
-
-[node name="Undead5" parent="Enemies" index="3" instance=ExtResource( 4 )]
-position = Vector2( 360, 376 )
-
-[node name="Undead6" parent="Enemies" index="4" instance=ExtResource( 4 )]
+[node name="Undead6" parent="Enemies" index="2" instance=ExtResource( 4 )]
 position = Vector2( 408, 440 )
 
-[node name="Undead7" parent="Enemies" index="5" instance=ExtResource( 4 )]
+[node name="Undead7" parent="Enemies" index="3" instance=ExtResource( 4 )]
 position = Vector2( 128, 72 )
 
-[node name="Undead8" parent="Enemies" index="6" instance=ExtResource( 4 )]
-position = Vector2( 448, 80 )
-
-[node name="BigSlime" parent="Enemies" index="7" instance=ExtResource( 5 )]
+[node name="BigSlime" parent="Enemies" index="4" instance=ExtResource( 5 )]
 position = Vector2( 232, 320 )
 
-[node name="BigSlime2" parent="Enemies" index="8" instance=ExtResource( 5 )]
+[node name="BigSlime2" parent="Enemies" index="5" instance=ExtResource( 5 )]
 position = Vector2( 80, 272 )

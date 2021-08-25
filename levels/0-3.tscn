@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://levels/LevelBase.tscn" type="PackedScene" id=1]
 [ext_resource path="res://tiles/TileMaps/forest_tile_map/ForestTileMap.tscn" type="PackedScene" id=2]
 [ext_resource path="res://npcs/poet/Poet.tscn" type="PackedScene" id=3]
+[ext_resource path="res://pickups/heart/Heart.tscn" type="PackedScene" id=4]
+[ext_resource path="res://pickups/mushroom/Mushroom.tscn" type="PackedScene" id=5]
 
 [node name="0-3" instance=ExtResource( 1 )]
 
@@ -15,3 +17,11 @@ tile_data = PoolIntArray( -65521, 7, 0, -65520, 7, 0, 0, 4, 0, 1, 4, 0, 2, 4, 0,
 [node name="Poet" parent="Npcs" index="0" instance=ExtResource( 3 )]
 position = Vector2( 269.726, 45.1087 )
 z_index = 1
+
+[node name="Items" type="Node" parent="." index="4"]
+
+[node name="Heart" parent="Items" index="0" instance=ExtResource( 4 )]
+position = Vector2( 268.5, 113.333 )
+
+[node name="Mushroom" parent="Items" index="1" instance=ExtResource( 5 )]
+position = Vector2( 308.348, 81.8702 )
