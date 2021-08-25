@@ -28,12 +28,12 @@ position = Vector2( 165.487, 95.6409 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="." index="3"]
 position = Vector2( 136, 104 )
 frames = SubResource( 1 )
+frame = 1
 playing = true
 
 [node name="AnimatedSprite2" type="AnimatedSprite" parent="." index="4"]
 position = Vector2( 72, 104 )
 frames = SubResource( 1 )
-frame = 1
 playing = true
 
 [node name="Node" type="Node" parent="." index="5"]
