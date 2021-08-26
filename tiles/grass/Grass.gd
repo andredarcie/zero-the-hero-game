@@ -14,14 +14,19 @@ func _on_Timer_timeout():
 				parent.catch_fire()
 	
 	on_fire = false
+	$Light2D.visible = false
 	$AnimatedSprite.play("ashes")
 	ashes = true
 		
 	
 func catch_fire():
+	if ashes:
+		return
+		
 	on_fire = true
 	$AnimatedSprite.speed_scale = 5
 	$AnimatedSprite.play("fire")
+	$Light2D.visible = true
 	$Timer.start()
 
 

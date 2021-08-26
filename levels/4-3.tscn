@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://levels/LevelBase.tscn" type="PackedScene" id=1]
 [ext_resource path="res://tiles/TileMaps/forest_tile_map/ForestTileMap.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://pickups/firefly/Firefly.tscn" type="PackedScene" id=5]
 [ext_resource path="res://tiles/bonfire/Bonfire.tscn" type="PackedScene" id=6]
 [ext_resource path="res://pickups/mushroom/Mushroom.tscn" type="PackedScene" id=7]
+[ext_resource path="res://tiles/grass/Grass.tscn" type="PackedScene" id=8]
 [ext_resource path="res://pickups/heart/Heart.tscn" type="PackedScene" id=9]
 [ext_resource path="res://tiles/TileMaps/forest_tile_map/GrassInWind.tscn" type="PackedScene" id=10]
 
@@ -47,7 +48,7 @@ tile_data = PoolIntArray( 0, 4, 0, 1, 3, 0, 2, 3, 0, 3, 3, 0, 4, 3, 0, 5, 3, 0, 
 
 [node name="Firefly" parent="." index="4" instance=ExtResource( 5 )]
 position = Vector2( 112, 56 )
-frame = 2
+frame = 1
 
 [node name="Npcs" type="Node" parent="." index="5"]
 
@@ -72,59 +73,61 @@ position = Vector2( 64, 448 )
 [node name="WindGrass" type="Node" parent="." index="7"]
 
 [node name="AnimatedSprite" parent="WindGrass" index="0" instance=ExtResource( 10 )]
-frame = 1
 
 [node name="AnimatedSprite2" parent="WindGrass" index="1" instance=ExtResource( 10 )]
 position = Vector2( 232, 216 )
-frame = 1
 
 [node name="AnimatedSprite3" parent="WindGrass" index="2" instance=ExtResource( 10 )]
 position = Vector2( 248, 216 )
+frame = 1
 
 [node name="AnimatedSprite4" parent="WindGrass" index="3" instance=ExtResource( 10 )]
 position = Vector2( 264, 216 )
+frame = 1
 
 [node name="AnimatedSprite5" parent="WindGrass" index="4" instance=ExtResource( 10 )]
 position = Vector2( 280, 216 )
+frame = 1
 
 [node name="AnimatedSprite6" parent="WindGrass" index="5" instance=ExtResource( 10 )]
 position = Vector2( 216, 232 )
-frame = 1
 
 [node name="AnimatedSprite7" parent="WindGrass" index="6" instance=ExtResource( 10 )]
 position = Vector2( 232, 232 )
-frame = 1
 
 [node name="AnimatedSprite8" parent="WindGrass" index="7" instance=ExtResource( 10 )]
 position = Vector2( 248, 232 )
-frame = 1
 
 [node name="AnimatedSprite9" parent="WindGrass" index="8" instance=ExtResource( 10 )]
 position = Vector2( 232, 248 )
+frame = 1
 
 [node name="AnimatedSprite10" parent="WindGrass" index="9" instance=ExtResource( 10 )]
 position = Vector2( 248, 248 )
-frame = 1
 
 [node name="AnimatedSprite11" parent="WindGrass" index="10" instance=ExtResource( 10 )]
 position = Vector2( 264, 232 )
-frame = 1
 
 [node name="AnimatedSprite13" parent="WindGrass" index="11" instance=ExtResource( 10 )]
 position = Vector2( 280, 232 )
+frame = 1
 
 [node name="AnimatedSprite14" parent="WindGrass" index="12" instance=ExtResource( 10 )]
 position = Vector2( 296, 232 )
-frame = 1
 
 [node name="AnimatedSprite15" parent="WindGrass" index="13" instance=ExtResource( 10 )]
 position = Vector2( 296, 248 )
-frame = 1
 
 [node name="AnimatedSprite16" parent="WindGrass" index="14" instance=ExtResource( 10 )]
 position = Vector2( 280, 248 )
-frame = 1
 
 [node name="AnimatedSprite12" parent="WindGrass" index="15" instance=ExtResource( 10 )]
 position = Vector2( 264, 248 )
-frame = 1
+
+[node name="FireGrass" type="Node" parent="." index="8"]
+
+[node name="Grass" parent="FireGrass" index="0" instance=ExtResource( 8 )]
+position = Vector2( 240, 184 )
+
+[node name="Grass2" parent="FireGrass" index="1" instance=ExtResource( 8 )]
+position = Vector2( 224, 184 )

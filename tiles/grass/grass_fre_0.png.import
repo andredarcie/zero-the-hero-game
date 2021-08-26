@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/grass_0.png-77e748146889692bf9f9bfa4bf4363f7.stex"
+path="res://.import/grass_fre_0.png-a3a53a3fa6baf0a4f8a01a4821f0026b.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://tiles/grass/grass_0.png"
-dest_files=[ "res://.import/grass_0.png-77e748146889692bf9f9bfa4bf4363f7.stex" ]
+source_file="res://tiles/grass/grass_fre_0.png"
+dest_files=[ "res://.import/grass_fre_0.png-a3a53a3fa6baf0a4f8a01a4821f0026b.stex" ]
 
 [params]
 

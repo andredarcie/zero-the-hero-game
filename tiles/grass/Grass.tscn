@@ -1,12 +1,13 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://tiles/fire/sprite_tiny_fire0.png" type="Texture" id=1]
 [ext_resource path="res://tiles/grass/Grass.gd" type="Script" id=2]
-[ext_resource path="res://tiles/grass/grass_0.png" type="Texture" id=3]
-[ext_resource path="res://tiles/grass/grass_1.png" type="Texture" id=4]
+[ext_resource path="res://tiles/grass/grass_fre_1.png" type="Texture" id=3]
+[ext_resource path="res://tiles/grass/grass_fre_0.png" type="Texture" id=4]
 [ext_resource path="res://tiles/fire/sprite_tiny_fire1.png" type="Texture" id=5]
 [ext_resource path="res://tiles/fire/sprite_tiny_fire2.png" type="Texture" id=6]
 [ext_resource path="res://tiles/fire/ashes.png" type="Texture" id=7]
+[ext_resource path="res://tiles/bonfire/light.png" type="Texture" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 7.95588, 8.09503 )
@@ -16,20 +17,20 @@ radius = 12.465
 
 [sub_resource type="SpriteFrames" id=3]
 animations = [ {
-"frames": [ ExtResource( 3 ), ExtResource( 4 ) ],
+"frames": [ ExtResource( 4 ), ExtResource( 3 ) ],
 "loop": true,
 "name": "default",
+"speed": 3.0
+}, {
+"frames": [ ExtResource( 1 ), ExtResource( 5 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "fire",
 "speed": 3.0
 }, {
 "frames": [ ExtResource( 7 ) ],
 "loop": false,
 "name": "ashes",
 "speed": 5.0
-}, {
-"frames": [ ExtResource( 1 ), ExtResource( 5 ), ExtResource( 6 ) ],
-"loop": true,
-"name": "fire",
-"speed": 3.0
 } ]
 
 [node name="Grass" type="Node2D"]
@@ -57,6 +58,13 @@ shape = SubResource( 2 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 3 )
 playing = true
+
+[node name="Light2D" type="Light2D" parent="."]
+visible = false
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 8 )
+color = Color( 0.905882, 0.466667, 0.254902, 1 )
+shadow_enabled = true
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
