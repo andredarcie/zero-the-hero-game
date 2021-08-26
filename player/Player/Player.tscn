@@ -16,7 +16,6 @@ extents = Vector2( 7, 8 )
 polygon = PoolVector2Array( -4.48177, 7.64083, 3.98177, 7.4181, 5.54084, 3.07497, -0.138638, 1.5159, -6.1522, 3.85451 )
 
 [sub_resource type="Animation" id=4]
-resource_name = "idle_down"
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
