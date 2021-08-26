@@ -101,8 +101,10 @@ func state_default() -> void:
 			moving_directon_is_up = false
 		Vector2(0, 0):
 			if moving_directon_is_up:
+				$Sword.z_index = 2
 				$AnimationPlayer.play("idle_up")
 			else:
+				$Sword.z_index = 0
 				$AnimationPlayer.play("idle_down")
 	
 	if Input.is_action_just_pressed("a"):
@@ -215,12 +217,16 @@ func spriterdir_loop() -> void:
 	match movedir:
 		Vector2.LEFT:
 			sprite_direction = 'left'
+			$Sword.z_index = 0
 		Vector2.RIGHT:
 			sprite_direction = 'right'
+			$Sword.z_index = 0
 		Vector2.UP:
 			sprite_direction = 'up'
+			$Sword.z_index = 2
 		Vector2.DOWN:
 			sprite_direction = 'down'
+			$Sword.z_index = 0
 
 
 func damage_loop() -> void:	
@@ -314,3 +320,9 @@ func turn_dark():
 	
 func turn_light():
 	$camera/CanvasModulate.visible = false
+	
+func set_sword_invisible():
+	$Sword.visible = false
+	
+func set_sword_visible():
+	$Sword.visible = true
