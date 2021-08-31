@@ -8,6 +8,7 @@
 radius = 80.0
 
 [node name="FireMage" instance=ExtResource( 2 )]
+z_index = 1
 script = ExtResource( 3 )
 
 [node name="Sprite" parent="." index="0"]

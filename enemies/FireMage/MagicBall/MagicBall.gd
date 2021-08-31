@@ -42,3 +42,6 @@ func _on_DamageTimer_timeout():
 func _on_Area2D_body_entered(body):
 	if can_make_damage and body.has_method("hurt"):
 		body.hurt(body)
+		
+func get_fire_state():
+	return true
