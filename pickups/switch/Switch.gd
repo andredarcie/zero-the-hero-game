@@ -4,6 +4,7 @@ var proximity: bool = false
 var active: bool = false
 var await_time: float = 0
 var objects = []
+export var switch_name = ""
 
 var on_image: Texture = preload("res://pickups/switch/on.png")
 var off_image: Texture = preload("res://pickups/switch/off.png")
@@ -31,8 +32,10 @@ func toggle_switch():
 	self.active = !self.active
 	if self.active:
 		$Sprite.texture = on_image
+		GameState[switch_name] = true
 	else:
 		$Sprite.texture = off_image
+		GameState[switch_name] = false
 		
 	SoundEffects.play_switch_sound()
 	self.set_all_objects()

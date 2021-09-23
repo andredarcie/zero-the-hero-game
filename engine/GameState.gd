@@ -17,6 +17,8 @@ var player_mushrooms: int = 0
 var player_special_gloves_to_get_mushrooms: bool = false
 var player_sword_on_fire: bool = false
 
+# d4-3
+var d4_3_switch_1 = true
 
 var persisted_objects = []
 

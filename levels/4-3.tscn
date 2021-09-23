@@ -66,62 +66,56 @@ position = Vector2( 104, 40 )
 [node name="WindGrass" type="Node" parent="." index="6"]
 
 [node name="AnimatedSprite" parent="WindGrass" index="0" instance=ExtResource( 10 )]
-frame = 1
 
 [node name="AnimatedSprite2" parent="WindGrass" index="1" instance=ExtResource( 10 )]
 position = Vector2( 232, 216 )
-frame = 1
 
 [node name="AnimatedSprite3" parent="WindGrass" index="2" instance=ExtResource( 10 )]
 position = Vector2( 248, 216 )
+frame = 1
 
 [node name="AnimatedSprite4" parent="WindGrass" index="3" instance=ExtResource( 10 )]
 position = Vector2( 264, 216 )
+frame = 1
 
 [node name="AnimatedSprite5" parent="WindGrass" index="4" instance=ExtResource( 10 )]
 position = Vector2( 280, 216 )
+frame = 1
 
 [node name="AnimatedSprite6" parent="WindGrass" index="5" instance=ExtResource( 10 )]
 position = Vector2( 216, 232 )
-frame = 1
 
 [node name="AnimatedSprite7" parent="WindGrass" index="6" instance=ExtResource( 10 )]
 position = Vector2( 232, 232 )
-frame = 1
 
 [node name="AnimatedSprite8" parent="WindGrass" index="7" instance=ExtResource( 10 )]
 position = Vector2( 248, 232 )
-frame = 1
 
 [node name="AnimatedSprite9" parent="WindGrass" index="8" instance=ExtResource( 10 )]
 position = Vector2( 232, 248 )
+frame = 1
 
 [node name="AnimatedSprite10" parent="WindGrass" index="9" instance=ExtResource( 10 )]
 position = Vector2( 248, 248 )
-frame = 1
 
 [node name="AnimatedSprite11" parent="WindGrass" index="10" instance=ExtResource( 10 )]
 position = Vector2( 264, 232 )
-frame = 1
 
 [node name="AnimatedSprite13" parent="WindGrass" index="11" instance=ExtResource( 10 )]
 position = Vector2( 280, 232 )
+frame = 1
 
 [node name="AnimatedSprite14" parent="WindGrass" index="12" instance=ExtResource( 10 )]
 position = Vector2( 296, 232 )
-frame = 1
 
 [node name="AnimatedSprite15" parent="WindGrass" index="13" instance=ExtResource( 10 )]
 position = Vector2( 296, 248 )
-frame = 1
 
 [node name="AnimatedSprite16" parent="WindGrass" index="14" instance=ExtResource( 10 )]
 position = Vector2( 280, 248 )
-frame = 1
 
 [node name="AnimatedSprite12" parent="WindGrass" index="15" instance=ExtResource( 10 )]
 position = Vector2( 264, 248 )
-frame = 1
 
 [node name="FireGrass" type="Node" parent="." index="7"]
 
