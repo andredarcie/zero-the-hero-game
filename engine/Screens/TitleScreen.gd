@@ -9,5 +9,5 @@ func _input(event):
 
 func _on_Timer_timeout():
 	BackgroundMusic.play_main_sound()
-	LevelManager.current_player_position = Vector2(248, 392)
+	LevelManager.current_player_position = Vector2(152, 168)
 	LevelManager.change_scene("res://levels/4-3.tscn")

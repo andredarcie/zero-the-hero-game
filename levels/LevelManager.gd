@@ -1,7 +1,7 @@
 extends Node
 
-const LEVEL_MAX_SIZE_X = 32 * 16
-const LEVEL_MAX_SIZE_Y = 32 * 16
+const LEVEL_MAX_SIZE_X = 20 * 16
+const LEVEL_MAX_SIZE_Y = 15 * 16
 var current_level_x = 0
 var current_level_y = 0
 var number_of_levels_in_x = 8

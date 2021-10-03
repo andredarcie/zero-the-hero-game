@@ -98,8 +98,8 @@ script = ExtResource( 4 )
 current = true
 limit_left = 0
 limit_top = 0
-limit_right = 512
-limit_bottom = 512
+limit_right = 320
+limit_bottom = 240
 
 [node name="Sprite" type="Sprite" parent="."]
 z_index = 2
