@@ -70,6 +70,7 @@ func _on_Arrow_area_entered(area):
 
 
 func _on_Arrow_body_entered(body):
+	print(body.name)
 	if body.has_method("make_damage"):
 		body.make_damage(self)
 	elif body.has_method("hurt"):

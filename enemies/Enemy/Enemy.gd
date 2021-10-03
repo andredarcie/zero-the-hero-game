@@ -12,8 +12,10 @@ var sprite_default: Texture
 onready var PoolOfBlood: PackedScene = preload("res://enemies/Enemy/PoolOfBlood/PoolOfBlood.tscn")
 onready var SceneNode = get_node("../../")
 
+var invulnerable_to_arrows: bool = false
 var rng = RandomNumberGenerator.new()
 var move_direction = Vector2.ZERO
+var facing_direction = Direction.DOWN
 var pushed_move_direction = Vector2.ZERO
 var is_hurt: bool = false
 var move_random_direction: bool = true
@@ -54,6 +56,7 @@ func _physics_process(delta) -> void:
 func get_random_direction() -> Vector2:
 	rng.randomize()
 	var direction = rng.randi_range(0, 3)
+	facing_direction = direction
 	
 	match direction:
 		Direction.UP:
@@ -73,6 +76,9 @@ func _on_ChangeMovimentDirection_timeout() -> void:
 
 
 func hurt(body : Node2D) -> void:
+	if "Arrow" in body.name and self.invulnerable_to_arrows:
+		return
+		
 	if get_hurt_sound:
 		SoundEffects.play_sound(get_hurt_sound)
 		

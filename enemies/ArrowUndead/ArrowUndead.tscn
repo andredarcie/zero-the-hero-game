@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://enemies/Enemy/Enemy.tscn" type="PackedScene" id=1]
+[ext_resource path="res://enemies/ArrowUndead/ArrowUndead.gd" type="Script" id=2]
+[ext_resource path="res://enemies/ArrowUndead/arrow_undead.png" type="Texture" id=3]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 5.65816
+height = 0.0
+
+[node name="ArrowUndead" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="Sprite" parent="." index="0"]
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource( 1 )
+
+[node name="BowTimer" type="Timer" parent="." index="6"]
+wait_time = 0.5
+
+[connection signal="timeout" from="BowTimer" to="." method="_on_BowTimer_timeout"]
