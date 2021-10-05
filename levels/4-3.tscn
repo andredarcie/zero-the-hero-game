@@ -32,6 +32,7 @@ position = Vector2( 24, 136 )
 
 [node name="Firefly" parent="." index="3" instance=ExtResource( 5 )]
 position = Vector2( 272, 40 )
+frame = 3
 
 [node name="Objects" type="Node" parent="." index="4"]
 
