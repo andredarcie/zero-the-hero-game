@@ -10,8 +10,13 @@ var suspicious_texture: Texture = preload("res://enemies/Enemy/Balloons/suspicio
 var player_is_on_vision: bool = false
 
 func _ready():
+	set_physics_process(false)
+	$Sprite.visible = false
+	$AnimatedSprite.play()
+	
 	speed = 20
 	health = 2
+	move_random_direction = false
 	get_hurt_sound = preload("res://sounds/effects/undead.wav")
 	dying_sound = preload("res://sounds/effects/undead_dying.wav")
 
@@ -57,3 +62,10 @@ func enemy_lost_sight_of_player():
 
 func _on_InterrogationTime_timeout():
 	Ballon.texture = null
+
+
+func _on_AnimatedSprite_animation_finished():
+	$AnimatedSprite.queue_free()
+	move_random_direction = true
+	set_physics_process(true)
+	$Sprite.visible = true

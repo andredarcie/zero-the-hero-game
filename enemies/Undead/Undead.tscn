@@ -1,21 +1,37 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://enemies/Enemy/Enemy.tscn" type="PackedScene" id=1]
 [ext_resource path="res://enemies/Undead/Undead.gd" type="Script" id=2]
 [ext_resource path="res://enemies/Undead/undead.png" type="Texture" id=3]
+[ext_resource path="res://enemies/Undead/Undead_born/undead_born2.png" type="Texture" id=4]
+[ext_resource path="res://enemies/Undead/Undead_born/undead_born0.png" type="Texture" id=5]
+[ext_resource path="res://enemies/Undead/Undead_born/undead_born1.png" type="Texture" id=6]
+[ext_resource path="res://enemies/Undead/Undead_born/undead_born3.png" type="Texture" id=7]
+[ext_resource path="res://enemies/Undead/Undead_born/undead_born4.png" type="Texture" id=8]
+[ext_resource path="res://enemies/Undead/Undead_born/undead_born5.png" type="Texture" id=9]
+[ext_resource path="res://enemies/Undead/Undead_born/undead_born6.png" type="Texture" id=10]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 5.65816
 height = 0.0
 
-[sub_resource type="CircleShape2D" id=2]
+[sub_resource type="CircleShape2D" id=3]
 radius = 64.0
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ ExtResource( 5 ), ExtResource( 6 ), ExtResource( 4 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
 
 [node name="Undead" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 
 [node name="Sprite" parent="." index="0"]
 texture = ExtResource( 3 )
+region_rect = Rect2( 0, 0, 15, 15 )
 
 [node name="CollisionShape2D" parent="." index="1"]
 shape = SubResource( 1 )
@@ -25,7 +41,7 @@ visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Vision" index="0"]
 position = Vector2( 0.140305, -0.140305 )
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 
 [node name="Balloon" type="Sprite" parent="." index="7"]
 position = Vector2( 0.198425, -19.7701 )
@@ -33,6 +49,11 @@ position = Vector2( 0.198425, -19.7701 )
 [node name="InterrogationTime" type="Timer" parent="." index="8"]
 one_shot = true
 
+[node name="AnimatedSprite" type="AnimatedSprite" parent="." index="9"]
+frames = SubResource( 4 )
+
+[connection signal="animation_finished" from="EnemyAnimationPlayer" to="." method="_on_EnemyAnimationPlayer_animation_finished"]
 [connection signal="body_entered" from="Vision" to="." method="_on_Vision_body_entered"]
 [connection signal="body_exited" from="Vision" to="." method="_on_Vision_body_exited"]
 [connection signal="timeout" from="InterrogationTime" to="." method="_on_InterrogationTime_timeout"]
+[connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
