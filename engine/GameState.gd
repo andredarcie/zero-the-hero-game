@@ -49,7 +49,7 @@ func get_current_scene_name() -> String:
 	
 func restart_game():
 	LevelManager.current_player_position = Vector2(248, 392)
-	
+	get_tree().call_group("Enemy", "queue_free")
 	persisted_objects = []
 	player_health = 3
 	player_max_health = 3

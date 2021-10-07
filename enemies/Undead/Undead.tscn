@@ -15,10 +15,10 @@
 radius = 5.65816
 height = 0.0
 
-[sub_resource type="CircleShape2D" id=3]
+[sub_resource type="CircleShape2D" id=2]
 radius = 64.0
 
-[sub_resource type="SpriteFrames" id=4]
+[sub_resource type="SpriteFrames" id=3]
 animations = [ {
 "frames": [ ExtResource( 5 ), ExtResource( 6 ), ExtResource( 4 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ) ],
 "loop": true,
@@ -41,7 +41,7 @@ visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Vision" index="0"]
 position = Vector2( 0.140305, -0.140305 )
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="Balloon" type="Sprite" parent="." index="7"]
 position = Vector2( 0.198425, -19.7701 )
@@ -50,7 +50,7 @@ position = Vector2( 0.198425, -19.7701 )
 one_shot = true
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="." index="9"]
-frames = SubResource( 4 )
+frames = SubResource( 3 )
 
 [connection signal="animation_finished" from="EnemyAnimationPlayer" to="." method="_on_EnemyAnimationPlayer_animation_finished"]
 [connection signal="body_entered" from="Vision" to="." method="_on_Vision_body_entered"]

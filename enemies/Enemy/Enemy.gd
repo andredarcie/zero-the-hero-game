@@ -99,7 +99,7 @@ func _on_HurtTime_timeout() -> void:
 			
 		var pool_of_blood = PoolOfBlood.instance()
 		pool_of_blood.global_position = global_position
-		SceneNode.add_child(pool_of_blood)
+		get_tree().get_root().add_child(pool_of_blood)
 		
 		GameState.activate_id(unique_id)
 		queue_free()
