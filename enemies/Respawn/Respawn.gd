@@ -5,8 +5,8 @@ var rng = RandomNumberGenerator.new()
 
 func _ready():
 	rng.randomize()
-	var my_random_number = rng.randi_range(0, 1)
-	if my_random_number == 1:
+	var my_random_number = rng.randi_range(1, 100)
+	if my_random_number <= 80:
 		instance_scene(Undead)
 	else:
 		queue_free()

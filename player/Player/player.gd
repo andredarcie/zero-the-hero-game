@@ -4,6 +4,7 @@ onready var FootSteps = preload("res://player/FootSteps/FootSteps.tscn")
 onready var blood_particules = preload("res://enemies/Enemy/Blood/Blood.tscn")
 onready var Bomb = preload("res://pickups/bomb/Bomb.tscn")
 
+onready var TVShaderMaterial = $CanvasLayer/ColorRect.get_material()
 var state: String = 'default'
 var step_interval = 4
 var type: String = 'player'
@@ -278,6 +279,12 @@ func make_damage(body) -> void:
 		
 	hitstun = 10
 	knockdir = global_transform.origin - body.global_transform.origin
+	
+	if health == 1:
+		TVShaderMaterial.set_shader_param('roll', true)
+		TVShaderMaterial.set_shader_param('roll_speed', 8)
+		TVShaderMaterial.set_shader_param('roll_size', 15)
+		TVShaderMaterial.set_shader_param('roll_variation', 1.8)
 		
 	if type == 'player':
 		SoundEffects.play_hero_hurt()
@@ -312,6 +319,12 @@ func gain_max_health() -> void:
 	
 	
 func gain_health() -> void:
+	if health == 1:
+		TVShaderMaterial.set_shader_param('roll', false)
+		TVShaderMaterial.set_shader_param('roll_speed', 0)
+		TVShaderMaterial.set_shader_param('roll_size', 0)
+		TVShaderMaterial.set_shader_param('roll_variation', 0.1)
+		
 	health += 1
 	GameState.player_health += 1
 	

@@ -10,10 +10,12 @@ enum Direction {
 var sprite_default: Texture
 
 onready var PoolOfBlood: PackedScene = preload("res://enemies/Enemy/PoolOfBlood/PoolOfBlood.tscn")
+onready var Coin: PackedScene = preload("res://pickups/coin/Coin.tscn")
+onready var HeartScene: PackedScene = preload("res://pickups/heart/Heart.tscn")
+var rng = RandomNumberGenerator.new()
 onready var SceneNode = get_node("../../")
 
 var invulnerable_to_arrows: bool = false
-var rng = RandomNumberGenerator.new()
 var move_direction = Vector2.ZERO
 var facing_direction = Direction.DOWN
 var pushed_move_direction = Vector2.ZERO
@@ -97,9 +99,17 @@ func _on_HurtTime_timeout() -> void:
 		if dying_sound:
 			SoundEffects.play_sound(dying_sound)
 			
-		var pool_of_blood = PoolOfBlood.instance()
-		pool_of_blood.global_position = global_position
-		get_tree().get_root().add_child(pool_of_blood)
+		instance_scene(PoolOfBlood)
+		
+		rng.randomize()
+		var my_random_number = rng.randi_range(1, 10)
+		
+		if my_random_number >= 1 and my_random_number <= 5:
+			instance_scene(Coin)
+			
+		if my_random_number >= 6 and my_random_number <= 7:
+			instance_scene(HeartScene)
+		
 		
 		GameState.activate_id(unique_id)
 		queue_free()
@@ -109,3 +119,10 @@ func _on_HurtTime_timeout() -> void:
 func _on_Area2D_body_entered(body) -> void:
 	if body.has_method("make_damage"):
 		body.make_damage(self)
+		
+		
+func instance_scene(scene: PackedScene) -> void:
+	var new_scene = scene.instance()
+	new_scene.global_position = global_position
+	get_parent().call_deferred("add_child", new_scene)
+	queue_free()

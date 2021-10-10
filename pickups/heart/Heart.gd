@@ -6,7 +6,7 @@ func _ready():
 
 func _on_Heart_body_entered(body):
 	if GameState.check_body_is_player(body):
-		if body.has_method("gain_health"):
+		if body.has_method("gain_health") and not GameState.player_health == GameState.player_max_health:
 			body.gain_health()
 			GameState.destroy(self)
 			SoundEffects.play_health_potion()
