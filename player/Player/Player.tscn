@@ -153,6 +153,10 @@ rotation = 3.9235
 z_index = 2
 texture = ExtResource( 6 )
 
+[node name="InvulnerableTimer" type="Timer" parent="."]
+wait_time = 2.0
+
 [connection signal="ready" from="." to="." method="_on_player_ready"]
 [connection signal="timeout" from="SwordOnFireTimer" to="." method="_on_SwordOnFireTimer_timeout"]
 [connection signal="timeout" from="Bow/BowTimer" to="." method="_on_BowTimer_timeout"]
+[connection signal="timeout" from="InvulnerableTimer" to="." method="_on_InvulnerableTimer_timeout"]

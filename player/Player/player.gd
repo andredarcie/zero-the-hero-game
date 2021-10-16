@@ -205,7 +205,6 @@ func _on_BowTimer_timeout() -> void:
 func movement_loop() -> void:
 	var motion
 	if hitstun == 0:
-		invulnerable = false
 		motion = movedir.normalized() * speed
 	else:
 		motion = knockdir.normalized() * 200
@@ -294,6 +293,7 @@ func make_damage(body) -> void:
 		GameState.restart_game()
 	
 	invulnerable = true
+	$InvulnerableTimer.start()
 	#var blood = blood_particules.instance()
 	#add_child(blood)
 	
@@ -339,3 +339,8 @@ func set_sword_invisible():
 	
 func set_sword_visible():
 	$Sword.visible = true
+
+
+func _on_InvulnerableTimer_timeout():
+	invulnerable = false
+	$InvulnerableTimer.stop()
