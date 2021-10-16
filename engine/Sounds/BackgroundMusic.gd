@@ -1,6 +1,7 @@
 extends Node2D
 
-	
+onready var AudioFile = preload("res://sounds/background/405220-shortiefoeva2-playground.mp3")
+
 func stop():
 	$AudioStreamPlayer.stop()
 	
@@ -16,4 +17,4 @@ func play_dungeon_sound():
 	pass
 	
 func play_main_sound():
-	pass
+	play_sound(AudioFile)

@@ -109,6 +109,7 @@ func _on_Item3_body_exited(_body):
 
 func _on_Salesman_area_entered(area):
 	if area.get_parent().name == "sword":
+		return
 		salesman_is_dead = true
 		item1_value = 0
 		item2_value = 0

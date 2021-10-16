@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/405220-shortiefoeva2-playground.mp3-cd255ae2db5a32574d6cb81afe727f70.mp3str"
+
+[deps]
+
+source_file="res://sounds/background/405220-shortiefoeva2-playground.mp3"
+dest_files=[ "res://.import/405220-shortiefoeva2-playground.mp3-cd255ae2db5a32574d6cb81afe727f70.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
