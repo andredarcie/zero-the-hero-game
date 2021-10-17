@@ -14,6 +14,7 @@ var player_arrows: int = 2
 var player_bombs: int = 2
 var player_sword_cut_grass: bool = true
 var player_mushrooms: int = 0
+var player_wood: int = 0
 var player_special_gloves_to_get_mushrooms: bool = false
 var player_sword_on_fire: bool = false
 
@@ -102,7 +103,9 @@ func get_item(name):
 	hud.get_item(name)
 	
 	if name == 'Mushroom':
-		player_mushrooms += player_mushrooms + 1
+		player_mushrooms = player_mushrooms + 1
+	if name == 'Wood':
+		player_wood = player_wood + 1
 		
 func get_unique_name(object):
 	var level_name = "scene:"+ get_tree().get_current_scene().get_name() + "--"
