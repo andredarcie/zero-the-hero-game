@@ -9,8 +9,12 @@ func stop_sound():
 	stop()
 	
 func play_sound(sound : AudioStream):
-	stream = sound
-	play()
+	var audio_stream_player: Node
+	audio_stream_player = AudioStreamPlayer.new()
+	get_parent().add_child(audio_stream_player)
+	audio_stream_player.stream = sound
+	audio_stream_player.play()
+	audio_stream_player.connect("finished", audio_stream_player, "queue_free")
 
 
 func _on_SoundEffects_finished():

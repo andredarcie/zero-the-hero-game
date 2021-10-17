@@ -118,6 +118,10 @@ func create(object):
 	
 	if GameState.persisted_objects.has(unique_name):
 		object.queue_free()
+		
+func create_check(object):
+	var unique_name = GameState.get_unique_name(object)
+	return GameState.persisted_objects.has(unique_name)
 
 func destroy(object):
 	persisted_objects.append(GameState.get_unique_name(object))
