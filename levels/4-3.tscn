@@ -1,9 +1,8 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://levels/LevelBase.tscn" type="PackedScene" id=1]
 [ext_resource path="res://tiles/TileMaps/forest_tile_map/ForestTileMap.tscn" type="PackedScene" id=2]
 [ext_resource path="res://tiles/grass/CutGrass/CutGrass.tscn" type="PackedScene" id=3]
-[ext_resource path="res://tiles/TileMaps/forest_tile_map/Tree.tscn" type="PackedScene" id=4]
 [ext_resource path="res://pickups/firefly/Firefly.tscn" type="PackedScene" id=5]
 [ext_resource path="res://npcs/mage/Mage.tscn" type="PackedScene" id=6]
 [ext_resource path="res://pickups/mushroom/Mushroom.tscn" type="PackedScene" id=7]
@@ -15,7 +14,7 @@
 
 [node name="ForestTileMap" parent="." index="1" instance=ExtResource( 2 )]
 cell_size = Vector2( 16, 16 )
-tile_data = PoolIntArray( 0, 4, 0, 1, 4, 0, 2, 4, 0, 3, 4, 0, 4, 4, 0, 5, 4, 0, 6, 4, 0, 7, 4, 0, 8, 4, 0, 12, 4, 0, 13, 4, 0, 14, 4, 0, 15, 4, 0, 16, 4, 0, 17, 4, 0, 18, 4, 0, 19, 4, 0, 65536, 4, 0, 65537, 4, 0, 65538, 7, 0, 65541, 7, 0, 65542, 4, 0, 65543, 4, 0, 65546, 4, 0, 65548, 7, 0, 65550, 4, 0, 65551, 4, 0, 65552, 7, 0, 65553, 27, 0, 65555, 4, 0, 131072, 4, 0, 131075, 27, 0, 131078, 12, 0, 131081, 4, 0, 131082, 4, 0, 131085, 7, 0, 131086, 4, 0, 131091, 4, 0, 196608, 4, 0, 196612, 27, 0, 196616, 4, 0, 196617, 4, 0, 196618, 4, 0, 196619, 4, 0, 196623, 27, 0, 196625, 7, 0, 196627, 4, 0, 196628, 22, 0, 262144, 4, 0, 262145, 4, 0, 262147, 27, 0, 262154, 4, 0, 262155, 4, 0, 262156, 4, 0, 262160, 4, 0, 262162, 7, 0, 262163, 4, 0, 327680, 4, 0, 327681, 7, 0, 327685, 19, 0, 327690, 4, 0, 327691, 4, 0, 327692, 4, 0, 327697, 7, 0, 327699, 4, 0, 393216, 4, 0, 393217, 4, 0, 393224, 4, 0, 393227, 4, 0, 393228, 4, 0, 393229, 4, 0, 393230, 4, 0, 393231, 4, 0, 393232, 4, 0, 393233, 4, 0, 458758, 4, 0, 458759, 4, 0, 458760, 4, 0, 458762, 4, 0, 458763, 4, 0, 458764, 4, 0, 458765, 4, 0, 458766, 4, 0, 458767, 4, 0, 458769, 4, 0, 458770, 4, 0, 524294, 4, 0, 524295, 4, 0, 524296, 4, 0, 524297, 4, 0, 524298, 4, 0, 524299, 4, 0, 524300, 4, 0, 524301, 4, 0, 524303, 4, 0, 524304, 4, 0, 524305, 4, 0, 589824, 4, 0, 589827, 19, 0, 589830, 4, 0, 589831, 4, 0, 589832, 4, 0, 589833, 4, 0, 589834, 4, 0, 589835, 4, 0, 589838, 18, 0, 589840, 4, 0, 589843, 4, 0, 655360, 4, 0, 655361, 6, 0, 655362, 4, 0, 655363, 4, 0, 655365, 4, 0, 655367, 4, 0, 655368, 4, 0, 655369, 4, 0, 655370, 4, 0, 655371, 4, 0, 655377, 7, 0, 655378, 4, 0, 655379, 4, 0, 720896, 4, 0, 720897, 7, 0, 720898, 4, 0, 720899, 4, 0, 720900, 4, 0, 720903, 4, 0, 720904, 4, 0, 720912, 4, 0, 720914, 4, 0, 720915, 4, 0, 786432, 4, 0, 786433, 4, 0, 786434, 4, 0, 786435, 6, 0, 786436, 4, 0, 786437, 7, 0, 786438, 7, 0, 786441, 7, 0, 786449, 7, 0, 786451, 4, 0, 851968, 4, 0, 851969, 4, 0, 851970, 7, 0, 851971, 19, 0, 851974, 7, 0, 851976, 7, 0, 851978, 4, 0, 851979, 4, 0, 851980, 4, 0, 851982, 7, 0, 851985, 7, 0, 851987, 4, 0, 917504, 4, 0, 917505, 4, 0, 917506, 4, 0, 917507, 4, 0, 917508, 4, 0, 917509, 4, 0, 917510, 4, 0, 917511, 4, 0, 917512, 4, 0, 917513, 4, 0, 917514, 4, 0, 917515, 4, 0, 917516, 4, 0, 917517, 4, 0, 917518, 4, 0, 917519, 4, 0, 917520, 4, 0, 917521, 4, 0, 917522, 4, 0, 917523, 4, 0, 983043, 24, 0, 983054, 24, 0, 983057, 24, 0 )
+tile_data = PoolIntArray( 0, 25, 0, 1, 25, 0, 2, 25, 0, 3, 25, 0, 4, 25, 0, 5, 25, 0, 6, 25, 0, 7, 25, 0, 8, 4, 0, 12, 3, 0, 13, 25, 0, 14, 25, 0, 15, 25, 0, 16, 25, 0, 17, 25, 0, 18, 25, 0, 19, 25, 0, 65536, 3, 0, 65537, 3, 0, 65538, 7, 0, 65541, 7, 0, 65542, 4, 0, 65543, 4, 0, 65546, 4, 0, 65548, 7, 0, 65550, 4, 0, 65551, 3, 0, 65552, 7, 0, 65553, 27, 0, 65554, 3, 0, 65555, 3, 0, 131072, 3, 0, 131075, 27, 0, 131078, 12, 0, 131081, 4, 0, 131082, 4, 0, 131085, 7, 0, 131086, 4, 0, 131091, 3, 0, 196608, 3, 0, 196612, 27, 0, 196616, 4, 0, 196617, 4, 0, 196618, 4, 0, 196619, 4, 0, 196623, 27, 0, 196625, 7, 0, 196627, 3, 0, 196628, 22, 0, 262144, 3, 0, 262145, 4, 0, 262147, 27, 0, 262154, 4, 0, 262155, 4, 0, 262156, 4, 0, 262160, 4, 0, 262162, 7, 0, 262163, 3, 0, 327680, 3, 0, 327681, 7, 0, 327685, 19, 0, 327690, 4, 0, 327691, 4, 0, 327692, 4, 0, 327697, 7, 0, 327699, 3, 0, 393216, 4, 0, 393217, 4, 0, 393224, 4, 0, 393227, 4, 0, 393228, 4, 0, 393229, 4, 0, 393230, 4, 0, 393231, 4, 0, 393232, 4, 0, 393233, 4, 0, 458758, 4, 0, 458759, 4, 0, 458760, 4, 0, 458762, 4, 0, 458763, 4, 0, 458764, 10, 0, 458765, 4, 0, 458766, 4, 0, 458767, 4, 0, 458769, 4, 0, 458770, 4, 0, 524294, 4, 0, 524295, 4, 0, 524296, 4, 0, 524297, 4, 0, 524298, 4, 0, 524299, 4, 0, 524300, 4, 0, 524301, 4, 0, 524303, 4, 0, 524304, 4, 0, 524305, 4, 0, 589824, 3, 0, 589827, 19, 0, 589830, 4, 0, 589831, 4, 0, 589832, 4, 0, 589833, 4, 0, 589834, 4, 0, 589835, 4, 0, 589838, 18, 0, 589840, 4, 0, 589843, 3, 0, 655360, 3, 0, 655361, 6, 0, 655362, 4, 0, 655363, 4, 0, 655365, 4, 0, 655367, 4, 0, 655368, 4, 0, 655369, 4, 0, 655370, 4, 0, 655371, 4, 0, 655377, 7, 0, 655378, 4, 0, 655379, 3, 0, 720896, 3, 0, 720897, 7, 0, 720898, 4, 0, 720899, 3, 0, 720900, 4, 0, 720903, 4, 0, 720904, 4, 0, 720912, 4, 0, 720914, 3, 0, 720915, 3, 0, 786432, 3, 0, 786433, 4, 0, 786434, 4, 0, 786435, 6, 0, 786436, 4, 0, 786437, 7, 0, 786438, 7, 0, 786441, 7, 0, 786448, 3, 0, 786449, 7, 0, 786451, 3, 0, 851968, 3, 0, 851969, 3, 0, 851970, 7, 0, 851971, 19, 0, 851974, 7, 0, 851976, 7, 0, 851978, 4, 0, 851979, 4, 0, 851980, 4, 0, 851982, 7, 0, 851985, 7, 0, 851986, 3, 0, 851987, 3, 0, 917504, 3, 0, 917505, 3, 0, 917506, 3, 0, 917507, 3, 0, 917508, 3, 0, 917509, 3, 0, 917510, 3, 0, 917511, 3, 0, 917512, 3, 0, 917513, 3, 0, 917514, 3, 0, 917515, 3, 0, 917516, 3, 0, 917517, 3, 0, 917518, 3, 0, 917519, 3, 0, 917520, 3, 0, 917521, 3, 0, 917522, 3, 0, 917523, 3, 0, 983043, 24, 0, 983048, 3, 0, 983049, 3, 0, 983050, 3, 0, 983051, 3, 0, 983052, 3, 0, 983054, 24, 0, 983057, 24, 0 )
 
 [node name="Grass" type="Node" parent="." index="2"]
 
@@ -33,7 +32,7 @@ position = Vector2( 24, 136 )
 
 [node name="Firefly" parent="." index="3" instance=ExtResource( 5 )]
 position = Vector2( 272, 40 )
-frame = 2
+frame = 1
 
 [node name="Objects" type="Node" parent="." index="4"]
 
@@ -57,219 +56,7 @@ position = Vector2( 240, 184 )
 [node name="Grass2" parent="FireGrass" index="1" instance=ExtResource( 8 )]
 position = Vector2( 224, 184 )
 
-[node name="Trees" type="Node" parent="." index="6"]
-
-[node name="Tree" parent="Trees" index="0" instance=ExtResource( 4 )]
-position = Vector2( 8, 8 )
-
-[node name="Tree2" parent="Trees" index="1" instance=ExtResource( 4 )]
-position = Vector2( 24, 8 )
-
-[node name="Tree3" parent="Trees" index="2" instance=ExtResource( 4 )]
-position = Vector2( 40, 8 )
-
-[node name="Tree4" parent="Trees" index="3" instance=ExtResource( 4 )]
-position = Vector2( 56, 8 )
-
-[node name="Tree5" parent="Trees" index="4" instance=ExtResource( 4 )]
-position = Vector2( 72, 8 )
-
-[node name="Tree6" parent="Trees" index="5" instance=ExtResource( 4 )]
-position = Vector2( 88, 8 )
-
-[node name="Tree7" parent="Trees" index="6" instance=ExtResource( 4 )]
-position = Vector2( 104, 8 )
-
-[node name="Tree8" parent="Trees" index="7" instance=ExtResource( 4 )]
-position = Vector2( 120, 8 )
-
-[node name="Tree9" parent="Trees" index="8" instance=ExtResource( 4 )]
-position = Vector2( 8, 24 )
-
-[node name="Tree10" parent="Trees" index="9" instance=ExtResource( 4 )]
-position = Vector2( 8, 40 )
-
-[node name="Tree11" parent="Trees" index="10" instance=ExtResource( 4 )]
-position = Vector2( 8, 56 )
-
-[node name="Tree12" parent="Trees" index="11" instance=ExtResource( 4 )]
-position = Vector2( 8, 72 )
-
-[node name="Tree13" parent="Trees" index="12" instance=ExtResource( 4 )]
-position = Vector2( 8, 88 )
-
-[node name="Tree14" parent="Trees" index="13" instance=ExtResource( 4 )]
-position = Vector2( 24, 24 )
-
-[node name="Tree15" parent="Trees" index="14" instance=ExtResource( 4 )]
-position = Vector2( 8, 152 )
-
-[node name="Tree16" parent="Trees" index="15" instance=ExtResource( 4 )]
-position = Vector2( 8, 168 )
-
-[node name="Tree17" parent="Trees" index="16" instance=ExtResource( 4 )]
-position = Vector2( 8, 184 )
-
-[node name="Tree18" parent="Trees" index="17" instance=ExtResource( 4 )]
-position = Vector2( 8, 200 )
-
-[node name="Tree19" parent="Trees" index="18" instance=ExtResource( 4 )]
-position = Vector2( 8, 216 )
-
-[node name="Tree20" parent="Trees" index="19" instance=ExtResource( 4 )]
-position = Vector2( 8, 232 )
-
-[node name="Tree21" parent="Trees" index="20" instance=ExtResource( 4 )]
-position = Vector2( 24, 232 )
-
-[node name="Tree22" parent="Trees" index="21" instance=ExtResource( 4 )]
-position = Vector2( 40, 232 )
-
-[node name="Tree23" parent="Trees" index="22" instance=ExtResource( 4 )]
-position = Vector2( 56, 232 )
-
-[node name="Tree24" parent="Trees" index="23" instance=ExtResource( 4 )]
-position = Vector2( 72, 232 )
-
-[node name="Tree25" parent="Trees" index="24" instance=ExtResource( 4 )]
-position = Vector2( 88, 232 )
-
-[node name="Tree26" parent="Trees" index="25" instance=ExtResource( 4 )]
-position = Vector2( 104, 232 )
-
-[node name="Tree27" parent="Trees" index="26" instance=ExtResource( 4 )]
-position = Vector2( 120, 232 )
-
-[node name="Tree28" parent="Trees" index="27" instance=ExtResource( 4 )]
-position = Vector2( 136, 232 )
-
-[node name="Tree29" parent="Trees" index="28" instance=ExtResource( 4 )]
-position = Vector2( 152, 232 )
-
-[node name="Tree30" parent="Trees" index="29" instance=ExtResource( 4 )]
-position = Vector2( 168, 232 )
-
-[node name="Tree31" parent="Trees" index="30" instance=ExtResource( 4 )]
-position = Vector2( 184, 232 )
-
-[node name="Tree32" parent="Trees" index="31" instance=ExtResource( 4 )]
-position = Vector2( 200, 232 )
-
-[node name="Tree33" parent="Trees" index="32" instance=ExtResource( 4 )]
-position = Vector2( 216, 232 )
-
-[node name="Tree34" parent="Trees" index="33" instance=ExtResource( 4 )]
-position = Vector2( 232, 232 )
-
-[node name="Tree35" parent="Trees" index="34" instance=ExtResource( 4 )]
-position = Vector2( 248, 232 )
-
-[node name="Tree36" parent="Trees" index="35" instance=ExtResource( 4 )]
-position = Vector2( 264, 232 )
-
-[node name="Tree37" parent="Trees" index="36" instance=ExtResource( 4 )]
-position = Vector2( 280, 232 )
-
-[node name="Tree38" parent="Trees" index="37" instance=ExtResource( 4 )]
-position = Vector2( 296, 232 )
-
-[node name="Tree39" parent="Trees" index="38" instance=ExtResource( 4 )]
-position = Vector2( 312, 232 )
-
-[node name="Tree40" parent="Trees" index="39" instance=ExtResource( 4 )]
-position = Vector2( 312, 216 )
-
-[node name="Tree41" parent="Trees" index="40" instance=ExtResource( 4 )]
-position = Vector2( 312, 200 )
-
-[node name="Tree42" parent="Trees" index="41" instance=ExtResource( 4 )]
-position = Vector2( 312, 184 )
-
-[node name="Tree43" parent="Trees" index="42" instance=ExtResource( 4 )]
-position = Vector2( 312, 168 )
-
-[node name="Tree44" parent="Trees" index="43" instance=ExtResource( 4 )]
-position = Vector2( 312, 152 )
-
-[node name="Tree45" parent="Trees" index="44" instance=ExtResource( 4 )]
-position = Vector2( 312, 88 )
-
-[node name="Tree46" parent="Trees" index="45" instance=ExtResource( 4 )]
-position = Vector2( 312, 72 )
-
-[node name="Tree47" parent="Trees" index="46" instance=ExtResource( 4 )]
-position = Vector2( 312, 56 )
-
-[node name="Tree48" parent="Trees" index="47" instance=ExtResource( 4 )]
-position = Vector2( 312, 40 )
-
-[node name="Tree49" parent="Trees" index="48" instance=ExtResource( 4 )]
-position = Vector2( 312, 24 )
-
-[node name="Tree50" parent="Trees" index="49" instance=ExtResource( 4 )]
-position = Vector2( 312, 8 )
-
-[node name="Tree51" parent="Trees" index="50" instance=ExtResource( 4 )]
-position = Vector2( 296, 8 )
-
-[node name="Tree52" parent="Trees" index="51" instance=ExtResource( 4 )]
-position = Vector2( 280, 8 )
-
-[node name="Tree53" parent="Trees" index="52" instance=ExtResource( 4 )]
-position = Vector2( 264, 8 )
-
-[node name="Tree54" parent="Trees" index="53" instance=ExtResource( 4 )]
-position = Vector2( 248, 8 )
-
-[node name="Tree55" parent="Trees" index="54" instance=ExtResource( 4 )]
-position = Vector2( 232, 8 )
-
-[node name="Tree56" parent="Trees" index="55" instance=ExtResource( 4 )]
-position = Vector2( 216, 8 )
-
-[node name="Tree57" parent="Trees" index="56" instance=ExtResource( 4 )]
-position = Vector2( 200, 8 )
-
-[node name="Tree58" parent="Trees" index="57" instance=ExtResource( 4 )]
-position = Vector2( 200, 64 )
-
-[node name="Tree59" parent="Trees" index="58" instance=ExtResource( 4 )]
-position = Vector2( 248, 128 )
-
-[node name="Tree60" parent="Trees" index="59" instance=ExtResource( 4 )]
-position = Vector2( 296, 216 )
-
-[node name="Tree61" parent="Trees" index="60" instance=ExtResource( 4 )]
-position = Vector2( 280, 184 )
-
-[node name="Tree62" parent="Trees" index="61" instance=ExtResource( 4 )]
-position = Vector2( 216, 216 )
-
-[node name="Tree63" parent="Trees" index="62" instance=ExtResource( 4 )]
-position = Vector2( 152, 216 )
-
-[node name="Tree64" parent="Trees" index="63" instance=ExtResource( 4 )]
-position = Vector2( 112, 176 )
-
-[node name="Tree65" parent="Trees" index="64" instance=ExtResource( 4 )]
-position = Vector2( 72, 192 )
-
-[node name="Tree66" parent="Trees" index="65" instance=ExtResource( 4 )]
-position = Vector2( 72, 176 )
-
-[node name="Tree67" parent="Trees" index="66" instance=ExtResource( 4 )]
-position = Vector2( 176, 192 )
-
-[node name="Tree68" parent="Trees" index="67" instance=ExtResource( 4 )]
-position = Vector2( 104, 24 )
-
-[node name="Tree69" parent="Trees" index="68" instance=ExtResource( 4 )]
-position = Vector2( 232, 24 )
-
-[node name="Tree70" parent="Trees" index="69" instance=ExtResource( 4 )]
-position = Vector2( 24, 152 )
-
-[node name="Npcs" type="Node" parent="." index="8"]
+[node name="Npcs" type="Node" parent="." index="7"]
 
 [node name="Mage" parent="Npcs" index="0" instance=ExtResource( 6 )]
 position = Vector2( 72, 40 )

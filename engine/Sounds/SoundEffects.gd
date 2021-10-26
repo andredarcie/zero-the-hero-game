@@ -4,6 +4,7 @@ onready var enter : AudioStream = preload("res://sounds/effects/enter.wav")
 onready var hero_hurt : AudioStream = preload("res://sounds/effects/hero_hurt.wav")
 onready var health_potion : AudioStream = preload("res://sounds/effects/health_potion.wav")
 onready var switch_sound : AudioStream = preload("res://sounds/effects/switch_sound.wav")
+onready var bridge : AudioStream = preload("res://sounds/effects/bridge.wav")
 
 func stop_sound():
 	stop()
@@ -35,3 +36,7 @@ func play_health_potion():
 func play_switch_sound():
 	stop()
 	play_sound(switch_sound)
+	
+func play_bridge_sound():
+	stop()
+	play_sound(bridge)

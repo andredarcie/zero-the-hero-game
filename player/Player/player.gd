@@ -344,3 +344,10 @@ func set_sword_visible():
 func _on_InvulnerableTimer_timeout():
 	invulnerable = false
 	$InvulnerableTimer.stop()
+	
+func show_ballon_wood():
+	$Balloon.visible = true
+	$Balloon.texture = preload("res://player/Player/wood.png")
+	
+func hide_ballon_wood():
+	$Balloon.visible = false

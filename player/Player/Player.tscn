@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://engine/camera.tscn" type="PackedScene" id=1]
 [ext_resource path="res://player/BowArrow/bow.png" type="Texture" id=2]
@@ -13,10 +13,7 @@ extents = Vector2( 6, 7 )
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 7, 8 )
 
-[sub_resource type="OccluderPolygon2D" id=3]
-polygon = PoolVector2Array( -4.48177, 7.64083, 3.98177, 7.4181, 5.54084, 3.07497, -0.138638, 1.5159, -6.1522, 3.85451 )
-
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=3]
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -31,7 +28,7 @@ tracks/0/keys = {
 "values": [ 0 ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=4]
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -46,7 +43,7 @@ tracks/0/keys = {
 "values": [ 4 ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=5]
 length = 0.3
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -61,7 +58,7 @@ tracks/0/keys = {
 "values": [ 0, 1 ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=6]
 length = 0.3
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -76,7 +73,7 @@ tracks/0/keys = {
 "values": [ 2, 3 ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=7]
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -118,9 +115,6 @@ shape = SubResource( 2 )
 wait_time = 3.0
 one_shot = true
 
-[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
-occluder = SubResource( 3 )
-
 [node name="Bow" type="Sprite" parent="."]
 position = Vector2( 0.111919, 11.5817 )
 rotation = 0.785398
@@ -131,11 +125,11 @@ texture = ExtResource( 2 )
 wait_time = 0.3
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/idle_down = SubResource( 4 )
-anims/idle_up = SubResource( 5 )
-anims/walking = SubResource( 6 )
-anims/walking_down = SubResource( 7 )
-anims/walking_up = SubResource( 8 )
+anims/idle_down = SubResource( 3 )
+anims/idle_up = SubResource( 4 )
+anims/walking = SubResource( 5 )
+anims/walking_down = SubResource( 6 )
+anims/walking_up = SubResource( 7 )
 
 [node name="Foots" type="Position2D" parent="."]
 position = Vector2( -0.511095, 5.0396 )
@@ -155,6 +149,10 @@ texture = ExtResource( 6 )
 
 [node name="InvulnerableTimer" type="Timer" parent="."]
 wait_time = 2.0
+
+[node name="Balloon" type="Sprite" parent="."]
+position = Vector2( 0, -16.169 )
+z_index = 1
 
 [connection signal="ready" from="." to="." method="_on_player_ready"]
 [connection signal="timeout" from="SwordOnFireTimer" to="." method="_on_SwordOnFireTimer_timeout"]

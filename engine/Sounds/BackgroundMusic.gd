@@ -16,5 +16,4 @@ func play_dungeon_sound():
 	pass
 	
 func play_main_sound():
-	return
 	play_sound(AudioFile)
