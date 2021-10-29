@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://tiles/bonfire/sprite_fire1.png" type="Texture" id=1]
 [ext_resource path="res://tiles/bonfire/Bonfire.gd" type="Script" id=2]
 [ext_resource path="res://tiles/bonfire/light.png" type="Texture" id=3]
 [ext_resource path="res://tiles/bonfire/sprite_fire0.png" type="Texture" id=4]
 [ext_resource path="res://tiles/bonfire/sprite_fire2.png" type="Texture" id=5]
+[ext_resource path="res://tiles/bonfire/base.png" type="Texture" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8, 8 )
@@ -16,6 +17,9 @@ animations = [ {
 "name": "default",
 "speed": 3.0
 } ]
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 8.13097, 7.7606 )
 
 [node name="Bonfire" type="Area2D"]
 z_index = 2
@@ -38,4 +42,16 @@ frames = SubResource( 2 )
 frame = 2
 playing = true
 
+[node name="Base" type="Sprite" parent="."]
+visible = false
+modulate = Color( 1, 1, 1, 0.392157 )
+texture = ExtResource( 6 )
+
+[node name="BaseStaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BaseStaticBody2D"]
+position = Vector2( 0.0990982, 0.148651 )
+shape = SubResource( 3 )
+
 [connection signal="area_entered" from="." to="." method="_on_Bonfire_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_Bonfire_body_entered"]

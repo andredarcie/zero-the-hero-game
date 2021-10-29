@@ -266,6 +266,8 @@ func damage_loop() -> void:
 		elif hitstun == 0 and body.get('damage') != null and body.get('type') != type:
 			make_damage(body)
 
+func catch_fire():
+	make_damage(self)
 
 func make_damage(body) -> void:
 	if invulnerable:
