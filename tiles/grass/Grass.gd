@@ -3,6 +3,21 @@ extends Node2D
 var on_fire: bool = false
 var damage = 1
 var ashes: bool = false
+export(bool) var is_brush = false
+
+func _ready():
+	if is_brush:
+		$AnimatedSprite.visible = false
+		$Sprite.visible = true
+		
+		if GameState.create_check(self):
+			$Sprite.visible = false
+			$Sprite.queue_free()
+			$StaticBody2D.queue_free()
+	else:
+		$Sprite.queue_free()
+		$StaticBody2D.queue_free()
+		
 
 func _on_Timer_timeout():
 	$Timer.stop()
@@ -20,13 +35,20 @@ func _on_Timer_timeout():
 		
 	
 func catch_fire():
-	if ashes:
+	if ashes or on_fire:
 		return
 		
 	on_fire = true
+	$AnimatedSprite.visible = true
 	$AnimatedSprite.speed_scale = 5
 	$AnimatedSprite.play("fire")
 	$Light2D.visible = true
+	
+	if is_brush:
+		$Sprite.queue_free()
+		$StaticBody2D.queue_free()
+		GameState.destroy(self)
+		
 	$Timer.start()
 
 

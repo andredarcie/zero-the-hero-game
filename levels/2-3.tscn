@@ -94,3 +94,4 @@ position = Vector2( 56, 232 )
 
 [node name="Bridge" parent="Water" index="15" instance=ExtResource( 6 )]
 position = Vector2( 72, 120 )
+thing_to_build = 1

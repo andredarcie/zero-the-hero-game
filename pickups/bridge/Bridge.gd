@@ -1,5 +1,6 @@
 extends Node2D
 
+var wood = 5
 enum ThingToBuild {Bonfire, Dridge}
 export(ThingToBuild) var thing_to_build
 
@@ -13,13 +14,13 @@ func _ready():
 			$Bonfire/Light2D.visible = false
 
 func _process(delta):
-	if GameState.player_wood >= 2:
+	if GameState.player_wood >= wood:
 		$Area2D/Sprite.modulate.a = 255
 
 func _on_Area2D_body_entered(body):
 	if GameState.check_body_is_player(body):
-		if GameState.player_wood >= 2:
-			GameState.player_wood = GameState.player_wood - 2
+		if GameState.player_wood >= wood:
+			GameState.player_wood = GameState.player_wood - wood
 		
 			$Area2D.queue_free()
 			
@@ -29,7 +30,6 @@ func _on_Area2D_body_entered(body):
 					$Bonfire/AnimatedSprite.visible = true
 					$Bonfire/Base.visible = false
 					$Bonfire/Light2D.visible = true
-					$Bonfire/BaseStaticBody2D.queue_free()
 					SoundEffects.play_switch_sound()
 				ThingToBuild.Dridge:
 					$BridgeArea2D/Sprite.visible = true

@@ -254,9 +254,6 @@ func damage_loop() -> void:
 			body.queue_free()
 			continue
 		
-		if  "Bonfire" in area.name:
-			body = area
-		
 		if area.name == "Vision":
 			continue
 		
@@ -270,6 +267,7 @@ func catch_fire():
 	make_damage(self)
 
 func make_damage(body) -> void:
+	
 	if invulnerable:
 		return
 		

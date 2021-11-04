@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://tiles/fire/sprite_tiny_fire0.png" type="Texture" id=1]
 [ext_resource path="res://tiles/grass/Grass.gd" type="Script" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://tiles/fire/sprite_tiny_fire2.png" type="Texture" id=6]
 [ext_resource path="res://tiles/fire/ashes.png" type="Texture" id=7]
 [ext_resource path="res://tiles/bonfire/light.png" type="Texture" id=8]
+[ext_resource path="res://tiles/grass/bush.png" type="Texture" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 7.95588, 8.09503 )
@@ -22,16 +23,19 @@ animations = [ {
 "name": "default",
 "speed": 3.0
 }, {
-"frames": [ ExtResource( 1 ), ExtResource( 5 ), ExtResource( 6 ) ],
-"loop": true,
-"name": "fire",
-"speed": 3.0
-}, {
 "frames": [ ExtResource( 7 ) ],
 "loop": false,
 "name": "ashes",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 1 ), ExtResource( 5 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "fire",
+"speed": 3.0
 } ]
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 8.30869, 7.69996 )
 
 [node name="Grass" type="Node2D"]
 script = ExtResource( 2 )
@@ -57,7 +61,6 @@ shape = SubResource( 2 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 3 )
-frame = 1
 playing = true
 
 [node name="Light2D" type="Light2D" parent="."]
@@ -66,6 +69,16 @@ scale = Vector2( 0.1, 0.1 )
 texture = ExtResource( 8 )
 color = Color( 0.905882, 0.466667, 0.254902, 1 )
 shadow_enabled = true
+
+[node name="Sprite" type="Sprite" parent="."]
+visible = false
+texture = ExtResource( 9 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( -0.419979, 3.8147e-06 )
+shape = SubResource( 4 )
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

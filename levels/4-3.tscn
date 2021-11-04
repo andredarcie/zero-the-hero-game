@@ -3,7 +3,7 @@
 [ext_resource path="res://levels/LevelBase.tscn" type="PackedScene" id=1]
 [ext_resource path="res://tiles/TileMaps/forest_tile_map/ForestTileMap.tscn" type="PackedScene" id=2]
 [ext_resource path="res://tiles/grass/CutGrass/CutGrass.tscn" type="PackedScene" id=3]
-[ext_resource path="res://pickups/bridge/Bridge.tscn" type="PackedScene" id=4]
+[ext_resource path="res://tiles/bonfire/Bonfire.tscn" type="PackedScene" id=4]
 [ext_resource path="res://pickups/firefly/Firefly.tscn" type="PackedScene" id=5]
 [ext_resource path="res://npcs/mage/Mage.tscn" type="PackedScene" id=6]
 [ext_resource path="res://pickups/mushroom/Mushroom.tscn" type="PackedScene" id=7]
@@ -34,6 +34,9 @@ position = Vector2( 24, 104 )
 
 [node name="CutGrass16" parent="Grass" index="4" instance=ExtResource( 3 )]
 position = Vector2( 24, 136 )
+
+[node name="CutGrass17" parent="Grass" index="5" instance=ExtResource( 3 )]
+position = Vector2( 24, 120 )
 
 [node name="Firefly" parent="." index="3" instance=ExtResource( 5 )]
 position = Vector2( 272, 40 )
@@ -69,11 +72,19 @@ z_index = 1
 
 [node name="Tests" type="Node" parent="." index="8"]
 
-[node name="Bridge" parent="Tests" index="0" instance=ExtResource( 4 )]
-position = Vector2( 160, 136 )
+[node name="Bonfire" parent="Tests" index="0" instance=ExtResource( 4 )]
+position = Vector2( 160, 120 )
 
 [node name="Wood" parent="Tests" index="1" instance=ExtResource( 10 )]
-position = Vector2( 200, 120 )
+position = Vector2( 200, 136 )
 
 [node name="Wood2" parent="Tests" index="2" instance=ExtResource( 10 )]
-position = Vector2( 216, 120 )
+position = Vector2( 216, 136 )
+
+[node name="Grass" parent="Tests" index="3" instance=ExtResource( 8 )]
+position = Vector2( 128, 152 )
+is_brush = true
+
+[node name="Grass2" parent="Tests" index="4" instance=ExtResource( 8 )]
+position = Vector2( 128, 168 )
+is_brush = true
