@@ -67,7 +67,7 @@ playing = true
 visible = false
 scale = Vector2( 0.1, 0.1 )
 texture = ExtResource( 8 )
-color = Color( 0.905882, 0.466667, 0.254902, 1 )
+color = Color( 0.905882, 0.466667, 0.254902, 0.392157 )
 shadow_enabled = true
 
 [node name="Sprite" type="Sprite" parent="."]
