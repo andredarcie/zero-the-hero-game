@@ -7,8 +7,8 @@
 [ext_resource path="res://tiles/bonfire/sprite_fire2.png" type="Texture" id=5]
 [ext_resource path="res://tiles/bonfire/base.png" type="Texture" id=6]
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 8, 8 )
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 7.09041, 7.04209 )
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
@@ -19,7 +19,7 @@ animations = [ {
 } ]
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 8.13097, 7.7606 )
+extents = Vector2( 7.21428, 7.24029 )
 
 [node name="Bonfire" type="Area2D"]
 z_index = 2
@@ -29,7 +29,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 1 )
+shape = SubResource( 4 )
 
 [node name="Light2D" type="Light2D" parent="."]
 scale = Vector2( 0.1, 0.1 )

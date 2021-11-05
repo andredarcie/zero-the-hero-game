@@ -5,7 +5,7 @@
 [ext_resource path="res://pickups/wood/Wood.tscn" type="PackedScene" id=3]
 [ext_resource path="res://pickups/water/Water.tscn" type="PackedScene" id=4]
 [ext_resource path="res://tiles/grass/CutGrass/CutGrass.tscn" type="PackedScene" id=5]
-[ext_resource path="res://pickups/bridge/Bridge.tscn" type="PackedScene" id=6]
+[ext_resource path="res://pickups/craft/Craft.tscn" type="PackedScene" id=6]
 [ext_resource path="res://pickups/key/Key.tscn" type="PackedScene" id=7]
 
 [node name="2-3" instance=ExtResource( 1 )]

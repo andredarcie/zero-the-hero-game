@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/build.png-fa4979d6dae153ba06b29da80997796b.stex"
+path="res://.import/build.png-42a68c6876f78d67b94e78701708b00a.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://pickups/bridge/build.png"
-dest_files=[ "res://.import/build.png-fa4979d6dae153ba06b29da80997796b.stex" ]
+source_file="res://pickups/craft/build.png"
+dest_files=[ "res://.import/build.png-42a68c6876f78d67b94e78701708b00a.stex" ]
 
 [params]
 
