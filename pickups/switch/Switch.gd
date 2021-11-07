@@ -32,10 +32,8 @@ func toggle_switch():
 	self.active = !self.active
 	if self.active:
 		$Sprite.texture = on_image
-		GameState[switch_name] = true
 	else:
 		$Sprite.texture = off_image
-		GameState[switch_name] = false
 		
 	SoundEffects.play_switch_sound()
 	self.set_all_objects()
