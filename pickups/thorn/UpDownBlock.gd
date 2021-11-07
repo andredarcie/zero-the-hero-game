@@ -6,23 +6,11 @@ export var switch_name = ""
 
 func _ready():
 	add_to_group("UpDownBlock")
-	
+		
 	if self.active:
 		turn_active()
 	else:
 		turn_desactive()
-
-func _process(delta):
-	pass
-	#if self.active == GameState[switch_name]:
-	#	return
-		
-	#if GameState[switch_name]:
-	#	self.active = true
-	#	turn_active()
-	#else:
-	#	self.active = false
-	#	turn_desactive()
 
 func turn_active():
 	$Sprite.frame = 0

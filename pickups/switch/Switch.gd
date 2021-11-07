@@ -12,6 +12,9 @@ var off_image: Texture = preload("res://pickups/switch/off.png")
 func _ready() -> void:
 	self.objects = get_children()
 	
+	if GameState.create_check(self):
+		toggle_switch()
+	
 func _on_switch_body_entered(body: Node2D) -> void:
 	if body.get("type") == "player":
 		self.proximity = true
@@ -32,6 +35,7 @@ func toggle_switch():
 	self.active = !self.active
 	if self.active:
 		$Sprite.texture = on_image
+		GameState.destroy(self)
 	else:
 		$Sprite.texture = off_image
 		
