@@ -15,7 +15,7 @@ onready var arrow = preload("res://player/BowArrow/Arrow.tscn")
 func _ready():
 	invulnerable_to_arrows = true
 	speed = 30
-	health = 4
+	health = 1
 	get_hurt_sound = preload("res://sounds/effects/undead.wav")
 	dying_sound = preload("res://sounds/effects/undead_dying.wav")
 	BowTimer.start()

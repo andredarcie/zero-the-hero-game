@@ -18,6 +18,5 @@ texture = ExtResource( 3 )
 shape = SubResource( 1 )
 
 [node name="BowTimer" type="Timer" parent="." index="6"]
-wait_time = 0.5
 
 [connection signal="timeout" from="BowTimer" to="." method="_on_BowTimer_timeout"]

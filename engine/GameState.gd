@@ -4,12 +4,13 @@ var start_position_x: int = 0
 var start_position_y: int = 0
 var hero_icon_on_map_position_x: int = 14
 var hero_icon_on_map_position_y: int = 11
-var coins: int = 1
-var keys: int = 1
+var coins: int = 0
+var keys: int = 0
 
 # Player
 var player_health: int = 3
 var player_max_health: int = 3
+
 var player_arrows: int = 2
 var player_bombs: int = 0
 var player_sword_cut_grass: bool = true
@@ -17,6 +18,7 @@ var player_mushrooms: int = 0
 var player_wood: int = 0
 var player_special_gloves_to_get_mushrooms: bool = false
 var player_sword_on_fire: bool = false
+var number_of_player_deaths: int = 0
 
 # d4-3
 var d4_3_switch_1 = true
@@ -52,12 +54,20 @@ func restart_game():
 	LevelManager.current_player_position = Vector2(248, 392)
 	get_tree().call_group("Enemy", "queue_free")
 	persisted_objects = []
-	player_health = 3
-	player_max_health = 3
 	player_arrows = 10
-	player_bombs = 2
+	player_bombs = 0
+	player_wood = 0
 	keys = 0
 	coins = 1
+	number_of_player_deaths = number_of_player_deaths + 1
+	
+	if number_of_player_deaths >= 3:
+		player_health = 4
+		player_max_health = 4
+	else:
+		player_health = 3
+		player_max_health = 3
+		
 	
 	LevelManager.change_scene("res://engine/Screens/EndScreen.tscn")
 

@@ -16,17 +16,14 @@ tile_data = PoolIntArray( 2, 0, 0, 13, 3, 0, 18, 0, 0, 131086, 2, 0, 327685, 2, 
 
 [node name="Enemies" type="Node" parent="." index="4"]
 
-[node name="Spider" parent="Enemies" index="0" instance=ExtResource( 4 )]
-position = Vector2( 40, 56 )
-
-[node name="Spider2" parent="Enemies" index="1" instance=ExtResource( 4 )]
+[node name="Spider2" parent="Enemies" index="0" instance=ExtResource( 4 )]
 position = Vector2( 136, 56 )
 
-[node name="Spider3" parent="Enemies" index="2" instance=ExtResource( 4 )]
+[node name="Spider3" parent="Enemies" index="1" instance=ExtResource( 4 )]
 position = Vector2( 232, 104 )
 
-[node name="Spider4" parent="Enemies" index="3" instance=ExtResource( 4 )]
+[node name="Spider4" parent="Enemies" index="2" instance=ExtResource( 4 )]
 position = Vector2( 120, 152 )
 
-[node name="Spider5" parent="Enemies" index="4" instance=ExtResource( 4 )]
+[node name="Spider5" parent="Enemies" index="3" instance=ExtResource( 4 )]
 position = Vector2( 232, 168 )

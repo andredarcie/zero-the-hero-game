@@ -1,6 +1,6 @@
 extends Node2D
 
-var wood = 1
+var wood = 5
 enum ThingToBuild {Bonfire, Bridge}
 export(ThingToBuild) var thing_to_build
 var builded: bool = false
@@ -32,6 +32,8 @@ func _process(delta):
 		
 	if GameState.player_wood >= wood:
 		$Area2D/Sprite.modulate.a = 255
+	else:
+		$Area2D/Sprite.modulate.a = 0.300
 
 func _on_Area2D_body_entered(body):
 	if GameState.check_body_is_player(body):

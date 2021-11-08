@@ -30,6 +30,7 @@ func _process(_delta: float) -> void:
 	var key_press: bool = Input.is_action_pressed("ui_accept")
 	if await_time == 0 && key_press && self.proximity:
 		toggle_switch()
+		SoundEffects.play_switch_sound()
 
 func toggle_switch():
 	self.active = !self.active
@@ -39,7 +40,6 @@ func toggle_switch():
 	else:
 		$Sprite.texture = off_image
 		
-	SoundEffects.play_switch_sound()
 	self.set_all_objects()
 	self.await_time = 10
 	
