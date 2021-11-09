@@ -22,10 +22,10 @@ tile_data = PoolIntArray( 0, 25, 0, 1, 25, 0, 2, 25, 0, 3, 25, 0, 4, 25, 0, 5, 2
 position = Vector2( 296, 40 )
 
 [node name="CutGrass9" parent="Grass" index="1" instance=ExtResource( 3 )]
-position = Vector2( 128, 120 )
+position = Vector2( 104, 184 )
 
 [node name="CutGrass10" parent="Grass" index="2" instance=ExtResource( 3 )]
-position = Vector2( 128, 104 )
+position = Vector2( 88, 184 )
 
 [node name="CutGrass12" parent="Grass" index="3" instance=ExtResource( 3 )]
 position = Vector2( 24, 104 )
