@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://levels/LevelBase.tscn" type="PackedScene" id=1]
 [ext_resource path="res://tiles/TileMaps/forest_tile_map/ForestTileMap.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://pickups/heart/HeartContainer.tscn" type="PackedScene" id=7]
 [ext_resource path="res://pickups/heart/Heart.tscn" type="PackedScene" id=8]
 [ext_resource path="res://pickups/wood/Wood.tscn" type="PackedScene" id=9]
+[ext_resource path="res://pickups/key/Key.tscn" type="PackedScene" id=10]
 
 [node name="7-3" instance=ExtResource( 1 )]
 
@@ -53,6 +54,9 @@ z_index = 2
 [node name="UpDownBlock" parent="Puzzles/Switch" index="3" instance=ExtResource( 6 )]
 position = Vector2( 32, 48 )
 z_index = 2
+
+[node name="Key" parent="Puzzles" index="1" instance=ExtResource( 10 )]
+position = Vector2( 136, 200 )
 
 [node name="Wood" type="Node" parent="." index="6"]
 

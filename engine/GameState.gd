@@ -6,6 +6,7 @@ var hero_icon_on_map_position_x: int = 14
 var hero_icon_on_map_position_y: int = 11
 var coins: int = 0
 var keys: int = 0
+var menu_closed: bool = true
 
 # Player
 var player_health: int = 3
@@ -15,7 +16,7 @@ var player_arrows: int = 2
 var player_bombs: int = 0
 var player_sword_cut_grass: bool = true
 var player_mushrooms: int = 0
-var player_wood: int = 0
+var player_wood: int = 10
 var player_special_gloves_to_get_mushrooms: bool = false
 var player_sword_on_fire: bool = false
 var number_of_player_deaths: int = 0
@@ -35,6 +36,13 @@ enum SecondSlotItems {
 }
 
 var player_second_slot_item = SecondSlotItems.Bombs
+
+func _ready():
+	if (OS.is_debug_build()):
+		player_health = 10
+		player_max_health = 10
+		player_wood = 30
+		
 
 func go_to_scene(x: int, y: int, name: String):
 	start_position_x = x
@@ -109,8 +117,8 @@ func check_id(unique_id: String) -> bool:
 		return false
 		
 func get_item(name):
-	var hud : Hud = get_hud()
-	hud.get_item(name)
+	#var hud = get_hud()
+	#hud.get_item(name)
 	
 	if name == 'Mushroom':
 		player_mushrooms = player_mushrooms + 1

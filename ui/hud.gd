@@ -1,4 +1,4 @@
-class_name Hud extends CanvasLayer
+extends CanvasLayer
 
 const HEART_ROW_SIZE: int = 8
 const HEART_OFFSET: int = 8
@@ -12,41 +12,48 @@ func _ready() -> void:
 	for i in GameState.player_max_health:
 		add_new_heart()
 		
-	$HeroIcon.position = Vector2(GameState.hero_icon_on_map_position_x, GameState.hero_icon_on_map_position_y)
+	$Base/HeroIcon.position = Vector2(GameState.hero_icon_on_map_position_x, GameState.hero_icon_on_map_position_y)
 		
 
 func add_new_heart():
 	var new_heart = Sprite.new()
-	new_heart.texture = $hearts.texture
-	new_heart.hframes = $hearts.hframes
-	$hearts.add_child(new_heart)
+	new_heart.texture = $Base/hearts.texture
+	new_heart.hframes = $Base/hearts.hframes
+	$Base/hearts.add_child(new_heart)
 	
 	
 func _process(_delta: float) -> void:
 	if GameState.player_sword_on_fire:
-		$Sword.texture = sword_on_fire_texture
+		$Base/Sword.texture = sword_on_fire_texture
 	else:
-		$Sword.texture = sword_texture
+		$Base/Sword.texture = sword_texture
 	
+	$Base/Items/WoodCountText.text = ' ' + str(GameState.player_wood)
+	$Base/Items/MushroomCountText.text = ' ' + str(GameState.player_mushrooms)
+		
+	if Input.is_action_just_pressed("pause"):
+		$Base/Items.visible = !$Base/Items.visible
+		
+		
 	if Input.is_action_pressed("a"):
-		$SlotX.frame = 3
-		$SlotX/TimerSlotX.start()
+		$Base/SlotX.frame = 3
+		$Base/SlotX/TimerSlotX.start()
 		
 	if Input.is_action_pressed("b"):
 		if GameState.player_second_slot_item == GameState.SecondSlotItems.Bombs:
 			if GameState.player_bombs == 0:
-				$bomb.visible = false
+				$Base/bomb.visible = false
 			else:
-				$bomb.visible = true
+				$Base/bomb.visible = true
 				
-		$SlotZ.frame = 1
-		$SlotZ/TimerSlotZ.start()
+		$Base/SlotZ.frame = 1
+		$Base/SlotZ/TimerSlotZ.start()
 	
 	if old_max_health != GameState.player_max_health:
 		old_max_health = GameState.player_max_health
 		add_new_heart()
 		
-	for heart in $hearts.get_children():
+	for heart in $Base/hearts.get_children():
 		var index = heart.get_index()
 		
 		var x = (index % HEART_ROW_SIZE) * HEART_OFFSET
@@ -69,27 +76,30 @@ func _process(_delta: float) -> void:
 
 
 func show_coins():
-	$VBoxContainer/CoinTextLabel.text = " " + str(GameState.coins)
+	$Base/VBoxContainer/CoinTextLabel.text = " " + str(GameState.coins)
 	
 func show_keys():
-	$VBoxContainer/KeysTextLabel.text = " " + str(GameState.keys)
+	$Base/VBoxContainer/KeysTextLabel.text = " " + str(GameState.keys)
 	
 func show_second_slot_item():
 	match (GameState.player_second_slot_item):
 		GameState.SecondSlotItems.Arrow:
-			$VBoxContainer2/ArrowTextLabel.text = " arrows: " + str(GameState.player_arrows)
+			$Base/VBoxContainer2/ArrowTextLabel.text = " arrows: " + str(GameState.player_arrows)
 		GameState.SecondSlotItems.Bombs:
-			$VBoxContainer2/ArrowTextLabel.text = " Level: " + str(get_tree().get_root().get_child(3).name)
+			$Base/VBoxContainer2/ArrowTextLabel.text = " Level: " + str(get_tree().get_root().get_child(3).name)
 			
 func get_item(name):
-	$AddItem/AddItemText.text = '+1 ' + str(name)
+	$Base/AddItem/AddItemText.text = '+1 ' + str(name)
 	
-	$AddItemAnimationPlayer.play('default')
+	$Base/AddItemAnimationPlayer.play('default')
 
 
 func _on_TimerSlotZ_timeout():
-	$SlotZ.frame = 0
+	$Base/SlotZ.frame = 0
 
 
 func _on_TimerSlotX_timeout():
-	$SlotX.frame = 2
+	$Base/SlotX.frame = 2
+	
+func hide_menu():
+	$Base/Items.visible = false

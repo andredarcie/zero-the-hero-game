@@ -6,7 +6,7 @@ var dialogBox: DialogBox = null
 func _on_Board_body_entered(body):
 	if GameState.check_body_is_player(body):
 		if dialogBox == null:
-			dialogBox = get_node("../../hud/DialogBox") as DialogBox
+			dialogBox = Hud.get_node("Base/DialogBox") as DialogBox
 			
 		dialogBox.start_dialog("Board", [
 			message
