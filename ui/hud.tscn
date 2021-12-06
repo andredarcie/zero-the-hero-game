@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://engine/dialog.tscn" type="PackedScene" id=1]
 [ext_resource path="res://ui/map.png" type="Texture" id=2]
@@ -6,12 +6,6 @@
 [ext_resource path="res://ui/hearts.png" type="Texture" id=4]
 [ext_resource path="res://ui/hero_icon.png" type="Texture" id=5]
 [ext_resource path="res://pickups/coin/coin.png" type="Texture" id=6]
-[ext_resource path="res://pickups/key/key.png" type="Texture" id=7]
-[ext_resource path="res://items/sword.png" type="Texture" id=8]
-[ext_resource path="res://pickups/bomb/bomb.png" type="Texture" id=9]
-[ext_resource path="res://ui/Slots.png" type="Texture" id=10]
-[ext_resource path="res://player/Player/wood.png" type="Texture" id=11]
-[ext_resource path="res://tiles/TileMaps/forest_tile_map/mushroom.png" type="Texture" id=12]
 
 [sub_resource type="DynamicFontData" id=1]
 font_path = "res://fonts/m5x7.ttf"
@@ -30,22 +24,6 @@ size = 12
 outline_size = 1
 outline_color = Color( 0, 0, 0, 1 )
 font_data = SubResource( 3 )
-
-[sub_resource type="Animation" id=5]
-resource_name = "default"
-length = 2.0
-tracks/0/type = "value"
-tracks/0/path = NodePath("Base/AddItem:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5, 1.5, 2 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( -64, 8 ), Vector2( 0, 8 ), Vector2( 0, 8 ), Vector2( -64, 8 ) ]
-}
 
 [node name="hud" type="CanvasLayer"]
 script = ExtResource( 3 )
@@ -86,18 +64,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="KeysTextLabel" type="RichTextLabel" parent="Base/VBoxContainer"]
-margin_top = 11.0
-margin_right = 22.0
-margin_bottom = 22.0
-rect_min_size = Vector2( 0, 11 )
-custom_fonts/normal_font = SubResource( 2 )
-bbcode_text = " 0"
-text = " 0"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="VBoxContainer2" type="VBoxContainer" parent="Base"]
 visible = false
 margin_left = 5.0
@@ -125,112 +91,6 @@ position = Vector2( 2, 11 )
 texture = ExtResource( 5 )
 offset = Vector2( 5, 5 )
 
-[node name="AddItem" type="Polygon2D" parent="Base"]
-position = Vector2( -64, 8 )
-color = Color( 0, 0, 0, 1 )
-polygon = PoolVector2Array( 0, 24, 64, 24, 64, 32, 64, 40, 0, 40 )
-
-[node name="AddItemText" type="RichTextLabel" parent="Base/AddItem"]
-margin_left = 4.41666
-margin_top = 26.4167
-margin_right = 60.4167
-margin_bottom = 37.4167
-rect_min_size = Vector2( 0, 11 )
-rect_pivot_offset = Vector2( 114.508, 40.6402 )
-custom_fonts/normal_font = SubResource( 2 )
-text = "+1 Mushroom"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="AddItemAnimationPlayer" type="AnimationPlayer" parent="Base"]
-playback_speed = 2.5
-anims/default = SubResource( 5 )
-
 [node name="coin" type="Sprite" parent="Base"]
 position = Vector2( 293.609, 5.84539 )
 texture = ExtResource( 6 )
-
-[node name="Sprite" type="Sprite" parent="Base"]
-position = Vector2( 293.472, 15.9194 )
-scale = Vector2( 0.7, 0.7 )
-texture = ExtResource( 7 )
-vframes = 2
-
-[node name="Sword" type="Sprite" parent="Base"]
-position = Vector2( 261.767, 9.89179 )
-texture = ExtResource( 8 )
-vframes = 2
-
-[node name="bomb" type="Sprite" parent="Base"]
-position = Vector2( 243.228, 9.95352 )
-texture = ExtResource( 9 )
-vframes = 2
-
-[node name="SlotZ" type="Sprite" parent="Base"]
-position = Vector2( 243.667, 10.5 )
-texture = ExtResource( 10 )
-hframes = 2
-vframes = 2
-
-[node name="TimerSlotZ" type="Timer" parent="Base/SlotZ"]
-wait_time = 0.2
-one_shot = true
-
-[node name="SlotX" type="Sprite" parent="Base"]
-position = Vector2( 262.216, 10.5579 )
-texture = ExtResource( 10 )
-hframes = 2
-vframes = 2
-frame = 2
-
-[node name="TimerSlotX" type="Timer" parent="Base/SlotX"]
-wait_time = 0.2
-one_shot = true
-
-[node name="Items" type="Node2D" parent="Base"]
-
-[node name="Polygon2D" type="Polygon2D" parent="Base/Items"]
-position = Vector2( -64, -48 )
-color = Color( 0, 0, 0, 0.392157 )
-polygon = PoolVector2Array( 64.0742, 95.9258, 160, 96, 160, 136, 129.282, 136, 64.0742, 135.926 )
-
-[node name="WoodCountText" type="RichTextLabel" parent="Base/Items"]
-margin_left = 20.7814
-margin_top = 63.2773
-margin_right = 47.7814
-margin_bottom = 74.2773
-rect_min_size = Vector2( 0, 11 )
-rect_pivot_offset = Vector2( 114.508, 40.6402 )
-custom_fonts/normal_font = SubResource( 2 )
-text = " 0"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="MushroomCountText" type="RichTextLabel" parent="Base/Items"]
-margin_left = 71.1046
-margin_top = 63.4898
-margin_right = 117.105
-margin_bottom = 74.4898
-rect_min_size = Vector2( 0, 11 )
-rect_pivot_offset = Vector2( 114.508, 40.6402 )
-custom_fonts/normal_font = SubResource( 2 )
-text = " 0"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="wood" type="Sprite" parent="Base/Items"]
-position = Vector2( 13.568, 67.3674 )
-texture = ExtResource( 11 )
-
-[node name="mushroom" type="Sprite" parent="Base/Items"]
-position = Vector2( 61.1968, 69.4461 )
-scale = Vector2( 0.172471, 0.172471 )
-texture = ExtResource( 12 )
-
-[connection signal="timeout" from="Base/SlotZ/TimerSlotZ" to="." method="_on_Timer_timeout"]
-[connection signal="timeout" from="Base/SlotZ/TimerSlotZ" to="." method="_on_TimerSlotZ_timeout"]
-[connection signal="timeout" from="Base/SlotX/TimerSlotX" to="." method="_on_Timer_timeout"]
-[connection signal="timeout" from="Base/SlotX/TimerSlotX" to="." method="_on_TimerSlotX_timeout"]

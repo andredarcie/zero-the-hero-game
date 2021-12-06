@@ -6,6 +6,9 @@ var maxamount: int = 1
 onready var fire_sword_texture = load("res://items/sword_on_fire.png")
 onready var sword_texture = load("res://items/sword.png")
 	
+func set_texture(texture):
+	$Sprite.texture = texture
+	
 func _ready() -> void:
 	type = get_parent().type
 	get_parent().set_sword_invisible()

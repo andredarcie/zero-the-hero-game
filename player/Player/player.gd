@@ -20,6 +20,7 @@ var invulnerable : bool = false
 var moving_directon_is_up = false
 # Items
 var sword = preload('res://items/sword.tscn')
+var bow = preload("res://player/BowArrow/bow.png")
 var sword_on_fire: bool = false
 var sword_sound_atack_1 = preload("res://sounds/effects/sword_cut_1.wav")
 var sword_sound_atack_2 = preload("res://sounds/effects/sword_cut_2.wav")
@@ -28,11 +29,22 @@ onready var arrow = preload("res://player/BowArrow/Arrow.tscn")
 var arrow_direction = DIRECTION.Up
 var rng = RandomNumberGenerator.new()
 
+var item_texture = null
+
 enum DIRECTION {
 	Up,
 	Down,
 	Left,
 	Right
+}
+
+enum ItemSlot {
+	Nothing,
+	Sword,
+	Bow,
+	Bomb,
+	Scythe,
+	Axe
 }
 
 func _init() -> void:
@@ -46,6 +58,7 @@ func _ready() -> void:
 	$Bow.visible = false
 	add_to_group('Player')
 	texture_default = $Sprite.texture
+	$Sword.texture = null
 
 func _process(delta):
 	if hitstun:
@@ -109,21 +122,36 @@ func state_default() -> void:
 				$AnimationPlayer.play("idle_down")
 	
 	if Input.is_action_just_pressed("a"):
-		if rng.randi_range(0, 1) == 0:
-			$AudioStreamPlayer2D.stream =  sword_sound_atack_1
-		else:
-			$AudioStreamPlayer2D.stream =  sword_sound_atack_2
-
-		$AudioStreamPlayer2D.play()
-		use_item(sword)
+		GameState.player_sword_cut_grass = false
+		GameState.player_sword_cut_wood = false
 		
-	if Input.is_action_just_pressed("b"):
-		if GameState.player_second_slot_item == GameState.SecondSlotItems.Arrow:
-			shoot_arrow()
-		elif GameState.player_second_slot_item == GameState.SecondSlotItems.Bombs:
-			throw_bomb()
+		match GameState.player_slot_item:
+			ItemSlot.Nothing:
+				continue
+			ItemSlot.Sword:
+				if rng.randi_range(0, 1) == 0:
+					$AudioStreamPlayer2D.stream =  sword_sound_atack_1
+				else:
+					$AudioStreamPlayer2D.stream =  sword_sound_atack_2
 
+				$AudioStreamPlayer2D.play()
+				use_item(sword, null)
+			ItemSlot.Bow:
+				shoot_arrow()
+			ItemSlot.Bomb:
+				throw_bomb()
+			ItemSlot.Scythe:
+				GameState.player_sword_cut_grass = true
+				use_item(sword, item_texture)
+			ItemSlot.Axe:
+				GameState.player_sword_cut_wood = true
+				use_item(sword, item_texture)
 
+func change_item(item, texture):
+	$Sword.texture = texture
+	item_texture = texture
+	
+	
 func state_swing() -> void:
 	movement_loop()
 	damage_loop()
@@ -131,11 +159,9 @@ func state_swing() -> void:
 	
 	
 func throw_bomb() -> void:
-	if GameState.player_bombs > 0:
-		GameState.player_bombs -= 1
-		var bomb = Bomb.instance()
-		bomb.global_position = $BombPlace.global_position
-		get_node('..').add_child(bomb)
+	var bomb = Bomb.instance()
+	bomb.global_position = $BombPlace.global_position
+	get_node('..').add_child(bomb)
 	
 
 func controls_loop() -> void:
@@ -187,14 +213,12 @@ func set_bow_position_and_rotation(x: float, y: float, rotation_degress: float) 
 	
 
 func shoot_arrow() -> void:
-	if GameState.player_arrows > 0:
-		GameState.player_arrows -= 1
-		set_arrow_direction()
-		$Bow.visible = true
-		var new_arrow = arrow.instance()
-		new_arrow.set_direction_and_point_of_origin(arrow_direction, global_position)
-		get_node('..').add_child(new_arrow)
-		$Bow/BowTimer.start()
+	set_arrow_direction()
+	$Bow.visible = true
+	var new_arrow = arrow.instance()
+	new_arrow.set_direction_and_point_of_origin(arrow_direction, global_position)
+	get_node('..').add_child(new_arrow)
+	$Bow/BowTimer.start()
 
 
 func _on_BowTimer_timeout() -> void:
@@ -298,8 +322,12 @@ func make_damage(body) -> void:
 	#add_child(blood)
 	
 	
-func use_item(item: PackedScene) -> void:
+func use_item(item: PackedScene, item_texture) -> void:
 	var newitem = item.instance()
+	
+	if item_texture != null:
+		newitem.set_texture(item_texture)
+		
 	newitem.add_to_group(str(newitem.get_name(), self))
 	add_child(newitem)
 

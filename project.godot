@@ -69,6 +69,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://pickups/heart.gd"
 }, {
+"base": "Node2D",
+"class": "Item",
+"language": "GDScript",
+"path": "res://items/Item.gd"
+}, {
 "base": "Pickup",
 "class": "Key",
 "language": "GDScript",
@@ -147,6 +152,7 @@ _global_script_class_icons={
 "Entity": "",
 "FireMage": "",
 "Heart": "",
+"Item": "",
 "Key": "",
 "Mage": "",
 "Npc": "",

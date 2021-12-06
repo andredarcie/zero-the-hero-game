@@ -18,7 +18,7 @@ func flash_out():
 	$Sprite.get_material().set_shader_param("hit_strength", 0)
 
 func _on_Wood_area_entered(area):
-	if area.get_parent().name == "sword":
+	if area.get_parent().name == "sword" and GameState.player_sword_cut_wood:
 		
 		if $Sprite.frame == 3:
 			$Sprite.frame = $Sprite.frame + 1

@@ -12,7 +12,6 @@ func _on_Area2D_body_entered(body):
 	if not body.get('type') == "player":
 		return
 		
-	Hud.get_node("Base/Items").visible = false
 	dialogBox.start_dialog(self.characterName, self.dialogs)
 
 func _on_Area2D_body_exited(body):
