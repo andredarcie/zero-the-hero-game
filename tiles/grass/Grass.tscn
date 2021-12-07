@@ -23,15 +23,15 @@ animations = [ {
 "name": "default",
 "speed": 3.0
 }, {
-"frames": [ ExtResource( 7 ) ],
-"loop": false,
-"name": "ashes",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 1 ), ExtResource( 5 ), ExtResource( 6 ) ],
 "loop": true,
 "name": "fire",
 "speed": 3.0
+}, {
+"frames": [ ExtResource( 7 ) ],
+"loop": false,
+"name": "ashes",
+"speed": 5.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=4]
@@ -61,6 +61,7 @@ shape = SubResource( 2 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 3 )
+frame = 1
 playing = true
 
 [node name="Light2D" type="Light2D" parent="."]

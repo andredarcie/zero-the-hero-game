@@ -44,7 +44,8 @@ enum ItemSlot {
 	Bow,
 	Bomb,
 	Scythe,
-	Axe
+	Axe,
+	Key
 }
 
 func _init() -> void:
@@ -124,6 +125,7 @@ func state_default() -> void:
 	if Input.is_action_just_pressed("a"):
 		GameState.player_sword_cut_grass = false
 		GameState.player_sword_cut_wood = false
+		GameState.player_have_key = false
 		
 		match GameState.player_slot_item:
 			ItemSlot.Nothing:
@@ -145,6 +147,9 @@ func state_default() -> void:
 				use_item(sword, item_texture)
 			ItemSlot.Axe:
 				GameState.player_sword_cut_wood = true
+				use_item(sword, item_texture)
+			ItemSlot.Key:
+				GameState.player_have_key = true
 				use_item(sword, item_texture)
 
 func change_item(item, texture):
@@ -379,3 +384,6 @@ func show_ballon_wood():
 	
 func hide_ballon_wood():
 	$Balloon.visible = false
+	
+func remove_item():
+	$Sword.texture = null

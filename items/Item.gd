@@ -6,7 +6,8 @@ enum ItemSlot {
 	Bow,
 	Bomb,
 	Scythe,
-	Axe
+	Axe,
+	Key
 }
 
 var sword_texture = preload("res://items/sword_icon.png")
@@ -14,6 +15,7 @@ var bow_texture = preload("res://player/BowArrow/bow.png")
 var bomb_texture = preload("res://items/bomb_icon.png")
 var scythe_texture = preload("res://items/scythe_icon.png")
 var axe_texture = preload("res://items/axe_icon.png")
+var key_texture = preload("res://items/key_icon.png")
 var texture = null
 export(ItemSlot) var item = ItemSlot.Nothing
 
@@ -32,13 +34,14 @@ func set_item_texture(item):
 			texture = scythe_texture
 		ItemSlot.Axe:
 			texture = axe_texture
+		ItemSlot.Key:
+			texture = key_texture
 			
 	$Sprite.texture = texture
 	
 func _on_Area2D_body_entered(body):
-	SoundEffects.play_switch_sound()
-	
 	if GameState.check_body_is_player(body):
+		SoundEffects.play_get_item()
 		var old_item = GameState.player_slot_item
 		
 		GameState.player_slot_item = item

@@ -22,6 +22,7 @@ var player_special_gloves_to_get_mushrooms: bool = false
 var player_sword_on_fire: bool = false
 var number_of_player_deaths: int = 0
 var player_slot_item = 0
+var player_have_key: bool = false
 
 # d4-3
 var d4_3_switch_1 = true
@@ -31,14 +32,6 @@ var persisted_objects = []
 var unique_ids = {
 		"first_boss": false
 	}
-
-
-
-func _ready():
-	if (OS.is_debug_build()):
-		player_health = 10
-		player_max_health = 10
-		player_wood = 30
 		
 
 func go_to_scene(x: int, y: int, name: String):
@@ -58,6 +51,7 @@ func get_current_scene_name() -> String:
 func restart_game():
 	LevelManager.current_player_position = Vector2(248, 392)
 	get_tree().call_group("Enemy", "queue_free")
+	GameState.player_slot_item = 0
 	persisted_objects = []
 	player_arrows = 10
 	player_bombs = 0

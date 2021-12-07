@@ -2,7 +2,7 @@ class_name Mage extends Node2D
 
 var dialogBox: DialogBox = null
 var characterName = 'Mage'
-var dialogs = ["You need to find the One Sword!!"]
+var dialogs = ["The zero combined with one makes all the difference!", "Thanks for playing this little prototype"]
 var times = 0
 
 func _ready():
