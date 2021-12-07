@@ -1,7 +1,6 @@
 extends Area2D
 
 var active: bool = true
-var damage = 1
 export var switch_name = ""
 
 func _ready():
