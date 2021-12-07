@@ -38,16 +38,6 @@ enum DIRECTION {
 	Right
 }
 
-enum ItemSlot {
-	Nothing,
-	Sword,
-	Bow,
-	Bomb,
-	Scythe,
-	Axe,
-	Key
-}
-
 func _init() -> void:
 	type = 'player'
 	max_health = GameState.player_max_health
@@ -55,11 +45,13 @@ func _init() -> void:
 	
 	
 func _ready() -> void:
-	speed = 90
+	speed = 200
 	$Bow.visible = false
 	add_to_group('Player')
 	texture_default = $Sprite.texture
-	$Sword.texture = null
+	
+	if GameState.player_slot_item == 0:
+		$Sword.texture = null
 
 func _process(delta):
 	if hitstun:
@@ -128,9 +120,9 @@ func state_default() -> void:
 		GameState.player_have_key = false
 		
 		match GameState.player_slot_item:
-			ItemSlot.Nothing:
+			GameState.ItemSlot.Nothing:
 				continue
-			ItemSlot.Sword:
+			GameState.ItemSlot.Sword:
 				if rng.randi_range(0, 1) == 0:
 					$AudioStreamPlayer2D.stream =  sword_sound_atack_1
 				else:
@@ -138,22 +130,24 @@ func state_default() -> void:
 
 				$AudioStreamPlayer2D.play()
 				use_item(sword, null)
-			ItemSlot.Bow:
+			GameState.ItemSlot.Bow:
 				shoot_arrow()
-			ItemSlot.Bomb:
+			GameState.ItemSlot.Bomb:
 				throw_bomb()
-			ItemSlot.Scythe:
+			GameState.ItemSlot.Scythe:
 				GameState.player_sword_cut_grass = true
 				use_item(sword, item_texture)
-			ItemSlot.Axe:
+			GameState.ItemSlot.Axe:
 				GameState.player_sword_cut_wood = true
 				use_item(sword, item_texture)
-			ItemSlot.Key:
+			GameState.ItemSlot.Key:
 				GameState.player_have_key = true
 				use_item(sword, item_texture)
 
-func change_item(item, texture):
+func change_item(item):
+	var texture = GameState.get_item_texture(item)		
 	$Sword.texture = texture
+	print($Sword.texture)
 	item_texture = texture
 	
 	
