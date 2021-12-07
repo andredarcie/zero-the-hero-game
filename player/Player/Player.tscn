@@ -8,7 +8,7 @@
 [ext_resource path="res://items/sword_icon.png" type="Texture" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 4.72485, 3.66242 )
+extents = Vector2( 4.09139, 3.02897 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 8, 8 )
@@ -104,6 +104,7 @@ texture = ExtResource( 3 )
 hframes = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -0.721838, 4.96448 )
 shape = SubResource( 1 )
 
 [node name="hitbox" type="Area2D" parent="."]
