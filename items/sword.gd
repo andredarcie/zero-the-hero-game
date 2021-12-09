@@ -1,10 +1,12 @@
 extends Node2D
 
 var type: String = ''
-var damage: int = 1
 var maxamount: int = 1
 onready var fire_sword_texture = load("res://items/sword_on_fire.png")
 onready var sword_texture = load("res://items/sword.png")
+	
+func set_texture(texture):
+	$Sprite.texture = texture
 	
 func _ready() -> void:
 	type = get_parent().type
@@ -41,5 +43,5 @@ func catch_fire():
 func _on_Area2D_area_entered(area):
 	if area.name != "Vision":
 		var partent = area.get_parent()
-		if partent.has_method("hurt"):
+		if partent.has_method("hurt") and GameState.player_slot_item == 1:
 			partent.hurt(self)

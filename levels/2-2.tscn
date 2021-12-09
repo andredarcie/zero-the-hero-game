@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://levels/LevelBase.tscn" type="PackedScene" id=1]
 [ext_resource path="res://tiles/TileMaps/forest_tile_map/ForestTileMap.tscn" type="PackedScene" id=2]
@@ -6,10 +6,9 @@
 [ext_resource path="res://tiles/grass/CutGrass/CutGrass.tscn" type="PackedScene" id=4]
 [ext_resource path="res://pickups/heart/Heart.tscn" type="PackedScene" id=5]
 [ext_resource path="res://pickups/water/Water.tscn" type="PackedScene" id=6]
-[ext_resource path="res://pickups/key/Key.tscn" type="PackedScene" id=7]
+[ext_resource path="res://items/Item.tscn" type="PackedScene" id=7]
 [ext_resource path="res://pickups/craft/Craft.tscn" type="PackedScene" id=8]
 [ext_resource path="res://pickups/wood/Wood.tscn" type="PackedScene" id=9]
-[ext_resource path="res://pickups/heart/HeartContainer.tscn" type="PackedScene" id=10]
 
 [node name="2-2" instance=ExtResource( 1 )]
 
@@ -59,15 +58,13 @@ position = Vector2( 40, 120 )
 [node name="Heart" parent="Items" index="0" instance=ExtResource( 5 )]
 position = Vector2( 88, 24 )
 
-[node name="Key" parent="Items" index="1" instance=ExtResource( 7 )]
-position = Vector2( 24, 168 )
-
-[node name="Craft" parent="Items" index="2" instance=ExtResource( 8 )]
+[node name="Craft" parent="Items" index="1" instance=ExtResource( 8 )]
 position = Vector2( 72, 40 )
 thing_to_build = 1
 
-[node name="HeartContainer" parent="Items" index="3" instance=ExtResource( 10 )]
+[node name="Item" parent="Items" index="2" instance=ExtResource( 7 )]
 position = Vector2( 24, 216 )
+item = 2
 
 [node name="Water" type="Node" parent="." index="6"]
 

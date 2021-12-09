@@ -69,6 +69,7 @@ script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
 modulate = Color( 1, 1, 1, 0.552941 )
+z_index = 1
 texture = ExtResource( 1 )
 vframes = 2
 
@@ -86,4 +87,5 @@ anims/exploding = SubResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Range"]
 shape = SubResource( 3 )
+
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

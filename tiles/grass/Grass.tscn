@@ -11,10 +11,10 @@
 [ext_resource path="res://tiles/grass/bush.png" type="Texture" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 7.95588, 8.09503 )
+extents = Vector2( 8, 8 )
 
 [sub_resource type="CircleShape2D" id=2]
-radius = 12.465
+radius = 11.3137
 
 [sub_resource type="SpriteFrames" id=3]
 animations = [ {
@@ -35,13 +35,10 @@ animations = [ {
 } ]
 
 [sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 8.30869, 7.69996 )
+extents = Vector2( 8, 8 )
 
 [node name="Grass" type="Node2D"]
 script = ExtResource( 2 )
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="Area2D" type="Area2D" parent="."]
 
@@ -77,7 +74,6 @@ texture = ExtResource( 9 )
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2( -0.419979, 3.8147e-06 )
 shape = SubResource( 4 )
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]

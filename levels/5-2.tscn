@@ -16,28 +16,16 @@ tile_data = PoolIntArray( 0, 3, 0, 1, 3, 0, 2, 23, 0, 3, 3, 0, 4, 3, 0, 5, 24, 0
 
 [node name="Grass" type="Node" parent="." index="3"]
 
-[node name="CutGrass" parent="Grass" index="0" instance=ExtResource( 5 )]
-position = Vector2( 40, 88 )
-
-[node name="CutGrass2" parent="Grass" index="1" instance=ExtResource( 5 )]
-position = Vector2( 24, 152 )
-
-[node name="CutGrass3" parent="Grass" index="2" instance=ExtResource( 5 )]
-position = Vector2( 40, 152 )
-
-[node name="CutGrass4" parent="Grass" index="3" instance=ExtResource( 5 )]
+[node name="CutGrass4" parent="Grass" index="0" instance=ExtResource( 5 )]
 position = Vector2( 136, 40 )
 
-[node name="CutGrass5" parent="Grass" index="4" instance=ExtResource( 5 )]
-position = Vector2( 200, 24 )
-
-[node name="CutGrass6" parent="Grass" index="5" instance=ExtResource( 5 )]
+[node name="CutGrass6" parent="Grass" index="1" instance=ExtResource( 5 )]
 position = Vector2( 264, 136 )
 
-[node name="CutGrass7" parent="Grass" index="6" instance=ExtResource( 5 )]
+[node name="CutGrass7" parent="Grass" index="2" instance=ExtResource( 5 )]
 position = Vector2( 264, 152 )
 
-[node name="CutGrass8" parent="Grass" index="7" instance=ExtResource( 5 )]
+[node name="CutGrass8" parent="Grass" index="3" instance=ExtResource( 5 )]
 position = Vector2( 280, 168 )
 
 [node name="WebSpiderTileMap" parent="." index="4" instance=ExtResource( 3 )]

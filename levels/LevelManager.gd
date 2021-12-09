@@ -24,12 +24,13 @@ func set_current_level_position():
 	current_level_y = int(level[1])
 	
 
-func check_current_level(move_direction: Vector2, player_position: Vector2):		
+func check_current_level(move_direction: Vector2, player_position: Vector2):
+	print(move_direction)		
 	if current_level_x != 0 and move_direction == Vector2.LEFT and player_position.x < 16:
 		go_to_next_level(move_direction, player_position)
 	if current_level_x != number_of_levels_in_x and move_direction == Vector2.RIGHT and player_position.x > (LEVEL_MAX_SIZE_X - 16):
 		go_to_next_level(move_direction, player_position)
-	if current_level_y != 0 and move_direction == Vector2.UP and player_position.y < 16:
+	if current_level_y != 0 and move_direction == Vector2.UP and player_position.y < 8:
 		go_to_next_level(move_direction, player_position)
 	if current_level_y != number_of_levels_in_y and move_direction == Vector2.DOWN and player_position.y > (LEVEL_MAX_SIZE_Y -16):
 		go_to_next_level(move_direction, player_position)

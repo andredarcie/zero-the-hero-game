@@ -45,7 +45,9 @@ func catch_fire():
 	$Light2D.visible = true
 	
 	if is_brush:
-		$Sprite.queue_free()
+		if not $Sprite == null: 
+			$Sprite.queue_free()
+			
 		$StaticBody2D.queue_free()
 		GameState.destroy(self)
 		

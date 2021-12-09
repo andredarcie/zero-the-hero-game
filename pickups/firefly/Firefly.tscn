@@ -15,4 +15,5 @@ animations = [ {
 
 [node name="Firefly" type="AnimatedSprite"]
 frames = SubResource( 1 )
+frame = 3
 playing = true
