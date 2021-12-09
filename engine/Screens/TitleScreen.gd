@@ -8,6 +8,4 @@ func _input(event):
 		$Timer.start()
 
 func _on_Timer_timeout():
-	BackgroundMusic.play_main_sound()
-	LevelManager.current_player_position = Vector2(152, 168)
-	LevelManager.change_scene("res://levels/4-3.tscn")
+	LevelManager.change_scene("res://engine/Screens/IntroScreen.tscn")

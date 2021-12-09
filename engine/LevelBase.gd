@@ -3,8 +3,7 @@ extends Node2D
 var player_scene = preload("res://player/Player/Player.tscn")
 
 func _enter_tree():
-	if not Hud.get_child(0).visible:
-		Hud.get_child(0).visible = true
+	Hud.show_hud()
 		
 	LevelManager.set_current_level_position()
 	

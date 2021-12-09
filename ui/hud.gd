@@ -10,14 +10,21 @@ func _ready() -> void:
 	for i in GameState.player_max_health:
 		add_new_heart()
 		
+	
 	$Base/HeroIcon.position = Vector2(GameState.hero_icon_on_map_position_x, GameState.hero_icon_on_map_position_y)
-		
 
 func add_new_heart():
 	var new_heart = Sprite.new()
 	new_heart.texture = $Base/hearts.texture
 	new_heart.hframes = $Base/hearts.hframes
 	$Base/hearts.add_child(new_heart)
+	
+func show_hud():
+	$Base/hearts.visible = true
+	$Base/VBoxContainer.visible = true
+	$Base/Map.visible = true
+	$Base/HeroIcon.visible = true
+	$Base/coin.visible = true
 	
 	
 func _process(_delta: float) -> void:
