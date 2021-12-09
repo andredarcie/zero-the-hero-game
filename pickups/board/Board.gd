@@ -1,6 +1,6 @@
 extends Area2D
 
-export var message = 'Trees have been planted here to prevent rogues from passing'
+export var message = 'WORKING PROGRESS'
 var dialogBox: DialogBox = null
 
 func _on_Board_body_entered(body):

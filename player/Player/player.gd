@@ -45,7 +45,7 @@ func _init() -> void:
 	
 	
 func _ready() -> void:
-	speed = 200
+	speed = 90
 	$Bow.visible = false
 	add_to_group('Player')
 	texture_default = $Sprite.texture

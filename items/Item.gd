@@ -1,7 +1,18 @@
 class_name Item extends Node2D
 
 var texture = null
-export(GameState.ItemSlot) var item = GameState.ItemSlot.Nothing
+
+enum ItemSlot {
+	Nothing,
+	Sword,
+	Bow,
+	Bomb,
+	Scythe,
+	Axe,
+	Key
+}
+
+export(ItemSlot) var item = ItemSlot.Nothing
 
 func _ready():
 	var state = GameState.load_state(self)

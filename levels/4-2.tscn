@@ -41,11 +41,11 @@ position = Vector2( 24, 24 )
 
 [node name="Torch" parent="Items" index="8" instance=ExtResource( 5 )]
 position = Vector2( 104, 72 )
-frame = 0
+frame = 1
 
 [node name="Torch2" parent="Items" index="9" instance=ExtResource( 5 )]
 position = Vector2( 264, 72 )
-frame = 0
+frame = 1
 
 [node name="Enemies" type="Node" parent="." index="4"]
 
