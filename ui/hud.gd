@@ -13,6 +13,9 @@ func _ready() -> void:
 	
 	$Base/HeroIcon.position = Vector2(GameState.hero_icon_on_map_position_x, GameState.hero_icon_on_map_position_y)
 
+func set_slot_icon(texture):
+	$Base/Slot/SlotIcon.texture = texture
+
 func add_new_heart():
 	var new_heart = Sprite.new()
 	new_heart.texture = $Base/hearts.texture
@@ -25,6 +28,7 @@ func show_hud():
 	$Base/Map.visible = true
 	$Base/HeroIcon.visible = true
 	$Base/coin.visible = true
+	$Base/Slot.visible = true
 	
 	
 func _process(_delta: float) -> void:

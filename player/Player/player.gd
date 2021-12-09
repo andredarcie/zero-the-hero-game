@@ -149,6 +149,7 @@ func change_item(item):
 	$Sword.texture = texture
 	print($Sword.texture)
 	item_texture = texture
+	Hud.set_slot_icon(texture)
 	
 	
 func state_swing() -> void:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://engine/dialog.tscn" type="PackedScene" id=1]
 [ext_resource path="res://ui/map.png" type="Texture" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://ui/hearts.png" type="Texture" id=4]
 [ext_resource path="res://ui/hero_icon.png" type="Texture" id=5]
 [ext_resource path="res://pickups/coin/coin.png" type="Texture" id=6]
+[ext_resource path="res://ui/hud_slot.png" type="Texture" id=7]
 
 [sub_resource type="DynamicFontData" id=1]
 font_path = "res://fonts/m5x7.ttf"
@@ -74,3 +75,10 @@ offset = Vector2( 5, 5 )
 visible = false
 position = Vector2( 293.609, 5.84539 )
 texture = ExtResource( 6 )
+
+[node name="Slot" type="Sprite" parent="Base"]
+visible = false
+position = Vector2( 306.074, 225.619 )
+texture = ExtResource( 7 )
+
+[node name="SlotIcon" type="Sprite" parent="Base/Slot"]
