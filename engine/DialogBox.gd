@@ -1,5 +1,7 @@
 class_name DialogBox extends Polygon2D	
-	
+
+signal dialogue_ended
+
 func start_dialog(name: String, dialogs):
 	BackgroundMusic.stop()
 	$TextName.set_name(name + ': ')
@@ -12,3 +14,6 @@ func is_dialog_ended():
 func end_dialog():
 	BackgroundMusic.play()
 	$TextBox.end_dialog()
+	
+func dialogue_ended():
+	emit_signal("dialogue_ended")
