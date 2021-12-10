@@ -66,15 +66,16 @@ func get_current_scene_name() -> String:
 	
 	
 func restart_game():
+	Hud.hud_visible(false)
 	LevelManager.current_player_position = Vector2(248, 392)
 	get_tree().call_group("Enemy", "queue_free")
 	GameState.player_slot_item = 0
 	persisted_objects = []
-	player_arrows = 10
+	player_arrows = 0
 	player_bombs = 0
 	player_wood = 0
 	keys = 0
-	coins = 1
+	coins = 0
 	number_of_player_deaths = number_of_player_deaths + 1
 	
 	if number_of_player_deaths >= 3:
@@ -121,14 +122,17 @@ func check_body_is_player(body) -> bool:
 	return body.is_in_group("Player")
 	
 	
-func check_line_of_sight(npc, player) -> bool:
+func check_line_of_sight(npc, area, player) -> bool:
+	player = get_player()
+	var hitbox = player.get_node("hitbox")
+	
 	var space = npc.get_world_2d().direct_space_state
-	var LOS_obstacle = space.intersect_ray(npc.global_position, player.global_position, [npc], npc.collision_mask)
-
+	var LOS_obstacle = space.intersect_ray(npc.global_position, hitbox.global_position, [npc, area], npc.collision_mask, true, true)
+	
 	if not LOS_obstacle:
 		return false
-		
-	return LOS_obstacle.collider == player
+	
+	return LOS_obstacle.collider.name == "hitbox"
 
 
 func activate_id(unique_id):
