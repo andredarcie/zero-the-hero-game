@@ -9,9 +9,6 @@ func _ready() -> void:
 	old_max_health = GameState.player_max_health
 	for i in GameState.player_max_health:
 		add_new_heart()
-		
-	
-	$Base/HeroIcon.position = Vector2(GameState.hero_icon_on_map_position_x, GameState.hero_icon_on_map_position_y)
 
 func set_slot_icon(texture):
 	$Base/Slot/SlotIcon.texture = texture
@@ -22,16 +19,18 @@ func add_new_heart():
 	new_heart.hframes = $Base/hearts.hframes
 	$Base/hearts.add_child(new_heart)
 	
-func show_hud():
-	$Base/hearts.visible = true
-	$Base/VBoxContainer.visible = true
-	$Base/Map.visible = true
-	$Base/HeroIcon.visible = true
-	$Base/coin.visible = true
-	$Base/Slot.visible = true
+func hud_visible(flag):
+	$Base/hearts.visible = flag
+	$Base/VBoxContainer.visible = flag
+	$Base/Map.visible = flag
+	$Base/HeroIcon.visible = flag
+	$Base/coin.visible = flag
+	$Base/Slot.visible = flag
 	
 	
 func _process(_delta: float) -> void:
+	$Base/HeroIcon.position = Vector2(GameState.hero_icon_on_map_position_x, GameState.hero_icon_on_map_position_y)
+	
 	if old_max_health != GameState.player_max_health:
 		old_max_health = GameState.player_max_health
 		add_new_heart()
