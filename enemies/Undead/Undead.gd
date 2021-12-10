@@ -19,6 +19,7 @@ func _ready():
 	move_random_direction = false
 	get_hurt_sound = preload("res://sounds/effects/undead.wav")
 	dying_sound = preload("res://sounds/effects/undead_dying.wav")
+	player = GameState.get_player()
 
 
 func _physics_process(delta):
@@ -26,7 +27,7 @@ func _physics_process(delta):
 	
 	if is_hurt:
 		move_and_slide(pushed_move_direction.normalized() * (speed * 2))
-	elif player_is_on_vision and GameState.check_line_of_sight(self, player):
+	elif player_is_on_vision and GameState.check_line_of_sight(self, $Area2D, player):
 		enemy_saw_player()
 		move = global_position.direction_to(player.global_position) * (speed * 2)
 		move_and_slide(move, Vector2(0, 0))
@@ -37,20 +38,6 @@ func _physics_process(delta):
 			
 		enemy_lost_sight_of_player()
 
-
-func _on_Vision_body_entered(body):
-	if player == null:
-		player = GameState.get_player()
-		
-	if GameState.check_body_is_player(body):
-		player_is_on_vision = true
-
-
-func _on_Vision_body_exited(body):
-	if GameState.check_body_is_player(body):
-		player_is_on_vision = false
-
-	
 func enemy_saw_player():
 	Ballon.texture = alert_texture
 	move_random_direction = false
@@ -69,3 +56,13 @@ func _on_AnimatedSprite_animation_finished():
 	move_random_direction = true
 	set_physics_process(true)
 	$Sprite.visible = true
+
+
+func _on_Vision_area_entered(area):
+	if area.name == 'hitbox':
+		player_is_on_vision = true
+
+
+func _on_Vision_area_exited(area):
+	if area.name == 'hitbox':
+		player_is_on_vision = false

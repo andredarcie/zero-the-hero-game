@@ -16,7 +16,7 @@ radius = 5.65816
 height = 0.0
 
 [sub_resource type="CircleShape2D" id=2]
-radius = 64.0
+radius = 70.072
 
 [sub_resource type="SpriteFrames" id=3]
 animations = [ {
@@ -37,7 +37,6 @@ region_rect = Rect2( 0, 0, 15, 15 )
 shape = SubResource( 1 )
 
 [node name="Vision" type="Area2D" parent="." index="6"]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Vision" index="0"]
 position = Vector2( 0.140305, -0.140305 )
@@ -53,7 +52,7 @@ one_shot = true
 frames = SubResource( 3 )
 
 [connection signal="animation_finished" from="EnemyAnimationPlayer" to="." method="_on_EnemyAnimationPlayer_animation_finished"]
-[connection signal="body_entered" from="Vision" to="." method="_on_Vision_body_entered"]
-[connection signal="body_exited" from="Vision" to="." method="_on_Vision_body_exited"]
+[connection signal="area_entered" from="Vision" to="." method="_on_Vision_area_entered"]
+[connection signal="area_exited" from="Vision" to="." method="_on_Vision_area_exited"]
 [connection signal="timeout" from="InterrogationTime" to="." method="_on_InterrogationTime_timeout"]
 [connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
