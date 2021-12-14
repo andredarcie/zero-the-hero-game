@@ -10,8 +10,31 @@ func _ready() -> void:
 	for i in GameState.player_max_health:
 		add_new_heart()
 
-func set_slot_icon(texture):
+func set_slot_icon(player, texture, animate):
 	$Base/Slot/SlotIcon.texture = texture
+	
+	if not animate:
+		return
+		
+	$Base/Slot/SlotIcon.global_position = player.global_position
+	
+	var _node = $Base/Slot/SlotIcon
+	var _property = "global_position"
+	var _initial_value = $Base/Slot/SlotIcon.global_position
+	var _final_value = $Base/Slot.global_position
+	var _duration = 0.5 # in seconds
+	var _transition_type = Tween.TRANS_LINEAR
+	var _ease_type = Tween.EASE_IN_OUT
+	$Base/Tween.interpolate_property(
+		_node,
+		_property,
+		_initial_value,
+		_final_value,
+		_duration,
+		_transition_type,
+		_ease_type
+	)
+	$Base/Tween.start()
 
 func add_new_heart():
 	var new_heart = Sprite.new()
@@ -50,8 +73,18 @@ func _process(_delta: float) -> void:
 		if index < last_heart:
 			heart.frame = 4
 			
+			
 	show_coins()
 	
 func show_coins():
 	$Base/VBoxContainer/CoinTextLabel.text = " " + str(GameState.coins)
 
+func _on_Tween_tween_completed(object, key):
+	SoundEffects.play_get_item()
+	$Base/AnimationPlayer.play("shake")
+
+
+func _on_AnimationPlayer_animation_finished(anim_name):
+	print(anim_name)
+	if anim_name == "shake":
+		$Base/AnimationPlayer.play("default")

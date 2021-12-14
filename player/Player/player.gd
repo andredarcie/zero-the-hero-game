@@ -144,12 +144,15 @@ func state_default() -> void:
 				GameState.player_have_key = true
 				use_item(sword, item_texture)
 
-func change_item(item):
+func change_item(item, animate):
+	if animate:
+		SoundEffects.play_jump()
+		
 	var texture = GameState.get_item_texture(item)		
 	$Sword.texture = texture
 	print($Sword.texture)
 	item_texture = texture
-	Hud.set_slot_icon(texture)
+	Hud.set_slot_icon(self, texture, animate)
 	
 	
 func state_swing() -> void:

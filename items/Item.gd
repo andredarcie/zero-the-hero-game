@@ -32,14 +32,12 @@ func set_item_texture(item):
 	
 func _on_Area2D_body_entered(body):
 	if GameState.check_body_is_player(body):
-		SoundEffects.play_get_item()
-		
 		var old_item = GameState.player_slot_item
 		GameState.save_state(self, old_item)
 		
 		GameState.player_slot_item = item
 		var player = GameState.get_player()
-		player.change_item(item)
+		player.change_item(item, true)
 		
 		if old_item == GameState.ItemSlot.Nothing:
 			queue_free()
