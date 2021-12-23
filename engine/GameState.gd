@@ -88,7 +88,13 @@ func restart_game():
 	
 	LevelManager.change_scene("res://engine/Screens/EndScreen.tscn")
 
-
+func goto_title_screen():
+	Hud.hud_visible(false)
+	GameState.player_slot_item = 0
+	persisted_objects = []
+	BackgroundMusic.stop()
+	LevelManager.change_scene("res://engine/Screens/TitleScreen.tscn")
+	
 func get_player():
 	# return get_tree().get_nodes_in_group('Player')[0]
 	return get_node("/root").find_node("Player", true, false)

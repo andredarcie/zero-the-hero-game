@@ -13,7 +13,7 @@ func _ready():
 		if GameState.player_health <= 1:
 			instance_scene(Heart)
 			
-		queue_free()
+		instance_scene(Undead)
 	
 	
 func instance_scene(scene: PackedScene) -> void:

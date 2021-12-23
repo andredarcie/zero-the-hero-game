@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://levels/LevelBase.tscn" type="PackedScene" id=1]
 [ext_resource path="res://tiles/TileMaps/forest_tile_map/ForestTileMap.tscn" type="PackedScene" id=2]
 [ext_resource path="res://tiles/grass/CutGrass/CutGrass.tscn" type="PackedScene" id=3]
+[ext_resource path="res://npcs/npc/Npc.tscn" type="PackedScene" id=4]
 [ext_resource path="res://pickups/firefly/Firefly.tscn" type="PackedScene" id=5]
 [ext_resource path="res://pickups/heart/Heart.tscn" type="PackedScene" id=9]
 [ext_resource path="res://items/Item.tscn" type="PackedScene" id=10]
@@ -35,7 +36,7 @@ position = Vector2( 264, 152 )
 
 [node name="Firefly" parent="." index="4" instance=ExtResource( 5 )]
 position = Vector2( 248, 88 )
-frame = 1
+frame = 2
 
 [node name="Objects" type="Node" parent="." index="5"]
 
@@ -48,6 +49,10 @@ position = Vector2( 80, -40 )
 [node name="Item" parent="Objects" index="2" instance=ExtResource( 10 )]
 position = Vector2( 160, 104 )
 item = 1
+
+[node name="Npc" parent="Objects" index="3" instance=ExtResource( 4 )]
+position = Vector2( 72, 32 )
+npc = 1
 
 [node name="FireGrass" type="Node" parent="." index="6"]
 
