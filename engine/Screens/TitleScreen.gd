@@ -1,7 +1,7 @@
 extends Control
 
 onready var intro_sound : AudioStream = preload("res://sounds/effects/intro_monster.wav")
-var skip_intro: bool = false
+var skip_intro: bool = true
 
 func _input(event):
 	if event.is_action_pressed("ui_accept"):

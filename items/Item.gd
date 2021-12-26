@@ -9,7 +9,8 @@ enum ItemSlot {
 	Bomb,
 	Scythe,
 	Axe,
-	Key
+	Key,
+	Pickaxe
 }
 
 export(ItemSlot) var item = ItemSlot.Nothing

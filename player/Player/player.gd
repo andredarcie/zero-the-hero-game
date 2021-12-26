@@ -118,6 +118,7 @@ func state_default() -> void:
 		GameState.player_sword_cut_grass = false
 		GameState.player_sword_cut_wood = false
 		GameState.player_have_key = false
+		GameState.player_cut_stone = false
 		
 		match GameState.player_slot_item:
 			GameState.ItemSlot.Nothing:
@@ -142,6 +143,9 @@ func state_default() -> void:
 				use_item(sword, item_texture)
 			GameState.ItemSlot.Key:
 				GameState.player_have_key = true
+				use_item(sword, item_texture)
+			GameState.ItemSlot.Pickaxe:
+				GameState.player_cut_stone = true
 				use_item(sword, item_texture)
 
 func change_item(item, animate):

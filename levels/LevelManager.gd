@@ -7,8 +7,12 @@ var current_level_y = 0
 var number_of_levels_in_x = 8
 var number_of_levels_in_y = 8
 var current_player_position = Vector2(16,16)
+var dungeon: bool = true
 
 func _ready():
+	if dungeon:
+		return
+		
 	set_current_level_position()
 	
 
@@ -74,18 +78,6 @@ func go_to_next_level(move_direction: Vector2, player_position: Vector2):
 	var scene_name = "res://levels/" + str(current_level_x) + "-" + str(current_level_y) + ".tscn"
 	SoundEffects.play_enter()
 	change_scene(scene_name)
-		
-		
-func go_to_dungeon() -> void:
-	print("dungeon")
-	print(current_level_x, current_level_y)
-	current_player_position = GameState.get_player().global_position
-	
-	var scene_name = "res://levels/d" + str(current_level_x) + "-" + str(current_level_y) + ".tscn"
-	change_scene(scene_name)
-	SoundEffects.play_enter()
-	BackgroundMusic.play_dungeon_sound()
-		
 		
 func go_to_land() -> void:
 	current_player_position = GameState.get_player().global_position

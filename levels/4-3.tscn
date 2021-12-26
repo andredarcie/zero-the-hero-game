@@ -36,7 +36,7 @@ position = Vector2( 264, 152 )
 
 [node name="Firefly" parent="." index="4" instance=ExtResource( 5 )]
 position = Vector2( 248, 88 )
-frame = 2
+frame = 1
 
 [node name="Objects" type="Node" parent="." index="5"]
 
@@ -44,7 +44,8 @@ frame = 2
 position = Vector2( 64, 448 )
 
 [node name="DungeonEntrance" parent="Objects" index="1" instance=ExtResource( 11 )]
-position = Vector2( 80, -40 )
+position = Vector2( 232, 24 )
+dungeon_name = "first"
 
 [node name="Item" parent="Objects" index="2" instance=ExtResource( 10 )]
 position = Vector2( 160, 104 )

@@ -23,6 +23,11 @@ var player_sword_on_fire: bool = false
 var number_of_player_deaths: int = 0
 var player_slot_item = 0
 var player_have_key: bool = false
+var player_cut_stone: bool = false
+
+# Dungeons
+var player_current_dungeon_level: int = 1
+var player_current_dungeon_name: String = ""
 
 enum ItemSlot {
 	Nothing,
@@ -31,7 +36,8 @@ enum ItemSlot {
 	Bomb,
 	Scythe,
 	Axe,
-	Key
+	Key,
+	Pickaxe
 }
 
 var sword_texture = preload("res://items/sword_icon.png")
@@ -40,6 +46,7 @@ var bomb_texture = preload("res://items/bomb_icon.png")
 var scythe_texture = preload("res://items/scythe_icon.png")
 var axe_texture = preload("res://items/axe_icon.png")
 var key_texture = preload("res://items/key_icon.png")
+var pickaxe_texture = preload("res://items/pickaxe_icon.png")
 
 # d4-3
 var d4_3_switch_1 = true
@@ -117,6 +124,8 @@ func get_item_texture(item):
 			texture = axe_texture
 		ItemSlot.Key:
 			texture = key_texture
+		ItemSlot.Pickaxe:
+			texture = pickaxe_texture
 			
 	return texture
 	
