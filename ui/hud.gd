@@ -16,7 +16,7 @@ func set_slot_icon(player, texture, animate):
 	if not animate:
 		return
 		
-	$Base/Slot/SlotIcon.global_position = player.global_position
+	$Base/Slot/SlotIcon.global_position = player.global_position - Vector2(-80, 0)
 	
 	var _node = $Base/Slot/SlotIcon
 	var _property = "global_position"
@@ -49,6 +49,13 @@ func hud_visible(flag):
 	$Base/HeroIcon.visible = flag
 	$Base/coin.visible = flag
 	$Base/Slot.visible = flag
+	
+	if OS.has_touchscreen_ui_hint():
+		$Base/UpTouchScreenButton.visible = true
+		$Base/LeftTouchScreenButton.visible = true
+		$Base/RightTouchScreenButton.visible = true
+		$Base/DownTouchScreenButton.visible = true
+		$Base/ActionTouchScreenButton.visible = true
 	
 	
 func _process(_delta: float) -> void:
@@ -88,3 +95,23 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 	print(anim_name)
 	if anim_name == "shake":
 		$Base/AnimationPlayer.play("default")
+
+
+func _on_UpTouchScreenButton_pressed():
+	print("teste")
+
+
+func _on_LeftTouchScreenButton_pressed():
+	pass # Replace with function body.
+
+
+func _on_RightTouchScreenButton_pressed():
+	pass # Replace with function body.
+
+
+func _on_DownTouchScreenButton_pressed():
+	pass # Replace with function body.
+
+
+func _on_ActionTouchScreenButton_pressed():
+	pass # Replace with function body.

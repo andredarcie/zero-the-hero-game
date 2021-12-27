@@ -7,7 +7,12 @@ func _input(event):
 	if event.is_action_pressed("ui_accept"):
 		#SoundEffects.play_sound(intro_sound)
 		$Timer.start()
-
+		
+		
+	if event is InputEventScreenTouch:
+		if event.is_pressed():
+			$Timer.start()
+			
 func _on_Timer_timeout():
 	if skip_intro:
 		BackgroundMusic.play_main_sound()

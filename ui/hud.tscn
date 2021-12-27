@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://engine/dialog.tscn" type="PackedScene" id=1]
 [ext_resource path="res://ui/map.png" type="Texture" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://ui/hero_icon.png" type="Texture" id=5]
 [ext_resource path="res://pickups/coin/coin.png" type="Texture" id=6]
 [ext_resource path="res://ui/hud_slot.png" type="Texture" id=7]
+[ext_resource path="res://ui/btn.png" type="Texture" id=8]
 
 [sub_resource type="DynamicFontData" id=1]
 font_path = "res://fonts/m5x7.ttf"
@@ -17,7 +18,7 @@ outline_size = 1
 outline_color = Color( 0, 0, 0, 1 )
 font_data = SubResource( 1 )
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=5]
 resource_name = "default"
 length = 0.1
 tracks/0/type = "value"
@@ -30,11 +31,10 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 306, 225 ) ]
+"values": [ Vector2( 440, 40 ) ]
 }
 
-[sub_resource type="Animation" id=3]
-resource_name = "shake"
+[sub_resource type="Animation" id=4]
 length = 0.3
 tracks/0/type = "value"
 tracks/0/path = NodePath("Slot:position")
@@ -46,7 +46,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 306, 225 ), Vector2( 307, 225 ), Vector2( 306, 225 ), Vector2( 307, 225 ) ]
+"values": [ Vector2( 440, 40 ), Vector2( 441, 40 ), Vector2( 440, 40 ), Vector2( 441, 40 ) ]
 }
 
 [node name="hud" type="CanvasLayer"]
@@ -54,15 +54,26 @@ script = ExtResource( 3 )
 
 [node name="Base" type="Node2D" parent="."]
 
+[node name="Polygon2D" type="Polygon2D" parent="Base"]
+scale = Vector2( 1.25, 1 )
+color = Color( 0, 0, 0, 1 )
+polygon = PoolVector2Array( 0, 0, 64, 0, 64, 240, 0, 240 )
+
+[node name="Polygon2D2" type="Polygon2D" parent="Base"]
+position = Vector2( 400, 0 )
+scale = Vector2( 1.25, 1 )
+color = Color( 0, 0, 0, 1 )
+polygon = PoolVector2Array( 0, 0, 64, 0, 64, 240, 0, 240 )
+
 [node name="hearts" type="Sprite" parent="Base"]
 visible = false
-position = Vector2( 150, 8 )
+position = Vector2( 232.26, 7.05719 )
 texture = ExtResource( 4 )
 hframes = 5
 
 [node name="DialogBox" parent="Base" instance=ExtResource( 1 )]
 visible = false
-position = Vector2( 64, 112 )
+position = Vector2( 152, 160 )
 color = Color( 0, 0, 0, 1 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Base"]
@@ -70,9 +81,10 @@ visible = false
 anchor_left = 0.934375
 anchor_right = 1.0
 anchor_bottom = 0.155556
-margin_left = 299.0
-margin_right = 321.0
-margin_bottom = 22.0
+margin_left = 435.286
+margin_top = 2.82842
+margin_right = 457.286
+margin_bottom = 24.8284
 rect_min_size = Vector2( 0, 22 )
 custom_constants/separation = 0
 __meta__ = {
@@ -105,21 +117,57 @@ offset = Vector2( 5, 5 )
 
 [node name="coin" type="Sprite" parent="Base"]
 visible = false
-position = Vector2( 293.609, 5.84539 )
+position = Vector2( 432, 8 )
 texture = ExtResource( 6 )
 
 [node name="Slot" type="Sprite" parent="Base"]
 visible = false
-position = Vector2( 306, 225 )
+position = Vector2( 440, 40 )
 texture = ExtResource( 7 )
 
 [node name="SlotIcon" type="Sprite" parent="Base/Slot"]
+visible = false
 
 [node name="Tween" type="Tween" parent="Base"]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Base"]
-anims/default = SubResource( 4 )
-anims/shake = SubResource( 3 )
+anims/default = SubResource( 5 )
+anims/shake = SubResource( 4 )
+
+[node name="UpTouchScreenButton" type="TouchScreenButton" parent="Base"]
+visible = false
+position = Vector2( 29.9936, 98.2958 )
+normal = ExtResource( 8 )
+action = "ui_up"
+
+[node name="LeftTouchScreenButton" type="TouchScreenButton" parent="Base"]
+visible = false
+position = Vector2( 12.3537, 116.927 )
+normal = ExtResource( 8 )
+action = "ui_left"
+
+[node name="RightTouchScreenButton" type="TouchScreenButton" parent="Base"]
+visible = false
+position = Vector2( 48.0299, 116.729 )
+normal = ExtResource( 8 )
+action = "ui_right"
+
+[node name="DownTouchScreenButton" type="TouchScreenButton" parent="Base"]
+visible = false
+position = Vector2( 29.7954, 135.558 )
+normal = ExtResource( 8 )
+action = "ui_down"
+
+[node name="ActionTouchScreenButton" type="TouchScreenButton" parent="Base"]
+visible = false
+position = Vector2( 432.738, 110.097 )
+normal = ExtResource( 8 )
+action = "a"
 
 [connection signal="tween_completed" from="Base/Tween" to="." method="_on_Tween_tween_completed"]
 [connection signal="animation_finished" from="Base/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="pressed" from="Base/UpTouchScreenButton" to="." method="_on_UpTouchScreenButton_pressed"]
+[connection signal="pressed" from="Base/LeftTouchScreenButton" to="." method="_on_LeftTouchScreenButton_pressed"]
+[connection signal="pressed" from="Base/RightTouchScreenButton" to="." method="_on_RightTouchScreenButton_pressed"]
+[connection signal="pressed" from="Base/DownTouchScreenButton" to="." method="_on_DownTouchScreenButton_pressed"]
+[connection signal="pressed" from="Base/ActionTouchScreenButton" to="." method="_on_ActionTouchScreenButton_pressed"]
