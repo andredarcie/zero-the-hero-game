@@ -75,6 +75,9 @@ func go_to_next_level(move_direction: Vector2, player_position: Vector2):
 		current_level_y = LEVEL_MAX_SIZE_Y
 		GameState.hero_icon_on_map_position_x = 11
 		
+	Hud.set_place_discovered_on_mini_map(current_level_x, current_level_y)
+	Hud.set_player_position_on_mini_map(current_level_x, current_level_y)
+		
 	var scene_name = "res://levels/" + str(current_level_x) + "-" + str(current_level_y) + ".tscn"
 	SoundEffects.play_enter()
 	change_scene(scene_name)

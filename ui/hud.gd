@@ -4,11 +4,65 @@ const HEART_ROW_SIZE: int = 8
 const HEART_OFFSET: int = 8
 var old_max_health
 
+onready var tile_mini_map_texture = preload("res://ui/mini_map/tile_mini_map.png")
+onready var important_mini_map_texture = preload("res://ui/mini_map/important_mini_map.png")
+onready var player_mini_map_texture = preload("res://ui/mini_map/player_mini_map.png")
+onready var tile_hide_mini_map_texture = preload("res://ui/mini_map/tile_hide_mini_map.png")
+
+var mini_map_grid = []
+var old_player_position_on_mini_map = Vector2(0, 0)
+
 func _ready() -> void:
 	add_to_group('Hud')
 	old_max_health = GameState.player_max_health
 	for i in GameState.player_max_health:
 		add_new_heart()
+	
+	for x in range(8):
+		mini_map_grid.append([])
+		mini_map_grid[x] = []
+		for y in range(4):
+			mini_map_grid[x].append([])
+			mini_map_grid[x][y] = [0, 0, 0]
+	
+
+func set_player_position_on_mini_map(position_x, position_y):
+	
+	mini_map_grid[old_player_position_on_mini_map.x][old_player_position_on_mini_map.y][2] = 0
+	old_player_position_on_mini_map.x = position_x
+	old_player_position_on_mini_map.y = position_y
+	
+	mini_map_grid[position_x][position_y][2] = 1
+	draw_mini_map()
+	
+func set_place_discovered_on_mini_map(position_x, position_y):
+	mini_map_grid[position_x][position_y][0] = 1
+	draw_mini_map()
+	
+func set_important_place_on_mini_map():
+	mini_map_grid[LevelManager.current_level_x][LevelManager.current_level_y][1] = 1
+	draw_mini_map()
+
+func draw_mini_map():
+	var initial_position = 20
+	
+	for x in range(8):
+		for y in range(4):
+			var tile_mini_map = Sprite.new()
+			
+			var layers = mini_map_grid[x][y]
+			if layers[2] == 1:
+				tile_mini_map.texture = player_mini_map_texture
+			elif layers[1] == 1:
+				tile_mini_map.texture = important_mini_map_texture
+			elif layers[0] == 1:
+				tile_mini_map.texture = tile_mini_map_texture
+			else:
+				tile_mini_map.texture = tile_hide_mini_map_texture
+				
+			tile_mini_map.global_position = Vector2(initial_position + x * 6, initial_position + y * 6)
+			$Base.add_child(tile_mini_map)
+
 
 func set_slot_icon(player, texture, animate):
 	$Base/Slot/SlotIcon.texture = texture
@@ -45,22 +99,17 @@ func add_new_heart():
 func hud_visible(flag):
 	$Base/hearts.visible = flag
 	$Base/VBoxContainer.visible = flag
-	$Base/Map.visible = flag
-	$Base/HeroIcon.visible = flag
 	$Base/coin.visible = flag
 	$Base/Slot.visible = flag
+	$Base/MapTextLabel.visible = flag
+	$Base/HopeTextLabel.visible = flag
 	
 	if OS.has_touchscreen_ui_hint():
-		$Base/UpTouchScreenButton.visible = true
-		$Base/LeftTouchScreenButton.visible = true
-		$Base/RightTouchScreenButton.visible = true
-		$Base/DownTouchScreenButton.visible = true
 		$Base/ActionTouchScreenButton.visible = true
+		$Base/MobileJoystick.visible = true
 	
 	
-func _process(_delta: float) -> void:
-	$Base/HeroIcon.position = Vector2(GameState.hero_icon_on_map_position_x, GameState.hero_icon_on_map_position_y)
-	
+func _process(_delta: float) -> void:	
 	if old_max_health != GameState.player_max_health:
 		old_max_health = GameState.player_max_health
 		add_new_heart()
@@ -95,23 +144,3 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 	print(anim_name)
 	if anim_name == "shake":
 		$Base/AnimationPlayer.play("default")
-
-
-func _on_UpTouchScreenButton_pressed():
-	print("teste")
-
-
-func _on_LeftTouchScreenButton_pressed():
-	pass # Replace with function body.
-
-
-func _on_RightTouchScreenButton_pressed():
-	pass # Replace with function body.
-
-
-func _on_DownTouchScreenButton_pressed():
-	pass # Replace with function body.
-
-
-func _on_ActionTouchScreenButton_pressed():
-	pass # Replace with function body.

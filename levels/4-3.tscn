@@ -44,7 +44,7 @@ frame = 2
 position = Vector2( 64, 448 )
 
 [node name="DungeonEntrance" parent="Objects" index="1" instance=ExtResource( 11 )]
-position = Vector2( 232, 24 )
+position = Vector2( 248, -56 )
 dungeon_name = "first"
 
 [node name="Item" parent="Objects" index="2" instance=ExtResource( 10 )]

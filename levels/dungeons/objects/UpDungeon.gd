@@ -2,8 +2,8 @@ extends Node2D
 
 func _on_Area2D_body_entered(body):
 	if GameState.check_body_is_player(body):
-		LevelManager.current_player_position = Vector2(232, 50)	
-		var scene_name = "res://levels/4-3.tscn"
+		LevelManager.current_player_position = Vector2(80, 60)	
+		var scene_name = "res://levels/0-3.tscn"
 		GameState.player_current_dungeon_level = 1
 		var level = load(scene_name)
 

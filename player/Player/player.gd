@@ -3,6 +3,7 @@ class_name Player extends KinematicBody2D
 onready var FootSteps = preload("res://player/FootSteps/FootSteps.tscn")
 onready var blood_particules = preload("res://enemies/Enemy/Blood/Blood.tscn")
 onready var Bomb = preload("res://pickups/bomb/Bomb.tscn")
+onready var JoystickButton = Hud.get_node("Base/MobileJoystick/TouchScreenButton")
 
 onready var TVShaderMaterial = $CanvasLayer/ColorRect.get_material()
 var state: String = 'default'
@@ -172,13 +173,17 @@ func throw_bomb() -> void:
 	
 
 func controls_loop() -> void:
-	var LEFT: bool  = Input.is_action_pressed("ui_left")
-	var RIGHT: bool = Input.is_action_pressed("ui_right")
-	var UP: bool    = Input.is_action_pressed("ui_up")
-	var DOWN: bool  = Input.is_action_pressed("ui_down")
-	
-	movedir.x = -int(LEFT) + int(RIGHT)
-	movedir.y = -int(UP) + int(DOWN)
+	if OS.has_touchscreen_ui_hint():
+		movedir = JoystickButton.get_value()
+		movedir = Vector2(int(round(movedir.x)), int(round(movedir.y)))
+	else:
+		var LEFT: bool  = Input.is_action_pressed("ui_left")
+		var RIGHT: bool = Input.is_action_pressed("ui_right")
+		var UP: bool    = Input.is_action_pressed("ui_up")
+		var DOWN: bool  = Input.is_action_pressed("ui_down")
+		
+		movedir.x = -int(LEFT) + int(RIGHT)
+		movedir.y = -int(UP) + int(DOWN)
 
 
 func sword_catch_fire():
@@ -242,6 +247,7 @@ func movement_loop() -> void:
 		
 	# warning-ignore:return_value_discarded
 	move_and_slide(motion, Vector2(0, 0))
+	
 	
 	
 func spriterdir_loop() -> void:

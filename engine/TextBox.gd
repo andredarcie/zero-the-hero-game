@@ -11,7 +11,7 @@ func _ready():
 	set_visible(false)
 
 func _input(event):
-	if event.is_action_pressed("ui_accept") and can_pass_to_next_dialog:
+	if event.is_action_pressed("a") and can_pass_to_next_dialog:
 		$"../AcceptTextBox".visible = false
 		can_pass_to_next_dialog = false
 		
