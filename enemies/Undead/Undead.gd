@@ -8,6 +8,7 @@ onready var InterrogationTime = $InterrogationTime
 var alert_texture: Texture = preload("res://enemies/Enemy/Balloons/alert.png")
 var suspicious_texture: Texture = preload("res://enemies/Enemy/Balloons/suspicious.png")
 var player_is_on_vision: bool = false
+var can_play_alert_sound: bool = true
 
 func _ready():
 	set_physics_process(false)
@@ -39,6 +40,11 @@ func _physics_process(delta):
 		enemy_lost_sight_of_player()
 
 func enemy_saw_player():
+	if can_play_alert_sound:
+		can_play_alert_sound = false
+		SoundEffects.play_undead()
+		$AlertTimer.start()
+		
 	Ballon.texture = alert_texture
 	move_random_direction = false
 	
@@ -66,3 +72,7 @@ func _on_Vision_area_entered(area):
 func _on_Vision_area_exited(area):
 	if area.name == 'hitbox':
 		player_is_on_vision = false
+
+
+func _on_AlertTimer_timeout():
+	can_play_alert_sound = true

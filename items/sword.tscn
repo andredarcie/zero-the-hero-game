@@ -227,14 +227,14 @@ z_index = 1
 texture = ExtResource( 1 )
 vframes = 2
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="sword" type="Area2D" parent="."]
 z_index = -1
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="sword"]
 position = Vector2( -0.0049199, -2.07138 )
 shape = SubResource( 5 )
 
-[connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
+[connection signal="area_entered" from="sword" to="." method="_on_Area2D_area_entered"]

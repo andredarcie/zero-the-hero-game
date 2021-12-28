@@ -51,8 +51,12 @@ one_shot = true
 [node name="AnimatedSprite" type="AnimatedSprite" parent="." index="9"]
 frames = SubResource( 3 )
 
+[node name="AlertTimer" type="Timer" parent="." index="10"]
+wait_time = 2.0
+
 [connection signal="animation_finished" from="EnemyAnimationPlayer" to="." method="_on_EnemyAnimationPlayer_animation_finished"]
 [connection signal="area_entered" from="Vision" to="." method="_on_Vision_area_entered"]
 [connection signal="area_exited" from="Vision" to="." method="_on_Vision_area_exited"]
 [connection signal="timeout" from="InterrogationTime" to="." method="_on_InterrogationTime_timeout"]
 [connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
+[connection signal="timeout" from="AlertTimer" to="." method="_on_AlertTimer_timeout"]

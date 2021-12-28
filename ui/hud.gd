@@ -18,12 +18,7 @@ func _ready() -> void:
 	for i in GameState.player_max_health:
 		add_new_heart()
 	
-	for x in range(8):
-		mini_map_grid.append([])
-		mini_map_grid[x] = []
-		for y in range(4):
-			mini_map_grid[x].append([])
-			mini_map_grid[x][y] = [0, 0, 0]
+	restart_mini_map()
 	
 
 func set_player_position_on_mini_map(position_x, position_y):
@@ -43,8 +38,28 @@ func set_important_place_on_mini_map():
 	mini_map_grid[LevelManager.current_level_x][LevelManager.current_level_y][1] = 1
 	draw_mini_map()
 
+func destroy_mini_map():
+	for child in $Base/MiniMap.get_children():
+		$Base/MiniMap.remove_child(child)
+		child.queue_free()
+		
+func restart_mini_map():
+	for x in range(8):
+		mini_map_grid.append([])
+		mini_map_grid[x] = []
+		for y in range(4):
+			mini_map_grid[x].append([])
+			mini_map_grid[x][y] = [0, 0, 0]
+			
+	old_player_position_on_mini_map.x = 4
+	old_player_position_on_mini_map.y = 3
+	mini_map_grid[4][3][2] = 1
+	mini_map_grid[4][3][0] = 1
+	
 func draw_mini_map():
 	var initial_position = 20
+	
+	destroy_mini_map()
 	
 	for x in range(8):
 		for y in range(4):
@@ -61,7 +76,7 @@ func draw_mini_map():
 				tile_mini_map.texture = tile_hide_mini_map_texture
 				
 			tile_mini_map.global_position = Vector2(initial_position + x * 6, initial_position + y * 6)
-			$Base.add_child(tile_mini_map)
+			$Base/MiniMap.add_child(tile_mini_map)
 
 
 func set_slot_icon(player, texture, animate):
@@ -107,6 +122,11 @@ func hud_visible(flag):
 	if OS.has_touchscreen_ui_hint():
 		$Base/ActionTouchScreenButton.visible = true
 		$Base/MobileJoystick.visible = true
+		
+	if flag:
+		Hud.draw_mini_map()
+	else:
+		Hud.destroy_mini_map()
 	
 	
 func _process(_delta: float) -> void:	

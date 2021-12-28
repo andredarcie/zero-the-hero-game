@@ -19,10 +19,6 @@ shape = SubResource( 1 )
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 2 )
 
-[node name="Timer" type="Timer" parent="."]
-one_shot = true
-autostart = true
-
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
@@ -30,4 +26,3 @@ position = Vector2( 0.18708, -1.824 )
 shape = SubResource( 2 )
 
 [connection signal="body_entered" from="." to="." method="_on_DungeonEntrance_body_entered"]
-[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

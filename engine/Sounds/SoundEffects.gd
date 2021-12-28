@@ -7,6 +7,8 @@ onready var switch_sound : AudioStream = preload("res://sounds/effects/switch_so
 onready var bridge : AudioStream = preload("res://sounds/effects/bridge.wav")
 onready var get_item : AudioStream = preload("res://sounds/effects/get_item.wav")
 onready var jump : AudioStream = preload("res://sounds/effects/jump.wav")
+onready var wake_undead : AudioStream = preload("res://sounds/effects/zombie.wav")
+onready var undead : AudioStream = preload("res://sounds/effects/undead.wav")
 
 func stop_sound():
 	stop()
@@ -50,3 +52,7 @@ func play_get_item():
 func play_jump():
 	stop()
 	play_sound(jump)
+	
+func play_undead():
+	stop()
+	play_sound(undead)

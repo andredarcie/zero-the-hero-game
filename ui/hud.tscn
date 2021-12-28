@@ -163,6 +163,8 @@ visible = false
 modulate = Color( 1, 0.976471, 0.976471, 0.392157 )
 position = Vector2( 40, 176 )
 
+[node name="MiniMap" type="Node" parent="Base"]
+
 [connection signal="tween_completed" from="Base/Tween" to="." method="_on_Tween_tween_completed"]
 [connection signal="animation_finished" from="Base/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="pressed" from="Base/ActionTouchScreenButton" to="." method="_on_ActionTouchScreenButton_pressed"]

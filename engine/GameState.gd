@@ -73,7 +73,10 @@ func get_current_scene_name() -> String:
 	
 	
 func restart_game():
+	Hud.restart_mini_map()
 	Hud.hud_visible(false)
+	LevelManager.current_level_x = 4
+	LevelManager.current_level_y = 3
 	LevelManager.current_player_position = Vector2(248, 392)
 	get_tree().call_group("Enemy", "queue_free")
 	GameState.player_slot_item = 0
@@ -98,6 +101,8 @@ func restart_game():
 func goto_title_screen():
 	Hud.hud_visible(false)
 	GameState.player_slot_item = 0
+	player_health = 3
+	player_max_health = 3
 	persisted_objects = []
 	BackgroundMusic.stop()
 	LevelManager.change_scene("res://engine/Screens/TitleScreen.tscn")
@@ -140,14 +145,14 @@ func check_body_is_player(body) -> bool:
 func check_line_of_sight(npc, area, player) -> bool:
 	player = get_player()
 	var hitbox = player.get_node("hitbox")
-	
 	var space = npc.get_world_2d().direct_space_state
+	
 	var LOS_obstacle = space.intersect_ray(npc.global_position, hitbox.global_position, [npc, area], npc.collision_mask, true, true)
 	
 	if not LOS_obstacle:
 		return false
 	
-	return LOS_obstacle.collider.name == "hitbox"
+	return LOS_obstacle.collider.name == "hitbox" or LOS_obstacle.collider.name == "sword"
 
 
 func activate_id(unique_id):
