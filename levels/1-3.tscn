@@ -62,53 +62,44 @@ position = Vector2( 120, 200 )
 [node name="Wood12" parent="Items" index="12" instance=ExtResource( 6 )]
 position = Vector2( 264, 184 )
 
-[node name="Wood13" parent="Items" index="13" instance=ExtResource( 6 )]
-position = Vector2( 264, 168 )
-
-[node name="Wood14" parent="Items" index="14" instance=ExtResource( 6 )]
+[node name="Wood14" parent="Items" index="13" instance=ExtResource( 6 )]
 position = Vector2( 216, 200 )
 
-[node name="Wood15" parent="Items" index="15" instance=ExtResource( 6 )]
+[node name="Wood15" parent="Items" index="14" instance=ExtResource( 6 )]
 position = Vector2( 280, 56 )
 
-[node name="Wood16" parent="Items" index="16" instance=ExtResource( 6 )]
+[node name="Wood16" parent="Items" index="15" instance=ExtResource( 6 )]
 position = Vector2( 232, 24 )
 
-[node name="Wood17" parent="Items" index="17" instance=ExtResource( 6 )]
+[node name="Wood17" parent="Items" index="16" instance=ExtResource( 6 )]
 position = Vector2( 40, 24 )
 
-[node name="Wood18" parent="Items" index="18" instance=ExtResource( 6 )]
+[node name="Wood18" parent="Items" index="17" instance=ExtResource( 6 )]
 position = Vector2( 40, 216 )
 
-[node name="Wood19" parent="Items" index="19" instance=ExtResource( 6 )]
+[node name="Wood19" parent="Items" index="18" instance=ExtResource( 6 )]
 position = Vector2( 40, 200 )
 
-[node name="Wood20" parent="Items" index="20" instance=ExtResource( 6 )]
+[node name="Wood20" parent="Items" index="19" instance=ExtResource( 6 )]
 position = Vector2( 120, 168 )
 
-[node name="Wood21" parent="Items" index="21" instance=ExtResource( 6 )]
+[node name="Wood21" parent="Items" index="20" instance=ExtResource( 6 )]
 position = Vector2( 120, 152 )
 
-[node name="Wood22" parent="Items" index="22" instance=ExtResource( 6 )]
-position = Vector2( 208, 144 )
+[node name="Wood22" parent="Items" index="21" instance=ExtResource( 6 )]
+position = Vector2( 232, 152 )
 
-[node name="Wood23" parent="Items" index="23" instance=ExtResource( 6 )]
+[node name="Wood23" parent="Items" index="22" instance=ExtResource( 6 )]
 position = Vector2( 296, 216 )
 
-[node name="Wood24" parent="Items" index="24" instance=ExtResource( 6 )]
-position = Vector2( 296, 200 )
-
-[node name="Wood25" parent="Items" index="25" instance=ExtResource( 6 )]
+[node name="Wood25" parent="Items" index="23" instance=ExtResource( 6 )]
 position = Vector2( 296, 184 )
 
-[node name="Wood26" parent="Items" index="26" instance=ExtResource( 6 )]
-position = Vector2( 216, 216 )
-
-[node name="Wood27" parent="Items" index="27" instance=ExtResource( 6 )]
+[node name="Wood27" parent="Items" index="24" instance=ExtResource( 6 )]
 position = Vector2( 232, 216 )
 
-[node name="Vase" parent="Items" index="28" instance=ExtResource( 7 )]
+[node name="Vase" parent="Items" index="25" instance=ExtResource( 7 )]
 position = Vector2( 80, 24 )
 
-[node name="Vase2" parent="Items" index="29" instance=ExtResource( 7 )]
+[node name="Vase2" parent="Items" index="26" instance=ExtResource( 7 )]
 position = Vector2( 96, 24 )

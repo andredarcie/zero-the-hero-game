@@ -4,8 +4,8 @@
 [ext_resource path="res://engine/Screens/TitleScreen.gd" type="Script" id=2]
 [ext_resource path="res://fonts/m5x7.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://tiles/TileMaps/forest_tile_map/ForestTileMap.tscn" type="PackedScene" id=4]
-[ext_resource path="res://tiles/TileMaps/forest_tile_map/mushroom (1).png" type="Texture" id=5]
 [ext_resource path="res://engine/CanvasLayer.tscn" type="PackedScene" id=6]
+[ext_resource path="res://pickups/mushroom/Mushroom.tscn" type="PackedScene" id=7]
 
 [sub_resource type="DynamicFont" id=1]
 size = 10
@@ -100,14 +100,13 @@ __meta__ = {
 autoplay = "New Anim"
 "anims/New Anim" = SubResource( 2 )
 
-[node name="mushroom (1)" type="Sprite" parent="."]
-position = Vector2( 200, 48 )
-texture = ExtResource( 5 )
-
 [node name="CanvasLayer" parent="." instance=ExtResource( 6 )]
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.001
 one_shot = true
+
+[node name="Mushroom" parent="." instance=ExtResource( 7 )]
+position = Vector2( 184, 56 )
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

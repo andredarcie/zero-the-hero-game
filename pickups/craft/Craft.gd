@@ -1,6 +1,6 @@
 extends Node2D
 
-var wood = 3
+var wood = 1
 enum ThingToBuild {Bonfire, Bridge}
 export(ThingToBuild) var thing_to_build
 var builded: bool = false
