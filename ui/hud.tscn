@@ -72,9 +72,7 @@ texture = ExtResource( 4 )
 hframes = 5
 
 [node name="DialogBox" parent="Base" instance=ExtResource( 1 )]
-visible = false
-position = Vector2( 152, 160 )
-color = Color( 0, 0, 0, 1 )
+position = Vector2( 104, 152 )
 
 [node name="MapTextLabel" type="RichTextLabel" parent="Base"]
 visible = false

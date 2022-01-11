@@ -28,6 +28,7 @@ var player_cut_stone: bool = false
 # Dungeons
 var player_current_dungeon_level: int = 1
 var player_current_dungeon_name: String = ""
+var player_current_dungeon_exit_position: Vector2 = Vector2(0, 0)
 
 enum ItemSlot {
 	Nothing,

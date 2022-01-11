@@ -1,6 +1,7 @@
 class_name Npc extends Node2D
 
 var dialogBox: DialogBox = null
+var faceSprite = null
 var characterName: String = ''
 var dialogs = ["Nihilist knight! Do you accept a game of chess for your soul?"]
 
@@ -14,11 +15,13 @@ export(NPCS) var npc = NPCS.Cat
 func _ready():
 	dialogBox = Hud.get_node("Base/DialogBox")
 	dialogBox.connect("dialogue_ended", self, "_on_dialogue_ended")
+	faceSprite = dialogBox.get_node("FaceSprite")
 	
 	match (npc):
 		NPCS.Cat:
 			characterName = 'Cat'
 			$Sprite.frame = 0
+			faceSprite.texture 
 			dialogs = ["You must be the hero who seeks to find the sword?",
 					   "Yes. I am a talking cat",
 					   "And you're a naked primate in an armor",
@@ -65,6 +68,11 @@ func _ready():
 			dialogs = ["You must be the warrior Zero!",
 					   "I was on a journey to find the perfect place to do a painting.",
 					   "But these bushes are getting in the way."]
+					
+	faceSprite.hframes = $Sprite.hframes
+	faceSprite.vframes = $Sprite.vframes
+	faceSprite.frame = $Sprite.frame
+	faceSprite.texture = $Sprite.texture
 
 func _on_Area2D_body_entered(body):
 	if not GameState.check_body_is_player(body):

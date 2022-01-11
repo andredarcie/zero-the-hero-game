@@ -91,7 +91,7 @@ func set_slot_icon(player, texture, animate):
 	var _property = "global_position"
 	var _initial_value = $Base/Slot/SlotIcon.global_position
 	var _final_value = $Base/Slot.global_position
-	var _duration = 0.5 # in seconds
+	var _duration = 0.2 # in seconds
 	var _transition_type = Tween.TRANS_LINEAR
 	var _ease_type = Tween.EASE_IN_OUT
 	$Base/Tween.interpolate_property(

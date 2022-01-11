@@ -30,13 +30,14 @@ tracks/0/keys = {
 }
 
 [node name="DialogBox" type="Polygon2D"]
-color = Color( 0.423529, 0.388235, 0.388235, 1 )
+scale = Vector2( 1.41667, 1.125 )
+color = Color( 0, 0, 0, 1 )
 polygon = PoolVector2Array( 0, 0, 192, 0, 192, 64, 0, 64 )
 script = ExtResource( 3 )
 
 [node name="TextName" type="RichTextLabel" parent="."]
 margin_left = 8.0
-margin_right = 184.0
+margin_right = 186.0
 margin_bottom = 16.0
 custom_fonts/normal_font = SubResource( 1 )
 custom_colors/default_color = Color( 0.121569, 0.572549, 0.937255, 1 )
@@ -45,7 +46,7 @@ bbcode_text = "teste"
 text = "teste"
 script = ExtResource( 4 )
 __meta__ = {
-"_edit_use_anchors_": false
+"_edit_use_anchors_": true
 }
 
 [node name="TextBox" type="RichTextLabel" parent="."]
@@ -59,7 +60,7 @@ bbcode_text = "teste"
 text = "teste"
 script = ExtResource( 1 )
 __meta__ = {
-"_edit_use_anchors_": false
+"_edit_use_anchors_": true
 }
 
 [node name="AcceptTextBox" type="RichTextLabel" parent="."]
@@ -72,7 +73,7 @@ bbcode_enabled = true
 bbcode_text = "[ENTER]"
 text = "[ENTER]"
 __meta__ = {
-"_edit_use_anchors_": false
+"_edit_use_anchors_": true
 }
 
 [node name="Timer" type="Timer" parent="."]
@@ -87,6 +88,11 @@ autoplay = "Default"
 anims/Default = SubResource( 3 )
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+
+[node name="FaceSprite" type="Sprite" parent="."]
+position = Vector2( 28.2353, -14.2222 )
+scale = Vector2( 3, 3 )
+z_index = -1
 
 [connection signal="timeout" from="Timer" to="TextBox" method="_on_Timer_timeout"]
 [connection signal="timeout" from="TimerToShowAccept" to="TextBox" method="_on_TimerToShowAccept_timeout"]
