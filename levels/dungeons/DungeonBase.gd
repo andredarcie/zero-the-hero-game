@@ -6,7 +6,7 @@ func _enter_tree():
 	Hud.hud_visible(true)
 	
 	var player = player_scene.instance()
-	player.global_position = Vector2(32,40)
+	player.global_position = Vector2(40,40)
 	player.change_item(GameState.player_slot_item, false)
 	
 	if name.find("d") >= 0:

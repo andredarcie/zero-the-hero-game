@@ -6,7 +6,7 @@ var current_level_x = 0
 var current_level_y = 0
 var number_of_levels_in_x = 8
 var number_of_levels_in_y = 8
-var current_player_position = Vector2(16,16)
+var current_player_position = Vector2(40,40)
 var dungeon: bool = true
 
 func _ready():
