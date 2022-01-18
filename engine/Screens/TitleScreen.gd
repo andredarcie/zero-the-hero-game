@@ -2,8 +2,12 @@ extends Control
 
 onready var intro_sound : AudioStream = preload("res://sounds/effects/intro_monster.wav")
 var skip_intro: bool = true
+var one_item_hero: bool = true
 
 func _input(event):
+	if one_item_hero:
+		LevelManager.change_scene("res://levels/dungeons/first/1.tscn")
+		
 	if event.is_action_pressed("ui_accept"):
 		#SoundEffects.play_sound(intro_sound)
 		$Timer.start()

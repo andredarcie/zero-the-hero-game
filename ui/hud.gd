@@ -57,6 +57,8 @@ func restart_mini_map():
 	mini_map_grid[4][3][0] = 1
 	
 func draw_mini_map():
+	return
+	
 	var initial_position = 20
 	
 	destroy_mini_map()

@@ -303,7 +303,7 @@ func damage_loop() -> void:
 func catch_fire():
 	make_damage(self)
 
-func make_damage(body) -> void:
+func make_damage(body, knock = true) -> void:
 	
 	if invulnerable:
 		return
@@ -313,8 +313,9 @@ func make_damage(body) -> void:
 	else:
 		health -= 1
 		
-	hitstun = 10
-	knockdir = global_transform.origin - body.global_transform.origin
+	if knock:
+		hitstun = 10
+		knockdir = global_transform.origin - body.global_transform.origin
 	
 	if health == 1:
 		TVShaderMaterial.set_shader_param('roll', true)

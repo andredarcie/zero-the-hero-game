@@ -42,6 +42,7 @@ func toggle_switch():
 		
 	self.set_all_objects()
 	self.await_time = 10
+	SoundEffects.play_switch_sound()
 	
 
 func set_all_objects():
@@ -52,5 +53,5 @@ func set_all_objects():
 
 
 func _on_Switch_area_entered(area):
-	if area.get_parent().name == "sword":
+	if area.get_name() == "sword":
 		toggle_switch()

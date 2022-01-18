@@ -6,7 +6,7 @@ onready var fire_sword_texture = load("res://items/sword_on_fire.png")
 onready var sword_texture = load("res://items/sword.png")
 	
 func set_texture(texture):
-	$Sprite.texture = texture
+	$Position2D/Sprite.texture = texture
 	
 func _ready() -> void:
 	type = get_parent().type
@@ -20,9 +20,9 @@ func _ready() -> void:
 	var parent = get_parent()
 	if parent.get('sword_on_fire'):
 		if parent.sword_on_fire:
-			$Sprite.texture = fire_sword_texture
+			$Position2D/Sprite.texture = fire_sword_texture
 		else:
-			$Sprite.texture = sword_texture
+			$Position2D/Sprite.texture = sword_texture
 		
 
 func destroy(_animation) -> void:

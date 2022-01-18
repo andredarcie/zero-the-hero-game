@@ -3,6 +3,9 @@
 [ext_resource path="res://items/sword.png" type="Texture" id=1]
 [ext_resource path="res://items/sword.gd" type="Script" id=2]
 
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 6.52637, 6.35038 )
+
 [sub_resource type="Animation" id=1]
 resource_name = "swingdown"
 tracks/0/type = "value"
@@ -42,16 +45,28 @@ tracks/2/keys = {
 "values": [ 1 ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("Sprite:frame")
+tracks/3/path = NodePath("Position2D/Sprite:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0.6 ),
+"times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ 0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Position2D:rotation_degrees")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -100.0, 100.0 ]
 }
 
 [sub_resource type="Animation" id=2]
@@ -93,7 +108,7 @@ tracks/2/keys = {
 "values": [ 1 ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("Sprite:frame")
+tracks/3/path = NodePath("Position2D/Sprite:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -103,6 +118,18 @@ tracks/3/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ 0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Position2D:rotation_degrees")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -100.0, 100.0 ]
 }
 
 [sub_resource type="Animation" id=3]
@@ -144,7 +171,7 @@ tracks/2/keys = {
 "values": [ 1 ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("Sprite:frame")
+tracks/3/path = NodePath("Position2D/Sprite:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -154,6 +181,18 @@ tracks/3/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ 0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Position2D:rotation_degrees")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -100.0, 100.0 ]
 }
 
 [sub_resource type="Animation" id=4]
@@ -194,7 +233,7 @@ tracks/2/keys = {
 "values": [ -1 ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("Sprite:frame")
+tracks/3/path = NodePath("Position2D/Sprite:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -205,15 +244,45 @@ tracks/3/keys = {
 "update": 1,
 "values": [ 0 ]
 }
-
-[sub_resource type="RectangleShape2D" id=5]
-extents = Vector2( 2.3025, 4.85089 )
+tracks/4/type = "value"
+tracks/4/path = NodePath("Position2D:rotation_degrees")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -100.0, 100.0 ]
+}
 
 [node name="sword" type="Node2D"]
 position = Vector2( 0, 10 )
 rotation = 3.14159
 z_index = 1
 script = ExtResource( 2 )
+
+[node name="Position2D" type="Position2D" parent="."]
+position = Vector2( 0.132285, 10.0205 )
+rotation = 1.74533
+
+[node name="Sprite" type="Sprite" parent="Position2D"]
+position = Vector2( -0.132285, -10.0205 )
+z_index = 1
+texture = ExtResource( 1 )
+vframes = 2
+
+[node name="sword" type="Area2D" parent="Position2D/Sprite"]
+scale = Vector2( 1, 1 )
+z_index = -1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Position2D/Sprite/sword"]
+position = Vector2( 0.176749, -1.56091 )
+shape = SubResource( 5 )
 
 [node name="anim" type="AnimationPlayer" parent="."]
 playback_speed = 4.0
@@ -222,19 +291,4 @@ anims/swingleft = SubResource( 2 )
 anims/swingright = SubResource( 3 )
 anims/swingup = SubResource( 4 )
 
-[node name="Sprite" type="Sprite" parent="."]
-z_index = 1
-texture = ExtResource( 1 )
-vframes = 2
-
-[node name="sword" type="Area2D" parent="."]
-z_index = -1
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="sword"]
-position = Vector2( -0.0049199, -2.07138 )
-shape = SubResource( 5 )
-
-[connection signal="area_entered" from="sword" to="." method="_on_Area2D_area_entered"]
+[connection signal="area_entered" from="Position2D/Sprite/sword" to="." method="_on_Area2D_area_entered"]

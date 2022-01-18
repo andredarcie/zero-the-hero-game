@@ -26,29 +26,32 @@ tile_data = PoolIntArray( 65543, 4, 0, 131079, 4, 0, 196615, 4, 0, 262147, 4, 0,
 [node name="Torch2" parent="Objects" index="0" instance=ExtResource( 4 )]
 position = Vector2( 216, 24 )
 frames = SubResource( 1 )
-frame = 1
+frame = 0
 
 [node name="Torch3" parent="Objects" index="1" instance=ExtResource( 4 )]
 position = Vector2( 88, 24 )
 frames = SubResource( 1 )
-frame = 1
+frame = 0
 
 [node name="Torch4" parent="Objects" index="2" instance=ExtResource( 4 )]
 position = Vector2( 72, 88 )
 frames = SubResource( 1 )
-frame = 1
+frame = 0
 
 [node name="Torch5" parent="Objects" index="3" instance=ExtResource( 4 )]
 position = Vector2( 232, 120 )
 frames = SubResource( 1 )
+frame = 0
 
 [node name="Torch6" parent="Objects" index="4" instance=ExtResource( 4 )]
 position = Vector2( 184, 184 )
 frames = SubResource( 1 )
+frame = 0
 
 [node name="Torch7" parent="Objects" index="5" instance=ExtResource( 4 )]
 position = Vector2( 120, 184 )
 frames = SubResource( 1 )
+frame = 0
 
 [node name="Enemies" type="Node" parent="." index="4"]
 

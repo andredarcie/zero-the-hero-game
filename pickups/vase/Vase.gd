@@ -10,8 +10,7 @@ func _ready():
 
 func _on_Vase_area_entered(area):
 	if not broken:
-		var parent = area.get_parent()
-		if parent.name == "sword":
+		if area.get_name() == "sword":
 			rng.randomize()
 			var my_random_number = rng.randi_range(0, 1)
 			

@@ -76,9 +76,9 @@ func get_current_scene_name() -> String:
 func restart_game():
 	Hud.restart_mini_map()
 	Hud.hud_visible(false)
-	LevelManager.current_level_x = 4
-	LevelManager.current_level_y = 3
-	LevelManager.current_player_position = Vector2(248, 392)
+	#LevelManager.current_level_x = 4
+	#LevelManager.current_level_y = 3
+	#LevelManager.current_player_position = Vector2(248, 392)
 	get_tree().call_group("Enemy", "queue_free")
 	GameState.player_slot_item = 0
 	persisted_objects = []
@@ -96,8 +96,14 @@ func restart_game():
 		player_health = 3
 		player_max_health = 3
 		
-	
-	LevelManager.change_scene("res://engine/Screens/EndScreen.tscn")
+	var scene_name = "res://levels/dungeons/" + str(GameState.player_current_dungeon_name) + "/" + str(GameState.player_current_dungeon_level) + ".tscn"
+	var level = load(scene_name)
+
+	if level != null:
+		Hud.hud_visible(true)
+		get_tree().change_scene_to(level)
+	else:
+		print("Failed to load the scene: ", scene_name)
 
 func goto_title_screen():
 	Hud.hud_visible(false)
