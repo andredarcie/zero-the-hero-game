@@ -71,4 +71,4 @@ func build_bridge():
 func _on_Area2D_body_exited(body):
 	if GameState.check_body_is_player(body):
 		var player = GameState.get_player()
-		player.hide_ballon_wood()
+		player.hide_ballon()

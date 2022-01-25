@@ -391,10 +391,26 @@ func _on_InvulnerableTimer_timeout():
 	
 func show_ballon_wood():
 	$Balloon.visible = true
-	$Balloon.texture = preload("res://items/wood_icon.png")
+	$Balloon/BallonIcon.texture = preload("res://items/wood_icon.png")
+	$Balloon/BallonIcon.visible = true
 	
-func hide_ballon_wood():
+func show_ballon_sword():
+	$Balloon.visible = true
+	$BallonTimer.start()
+	$AnimationBallon.play("default")
+	
+func hide_ballon():
 	$Balloon.visible = false
-	
+	$Balloon/BallonIcon.visible = false
+
 func remove_item():
 	$Sword.texture = null
+
+
+func _on_BallonTimer_timeout():
+	hide_ballon()
+
+
+func _on_AnimationBallon_animation_finished(anim_name):
+	$Balloon/BallonIcon.visible = true
+	$Balloon/BallonIcon.texture = preload("res://items/sword_icon.png")

@@ -2,7 +2,6 @@ class_name Undead extends Enemy
 
 var follow_player: bool = false
 var move: Vector2 = Vector2.ZERO
-var player
 onready var Ballon = $Balloon
 onready var InterrogationTime = $InterrogationTime
 var alert_texture: Texture = preload("res://enemies/Enemy/Balloons/alert.png")

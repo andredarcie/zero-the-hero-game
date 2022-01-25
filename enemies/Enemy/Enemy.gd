@@ -20,10 +20,12 @@ var move_direction = Vector2.ZERO
 var facing_direction = Direction.DOWN
 var pushed_move_direction = Vector2.ZERO
 var is_hurt: bool = false
+var is_hurt_blink: bool = false
 var move_random_direction: bool = true
 var speed = 50
 var health = 1
 var damage = 1
+var player = null
 export (String) var unique_id
 
 var enemy_is_dead: bool = false
@@ -41,7 +43,7 @@ func _ready() -> void:
 	move_direction = get_random_direction()
 	
 func _process(delta):
-	if is_hurt:
+	if is_hurt_blink:
 		$Sprite.modulate.a = 0.5 if Engine.get_frames_drawn() % 2 == 0 else 1.0
 	else:
 		$Sprite.modulate.a = 1.0
@@ -81,18 +83,27 @@ func hurt(body : Node2D) -> void:
 	if "Arrow" in body.name and self.invulnerable_to_arrows:
 		return
 		
-	if get_hurt_sound:
-		SoundEffects.play_sound(get_hurt_sound)
-		
 	pushed_move_direction = global_transform.origin - body.global_transform.origin
 	$HurtTime.start()
 	is_hurt = true
-	health -= 1
+	
+	if GameState.player_current_item_is_sword():
+		health -= 1
+		is_hurt_blink = true
+		
+		if get_hurt_sound:
+			SoundEffects.play_sound(get_hurt_sound)
+	else:
+		if player == null:
+			player = GameState.get_player()
+		
+		player.show_ballon_sword()
 
 
 func _on_HurtTime_timeout() -> void:
 	$HurtTime.stop()
 	is_hurt = false
+	is_hurt_blink = false
 	if health <= 0:
 		enemy_is_dead = true
 		

@@ -131,6 +131,12 @@ func get_player_current_item():
 func player_current_item_is_wood():
 	return player_slot_item == ItemSlot.Wood
 	
+func player_current_item_is_scythe():
+	return player_slot_item == ItemSlot.Scythe
+	
+func player_current_item_is_sword():
+	return player_slot_item == ItemSlot.Sword
+	
 func get_item_texture(item):
 	var texture = null
 	
