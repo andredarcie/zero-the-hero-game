@@ -5,7 +5,7 @@
 [ext_resource path="res://tiles/TileMaps/web_spider_tile_map/WebSpiderTileMap.tscn" type="PackedScene" id=3]
 [ext_resource path="res://pickups/mushroom/Mushroom.tscn" type="PackedScene" id=4]
 [ext_resource path="res://tiles/grass/CutGrass/CutGrass.tscn" type="PackedScene" id=5]
-[ext_resource path="res://pickups/wood/Wood.tscn" type="PackedScene" id=6]
+[ext_resource path="res://pickups/wood/CuttableTree.tscn" type="PackedScene" id=6]
 [ext_resource path="res://pickups/heart/Heart.tscn" type="PackedScene" id=7]
 [ext_resource path="res://npcs/npc/Npc.tscn" type="PackedScene" id=8]
 

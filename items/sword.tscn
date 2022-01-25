@@ -3,11 +3,10 @@
 [ext_resource path="res://items/sword.png" type="Texture" id=1]
 [ext_resource path="res://items/sword.gd" type="Script" id=2]
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 6.52637, 6.35038 )
 
-[sub_resource type="Animation" id=1]
-resource_name = "swingdown"
+[sub_resource type="Animation" id=2]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
@@ -69,8 +68,7 @@ tracks/4/keys = {
 "values": [ -100.0, 100.0 ]
 }
 
-[sub_resource type="Animation" id=2]
-resource_name = "swingleft"
+[sub_resource type="Animation" id=3]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
@@ -132,8 +130,7 @@ tracks/4/keys = {
 "values": [ -100.0, 100.0 ]
 }
 
-[sub_resource type="Animation" id=3]
-resource_name = "swingright"
+[sub_resource type="Animation" id=4]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
@@ -195,7 +192,7 @@ tracks/4/keys = {
 "values": [ -100.0, 100.0 ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=5]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
@@ -274,7 +271,6 @@ texture = ExtResource( 1 )
 vframes = 2
 
 [node name="sword" type="Area2D" parent="Position2D/Sprite"]
-scale = Vector2( 1, 1 )
 z_index = -1
 __meta__ = {
 "_edit_lock_": true
@@ -282,13 +278,13 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Position2D/Sprite/sword"]
 position = Vector2( 0.176749, -1.56091 )
-shape = SubResource( 5 )
+shape = SubResource( 1 )
 
 [node name="anim" type="AnimationPlayer" parent="."]
 playback_speed = 4.0
-anims/swingdown = SubResource( 1 )
-anims/swingleft = SubResource( 2 )
-anims/swingright = SubResource( 3 )
-anims/swingup = SubResource( 4 )
+anims/swingdown = SubResource( 2 )
+anims/swingleft = SubResource( 3 )
+anims/swingright = SubResource( 4 )
+anims/swingup = SubResource( 5 )
 
 [connection signal="area_entered" from="Position2D/Sprite/sword" to="." method="_on_Area2D_area_entered"]

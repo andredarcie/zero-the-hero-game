@@ -8,7 +8,7 @@
 [ext_resource path="res://pickups/water/Water.tscn" type="PackedScene" id=6]
 [ext_resource path="res://items/Item.tscn" type="PackedScene" id=7]
 [ext_resource path="res://pickups/craft/Craft.tscn" type="PackedScene" id=8]
-[ext_resource path="res://pickups/wood/Wood.tscn" type="PackedScene" id=9]
+[ext_resource path="res://pickups/wood/CuttableTree.tscn" type="PackedScene" id=9]
 
 [node name="2-2" instance=ExtResource( 1 )]
 

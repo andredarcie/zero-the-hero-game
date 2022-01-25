@@ -148,6 +148,8 @@ func state_default() -> void:
 			GameState.ItemSlot.Pickaxe:
 				GameState.player_cut_stone = true
 				use_item(sword, item_texture)
+			GameState.ItemSlot.Wood:
+				use_item(sword, item_texture)
 
 func change_item(item, animate):
 	if animate:
@@ -389,7 +391,7 @@ func _on_InvulnerableTimer_timeout():
 	
 func show_ballon_wood():
 	$Balloon.visible = true
-	$Balloon.texture = preload("res://player/Player/wood.png")
+	$Balloon.texture = preload("res://items/wood_icon.png")
 	
 func hide_ballon_wood():
 	$Balloon.visible = false

@@ -38,7 +38,8 @@ enum ItemSlot {
 	Scythe,
 	Axe,
 	Key,
-	Pickaxe
+	Pickaxe,
+	Wood
 }
 
 var sword_texture = preload("res://items/sword_icon.png")
@@ -48,6 +49,7 @@ var scythe_texture = preload("res://items/scythe_icon.png")
 var axe_texture = preload("res://items/axe_icon.png")
 var key_texture = preload("res://items/key_icon.png")
 var pickaxe_texture = preload("res://items/pickaxe_icon.png")
+var wood_texture = preload("res://items/wood_icon.png")
 
 # d4-3
 var d4_3_switch_1 = true
@@ -72,6 +74,10 @@ func set_player_start_position(player):
 func get_current_scene_name() -> String:
 	return get_tree().current_scene.name
 	
+func destroy_item():
+	var player = get_player()
+	GameState.player_slot_item = 0
+	player.change_item(GameState.player_slot_item, false)
 	
 func restart_game():
 	Hud.restart_mini_map()
@@ -96,7 +102,8 @@ func restart_game():
 		player_health = 3
 		player_max_health = 3
 		
-	var scene_name = "res://levels/dungeons/" + str(GameState.player_current_dungeon_name) + "/" + str(GameState.player_current_dungeon_level) + ".tscn"
+	LevelManager.current_player_position = Vector2(152, 168)
+	var scene_name = "res://levels/4-3.tscn"
 	var level = load(scene_name)
 
 	if level != null:
@@ -118,6 +125,12 @@ func get_player():
 	# return get_tree().get_nodes_in_group('Player')[0]
 	return get_node("/root").find_node("Player", true, false)
 	
+func get_player_current_item():
+	return player_slot_item
+	
+func player_current_item_is_wood():
+	return player_slot_item == ItemSlot.Wood
+	
 func get_item_texture(item):
 	var texture = null
 	
@@ -138,6 +151,8 @@ func get_item_texture(item):
 			texture = key_texture
 		ItemSlot.Pickaxe:
 			texture = pickaxe_texture
+		ItemSlot.Wood:
+			texture = wood_texture
 			
 	return texture
 	
@@ -217,6 +232,7 @@ func save_state(object, state):
 			obj["state"] = state
 			return
 			
+	print(GameState.get_unique_name(object))
 	persisted_objects.append({"unique_name" : GameState.get_unique_name(object),
 							  "state": state })
 							

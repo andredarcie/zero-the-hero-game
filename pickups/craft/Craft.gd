@@ -30,15 +30,15 @@ func _process(delta):
 	if builded:
 		return
 		
-	if GameState.player_wood >= wood:
+	if GameState.player_current_item_is_wood():
 		$Area2D/Sprite.modulate.a = 255
 	else:
 		$Area2D/Sprite.modulate.a = 0.300
 
 func _on_Area2D_body_entered(body):
 	if GameState.check_body_is_player(body):
-		if GameState.player_wood >= wood:
-			GameState.player_wood = GameState.player_wood - wood
+		if GameState.player_current_item_is_wood():
+			GameState.destroy_item()
 			
 			match thing_to_build:
 				ThingToBuild.Bonfire:

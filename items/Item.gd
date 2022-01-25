@@ -10,13 +10,15 @@ enum ItemSlot {
 	Scythe,
 	Axe,
 	Key,
-	Pickaxe
+	Pickaxe,
+	Wood
 }
 
 export(ItemSlot) var item = ItemSlot.Nothing
-
+	
 func _ready():
 	var state = GameState.load_state(self)
+	print('estado: ', state)
 	if state == -1:
 		set_item_texture(item)
 	elif state == 0:
@@ -25,6 +27,9 @@ func _ready():
 		set_item_texture(state)
 		item = state
 		
+func set_to_wood():
+	GameState.save_state(self, ItemSlot.Wood)
+	item = ItemSlot.Wood
 
 func set_item_texture(item):
 	var texture = GameState.get_item_texture(item)
