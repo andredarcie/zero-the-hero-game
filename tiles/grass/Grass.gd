@@ -55,7 +55,5 @@ func catch_fire():
 
 
 func _on_Area2D_area_entered(area):
-	var parent = area.get_parent()
-	if parent.has_method("get_fire_state"):
-		if parent.get_fire_state():
-			catch_fire()
+	if area.name == "sword" and GameState.player_current_item_is_wood_on_fire():
+		catch_fire()

@@ -2,8 +2,6 @@ extends Node2D
 
 var type: String = ''
 var maxamount: int = 1
-onready var fire_sword_texture = load("res://items/sword_on_fire.png")
-onready var sword_texture = load("res://items/sword.png")
 	
 func set_texture(texture):
 	$Position2D/Sprite.texture = texture
@@ -15,14 +13,6 @@ func _ready() -> void:
 	$anim.play(str('swing', get_parent().sprite_direction))
 	if get_parent().has_method('state_swing'):
 		get_parent().state = 'swing'
-	
-	
-	var parent = get_parent()
-	if parent.get('sword_on_fire'):
-		if parent.sword_on_fire:
-			$Position2D/Sprite.texture = fire_sword_texture
-		else:
-			$Position2D/Sprite.texture = sword_texture
 		
 
 func destroy(_animation) -> void:
@@ -37,7 +27,7 @@ func get_fire_state():
 	return get_parent().sword_on_fire
 	
 func catch_fire():
-	get_parent().sword_catch_fire()
+	get_parent().wood_catch_fire()
 
 
 func _on_Area2D_area_entered(area):

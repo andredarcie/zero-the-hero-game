@@ -11,14 +11,16 @@ func _ready():
 		
 		
 func _on_Area2D_area_entered(area):
-	if area.name == "sword" && GameState.player_current_item_is_scythe():
-		$StaticBody2D.queue_free()
-		$Area2D.queue_free()
-		$AnimatedSprite.speed_scale = 4
-		$AnimatedSprite.play("cuting")
-		cut = true
-		GameState.destroy(self)
-
+	if area.name == "sword":
+		if GameState.player_current_item_is_scythe():
+			$StaticBody2D.queue_free()
+			$Area2D.queue_free()
+			$AnimatedSprite.speed_scale = 4
+			$AnimatedSprite.play("cuting")
+			cut = true
+			GameState.destroy(self)
+		else:
+			GameState.show_player_ballon_scythe()
 
 func _on_AnimatedSprite_animation_finished():
 	if cut:

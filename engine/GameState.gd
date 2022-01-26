@@ -39,7 +39,8 @@ enum ItemSlot {
 	Axe,
 	Key,
 	Pickaxe,
-	Wood
+	Wood,
+	WoodOnFire
 }
 
 var sword_texture = preload("res://items/sword_icon.png")
@@ -50,6 +51,7 @@ var axe_texture = preload("res://items/axe_icon.png")
 var key_texture = preload("res://items/key_icon.png")
 var pickaxe_texture = preload("res://items/pickaxe_icon.png")
 var wood_texture = preload("res://items/wood_icon.png")
+var wood_on_fire_texture = preload("res://items/wood_on_fire_icon.png")
 
 # d4-3
 var d4_3_switch_1 = true
@@ -74,6 +76,17 @@ func set_player_start_position(player):
 func get_current_scene_name() -> String:
 	return get_tree().current_scene.name
 	
+func change_player_item_to_wood():
+	change_player_item(ItemSlot.Wood, false)
+	
+func change_player_item_to_wood_on_fire():
+	change_player_item(ItemSlot.WoodOnFire, false)
+	
+func change_player_item(item, animate):
+	GameState.player_slot_item = item
+	var player = get_player()
+	player.change_item(item, animate)
+		
 func destroy_item():
 	var player = get_player()
 	GameState.player_slot_item = 0
@@ -121,6 +134,19 @@ func goto_title_screen():
 	BackgroundMusic.stop()
 	LevelManager.change_scene("res://engine/Screens/TitleScreen.tscn")
 	
+	
+func show_player_ballon_scythe():
+	var player = get_player()
+	player.show_ballon_scythe()
+	
+func show_player_ballon_axe():
+	var player = get_player()
+	player.show_ballon_axe()
+	
+func show_player_ballon_wood():
+	var player = get_player()
+	player.show_ballon_wood()
+	
 func get_player():
 	# return get_tree().get_nodes_in_group('Player')[0]
 	return get_node("/root").find_node("Player", true, false)
@@ -131,11 +157,17 @@ func get_player_current_item():
 func player_current_item_is_wood():
 	return player_slot_item == ItemSlot.Wood
 	
+func player_current_item_is_wood_on_fire():
+	return player_slot_item == ItemSlot.WoodOnFire
+	
 func player_current_item_is_scythe():
 	return player_slot_item == ItemSlot.Scythe
 	
 func player_current_item_is_sword():
 	return player_slot_item == ItemSlot.Sword
+	
+func player_current_item_is_axe():
+	return player_slot_item == ItemSlot.Axe
 	
 func get_item_texture(item):
 	var texture = null
@@ -159,6 +191,8 @@ func get_item_texture(item):
 			texture = pickaxe_texture
 		ItemSlot.Wood:
 			texture = wood_texture
+		ItemSlot.WoodOnFire:
+			texture = wood_on_fire_texture
 			
 	return texture
 	

@@ -150,6 +150,8 @@ func state_default() -> void:
 				use_item(sword, item_texture)
 			GameState.ItemSlot.Wood:
 				use_item(sword, item_texture)
+			GameState.ItemSlot.WoodOnFire:
+				use_item(sword, item_texture)
 
 func change_item(item, animate):
 	if animate:
@@ -188,16 +190,19 @@ func controls_loop() -> void:
 		movedir.y = -int(UP) + int(DOWN)
 
 
-func sword_catch_fire():
-	sword_on_fire = true
-	GameState.player_sword_on_fire = true
-	$SwordOnFireTimer.start()
+func wood_catch_fire():
+	if GameState.player_current_item_is_wood():
+		GameState.change_player_item_to_wood_on_fire()
+		sword_on_fire = true
+		GameState.player_sword_on_fire = true
+		$SwordOnFireTimer.start()
 
 
 func _on_SwordOnFireTimer_timeout():
 	sword_on_fire = false
 	GameState.player_sword_on_fire = false
 	$SwordOnFireTimer.stop()
+	GameState.change_player_item_to_wood()
 	
 	
 func add_coin():
@@ -389,15 +394,29 @@ func _on_InvulnerableTimer_timeout():
 	invulnerable = false
 	$InvulnerableTimer.stop()
 	
-func show_ballon_wood():
-	$Balloon.visible = true
-	$Balloon/BallonIcon.texture = preload("res://items/wood_icon.png")
-	$Balloon/BallonIcon.visible = true
-	
 func show_ballon_sword():
 	$Balloon.visible = true
 	$BallonTimer.start()
 	$AnimationBallon.play("default")
+	$Balloon/BallonIcon.texture = preload("res://items/sword_icon.png")
+	
+func show_ballon_scythe():
+	$Balloon.visible = true
+	$BallonTimer.start()
+	$AnimationBallon.play("default")
+	$Balloon/BallonIcon.texture = preload("res://items/scythe_icon.png")
+	
+func show_ballon_axe():
+	$Balloon.visible = true
+	$BallonTimer.start()
+	$AnimationBallon.play("default")
+	$Balloon/BallonIcon.texture = preload("res://items/axe_icon.png")
+	
+func show_ballon_wood():
+	$Balloon.visible = true
+	$BallonTimer.start()
+	$AnimationBallon.play("default")
+	$Balloon/BallonIcon.texture = preload("res://items/wood_icon.png")
 	
 func hide_ballon():
 	$Balloon.visible = false
@@ -413,4 +432,3 @@ func _on_BallonTimer_timeout():
 
 func _on_AnimationBallon_animation_finished(anim_name):
 	$Balloon/BallonIcon.visible = true
-	$Balloon/BallonIcon.texture = preload("res://items/sword_icon.png")

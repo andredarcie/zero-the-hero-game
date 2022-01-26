@@ -11,7 +11,8 @@ enum ItemSlot {
 	Axe,
 	Key,
 	Pickaxe,
-	Wood
+	Wood,
+	WoodOnFire
 }
 
 export(ItemSlot) var item = ItemSlot.Nothing
@@ -26,10 +27,6 @@ func _ready():
 	else:
 		set_item_texture(state)
 		item = state
-		
-func set_to_wood():
-	GameState.save_state(self, ItemSlot.Wood)
-	item = ItemSlot.Wood
 
 func set_item_texture(item):
 	var texture = GameState.get_item_texture(item)
@@ -38,12 +35,13 @@ func set_item_texture(item):
 	
 func _on_Area2D_body_entered(body):
 	if GameState.check_body_is_player(body):
+		if GameState.player_slot_item == ItemSlot.WoodOnFire:
+			GameState.player_slot_item = ItemSlot.Wood
+			
 		var old_item = GameState.player_slot_item
 		GameState.save_state(self, old_item)
 		
-		GameState.player_slot_item = item
-		var player = GameState.get_player()
-		player.change_item(item, true)
+		GameState.change_player_item(item, true)
 		
 		if old_item == GameState.ItemSlot.Nothing:
 			queue_free()
