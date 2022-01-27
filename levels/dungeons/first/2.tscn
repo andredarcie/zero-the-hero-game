@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://levels/dungeons/DungeonBase.tscn" type="PackedScene" id=1]
 [ext_resource path="res://tiles/TileMaps/dungeon_tile_map/DungeonTileMap.tscn" type="PackedScene" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://enemies/Undead/Undead.tscn" type="PackedScene" id=8]
 [ext_resource path="res://levels/dungeons/objects/DownDungeon.tscn" type="PackedScene" id=9]
 [ext_resource path="res://enemies/Bat/Bat.tscn" type="PackedScene" id=10]
+[ext_resource path="res://pickups/heart/Heart.tscn" type="PackedScene" id=11]
 
 [node name="2" instance=ExtResource( 1 )]
 
@@ -47,6 +48,9 @@ position = Vector2( 40, 216 )
 
 [node name="Coin4" parent="Puzzles" index="7" instance=ExtResource( 5 )]
 position = Vector2( 96, 48 )
+
+[node name="Heart" parent="Puzzles" index="8" instance=ExtResource( 11 )]
+position = Vector2( 264, 216 )
 
 [node name="Enemies" type="Node" parent="." index="3"]
 
