@@ -78,6 +78,9 @@ func _on_Area2D_body_entered(body):
 	if not GameState.check_body_is_player(body):
 		return
 		
+	if characterName == 'Death':
+		GameState.player_stop_moving()
+		
 	dialogBox.start_dialog(self.characterName, self.dialogs)
 
 func _on_Area2D_body_exited(body):

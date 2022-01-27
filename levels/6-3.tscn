@@ -29,69 +29,66 @@ position = Vector2( 88, 56 )
 [node name="Grass5" parent="Objects" index="3" instance=ExtResource( 4 )]
 position = Vector2( 144, 96 )
 
-[node name="Grass6" parent="Objects" index="4" instance=ExtResource( 4 )]
-position = Vector2( 264, 56 )
-
-[node name="Grass7" parent="Objects" index="5" instance=ExtResource( 4 )]
+[node name="Grass7" parent="Objects" index="4" instance=ExtResource( 4 )]
 position = Vector2( 296, 104 )
 is_brush = true
 
-[node name="Grass10" parent="Objects" index="6" instance=ExtResource( 4 )]
+[node name="Grass10" parent="Objects" index="5" instance=ExtResource( 4 )]
 position = Vector2( 152, 152 )
 is_brush = true
 
-[node name="Grass13" parent="Objects" index="7" instance=ExtResource( 4 )]
+[node name="Grass13" parent="Objects" index="6" instance=ExtResource( 4 )]
 position = Vector2( 24, 72 )
 is_brush = true
 
-[node name="Grass14" parent="Objects" index="8" instance=ExtResource( 4 )]
+[node name="Grass14" parent="Objects" index="7" instance=ExtResource( 4 )]
 position = Vector2( 72, 24 )
 is_brush = true
 
-[node name="Grass11" parent="Objects" index="9" instance=ExtResource( 4 )]
+[node name="Grass11" parent="Objects" index="8" instance=ExtResource( 4 )]
 position = Vector2( 152, 168 )
 is_brush = true
 
-[node name="Grass12" parent="Objects" index="10" instance=ExtResource( 4 )]
+[node name="Grass12" parent="Objects" index="9" instance=ExtResource( 4 )]
 position = Vector2( 152, 184 )
 is_brush = true
 
-[node name="Grass8" parent="Objects" index="11" instance=ExtResource( 4 )]
+[node name="Grass8" parent="Objects" index="10" instance=ExtResource( 4 )]
 position = Vector2( 296, 120 )
 is_brush = true
 
-[node name="Grass9" parent="Objects" index="12" instance=ExtResource( 4 )]
+[node name="Grass9" parent="Objects" index="11" instance=ExtResource( 4 )]
 position = Vector2( 296, 136 )
 is_brush = true
 
-[node name="Wood" parent="Objects" index="13" instance=ExtResource( 5 )]
+[node name="Wood" parent="Objects" index="12" instance=ExtResource( 5 )]
 position = Vector2( 72, 72 )
 
-[node name="Wood2" parent="Objects" index="14" instance=ExtResource( 5 )]
+[node name="Wood2" parent="Objects" index="13" instance=ExtResource( 5 )]
 position = Vector2( 104, 40 )
 
-[node name="Wood7" parent="Objects" index="15" instance=ExtResource( 5 )]
+[node name="Wood7" parent="Objects" index="14" instance=ExtResource( 5 )]
 position = Vector2( 248, 216 )
 
-[node name="Wood10" parent="Objects" index="16" instance=ExtResource( 5 )]
+[node name="Wood10" parent="Objects" index="15" instance=ExtResource( 5 )]
 position = Vector2( 296, 24 )
 
-[node name="Wood3" parent="Objects" index="17" instance=ExtResource( 5 )]
+[node name="Wood3" parent="Objects" index="16" instance=ExtResource( 5 )]
 position = Vector2( 200, 184 )
 
-[node name="Wood4" parent="Objects" index="18" instance=ExtResource( 5 )]
+[node name="Wood4" parent="Objects" index="17" instance=ExtResource( 5 )]
 position = Vector2( 152, 216 )
 
-[node name="Wood5" parent="Objects" index="19" instance=ExtResource( 5 )]
+[node name="Wood5" parent="Objects" index="18" instance=ExtResource( 5 )]
 position = Vector2( 248, 152 )
 
-[node name="Wood8" parent="Objects" index="20" instance=ExtResource( 5 )]
+[node name="Wood8" parent="Objects" index="19" instance=ExtResource( 5 )]
 position = Vector2( 280, 72 )
 
-[node name="Wood9" parent="Objects" index="21" instance=ExtResource( 5 )]
+[node name="Wood9" parent="Objects" index="20" instance=ExtResource( 5 )]
 position = Vector2( 296, 184 )
 
-[node name="Mushroom" parent="Objects" index="22" instance=ExtResource( 6 )]
+[node name="Mushroom" parent="Objects" index="21" instance=ExtResource( 6 )]
 position = Vector2( 232, 24 )
 
 [node name="Items" type="Node" parent="." index="4"]

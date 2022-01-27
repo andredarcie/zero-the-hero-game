@@ -5,7 +5,6 @@ var start_position_y: int = 0
 var hero_icon_on_map_position_x: int = 14
 var hero_icon_on_map_position_y: int = 11
 var coins: int = 0
-var keys: int = 0
 var menu_closed: bool = true
 
 # Player
@@ -104,7 +103,6 @@ func restart_game():
 	player_arrows = 0
 	player_bombs = 0
 	player_wood = 0
-	keys = 0
 	coins = 0
 	number_of_player_deaths = number_of_player_deaths + 1
 	
@@ -135,6 +133,10 @@ func goto_title_screen():
 	LevelManager.change_scene("res://engine/Screens/TitleScreen.tscn")
 	
 	
+func player_stop_moving():
+	var player = get_player()
+	player.player_cant_move = true
+	
 func show_player_ballon_scythe():
 	var player = get_player()
 	player.show_ballon_scythe()
@@ -146,6 +148,10 @@ func show_player_ballon_axe():
 func show_player_ballon_wood():
 	var player = get_player()
 	player.show_ballon_wood()
+	
+func show_player_ballon_key():
+	var player = get_player()
+	player.show_ballon_key()
 	
 func get_player():
 	# return get_tree().get_nodes_in_group('Player')[0]
@@ -168,6 +174,9 @@ func player_current_item_is_sword():
 	
 func player_current_item_is_axe():
 	return player_slot_item == ItemSlot.Axe
+
+func player_current_item_is_key():
+	return player_slot_item == ItemSlot.Key
 	
 func get_item_texture(item):
 	var texture = null

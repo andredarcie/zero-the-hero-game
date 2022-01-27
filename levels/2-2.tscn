@@ -6,7 +6,7 @@
 [ext_resource path="res://tiles/grass/CutGrass/CutGrass.tscn" type="PackedScene" id=4]
 [ext_resource path="res://pickups/heart/Heart.tscn" type="PackedScene" id=5]
 [ext_resource path="res://pickups/water/Water.tscn" type="PackedScene" id=6]
-[ext_resource path="res://items/Item.tscn" type="PackedScene" id=7]
+[ext_resource path="res://pickups/heart/HeartContainer.tscn" type="PackedScene" id=7]
 [ext_resource path="res://pickups/craft/Craft.tscn" type="PackedScene" id=8]
 [ext_resource path="res://pickups/wood/CuttableTree.tscn" type="PackedScene" id=9]
 
@@ -53,9 +53,8 @@ position = Vector2( 88, 24 )
 position = Vector2( 72, 40 )
 thing_to_build = 1
 
-[node name="Item" parent="Items" index="2" instance=ExtResource( 7 )]
-position = Vector2( 24, 168 )
-item = 2
+[node name="HeartContainer" parent="Items" index="2" instance=ExtResource( 7 )]
+position = Vector2( 32, 168 )
 
 [node name="Water" type="Node" parent="." index="6"]
 

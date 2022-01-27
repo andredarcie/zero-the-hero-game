@@ -11,7 +11,7 @@ var step_interval = 4
 var type: String = 'player'
 var max_health: int = 0
 var health: int = 4
-var speed: float = 70
+var speed: float = 90
 var movedir := Vector2.ZERO
 var sprite_direction: String = 'down'
 var hitstun: int = 0
@@ -19,6 +19,7 @@ var knockdir: Vector2 = Vector2.ZERO
 var texture_default: Texture = null
 var invulnerable : bool = false
 var moving_directon_is_up = false
+var player_cant_move: bool = false
 # Items
 var sword = preload('res://items/sword.tscn')
 var bow = preload("res://player/BowArrow/bow.png")
@@ -46,7 +47,6 @@ func _init() -> void:
 	
 	
 func _ready() -> void:
-	speed = 90
 	$Bow.visible = false
 	add_to_group('Player')
 	texture_default = $Sprite.texture
@@ -62,6 +62,9 @@ func _process(delta):
 		
 		
 func _physics_process(_delta: float) -> void:
+	if player_cant_move:
+		return
+		
 	match state:
 		'default':
 			state_default()
@@ -176,7 +179,7 @@ func throw_bomb() -> void:
 	get_node('..').add_child(bomb)
 	
 
-func controls_loop() -> void:
+func controls_loop() -> void:	
 	if OS.has_touchscreen_ui_hint():
 		movedir = JoystickButton.get_value()
 		movedir = Vector2(int(round(movedir.x)), int(round(movedir.y)))
@@ -417,6 +420,12 @@ func show_ballon_wood():
 	$BallonTimer.start()
 	$AnimationBallon.play("default")
 	$Balloon/BallonIcon.texture = preload("res://items/wood_icon.png")
+	
+func show_ballon_key():
+	$Balloon.visible = true
+	$BallonTimer.start()
+	$AnimationBallon.play("default")
+	$Balloon/BallonIcon.texture = preload("res://items/key_icon.png")
 	
 func hide_ballon():
 	$Balloon.visible = false
