@@ -1,16 +1,24 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://enemies/Enemy/Enemy.tscn" type="PackedScene" id=1]
 [ext_resource path="res://enemies/Bat/Bat.gd" type="Script" id=2]
+[ext_resource path="res://items/item_shadow.png" type="Texture" id=3]
 
 [node name="Bat" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 
 [node name="Sprite" parent="." index="0"]
 rotation = -0.0779026
+z_index = 2
 
 [node name="CollisionShape2D" parent="." index="1"]
 visible = false
 
 [node name="Area2D" parent="." index="2"]
 visible = false
+
+[node name="Shadow" type="Sprite" parent="." index="6"]
+self_modulate = Color( 1, 1, 1, 0.392157 )
+position = Vector2( 0.0624275, 1.56074 )
+z_index = 1
+texture = ExtResource( 3 )

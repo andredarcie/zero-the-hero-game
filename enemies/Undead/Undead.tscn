@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://enemies/Enemy/Enemy.tscn" type="PackedScene" id=1]
 [ext_resource path="res://enemies/Undead/Undead.gd" type="Script" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://enemies/Undead/Undead_born/undead_born4.png" type="Texture" id=8]
 [ext_resource path="res://enemies/Undead/Undead_born/undead_born5.png" type="Texture" id=9]
 [ext_resource path="res://enemies/Undead/Undead_born/undead_born6.png" type="Texture" id=10]
+[ext_resource path="res://items/item_shadow.png" type="Texture" id=11]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 5.65816
@@ -53,6 +54,12 @@ frames = SubResource( 3 )
 
 [node name="AlertTimer" type="Timer" parent="." index="10"]
 wait_time = 2.0
+
+[node name="Shadow" type="Sprite" parent="." index="11"]
+self_modulate = Color( 1, 1, 1, 0.392157 )
+position = Vector2( 0, 2 )
+z_index = 1
+texture = ExtResource( 11 )
 
 [connection signal="animation_finished" from="EnemyAnimationPlayer" to="." method="_on_EnemyAnimationPlayer_animation_finished"]
 [connection signal="area_entered" from="Vision" to="." method="_on_Vision_area_entered"]
