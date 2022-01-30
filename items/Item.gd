@@ -12,7 +12,8 @@ enum ItemSlot {
 	Key,
 	Pickaxe,
 	Wood,
-	WoodOnFire
+	WoodOnFire,
+	LavaBoots
 }
 
 export(ItemSlot) var item = ItemSlot.Nothing

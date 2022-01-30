@@ -39,7 +39,8 @@ enum ItemSlot {
 	Key,
 	Pickaxe,
 	Wood,
-	WoodOnFire
+	WoodOnFire,
+	LavaBoots
 }
 
 var sword_texture = preload("res://items/sword_icon.png")
@@ -51,6 +52,7 @@ var key_texture = preload("res://items/key_icon.png")
 var pickaxe_texture = preload("res://items/pickaxe_icon.png")
 var wood_texture = preload("res://items/wood_icon.png")
 var wood_on_fire_texture = preload("res://items/wood_on_fire_icon.png")
+var lava_boots_texture = preload("res://items/lava_boots_icon.png")
 
 # d4-3
 var d4_3_switch_1 = true
@@ -178,6 +180,9 @@ func player_current_item_is_axe():
 func player_current_item_is_key():
 	return player_slot_item == ItemSlot.Key
 	
+func player_current_item_is_lava_boots():
+	return player_slot_item == ItemSlot.LavaBoots
+	
 func get_item_texture(item):
 	var texture = null
 	
@@ -202,6 +207,8 @@ func get_item_texture(item):
 			texture = wood_texture
 		ItemSlot.WoodOnFire:
 			texture = wood_on_fire_texture
+		ItemSlot.LavaBoots:
+			texture = lava_boots_texture
 			
 	return texture
 	

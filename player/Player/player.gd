@@ -127,6 +127,8 @@ func state_default() -> void:
 		match GameState.player_slot_item:
 			GameState.ItemSlot.Nothing:
 				continue
+			GameState.ItemSlot.LavaBoots:
+				continue
 			GameState.ItemSlot.Sword:
 				if rng.randi_range(0, 1) == 0:
 					$AudioStreamPlayer2D.stream =  sword_sound_atack_1
@@ -160,9 +162,11 @@ func change_item(item, animate):
 	if animate:
 		SoundEffects.play_jump()
 		
-	var texture = GameState.get_item_texture(item)		
-	$Sword.texture = texture
-	print($Sword.texture)
+	var texture = GameState.get_item_texture(item)	
+	
+	if item != GameState.ItemSlot.LavaBoots:
+		$Sword.texture = texture
+		
 	item_texture = texture
 	Hud.set_slot_icon(self, texture, animate)
 	
@@ -313,7 +317,7 @@ func damage_loop() -> void:
 func catch_fire():
 	make_damage(self)
 
-func make_damage(body, knock = true) -> void:
+func make_damage(body, knock = true, invulnerable_time = true) -> void:
 	
 	if invulnerable:
 		return
@@ -340,10 +344,9 @@ func make_damage(body, knock = true) -> void:
 	if type == 'player' and health <= 0:
 		GameState.restart_game()
 	
-	invulnerable = true
-	$InvulnerableTimer.start()
-	#var blood = blood_particules.instance()
-	#add_child(blood)
+	if invulnerable_time:
+		invulnerable = true
+		$InvulnerableTimer.start()
 	
 	
 func use_item(item: PackedScene, item_texture) -> void:

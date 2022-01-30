@@ -1,7 +1,6 @@
 extends Area2D
 
-var active: bool = true
-export var switch_name = ""
+export var active: bool = true
 
 func _ready():
 	add_to_group("UpDownBlock")
