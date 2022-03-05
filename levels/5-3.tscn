@@ -54,14 +54,8 @@ position = Vector2( 248, 216 )
 [node name="Wood3" parent="Wood" index="1" instance=ExtResource( 4 )]
 position = Vector2( 88, 216 )
 
-[node name="Wood5" parent="Wood" index="2" instance=ExtResource( 4 )]
-position = Vector2( 120, 40 )
-
-[node name="Wood7" parent="Wood" index="3" instance=ExtResource( 4 )]
-position = Vector2( 120, 200 )
-
-[node name="Wood8" parent="Wood" index="4" instance=ExtResource( 4 )]
+[node name="Wood8" parent="Wood" index="2" instance=ExtResource( 4 )]
 position = Vector2( 216, 216 )
 
-[node name="Wood9" parent="Wood" index="5" instance=ExtResource( 4 )]
+[node name="Wood9" parent="Wood" index="3" instance=ExtResource( 4 )]
 position = Vector2( 296, 24 )

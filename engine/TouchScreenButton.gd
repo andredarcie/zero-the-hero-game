@@ -22,7 +22,7 @@ func get_button_pos():
 	return position + radius
 
 func _input(event):
-	if event is InputEventScreenDrag or (event is InputEventScreenTouch and event.is_pressed()):
+	if event is InputEventScreenDrag: #or (event is InputEventScreenTouch and event.is_pressed()):
 		var event_dist_from_centre = (event.position - get_parent().global_position).length()
 
 		if event_dist_from_centre <= boundary * global_scale.x or event.get_index() == ongoing_drag:
