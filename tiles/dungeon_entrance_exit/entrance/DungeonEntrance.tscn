@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://tiles/dungeon_entrance_exit/entrance/DungeonEntrance.gd" type="Script" id=1]
 [ext_resource path="res://tiles/dungeon_entrance_exit/entrance/Gate.png" type="Texture" id=2]
+[ext_resource path="res://items/Item.tscn" type="PackedScene" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8.83216, 15.8561 )
@@ -36,5 +37,9 @@ position = Vector2( -0.0132561, -34.8923 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
 position = Vector2( -0.264572, -3.04251 )
 shape = SubResource( 3 )
+
+[node name="Item" parent="." instance=ExtResource( 3 )]
+position = Vector2( -33.073, 23.0986 )
+item = 6
 
 [connection signal="body_entered" from="." to="." method="_on_DungeonEntrance_body_entered"]

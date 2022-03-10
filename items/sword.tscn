@@ -262,7 +262,7 @@ script = ExtResource( 2 )
 
 [node name="Position2D" type="Position2D" parent="."]
 position = Vector2( 0.132285, 10.0205 )
-rotation = 1.74533
+rotation = -1.74533
 
 [node name="Sprite" type="Sprite" parent="Position2D"]
 position = Vector2( -0.132285, -10.0205 )
@@ -281,7 +281,7 @@ position = Vector2( 0.176749, -1.56091 )
 shape = SubResource( 1 )
 
 [node name="anim" type="AnimationPlayer" parent="."]
-playback_speed = 4.0
+playback_speed = 5.0
 anims/swingdown = SubResource( 2 )
 anims/swingleft = SubResource( 3 )
 anims/swingright = SubResource( 4 )

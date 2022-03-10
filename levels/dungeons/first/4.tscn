@@ -115,18 +115,16 @@ item = 10
 
 [node name="Torch" parent="Itens" index="23" instance=ExtResource( 14 )]
 position = Vector2( 120, 24 )
+frame = 1
 
 [node name="Torch2" parent="Itens" index="24" instance=ExtResource( 14 )]
 position = Vector2( 200, 24 )
-frame = 1
 
 [node name="Torch3" parent="Itens" index="25" instance=ExtResource( 14 )]
 position = Vector2( 280, 136 )
-frame = 1
 
 [node name="Torch4" parent="Itens" index="26" instance=ExtResource( 14 )]
 position = Vector2( 120, 184 )
-frame = 1
 
 [node name="Enemies" type="Node" parent="." index="4"]
 

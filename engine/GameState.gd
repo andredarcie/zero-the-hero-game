@@ -24,6 +24,8 @@ var player_slot_item = 0
 var player_have_key: bool = false
 var player_cut_stone: bool = false
 
+var dungeon_one_finished: bool = false
+
 # Dungeons
 var player_current_dungeon_level: int = 1
 var player_current_dungeon_name: String = "first"
@@ -142,6 +144,10 @@ func player_stop_moving():
 func show_player_ballon_scythe():
 	var player = get_player()
 	player.show_ballon_scythe()
+	
+func show_player_ballon_sword():
+	var player = get_player()
+	player.show_ballon_sword()
 	
 func show_player_ballon_axe():
 	var player = get_player()
