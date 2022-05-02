@@ -17,7 +17,7 @@ func _on_Timer_timeout():
 	if skip_intro:
 		BackgroundMusic.play_main_sound()
 		LevelManager.current_player_position = Vector2(152, 168)
-		LevelManager.change_scene("res://levels/4-3.tscn")
+		LevelManager.go_to_next_level()
 		Hud.draw_mini_map()
 		Hud.set_player_position_on_mini_map(4, 3)
 		Hud.set_place_discovered_on_mini_map(4, 3)

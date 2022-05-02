@@ -1,0 +1,154 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://levels_old/dungeons/DungeonBase.tscn" type="PackedScene" id=1]
+[ext_resource path="res://tiles/TileMaps/dungeon_tile_map/DungeonTileMap.tscn" type="PackedScene" id=2]
+[ext_resource path="res://items/Item.tscn" type="PackedScene" id=3]
+[ext_resource path="res://pickups/wood/CuttableTree.tscn" type="PackedScene" id=4]
+[ext_resource path="res://pickups/lava_floor/LavaFloor.tscn" type="PackedScene" id=5]
+[ext_resource path="res://enemies/Undead/Undead.tscn" type="PackedScene" id=6]
+[ext_resource path="res://pickups/rock/Rock.tscn" type="PackedScene" id=7]
+[ext_resource path="res://tiles/grass/Grass.tscn" type="PackedScene" id=8]
+[ext_resource path="res://pickups/thorn/UpDownBlock.tscn" type="PackedScene" id=9]
+[ext_resource path="res://pickups/switch/Switch.tscn" type="PackedScene" id=10]
+[ext_resource path="res://pickups/key_door/key_door.tscn" type="PackedScene" id=11]
+[ext_resource path="res://levels_old/dungeons/objects/DownDungeon.tscn" type="PackedScene" id=12]
+[ext_resource path="res://pickups/craft/Craft.tscn" type="PackedScene" id=13]
+[ext_resource path="res://tiles/TileMaps/dungeon_tile_map/torch/Torch.tscn" type="PackedScene" id=14]
+
+
+[node name="4" instance=ExtResource( 1 )]
+
+[node name="DungeonTileMap" parent="." index="2" instance=ExtResource( 2 )]
+cell_size = Vector2( 16, 16 )
+tile_data = PoolIntArray( 2, 4, 0, 65538, 8, 0, 65541, 4, 0, 65544, 9, 0, 65546, 4, 0, 65547, 10, 0, 65550, 4, 0, 65553, 1, 0, 65554, 17, 0, 131077, 4, 0, 131082, 0, 0, 131086, 4, 0, 196613, 4, 0, 196620, 7, 0, 196622, 4, 0, 262146, 7, 0, 262147, 7, 0, 262149, 0, 0, 262151, 16, 0, 262152, 7, 0, 262153, 7, 0, 262154, 4, 0, 262156, 7, 0, 262158, 4, 0, 262160, 7, 0, 262161, 7, 0, 327683, 7, 0, 327687, 7, 0, 327688, 7, 0, 327690, 0, 0, 327692, 6, 0, 327693, 7, 0, 327694, 5, 0, 327695, 7, 0, 327696, 7, 0, 393222, 7, 0, 393223, 7, 0, 393224, 7, 0, 393229, 7, 0, 393230, 7, 0, 393231, 7, 0, 458753, 4, 0, 458756, 4, 0, 458757, 4, 0, 458758, 4, 0, 458759, 4, 0, 458761, 4, 0, 458762, 4, 0, 458763, 4, 0, 458764, 4, 0, 458766, 4, 0, 458767, 4, 0, 458768, 4, 0, 458769, 4, 0, 458770, 4, 0, 524289, 4, 0, 524292, 4, 0, 524293, 4, 0, 524294, 4, 0, 524295, 0, 0, 524297, 10, 0, 524298, 4, 0, 524299, 8, 0, 524300, 5, 0, 524302, 5, 0, 524303, 5, 0, 524304, 10, 0, 524305, 5, 0, 524306, 13, 0, 589825, 4, 0, 589828, 4, 0, 589829, 4, 0, 589830, 4, 0, 589834, 4, 0, 589837, 7, 0, 589839, 16, 0, 589842, 15, 0, 655361, 0, 0, 655364, 0, 0, 655365, 9, 0, 655366, 4, 0, 655367, 4, 0, 655368, 4, 0, 655369, 4, 0, 655370, 4, 0, 655372, 7, 0, 655374, 4, 0, 655375, 4, 0, 655376, 4, 0, 655378, 4, 0, 720899, 7, 0, 720900, 7, 0, 720902, 0, 0, 720903, 5, 0, 720904, 5, 0, 720905, 5, 0, 720906, 4, 0, 720908, 16, 0, 720910, 4, 0, 720911, 5, 0, 720912, 5, 0, 720914, 5, 0, 786435, 7, 0, 786436, 7, 0, 786440, 16, 0, 786442, 4, 0, 786446, 4, 0, 786447, 7, 0, 851974, 4, 0, 851978, 4, 0, 851979, 15, 0, 851982, 4, 0 )
+
+[node name="Itens" type="Node" parent="." index="3"]
+
+[node name="Item" parent="Itens" index="0" instance=ExtResource( 3 )]
+position = Vector2( 72, 40 )
+item = 1
+
+[node name="Item2" parent="Itens" index="1" instance=ExtResource( 3 )]
+position = Vector2( 56, 40 )
+item = 6
+
+[node name="Item4" parent="Itens" index="2" instance=ExtResource( 3 )]
+position = Vector2( 104, 40 )
+item = 5
+
+[node name="CuttableTree" parent="Itens" index="3" instance=ExtResource( 4 )]
+position = Vector2( 24, 72 )
+type = 1
+
+[node name="CuttableTree2" parent="Itens" index="4" instance=ExtResource( 4 )]
+position = Vector2( 24, 88 )
+type = 1
+
+[node name="CuttableTree3" parent="Itens" index="5" instance=ExtResource( 4 )]
+position = Vector2( 248, 40 )
+type = 1
+
+[node name="CuttableTree4" parent="Itens" index="6" instance=ExtResource( 4 )]
+position = Vector2( 264, 40 )
+type = 1
+
+[node name="LavaFloor" parent="Itens" index="7" instance=ExtResource( 5 )]
+position = Vector2( 40, 120 )
+
+[node name="LavaFloor2" parent="Itens" index="8" instance=ExtResource( 5 )]
+position = Vector2( 56, 120 )
+
+[node name="LavaFloor3" parent="Itens" index="9" instance=ExtResource( 5 )]
+position = Vector2( 40, 136 )
+
+[node name="LavaFloor4" parent="Itens" index="10" instance=ExtResource( 5 )]
+position = Vector2( 56, 136 )
+
+[node name="LavaFloor5" parent="Itens" index="11" instance=ExtResource( 5 )]
+position = Vector2( 40, 152 )
+
+[node name="LavaFloor6" parent="Itens" index="12" instance=ExtResource( 5 )]
+position = Vector2( 56, 152 )
+
+[node name="Item3" parent="Itens" index="13" instance=ExtResource( 3 )]
+position = Vector2( 24, 216 )
+item = 7
+
+[node name="Rock" parent="Itens" index="14" instance=ExtResource( 7 )]
+position = Vector2( 104, 200 )
+
+[node name="Grass" parent="Itens" index="15" instance=ExtResource( 8 )]
+position = Vector2( 168, 104 )
+is_brush = true
+
+[node name="Switch" parent="Itens" index="16" instance=ExtResource( 10 )]
+position = Vector2( 216, 40 )
+
+[node name="UpDownBlock" parent="Itens/Switch" index="3" instance=ExtResource( 9 )]
+position = Vector2( -80, 96 )
+
+[node name="UpDownBlock2" parent="Itens/Switch" index="4" instance=ExtResource( 9 )]
+position = Vector2( -48, 16 )
+active = false
+
+[node name="Item5" parent="Itens" index="17" instance=ExtResource( 3 )]
+position = Vector2( 296, 40 )
+item = 2
+
+[node name="Switch2" parent="Itens" index="18" instance=ExtResource( 10 )]
+position = Vector2( 152, 216 )
+
+[node name="UpDownBlock" parent="Itens/Switch2" index="3" instance=ExtResource( 9 )]
+position = Vector2( 64, -80 )
+
+[node name="key_door" parent="Itens" index="19" instance=ExtResource( 11 )]
+position = Vector2( 280, 184 )
+
+[node name="DownDungeon" parent="Itens" index="20" instance=ExtResource( 12 )]
+position = Vector2( 280, 216 )
+
+[node name="Craft" parent="Itens" index="21" instance=ExtResource( 13 )]
+position = Vector2( 296, 104 )
+
+[node name="Item6" parent="Itens" index="22" instance=ExtResource( 3 )]
+position = Vector2( 152, 152 )
+item = 10
+
+[node name="Torch" parent="Itens" index="23" instance=ExtResource( 14 )]
+position = Vector2( 120, 24 )
+frame = 1
+
+[node name="Torch2" parent="Itens" index="24" instance=ExtResource( 14 )]
+position = Vector2( 200, 24 )
+
+[node name="Torch3" parent="Itens" index="25" instance=ExtResource( 14 )]
+position = Vector2( 280, 136 )
+
+[node name="Torch4" parent="Itens" index="26" instance=ExtResource( 14 )]
+position = Vector2( 120, 184 )
+
+[node name="Enemies" type="Node" parent="." index="4"]
+
+[node name="Undead" parent="Enemies" index="0" instance=ExtResource( 6 )]
+position = Vector2( 56, 192 )
+
+[node name="Undead4" parent="Enemies" index="1" instance=ExtResource( 6 )]
+position = Vector2( 136, 72 )
+
+[node name="Undead2" parent="Enemies" index="2" instance=ExtResource( 6 )]
+position = Vector2( 80, 200 )
+
+[node name="Undead3" parent="Enemies" index="3" instance=ExtResource( 6 )]
+position = Vector2( 32, 176 )
+
+[node name="Undead5" parent="Enemies" index="4" instance=ExtResource( 6 )]
+position = Vector2( 200, 88 )
+
+[node name="Undead6" parent="Enemies" index="5" instance=ExtResource( 6 )]
+position = Vector2( 280, 56 )
+
+[node name="Undead7" parent="Enemies" index="6" instance=ExtResource( 6 )]
+position = Vector2( 264, 152 )
+
+[node name="Undead8" parent="Enemies" index="7" instance=ExtResource( 6 )]
+position = Vector2( 208, 200 )
