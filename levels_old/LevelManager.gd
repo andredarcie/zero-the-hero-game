@@ -7,6 +7,7 @@ func set_current_level_position():
 	return
 	
 func go_to_next_level():
+	current_player_position = Vector2(154,210)
 	current_level = current_level + 1
 	var scene_name = "res://levels/" + str(current_level) + ".tscn"
 	SoundEffects.play_enter()

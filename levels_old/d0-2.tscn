@@ -8,7 +8,6 @@
 [ext_resource path="res://pickups/switch/on.png" type="Texture" id=6]
 [ext_resource path="res://pickups/thorn/UpDownBlock.tscn" type="PackedScene" id=7]
 
-
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [ ExtResource( 4 ), ExtResource( 5 ) ],
