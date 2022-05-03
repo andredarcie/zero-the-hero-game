@@ -10,5 +10,5 @@ func _process(delta):
 		visible = false
 		
 func _on_Portal_body_entered(body):
-	if GameState.check_body_is_player(body):
+	if GameState.check_body_is_player(body) and visible:
 		LevelManager.go_to_next_level()		
