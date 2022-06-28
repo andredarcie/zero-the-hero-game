@@ -10,6 +10,9 @@
 
 [node name="2" instance=ExtResource( 4 )]
 
+[node name="Limits" parent="." index="0"]
+visible = false
+
 [node name="ForestTileMap" parent="." index="1" instance=ExtResource( 3 )]
 position = Vector2( 0, 0 )
 cell_size = Vector2( 16, 16 )
@@ -31,6 +34,7 @@ position = Vector2( 264, 152 )
 
 [node name="Firefly" parent="." index="3" instance=ExtResource( 7 )]
 position = Vector2( 248, 88 )
+frame = 0
 
 [node name="Objects" type="Node" parent="." index="4"]
 

@@ -48,7 +48,7 @@ position = Vector2( 264, 208 )
 position = Vector2( 56, 120 )
 
 [node name="Item" parent="Objects" index="3" instance=ExtResource( 9 )]
-position = Vector2( 312, 232 )
+position = Vector2( 296, 216 )
 item = 6
 
 [node name="FireGrass" type="Node" parent="." index="5"]
