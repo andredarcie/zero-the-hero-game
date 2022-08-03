@@ -18,7 +18,7 @@ func _on_Timer_timeout():
 		BackgroundMusic.play_main_sound()
 		LevelManager.current_player_position = Vector2(152, 168)
 		LevelManager.go_to_next_level()
-		GameState.player_slot_item = 1
+		GameState.player_slot_item = 0
 		Hud.draw_mini_map()
 		Hud.set_player_position_on_mini_map(4, 3)
 		Hud.set_place_discovered_on_mini_map(4, 3)
