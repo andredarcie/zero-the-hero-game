@@ -1,6 +1,6 @@
 extends Node
 
-var current_level = 0
+var current_level = 2
 var current_player_position = Vector2(40,40)
 
 func set_current_level_position():
