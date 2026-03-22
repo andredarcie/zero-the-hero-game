@@ -1,4 +1,4 @@
-class_name Enemy extends KinematicBody2D
+class_name Enemy extends CharacterBody2D
 
 enum Direction {
 	UP,
@@ -7,13 +7,13 @@ enum Direction {
 	RIGHT
 }
 
-var sprite_default: Texture
+var sprite_default: Texture2D
 
-onready var PoolOfBlood: PackedScene = preload("res://enemies/Enemy/PoolOfBlood/PoolOfBlood.tscn")
-onready var Coin: PackedScene = preload("res://pickups/coin/Coin.tscn")
-onready var HeartScene: PackedScene = preload("res://pickups/heart/Heart.tscn")
+@onready var PoolOfBlood: PackedScene = preload("res://enemies/Enemy/PoolOfBlood/PoolOfBlood.tscn")
+@onready var Coin: PackedScene = preload("res://pickups/coin/Coin.tscn")
+@onready var HeartScene: PackedScene = preload("res://pickups/heart/Heart.tscn")
 var rng = RandomNumberGenerator.new()
-onready var SceneNode = get_node("../../")
+@onready var SceneNode = get_node("../../")
 
 var invulnerable_to_arrows: bool = false
 var move_direction = Vector2.ZERO
@@ -26,7 +26,7 @@ var speed = 50
 var health = 1
 var damage = 1
 var player = null
-export (String) var unique_id
+@export var unique_id: String
 
 var enemy_is_dead: bool = false
 
@@ -39,18 +39,19 @@ func _ready() -> void:
 		queue_free()
 		
 	add_to_group("Enemy")
-	sprite_default = $Sprite.texture
+	sprite_default = $Sprite2D.texture
 	move_direction = get_random_direction()
 	
 func _process(delta):
 	if is_hurt_blink:
-		$Sprite.modulate.a = 0.5 if Engine.get_frames_drawn() % 2 == 0 else 1.0
+		$Sprite2D.modulate.a = 0.5 if Engine.get_frames_drawn() % 2 == 0 else 1.0
 	else:
-		$Sprite.modulate.a = 1.0
+		$Sprite2D.modulate.a = 1.0
 		
 func _physics_process(delta) -> void:		
 	if is_hurt:
-		move_and_slide(pushed_move_direction.normalized() * (speed * 2))
+		set_velocity(pushed_move_direction.normalized() * (speed * 2))
+		move_and_slide()
 	elif move_random_direction:
 		var collision = move_and_collide(move_direction.normalized() * speed * delta)
 		if collision:
@@ -87,7 +88,8 @@ func hurt(body : Node2D) -> void:
 	$HurtTime.start()
 	is_hurt = true
 	
-	if GameState.player_current_item_is_sword():
+	var bomb_hit: bool = "Bomb" in body.name or body.get("type") == "explosion"
+	if GameState.player_current_item_is_sword() or bomb_hit:
 		health -= 1
 		is_hurt_blink = true
 		
@@ -133,7 +135,7 @@ func _on_Area2D_body_entered(body) -> void:
 		
 		
 func instance_scene(scene: PackedScene) -> void:
-	var new_scene = scene.instance()
+	var new_scene = scene.instantiate()
 	new_scene.global_position = global_position
 	get_parent().call_deferred("add_child", new_scene)
 	queue_free()

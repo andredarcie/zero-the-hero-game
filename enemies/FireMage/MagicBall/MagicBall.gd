@@ -1,6 +1,6 @@
-extends KinematicBody2D
+extends CharacterBody2D
 
-onready var player: Player = GameState.get_player()
+@onready var player: Player = GameState.get_player()
 
 var last_player_position
 var move = Vector2.ZERO

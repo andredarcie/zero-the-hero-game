@@ -2,7 +2,7 @@ extends Node2D
 
 var wood = 1
 enum ThingToBuild {Bonfire, Bridge}
-export(ThingToBuild) var thing_to_build
+@export var thing_to_build: ThingToBuild
 var builded: bool = false
 
 func _ready():
@@ -11,9 +11,9 @@ func _ready():
 			$Water.queue_free()
 			$Bonfire/CollisionShape2D.call_deferred("set", "disabled", true)
 			$Bonfire.visible = true
-			$Bonfire/AnimatedSprite.visible = false
+			$Bonfire/AnimatedSprite2D.visible = false
 			$Bonfire/Base.visible = true
-			$Bonfire/Light2D.visible = false
+			$Bonfire/PointLight2D.visible = false
 			
 			if GameState.create_check(self):
 				build_bonfire()
@@ -31,9 +31,9 @@ func _process(delta):
 		return
 		
 	if GameState.player_current_item_is_wood():
-		$Area2D/Sprite.modulate.a = 255
+		$Area2D/Sprite2D.modulate.a = 255
 	else:
-		$Area2D/Sprite.modulate.a = 0.300
+		$Area2D/Sprite2D.modulate.a = 0.300
 
 func _on_Area2D_body_entered(body):
 	if GameState.check_body_is_player(body):
@@ -57,14 +57,14 @@ func _on_Area2D_body_entered(body):
 func build_bonfire():
 	$Area2D.queue_free()
 	$Bonfire/CollisionShape2D.call_deferred("set", "disabled", false)
-	$Bonfire/AnimatedSprite.visible = true
+	$Bonfire/AnimatedSprite2D.visible = true
 	$Bonfire/Base.visible = false
-	$Bonfire/Light2D.visible = true
+	$Bonfire/PointLight2D.visible = true
 	builded = true
 
 func build_bridge():
 	$Area2D.queue_free()
-	$BridgeArea2D/Sprite.visible = true
+	$BridgeArea2D/Sprite2D.visible = true
 	$Water/StaticBody2D.queue_free()
 	builded = true
 

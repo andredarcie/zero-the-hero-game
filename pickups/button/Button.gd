@@ -10,9 +10,9 @@ func _on_Area2D_body_entered(body):
 func set_state():
 	state = !state
 	if state:
-		$Sprite.frame = 0
+		$Sprite2D.frame = 0
 	else:
-		$Sprite.frame = 1
+		$Sprite2D.frame = 1
 		
 	
 	for child in self.get_children():

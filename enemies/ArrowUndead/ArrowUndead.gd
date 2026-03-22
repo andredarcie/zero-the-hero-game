@@ -7,10 +7,10 @@ enum DIRECTION {
 	Right
 }
 
-onready var BowTimer = $BowTimer
+@onready var BowTimer = $BowTimer
 var arrow_direction = DIRECTION.Down
 var move: Vector2 = Vector2.ZERO
-onready var arrow = preload("res://player/BowArrow/Arrow.tscn")
+@onready var arrow = preload("res://player/BowArrow/Arrow.tscn")
 
 func _ready():
 	invulnerable_to_arrows = true
@@ -25,10 +25,11 @@ func _physics_process(delta):
 	move = Vector2.ZERO
 	
 	if is_hurt:
-		move_and_slide(pushed_move_direction.normalized() * (speed * 2))
+		set_velocity(pushed_move_direction.normalized() * (speed * 2))
+		move_and_slide()
 		
 func shoot_arrow() -> void:
-	var new_arrow = arrow.instance()
+	var new_arrow = arrow.instantiate()
 	new_arrow.set_direction_and_point_of_origin(self.facing_direction, global_position)
 	get_node('..').add_child(new_arrow)
 	BowTimer.start()

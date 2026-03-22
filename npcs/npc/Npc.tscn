@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://npcs/npc/Npc.gd" type="Script" id=1]
-[ext_resource path="res://npcs/npc/npcs.png" type="Texture" id=2]
-[ext_resource path="res://items/item_shadow.png" type="Texture" id=3]
+[ext_resource path="res://npcs/npc/npcs.png" type="Texture2D" id=2]
+[ext_resource path="res://items/item_shadow.png" type="Texture2D" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 31.1538, 13.5437 )
@@ -14,14 +14,14 @@ extents = Vector2( 5.17222, 7.39138 )
 resource_name = "default"
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:scale")
+tracks/0/path = NodePath("Sprite2D:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PackedFloat32Array( 0, 0.5 ),
+"transitions": PackedFloat32Array( 1, 1 ),
 "update": 0,
 "values": [ Vector2( 1, 0.9 ), Vector2( 1, 1 ) ]
 }
@@ -30,7 +30,7 @@ tracks/0/keys = {
 z_index = -1
 script = ExtResource( 1 )
 
-[node name="Sprite" type="Sprite" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2( 1, 0.909841 )
 z_index = 2
 texture = ExtResource( 2 )
@@ -55,7 +55,7 @@ autoplay = "default"
 playback_speed = 2.0
 anims/default = SubResource( 3 )
 
-[node name="Shadow" type="Sprite" parent="."]
+[node name="Shadow" type="Sprite2D" parent="."]
 self_modulate = Color( 1, 1, 1, 0.392157 )
 position = Vector2( -0.259842, 2.11588 )
 z_index = 1

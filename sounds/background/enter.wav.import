@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/enter.wav-457a3f4538f14035d26e26e38aa5337e.sample"
+type="AudioStreamWAV"
+uid="uid://cxkbm7hqbjjw7"
+path="res://.godot/imported/enter.wav-457a3f4538f14035d26e26e38aa5337e.sample"
 
 [deps]
 
 source_file="res://sounds/background/enter.wav"
-dest_files=[ "res://.import/enter.wav-457a3f4538f14035d26e26e38aa5337e.sample" ]
+dest_files=["res://.godot/imported/enter.wav-457a3f4538f14035d26e26e38aa5337e.sample"]
 
 [params]
 
@@ -17,5 +18,7 @@ force/max_rate=false
 force/max_rate_hz=44100
 edit/trim=false
 edit/normalize=false
-edit/loop=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
 compress/mode=0

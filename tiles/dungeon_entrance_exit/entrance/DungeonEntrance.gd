@@ -1,7 +1,7 @@
 extends Area2D
 
-export(String) var dungeon_name: String = "first"
-onready var DungeonScreen = preload("res://engine/Screens/DungeonScreen.tscn")
+@export var dungeon_name: String = "first"
+@onready var DungeonScreen = preload("res://engine/Screens/DungeonScreen.tscn")
 
 func _ready():
 	if GameState.dungeon_one_finished:
@@ -20,6 +20,6 @@ func _on_DungeonEntrance_body_entered(body):
 			LevelManager.current_player_position = Vector2(32,32)
 			GameState.player_current_dungeon_name = dungeon_name
 			
-			get_tree().change_scene_to(DungeonScreen)
+			get_tree().change_scene_to_packed(DungeonScreen)
 		else:
 			GameState.show_player_ballon_sword()

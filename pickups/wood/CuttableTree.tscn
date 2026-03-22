@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://pickups/wood/woods.png" type="Texture" id=1]
-[ext_resource path="res://items/item_shadow.png" type="Texture" id=2]
+[ext_resource path="res://pickups/wood/woods.png" type="Texture2D" id=1]
+[ext_resource path="res://items/item_shadow.png" type="Texture2D" id=2]
 [ext_resource path="res://items/Item.tscn" type="PackedScene" id=3]
 [ext_resource path="res://pickups/wood/CuttableTree.gd" type="Script" id=4]
 
@@ -11,7 +11,7 @@ extents = Vector2( 8, 8 )
 [sub_resource type="Shader" id=2]
 code = "shader_type canvas_item;
 
-uniform vec4 hit_color : hint_color = vec4(1.0, 1.0, 1.0, 1.0);
+uniform vec4 hit_color : source_color = vec4(1.0, 1.0, 1.0, 1.0);
 uniform float hit_strength : hint_range(0.0,1.0) = 0.0;
 
 void fragment() {
@@ -22,8 +22,8 @@ void fragment() {
 
 [sub_resource type="ShaderMaterial" id=3]
 shader = SubResource( 2 )
-shader_param/hit_color = Color( 1, 1, 1, 1 )
-shader_param/hit_strength = 0.0
+shader_parameter/hit_color = Color( 1, 1, 1, 1 )
+shader_parameter/hit_strength = 0.0
 
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 8, 8 )
@@ -31,14 +31,14 @@ extents = Vector2( 8, 8 )
 [sub_resource type="Animation" id=5]
 length = 0.2
 tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:position")
+tracks/0/path = NodePath("Sprite2D:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PackedFloat32Array( 0, 0.1, 0.2 ),
+"transitions": PackedFloat32Array( 1, 1, 1 ),
 "update": 0,
 "values": [ Vector2( 0, 0 ), Vector2( -1, 0 ), Vector2( 0, 0 ) ]
 }
@@ -49,8 +49,8 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PackedFloat32Array( 0, 0.2 ),
+"transitions": PackedFloat32Array( 1, 1 ),
 "values": [ {
 "args": [  ],
 "method": "flash_in"
@@ -68,7 +68,7 @@ script = ExtResource( 4 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Tree"]
 shape = SubResource( 1 )
 
-[node name="Sprite" type="Sprite" parent="Tree"]
+[node name="Sprite2D" type="Sprite2D" parent="Tree"]
 material = SubResource( 3 )
 z_index = 2
 texture = ExtResource( 1 )
@@ -82,7 +82,7 @@ shape = SubResource( 4 )
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Tree"]
 anims/default = SubResource( 5 )
 
-[node name="Shadow" type="Sprite" parent="Tree"]
+[node name="Shadow" type="Sprite2D" parent="Tree"]
 self_modulate = Color( 1, 1, 1, 0.392157 )
 position = Vector2( 0, 2 )
 z_index = 1

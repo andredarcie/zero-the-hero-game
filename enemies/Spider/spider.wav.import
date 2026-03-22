@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/spider.wav-277363de9261d6fb4a00f6ce63c17842.sample"
+type="AudioStreamWAV"
+uid="uid://s48d0esrdq1f"
+path="res://.godot/imported/spider.wav-277363de9261d6fb4a00f6ce63c17842.sample"
 
 [deps]
 
 source_file="res://enemies/Spider/spider.wav"
-dest_files=[ "res://.import/spider.wav-277363de9261d6fb4a00f6ce63c17842.sample" ]
+dest_files=["res://.godot/imported/spider.wav-277363de9261d6fb4a00f6ce63c17842.sample"]
 
 [params]
 
@@ -17,5 +18,7 @@ force/max_rate=false
 force/max_rate_hz=44100
 edit/trim=false
 edit/normalize=false
-edit/loop=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
 compress/mode=0

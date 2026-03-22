@@ -1,6 +1,6 @@
 extends Node2D
 
-onready var AudioFile = preload("res://sounds/background/cricket.mp3")
+@onready var AudioFile = preload("res://sounds/background/cricket.mp3")
 
 func stop():
 	$AudioStreamPlayer.stop()

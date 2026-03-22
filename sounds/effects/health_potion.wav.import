@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/health_potion.wav-a85837d999364179ffe82a74f48456df.sample"
+type="AudioStreamWAV"
+uid="uid://c6prqm7sdnfsx"
+path="res://.godot/imported/health_potion.wav-a85837d999364179ffe82a74f48456df.sample"
 
 [deps]
 
 source_file="res://sounds/effects/health_potion.wav"
-dest_files=[ "res://.import/health_potion.wav-a85837d999364179ffe82a74f48456df.sample" ]
+dest_files=["res://.godot/imported/health_potion.wav-a85837d999364179ffe82a74f48456df.sample"]
 
 [params]
 
@@ -17,5 +18,7 @@ force/max_rate=false
 force/max_rate_hz=44100
 edit/trim=false
 edit/normalize=false
-edit/loop=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
 compress/mode=0

@@ -5,7 +5,7 @@ var times = 0
 
 func _ready():
 	dialogBox = Hud.get_node("Base/DialogBox")
-	dialogBox.connect("dialogue_ended", self, "_on_dialogue_ended")
+	dialogBox.connect("dialogue_ended", Callable(self, "_on_dialogue_ended"))
 
 func _on_dialogue_ended():
 	if times == 0:
@@ -13,8 +13,7 @@ func _on_dialogue_ended():
 		times = times + 1
 	elif times == 1:
 		BackgroundMusic.play_main_sound()
-		LevelManager.current_player_position = Vector2(152, 168)
-		LevelManager.change_scene("res://levels/4-3.tscn")
+		LevelManager.go_to_first_level()
 
 func _on_Timer_timeout():
 	dialogBox.start_dialog("Woman's Voice", [ 'Wake up [color=#495057]Zero[/color]!'])

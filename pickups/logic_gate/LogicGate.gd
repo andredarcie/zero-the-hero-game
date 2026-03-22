@@ -16,14 +16,14 @@ func toggle_input(name: String) -> void:
 	output = input1 and input2
 		
 	if output:
-		$Sprite.frame = 1
+		$Sprite2D.frame = 1
 		for child in $Output.get_overlapping_areas():
 			var parent =  child.get_parent()
 			if parent.is_in_group("Wire") and parent.has_method("on"):
 					parent.on("Up")
 					return
 	else:
-		$Sprite.frame = 0
+		$Sprite2D.frame = 0
 		for child in $Output.get_overlapping_areas():
 			var parent =  child.get_parent()
 			if parent.is_in_group("Wire") and parent.has_method("off"):

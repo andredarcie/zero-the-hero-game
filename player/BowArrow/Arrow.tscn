@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://player/BowArrow/arrow.png" type="Texture" id=1]
+[ext_resource path="res://player/BowArrow/arrow.png" type="Texture2D" id=1]
 [ext_resource path="res://player/BowArrow/Arrow.gd" type="Script" id=2]
 
 [sub_resource type="SegmentShape2D" id=1]
@@ -22,7 +22,7 @@ position = Vector2( -0.792687, 0.118941 )
 rotation = 0.820305
 shape = SubResource( 1 )
 
-[node name="Sprite" type="Sprite" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource( 1 )
 
 [connection signal="area_entered" from="." to="." method="_on_Arrow_area_entered"]

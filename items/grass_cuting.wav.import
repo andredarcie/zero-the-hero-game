@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/grass_cuting.wav-4982860bd30dc5450124102b9df6b25b.sample"
+type="AudioStreamWAV"
+uid="uid://cnynbjyf1xlb3"
+path="res://.godot/imported/grass_cuting.wav-4982860bd30dc5450124102b9df6b25b.sample"
 
 [deps]
 
 source_file="res://items/grass_cuting.wav"
-dest_files=[ "res://.import/grass_cuting.wav-4982860bd30dc5450124102b9df6b25b.sample" ]
+dest_files=["res://.godot/imported/grass_cuting.wav-4982860bd30dc5450124102b9df6b25b.sample"]
 
 [params]
 
@@ -17,5 +18,7 @@ force/max_rate=false
 force/max_rate_hz=44100
 edit/trim=false
 edit/normalize=false
-edit/loop=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
 compress/mode=0

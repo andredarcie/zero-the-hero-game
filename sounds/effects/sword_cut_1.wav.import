@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/sword_cut_1.wav-0f6e861abab85f3f145124590879d949.sample"
+type="AudioStreamWAV"
+uid="uid://btfkvympoe7er"
+path="res://.godot/imported/sword_cut_1.wav-0f6e861abab85f3f145124590879d949.sample"
 
 [deps]
 
 source_file="res://sounds/effects/sword_cut_1.wav"
-dest_files=[ "res://.import/sword_cut_1.wav-0f6e861abab85f3f145124590879d949.sample" ]
+dest_files=["res://.godot/imported/sword_cut_1.wav-0f6e861abab85f3f145124590879d949.sample"]
 
 [params]
 
@@ -17,5 +18,7 @@ force/max_rate=false
 force/max_rate_hz=44100
 edit/trim=false
 edit/normalize=false
-edit/loop=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
 compress/mode=0

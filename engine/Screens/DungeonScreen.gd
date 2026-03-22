@@ -10,6 +10,6 @@ func _on_Timer_timeout():
 
 	if level != null:
 		Hud.hud_visible(true)
-		get_tree().change_scene_to(level)
+		get_tree().change_scene_to_packed(level)
 	else:
 		print("Failed to load the scene: ", scene_name)

@@ -1,11 +1,11 @@
-class_name Player extends KinematicBody2D
+class_name Player extends CharacterBody2D
 
-onready var FootSteps = preload("res://player/FootSteps/FootSteps.tscn")
-onready var blood_particules = preload("res://enemies/Enemy/Blood/Blood.tscn")
-onready var Bomb = preload("res://pickups/bomb/Bomb.tscn")
-onready var JoystickButton = Hud.get_node("Base/MobileJoystick/TouchScreenButton")
+@onready var FootSteps = preload("res://player/FootSteps/FootSteps.tscn")
+@onready var blood_particules = preload("res://enemies/Enemy/Blood/Blood.tscn")
+@onready var Bomb = preload("res://pickups/bomb/Bomb.tscn")
+@onready var JoystickButton = Hud.get_node("Base/MobileJoystick/TouchScreenButton")
 
-onready var TVShaderMaterial = $CanvasLayer/ColorRect.get_material()
+@onready var TVShaderMaterial = $CanvasLayer/ColorRect.get_material()
 var state: String = 'default'
 var step_interval = 4
 var type: String = 'player'
@@ -16,7 +16,7 @@ var movedir := Vector2.ZERO
 var sprite_direction: String = 'down'
 var hitstun: int = 0
 var knockdir: Vector2 = Vector2.ZERO
-var texture_default: Texture = null
+var texture_default: Texture2D = null
 var invulnerable : bool = false
 var moving_directon_is_up = false
 var player_cant_move: bool = false
@@ -27,7 +27,7 @@ var sword_on_fire: bool = false
 var sword_sound_atack_1 = preload("res://sounds/effects/sword_cut_1.wav")
 var sword_sound_atack_2 = preload("res://sounds/effects/sword_cut_2.wav")
 
-onready var arrow = preload("res://player/BowArrow/Arrow.tscn")
+@onready var arrow = preload("res://player/BowArrow/Arrow.tscn")
 var arrow_direction = DIRECTION.Up
 var rng = RandomNumberGenerator.new()
 
@@ -47,18 +47,19 @@ func _init() -> void:
 	
 	
 func _ready() -> void:
+	motion_mode = CharacterBody2D.MOTION_MODE_FLOATING
 	$Bow.visible = false
 	add_to_group('Player')
-	texture_default = $Sprite.texture
+	texture_default = $Sprite2D.texture
 	
 	if GameState.player_slot_item == 0:
 		$Sword.texture = null
 
 func _process(delta):
 	if hitstun:
-		$Sprite.modulate.a = 0.5 if Engine.get_frames_drawn() % 2 == 0 else 1.0
+		$Sprite2D.modulate.a = 0.5 if Engine.get_frames_drawn() % 2 == 0 else 1.0
 	else:
-		$Sprite.modulate.a = 1.0
+		$Sprite2D.modulate.a = 1.0
 		
 		
 func _physics_process(_delta: float) -> void:
@@ -77,7 +78,7 @@ func state_default() -> void:
 		step_interval -= 1
 	elif step_interval == 0:
 		step_interval = 5
-		var foot_steps = FootSteps.instance()
+		var foot_steps = FootSteps.instantiate()
 		foot_steps.global_position = $Foots.global_position
 		get_parent().add_child(foot_steps)
 	
@@ -86,15 +87,13 @@ func state_default() -> void:
 	spriterdir_loop()
 	damage_loop()
 	
-	LevelManager.check_current_level(movedir, global_position)
-	
 	match movedir:
 		Vector2(-1, 0):
 			$AnimationPlayer.play("walking")
-			$Sprite.flip_h = true
+			$Sprite2D.flip_h = true
 		Vector2(1, 0):
 			$AnimationPlayer.play("walking")
-			$Sprite.flip_h = false
+			$Sprite2D.flip_h = false
 		Vector2(0, -1):
 			$AnimationPlayer.play("walking_up")
 			moving_directon_is_up = true
@@ -126,9 +125,9 @@ func state_default() -> void:
 		
 		match GameState.player_slot_item:
 			GameState.ItemSlot.Nothing:
-				continue
+				return
 			GameState.ItemSlot.LavaBoots:
-				continue
+				return
 			GameState.ItemSlot.Sword:
 				if rng.randi_range(0, 1) == 0:
 					$AudioStreamPlayer2D.stream =  sword_sound_atack_1
@@ -174,17 +173,17 @@ func change_item(item, animate):
 func state_swing() -> void:
 	movement_loop()
 	damage_loop()
-	movedir = dir.center
+	movedir = Vector2.ZERO
 	
 	
 func throw_bomb() -> void:
-	var bomb = Bomb.instance()
+	var bomb = Bomb.instantiate()
 	bomb.global_position = $BombPlace.global_position
 	get_node('..').add_child(bomb)
 	
 
 func controls_loop() -> void:	
-	if OS.has_touchscreen_ui_hint():
+	if DisplayServer.is_touchscreen_available():
 		movedir = JoystickButton.get_value()
 		movedir = Vector2(int(round(movedir.x)), int(round(movedir.y)))
 	else:
@@ -241,7 +240,7 @@ func set_bow_position_and_rotation(x: float, y: float, rotation_degress: float) 
 func shoot_arrow() -> void:
 	set_arrow_direction()
 	$Bow.visible = true
-	var new_arrow = arrow.instance()
+	var new_arrow = arrow.instantiate()
 	new_arrow.set_direction_and_point_of_origin(arrow_direction, global_position)
 	get_node('..').add_child(new_arrow)
 	$Bow/BowTimer.start()
@@ -260,7 +259,8 @@ func movement_loop() -> void:
 		motion = knockdir.normalized() * 200
 		
 	# warning-ignore:return_value_discarded
-	move_and_slide(motion, Vector2(0, 0))
+	set_velocity(motion)
+	move_and_slide()
 	
 	
 	
@@ -287,7 +287,7 @@ func damage_loop() -> void:
 		if type == 'enemy' && health <= 0:
 			var drop = randi() % 2
 			if drop == 0:
-				instance_scene(preload("res://pickups/heart.tscn"))
+				instance_scene(preload("res://pickups/heart/Heart.tscn"))
 			instance_scene(preload("res://enemies/Enemy/EnemyDeath/enemy_death.tscn"))
 			queue_free()
 		
@@ -332,10 +332,10 @@ func make_damage(body, knock = true, invulnerable_time = true) -> void:
 		knockdir = global_transform.origin - body.global_transform.origin
 	
 	if health == 1:
-		TVShaderMaterial.set_shader_param('roll', true)
-		TVShaderMaterial.set_shader_param('roll_speed', 8)
-		TVShaderMaterial.set_shader_param('roll_size', 15)
-		TVShaderMaterial.set_shader_param('roll_variation', 1.8)
+		TVShaderMaterial.set_shader_parameter('roll', true)
+		TVShaderMaterial.set_shader_parameter('roll_speed', 8)
+		TVShaderMaterial.set_shader_parameter('roll_size', 15)
+		TVShaderMaterial.set_shader_parameter('roll_variation', 1.8)
 		
 	if type == 'player':
 		SoundEffects.play_hero_hurt()
@@ -350,7 +350,7 @@ func make_damage(body, knock = true, invulnerable_time = true) -> void:
 	
 	
 func use_item(item: PackedScene, item_texture) -> void:
-	var newitem = item.instance()
+	var newitem = item.instantiate()
 	
 	if item_texture != null:
 		newitem.set_texture(item_texture)
@@ -363,7 +363,7 @@ func use_item(item: PackedScene, item_texture) -> void:
 		
 		
 func instance_scene(scene: PackedScene) -> void:
-	var new_scene = scene.instance()
+	var new_scene = scene.instantiate()
 	new_scene.global_position = global_position
 	get_parent().add_child(new_scene)
 
@@ -375,10 +375,10 @@ func gain_max_health() -> void:
 	
 func gain_health() -> void:
 	if health == 1:
-		TVShaderMaterial.set_shader_param('roll', false)
-		TVShaderMaterial.set_shader_param('roll_speed', 0)
-		TVShaderMaterial.set_shader_param('roll_size', 0)
-		TVShaderMaterial.set_shader_param('roll_variation', 0.1)
+		TVShaderMaterial.set_shader_parameter('roll', false)
+		TVShaderMaterial.set_shader_parameter('roll_speed', 0)
+		TVShaderMaterial.set_shader_parameter('roll_size', 0)
+		TVShaderMaterial.set_shader_parameter('roll_variation', 0.1)
 		
 	health += 1
 	GameState.player_health += 1

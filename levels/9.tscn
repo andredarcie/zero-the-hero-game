@@ -1,0 +1,18 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" path="res://levels/base/LevelBaseForest.tscn" id="1"]
+[ext_resource type="PackedScene" path="res://pickups/portal/Portal.tscn" id="2"]
+[ext_resource type="PackedScene" path="res://items/Item.tscn" id="3"]
+[ext_resource type="PackedScene" path="res://tiles/TileMaps/forest_tile_map/ForestTileMap.tscn" id="5"]
+
+[node name="9" instance=ExtResource("1")]
+
+[node name="ForestTileMap" parent="." index="2" instance=ExtResource("5")]
+tile_map_data = PackedByteArray(0, 0, 1, 0, 1, 0, 3, 0, 0, 0, 0, 0, 0, 0, 18, 0, 2, 0, 3, 0, 0, 0, 0, 0, 0, 0, 1, 0, 13, 0, 3, 0, 0, 0, 0, 0, 0, 0, 18, 0, 13, 0, 3, 0, 0, 0, 0, 0, 0, 0)
+
+[node name="Portal" parent="." index="3" instance=ExtResource("2")]
+position = Vector2(160, 33)
+
+[node name="Item" parent="." index="4" instance=ExtResource("3")]
+position = Vector2(224, 76)
+item = 1

@@ -64,7 +64,7 @@ func _on_ArrowLifeTimer_timeout():
 func _on_Arrow_area_entered(area):
 	if "Bonfire" in area.name:
 		on_fire = true
-		$Sprite.texture = arrow_on_fire_texture
+		$Sprite2D.texture = arrow_on_fire_texture
 	elif "Grass" in area.get_parent().name and on_fire:
 		area.get_parent().catch_fire()
 

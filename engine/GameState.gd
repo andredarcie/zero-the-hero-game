@@ -117,15 +117,8 @@ func restart_game():
 		player_health = 3
 		player_max_health = 3
 		
-	LevelManager.current_player_position = Vector2(152, 168)
-	var scene_name = "res://levels/4-3.tscn"
-	var level = load(scene_name)
-
-	if level != null:
-		Hud.hud_visible(true)
-		get_tree().change_scene_to(level)
-	else:
-		print("Failed to load the scene: ", scene_name)
+	Hud.hud_visible(true)
+	LevelManager.go_to_first_level()
 
 func goto_title_screen():
 	Hud.hud_visible(false)
@@ -134,7 +127,7 @@ func goto_title_screen():
 	player_max_health = 3
 	persisted_objects = []
 	BackgroundMusic.stop()
-	LevelManager.change_scene("res://engine/Screens/TitleScreen.tscn")
+	LevelManager.change_scene_to_file("res://engine/Screens/TitleScreen.tscn")
 	
 	
 func player_stop_moving():
@@ -163,7 +156,7 @@ func show_player_ballon_key():
 	
 func get_player():
 	# return get_tree().get_nodes_in_group('Player')[0]
-	return get_node("/root").find_node("Player", true, false)
+	return get_node("/root").find_child("Player", true, false)
 	
 func get_player_current_item():
 	return player_slot_item
@@ -219,7 +212,7 @@ func get_item_texture(item):
 	return texture
 	
 func get_hud():
-	return get_node("/root").find_node("hud", true, false)
+	return get_node("/root").find_child("hud", true, false)
 	
 	
 func check_body_is_player(body) -> bool:
@@ -231,9 +224,12 @@ func check_line_of_sight(npc, area, player) -> bool:
 	var hitbox = player.get_node("hitbox")
 	var space = npc.get_world_2d().direct_space_state
 	
-	var LOS_obstacle = space.intersect_ray(npc.global_position, hitbox.global_position, [npc, area], npc.collision_mask, true, true)
+	var query := PhysicsRayQueryParameters2D.create(npc.global_position, hitbox.global_position, npc.collision_mask, [npc.get_rid(), area.get_rid()])
+	query.collide_with_bodies = true
+	query.collide_with_areas = true
+	var LOS_obstacle: Dictionary = space.intersect_ray(query)
 	
-	if not LOS_obstacle:
+	if LOS_obstacle.is_empty():
 		return false
 	
 	return LOS_obstacle.collider.name == "hitbox" or LOS_obstacle.collider.name == "sword"

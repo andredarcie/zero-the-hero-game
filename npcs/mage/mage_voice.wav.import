@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/mage_voice.wav-4fa18d2836ea1d9f1c9dce580326e3f0.sample"
+type="AudioStreamWAV"
+uid="uid://cpmn66dh5w88u"
+path="res://.godot/imported/mage_voice.wav-4fa18d2836ea1d9f1c9dce580326e3f0.sample"
 
 [deps]
 
 source_file="res://npcs/mage/mage_voice.wav"
-dest_files=[ "res://.import/mage_voice.wav-4fa18d2836ea1d9f1c9dce580326e3f0.sample" ]
+dest_files=["res://.godot/imported/mage_voice.wav-4fa18d2836ea1d9f1c9dce580326e3f0.sample"]
 
 [params]
 
@@ -17,5 +18,7 @@ force/max_rate=false
 force/max_rate_hz=44100
 edit/trim=false
 edit/normalize=false
-edit/loop=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
 compress/mode=0

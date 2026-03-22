@@ -1,11 +1,11 @@
 extends Node2D
 
-onready var key_texture = load("res://pickups/key/key.png")
-onready var heart_texture = load("res://pickups/heart/heart.png")
-onready var heart_container_texture = load("res://pickups/heart/heart_container.png")
-onready var bomb_texture = load("res://pickups/bomb/bomb.png")
+@onready var key_texture = load("res://pickups/key/key.png")
+@onready var heart_texture = load("res://pickups/heart/heart.png")
+@onready var heart_container_texture = load("res://pickups/heart/heart_container.png")
+@onready var bomb_texture = load("res://pickups/bomb/bomb.png")
 
-onready var ballon_texture = load("res://pickups/store/ballon.png")
+@onready var ballon_texture = load("res://pickups/store/ballon.png")
 
 enum ITEMS {
 	key,
@@ -14,12 +14,12 @@ enum ITEMS {
 	bomb
 }
 
-export(ITEMS) var item1_type
-export(int) var item1_value = 10
-export(ITEMS) var item2_type
-export(int) var item2_value = 20
-export(ITEMS) var item3_type
-export(int) var item3_value = 30
+@export var item1_type: ITEMS
+@export var item1_value: int = 10
+@export var item2_type: ITEMS
+@export var item2_value: int = 20
+@export var item3_type: ITEMS
+@export var item3_value: int = 30
 
 var salesman_is_dead = false
 
@@ -34,8 +34,8 @@ func show_all_items():
 	
 	
 func set_item(item, item_type, value):
-	item.get_node("Sprite").texture = get_item_texture(item_type)
-	item.get_node("Sprite/RichTextLabel").text = str(value)
+	item.get_node("Sprite2D").texture = get_item_texture(item_type)
+	item.get_node("Sprite2D/RichTextLabel").text = str(value)
 
 
 func get_item(item, type, value, body):
@@ -57,11 +57,11 @@ func get_item(item, type, value, body):
 				$Salesman/Balloon.texture = ballon_texture
 				$Salesman/SalesmanHappyTimer.start()
 		else:
-			item.get_node("Sprite/RichTextLabel").bbcode_enabled = true
-			item.get_node("Sprite/RichTextLabel").bbcode_text = "[color=#e74c3c]%s[/color]" % value
+			item.get_node("Sprite2D/RichTextLabel").bbcode_enabled = true
+			item.get_node("Sprite2D/RichTextLabel").text = "[color=#e74c3c]%s[/color]" % value
 
 
-func get_item_texture(item) -> Texture:
+func get_item_texture(item) -> Texture2D:
 	if item == ITEMS.key:
 		return key_texture
 	elif item == ITEMS.heart:
@@ -71,7 +71,7 @@ func get_item_texture(item) -> Texture:
 	elif item == ITEMS.bomb:
 		return bomb_texture
 	
-	return Texture.new()
+	return Texture2D.new()
 
 
 func _on_Item1_body_entered(body):
@@ -90,21 +90,21 @@ func _on_Item1_body_exited(_body):
 	if salesman_is_dead:
 		return
 		
-	$Item1/Sprite/RichTextLabel.bbcode_text = "[color=white]%s[/color]" % item1_value
+	$Item1/Sprite2D/RichTextLabel.text = "[color=white]%s[/color]" % item1_value
 
 
 func _on_Item2_body_exited(_body):
 	if salesman_is_dead:
 		return
 		
-	$Item2/Sprite/RichTextLabel.bbcode_text = "[color=white]%s[/color]" % item2_value
+	$Item2/Sprite2D/RichTextLabel.text = "[color=white]%s[/color]" % item2_value
 
 
 func _on_Item3_body_exited(_body):
 	if salesman_is_dead:
 		return
 		
-	$Item3/Sprite/RichTextLabel.bbcode_text = "[color=white]%s[/color]" % item3_value
+	$Item3/Sprite2D/RichTextLabel.text = "[color=white]%s[/color]" % item3_value
 
 
 func _on_Salesman_area_entered(area):
@@ -117,20 +117,20 @@ func _on_Salesman_area_entered(area):
 		
 		if $Item1 != null:
 			$Item1/Coin.queue_free()
-			$Item1/Sprite/RichTextLabel.queue_free()
+			$Item1/Sprite2D/RichTextLabel.queue_free()
 			
 		if $Item2 != null:
 			$Item2/Coin2.queue_free()
-			$Item2/Sprite/RichTextLabel.queue_free()
+			$Item2/Sprite2D/RichTextLabel.queue_free()
 			
 		if $Item3 != null:
 			$Item3/Coin3.queue_free()
-			$Item3/Sprite/RichTextLabel.queue_free()
+			$Item3/Sprite2D/RichTextLabel.queue_free()
 			
 		$Salesman.queue_free()
 
 
 func _on_SalesmanHappyTimer_timeout():
 	if $Salesman != null:
-		$Salesman/Balloon.texture = Texture.new()
+		$Salesman/Balloon.texture = Texture2D.new()
 		$Salesman/SalesmanHappyTimer.stop()

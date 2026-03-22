@@ -7,7 +7,7 @@ func _enter_tree():
 		
 	LevelManager.set_current_level_position()
 	
-	var player = player_scene.instance()
+	var player = player_scene.instantiate()
 	player.global_position = LevelManager.current_player_position
 	player.change_item(GameState.player_slot_item, false)
 	

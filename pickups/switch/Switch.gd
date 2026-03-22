@@ -2,10 +2,10 @@ class_name Switch extends Area2D
 
 var active: bool = false
 var objects = []
-export var switch_name = ""
+@export var switch_name = ""
 
-var on_image: Texture = preload("res://pickups/switch/on.png")
-var off_image: Texture = preload("res://pickups/switch/off.png")
+var on_image: Texture2D = preload("res://pickups/switch/on.png")
+var off_image: Texture2D = preload("res://pickups/switch/off.png")
 
 func _ready() -> void:
 	self.objects = get_children()
@@ -17,10 +17,10 @@ func toggle_switch():
 	self.active = !self.active
 	
 	if self.active:
-		$Sprite.texture = on_image
+		$Sprite2D.texture = on_image
 		GameState.destroy(self)
 	else:
-		$Sprite.texture = off_image
+		$Sprite2D.texture = off_image
 		
 	self.set_all_objects()
 	

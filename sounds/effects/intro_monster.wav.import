@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/intro_monster.wav-b65e0f985c82f66d9f1f9ef6bca9ac55.sample"
+type="AudioStreamWAV"
+uid="uid://cq6evl5q5b5rk"
+path="res://.godot/imported/intro_monster.wav-b65e0f985c82f66d9f1f9ef6bca9ac55.sample"
 
 [deps]
 
 source_file="res://sounds/effects/intro_monster.wav"
-dest_files=[ "res://.import/intro_monster.wav-b65e0f985c82f66d9f1f9ef6bca9ac55.sample" ]
+dest_files=["res://.godot/imported/intro_monster.wav-b65e0f985c82f66d9f1f9ef6bca9ac55.sample"]
 
 [params]
 
@@ -17,5 +18,7 @@ force/max_rate=false
 force/max_rate_hz=44100
 edit/trim=false
 edit/normalize=false
-edit/loop=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
 compress/mode=0
