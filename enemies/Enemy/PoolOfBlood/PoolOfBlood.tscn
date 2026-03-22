@@ -1,8 +1,8 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://enemies/Enemy/PoolOfBlood/pool_of_blood.png" type="Texture" id=1]
+[ext_resource path="res://enemies/Enemy/PoolOfBlood/pool_of_blood.png" type="Texture2D" id=1]
 
 [node name="DeadHuman" type="Node2D"]
 
-[node name="Sprite" type="Sprite" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource( 1 )

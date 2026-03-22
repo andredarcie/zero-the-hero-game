@@ -4,7 +4,7 @@ signal dialogue_ended
 
 func start_dialog(name: String, dialogs):
 	BackgroundMusic.stop()
-	$TextName.set_name(name + ': ')
+	$TextName.set_character_name(name + ': ')
 	$TextBox.start_dialog(dialogs)
 	$AcceptTextBox.visible = false
 	
@@ -15,5 +15,5 @@ func end_dialog():
 	BackgroundMusic.play()
 	$TextBox.end_dialog()
 	
-func dialogue_ended():
+func emit_dialogue_ended():
 	emit_signal("dialogue_ended")

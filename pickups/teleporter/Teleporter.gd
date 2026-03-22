@@ -1,7 +1,7 @@
 extends Area2D
 
-export var start_position_x: int = 0
-export var start_position_y: int = 0
+@export var start_position_x: int = 0
+@export var start_position_y: int = 0
 
 func _on_Teleporter_body_entered(body):
 	if body.get("type") != null:

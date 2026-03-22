@@ -1,11 +1,13 @@
-# Godot-specific ignores
-.import/
+# Godot 4 editor and import cache
+.godot/
+
+# Export files generated locally
 export.cfg
 export_presets.cfg
 
-# Imported translations (automatically generated from CSV files)
+# Imported translations generated from CSV files
 *.translation
 
-# Mono-specific ignores
+# Mono / C# build artifacts
 .mono/
 data_*/

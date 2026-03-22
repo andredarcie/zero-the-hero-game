@@ -1,14 +1,14 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://ui/backgrund_circle.png" type="Texture" id=1]
+[ext_resource path="res://ui/backgrund_circle.png" type="Texture2D" id=1]
 [ext_resource path="res://engine/TouchScreenButton.gd" type="Script" id=2]
-[ext_resource path="res://ui/tiny_circle.png" type="Texture" id=3]
-[ext_resource path="res://ui/tiny_circle_selected.png" type="Texture" id=4]
+[ext_resource path="res://ui/tiny_circle.png" type="Texture2D" id=3]
+[ext_resource path="res://ui/tiny_circle_selected.png" type="Texture2D" id=4]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 32.0
 
-[node name="MobileJoystick" type="Sprite"]
+[node name="MobileJoystick" type="Sprite2D"]
 modulate = Color( 1, 0.976471, 0.976471, 0.196078 )
 self_modulate = Color( 1, 1, 1, 0.392157 )
 position = Vector2( -32, -32 )

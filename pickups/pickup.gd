@@ -1,10 +1,10 @@
 class_name Pickup extends Area2D
 
-export (bool) var disappears: bool = false
+@export var disappears: bool = false
 
 func _ready() -> void:
-	connect("body_entered", self, "body_entered")
-	connect("area_entered", self, "area_entered")
+	connect("body_entered", Callable(self, "body_entered"))
+	connect("area_entered", Callable(self, "area_entered"))
 
 func area_entered(area: Node2D) -> void:
 	var area_parent = area.get_parent()

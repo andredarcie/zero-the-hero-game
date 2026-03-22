@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/wood_drop.wav-3be2c0b6902f5a33461921d78835733c.sample"
+type="AudioStreamWAV"
+uid="uid://b6nh8tsk70y4"
+path="res://.godot/imported/wood_drop.wav-3be2c0b6902f5a33461921d78835733c.sample"
 
 [deps]
 
 source_file="res://pickups/wood/wood_drop.wav"
-dest_files=[ "res://.import/wood_drop.wav-3be2c0b6902f5a33461921d78835733c.sample" ]
+dest_files=["res://.godot/imported/wood_drop.wav-3be2c0b6902f5a33461921d78835733c.sample"]
 
 [params]
 
@@ -17,5 +18,7 @@ force/max_rate=false
 force/max_rate_hz=44100
 edit/trim=false
 edit/normalize=false
-edit/loop=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
 compress/mode=0

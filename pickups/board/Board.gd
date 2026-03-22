@@ -1,6 +1,6 @@
 extends Area2D
 
-export var message = 'WORKING PROGRESS'
+@export var message = 'WORKING PROGRESS'
 var dialogBox: DialogBox = null
 
 func _on_Board_body_entered(body):

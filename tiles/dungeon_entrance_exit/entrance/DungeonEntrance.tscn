@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://tiles/dungeon_entrance_exit/entrance/DungeonEntrance.gd" type="Script" id=1]
-[ext_resource path="res://tiles/dungeon_entrance_exit/entrance/Gate.png" type="Texture" id=2]
+[ext_resource path="res://tiles/dungeon_entrance_exit/entrance/Gate.png" type="Texture2D" id=2]
 [ext_resource path="res://items/Item.tscn" type="PackedScene" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
@@ -20,7 +20,7 @@ script = ExtResource( 1 )
 position = Vector2( 0, 7.42792 )
 shape = SubResource( 1 )
 
-[node name="Sprite" type="Sprite" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource( 2 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
@@ -29,7 +29,7 @@ texture = ExtResource( 2 )
 position = Vector2( -0.209778, -9.95943 )
 shape = SubResource( 2 )
 
-[node name="ExitPosition2D" type="Position2D" parent="."]
+[node name="ExitPosition2D" type="Marker2D" parent="."]
 position = Vector2( -0.0132561, -34.8923 )
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]

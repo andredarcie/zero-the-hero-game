@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://ui/hearts.png" type="Texture" id=1]
+[ext_resource path="res://ui/hearts.png" type="Texture2D" id=1]
 [ext_resource path="res://pickups/heart.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
@@ -10,7 +10,7 @@ extents = Vector2( 3, 3 )
 script = ExtResource( 2 )
 disappears = true
 
-[node name="Sprite" type="Sprite" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource( 1 )
 hframes = 5
 frame = 4

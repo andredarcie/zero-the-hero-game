@@ -4,10 +4,10 @@ const HEART_ROW_SIZE: int = 8
 const HEART_OFFSET: int = 8
 var old_max_health
 
-onready var tile_mini_map_texture = preload("res://ui/mini_map/tile_mini_map.png")
-onready var important_mini_map_texture = preload("res://ui/mini_map/important_mini_map.png")
-onready var player_mini_map_texture = preload("res://ui/mini_map/player_mini_map.png")
-onready var tile_hide_mini_map_texture = preload("res://ui/mini_map/tile_hide_mini_map.png")
+@onready var tile_mini_map_texture = preload("res://ui/mini_map/tile_mini_map.png")
+@onready var important_mini_map_texture = preload("res://ui/mini_map/important_mini_map.png")
+@onready var player_mini_map_texture = preload("res://ui/mini_map/player_mini_map.png")
+@onready var tile_hide_mini_map_texture = preload("res://ui/mini_map/tile_hide_mini_map.png")
 
 var mini_map_grid = []
 var old_player_position_on_mini_map = Vector2(0, 0)
@@ -65,7 +65,7 @@ func draw_mini_map():
 	
 	for x in range(8):
 		for y in range(4):
-			var tile_mini_map = Sprite.new()
+			var tile_mini_map = Sprite2D.new()
 			
 			var layers = mini_map_grid[x][y]
 			if layers[2] == 1:
@@ -94,21 +94,14 @@ func set_slot_icon(player, texture, animate):
 	var _initial_value = $Base/Slot/SlotIcon.global_position
 	var _final_value = $Base/Slot.global_position
 	var _duration = 0.2 # in seconds
-	var _transition_type = Tween.TRANS_LINEAR
-	var _ease_type = Tween.EASE_IN_OUT
-	$Base/Tween.interpolate_property(
-		_node,
-		_property,
-		_initial_value,
-		_final_value,
-		_duration,
-		_transition_type,
-		_ease_type
-	)
-	$Base/Tween.start()
+	var tween := create_tween()
+	tween.set_trans(Tween.TRANS_LINEAR)
+	tween.set_ease(Tween.EASE_IN_OUT)
+	tween.tween_property(_node, _property, _final_value, _duration).from(_initial_value)
+	tween.finished.connect(_on_slot_icon_tween_finished)
 
 func add_new_heart():
-	var new_heart = Sprite.new()
+	var new_heart = Sprite2D.new()
 	new_heart.texture = $Base/hearts.texture
 	new_heart.hframes = $Base/hearts.hframes
 	$Base/hearts.add_child(new_heart)
@@ -121,7 +114,7 @@ func hud_visible(flag):
 	$Base/MapTextLabel.visible = flag
 	$Base/HopeTextLabel.visible = flag
 	
-	if OS.has_touchscreen_ui_hint():
+	if DisplayServer.is_touchscreen_available():
 		$Base/ActionTouchScreenButton.visible = true
 		$Base/MobileJoystick.visible = true
 		
@@ -157,7 +150,7 @@ func _process(_delta: float) -> void:
 func show_coins():
 	$Base/VBoxContainer/CoinTextLabel.text = " " + str(GameState.coins)
 
-func _on_Tween_tween_completed(object, key):
+func _on_slot_icon_tween_finished():
 	SoundEffects.play_get_item()
 	$Base/AnimationPlayer.play("shake")
 

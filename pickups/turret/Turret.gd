@@ -8,8 +8,8 @@ enum DIRECTION {
 }
 
 var speed = 110
-export var max_distance = 70
-export(DIRECTION) var direction = DIRECTION.down
+@export var max_distance = 70
+@export var direction: DIRECTION = DIRECTION.down
 
 func _ready():
 	pass

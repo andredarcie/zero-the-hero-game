@@ -1,4 +1,4 @@
-class_name BaseTree extends Sprite
+class_name BaseTree extends Sprite2D
 
 
 # Declare member variables here. Examples:

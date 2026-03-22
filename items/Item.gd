@@ -16,7 +16,7 @@ enum ItemSlot {
 	LavaBoots
 }
 
-export(ItemSlot) var item = ItemSlot.Nothing
+@export var item: ItemSlot = ItemSlot.Nothing
 	
 func _ready():
 	var state = GameState.load_state(self)
@@ -31,7 +31,7 @@ func _ready():
 
 func set_item_texture(item):
 	var texture = GameState.get_item_texture(item)
-	$Sprite.texture = texture
+	$Sprite2D.texture = texture
 	
 	
 func _on_Area2D_body_entered(body):
@@ -40,12 +40,14 @@ func _on_Area2D_body_entered(body):
 			GameState.player_slot_item = ItemSlot.Wood
 			
 		var old_item = GameState.player_slot_item
-		GameState.save_state(self, old_item)
-		
 		GameState.change_player_item(item, true)
 		
-		if old_item == GameState.ItemSlot.Nothing:
+		if old_item == GameState.ItemSlot.Nothing or old_item == item:
+			GameState.destroy(self)
 			queue_free()
+			return
+
+		GameState.save_state(self, old_item)
 		
 		set_item_texture(old_item)
 		item = old_item

@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/undead_dying.wav-054148005aefefc5ad7fd2a22d3e7dd0.sample"
+type="AudioStreamWAV"
+uid="uid://cye3irgr56d4i"
+path="res://.godot/imported/undead_dying.wav-054148005aefefc5ad7fd2a22d3e7dd0.sample"
 
 [deps]
 
 source_file="res://sounds/effects/undead_dying.wav"
-dest_files=[ "res://.import/undead_dying.wav-054148005aefefc5ad7fd2a22d3e7dd0.sample" ]
+dest_files=["res://.godot/imported/undead_dying.wav-054148005aefefc5ad7fd2a22d3e7dd0.sample"]
 
 [params]
 
@@ -17,5 +18,7 @@ force/max_rate=false
 force/max_rate_hz=44100
 edit/trim=false
 edit/normalize=false
-edit/loop=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
 compress/mode=0

@@ -1,4 +1,4 @@
-class_name Entity extends KinematicBody2D
+class_name Entity extends CharacterBody2D
 
 var max_health: int = 3
 
@@ -9,17 +9,18 @@ var spritedir: String = 'down'
 var hitstun: int = 0
 var health: int = max_health
 var type: String = 'enemy'
-var texture_default: Texture = null
-var texture_hurt: Texture = null
-var blood_particules = preload("res://enemies/BaseEnemy/Blood.tscn")
+var texture_default: Texture2D = null
+var texture_hurt: Texture2D = null
+var blood_particules = preload("res://enemies/Enemy/Blood/Blood.tscn")
 
 func _ready() -> void:
+	motion_mode = CharacterBody2D.MOTION_MODE_FLOATING
 	if type == 'enemy':
-		set_collision_mask_bit(1, 1)
+		set_collision_mask_value(1, 1)
 		set_physics_process(false)
 		
-	texture_default = $Sprite.texture
-	texture_hurt = load($Sprite.texture.get_path().replace('.png','_hurt.png'))
+	texture_default = $Sprite2D.texture
+	texture_hurt = load($Sprite2D.texture.get_path().replace('.png','_hurt.png'))
 	
 	if type == "player":
 		health = GameState.player_health
@@ -33,7 +34,8 @@ func movement_loop() -> void:
 	else:
 		motion = knockdir.normalized() * 125
 		
-	move_and_slide(motion, Vector2(0, 0))
+	set_velocity(motion)
+	move_and_slide()
 	
 func spriterdir_loop() -> void:
 	match movedir:
@@ -56,14 +58,14 @@ func damage_loop() -> void:
 	
 	if hitstun > 0:
 		hitstun -= 1
-		$Sprite.texture = texture_hurt
+		$Sprite2D.texture = texture_hurt
 	else:
-		$Sprite.texture = texture_default
+		$Sprite2D.texture = texture_default
 		if type == 'enemy' && health <= 0:
 			var drop = randi() % 2
 			if drop == 0:
-				instance_scene(preload("res://pickups/heart.tscn"))
-			instance_scene(preload("res://enemies/enemy_death.tscn"))
+				instance_scene(preload("res://pickups/heart/Heart.tscn"))
+			instance_scene(preload("res://enemies/Enemy/EnemyDeath/enemy_death.tscn"))
 			queue_free()
 		
 	for area in $hitbox.get_overlapping_areas():
@@ -104,12 +106,12 @@ func make_damage(body):
 	if type == 'player' and health <= 0:
 		GameState.restart_game()
 		
-	var blood = blood_particules.instance()
+	var blood = blood_particules.instantiate()
 	add_child(blood)
 	
 	
 func use_item(item: PackedScene) -> void:
-	var newitem = item.instance()
+	var newitem = item.instantiate()
 	newitem.add_to_group(str(newitem.get_name(), self))
 	add_child(newitem)
 
@@ -117,7 +119,7 @@ func use_item(item: PackedScene) -> void:
 		newitem.queue_free()
 		
 func instance_scene(scene: PackedScene) -> void:
-	var new_scene = scene.instance()
+	var new_scene = scene.instantiate()
 	new_scene.global_position = global_position
 	get_parent().add_child(new_scene)
 	

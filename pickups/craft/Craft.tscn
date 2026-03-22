@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://pickups/craft/build.png" type="Texture" id=1]
-[ext_resource path="res://pickups/craft/bridge.png" type="Texture" id=2]
+[ext_resource path="res://pickups/craft/build.png" type="Texture2D" id=1]
+[ext_resource path="res://pickups/craft/bridge.png" type="Texture2D" id=2]
 [ext_resource path="res://pickups/craft/Craft.gd" type="Script" id=3]
 [ext_resource path="res://tiles/bonfire/Bonfire.tscn" type="PackedScene" id=4]
 [ext_resource path="res://pickups/water/Water.tscn" type="PackedScene" id=5]
@@ -20,7 +20,7 @@ script = ExtResource( 3 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource( 1 )
 
-[node name="Sprite" type="Sprite" parent="Area2D"]
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
 modulate = Color( 1, 1, 1, 0.392157 )
 texture = ExtResource( 1 )
 
@@ -30,7 +30,7 @@ texture = ExtResource( 1 )
 position = Vector2( -16.1966, 0.550594 )
 shape = SubResource( 2 )
 
-[node name="Sprite" type="Sprite" parent="BridgeArea2D"]
+[node name="Sprite2D" type="Sprite2D" parent="BridgeArea2D"]
 visible = false
 position = Vector2( -16, 0 )
 z_index = 1

@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/undead.wav-2a8ac63bbefb733655a7deedb2dc2d83.sample"
+type="AudioStreamWAV"
+uid="uid://d062oop61jexr"
+path="res://.godot/imported/undead.wav-2a8ac63bbefb733655a7deedb2dc2d83.sample"
 
 [deps]
 
 source_file="res://sounds/effects/undead.wav"
-dest_files=[ "res://.import/undead.wav-2a8ac63bbefb733655a7deedb2dc2d83.sample" ]
+dest_files=["res://.godot/imported/undead.wav-2a8ac63bbefb733655a7deedb2dc2d83.sample"]
 
 [params]
 
@@ -17,5 +18,7 @@ force/max_rate=false
 force/max_rate_hz=44100
 edit/trim=false
 edit/normalize=false
-edit/loop=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
 compress/mode=0

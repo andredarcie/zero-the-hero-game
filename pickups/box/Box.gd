@@ -1,4 +1,4 @@
-extends KinematicBody2D
+extends CharacterBody2D
 
 enum MOVE_DIRECTION {
 	Up,
@@ -12,10 +12,10 @@ var end_position = Vector2.ZERO
 var time = 0
 var tile_size: float = 16
 
-onready var UpArea = $UpArea
-onready var DownArea = $DownArea
-onready var LeftArea = $LeftArea
-onready var RightArea = $RightArea
+@onready var UpArea = $UpArea
+@onready var DownArea = $DownArea
+@onready var LeftArea = $LeftArea
+@onready var RightArea = $RightArea
 
 func _physics_process(delta):
 	if pushing:

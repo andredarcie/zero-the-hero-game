@@ -1,14 +1,14 @@
 extends AudioStreamPlayer
 
-onready var enter : AudioStream = preload("res://sounds/effects/enter.wav")
-onready var hero_hurt : AudioStream = preload("res://sounds/effects/hero_hurt.wav")
-onready var health_potion : AudioStream = preload("res://sounds/effects/health_potion.wav")
-onready var switch_sound : AudioStream = preload("res://sounds/effects/switch_sound.wav")
-onready var bridge : AudioStream = preload("res://sounds/effects/bridge.wav")
-onready var get_item : AudioStream = preload("res://sounds/effects/get_item.wav")
-onready var jump : AudioStream = preload("res://sounds/effects/jump.wav")
-onready var wake_undead : AudioStream = preload("res://sounds/effects/zombie.wav")
-onready var undead : AudioStream = preload("res://sounds/effects/undead.wav")
+@onready var enter : AudioStream = preload("res://sounds/effects/enter.wav")
+@onready var hero_hurt : AudioStream = preload("res://sounds/effects/hero_hurt.wav")
+@onready var health_potion : AudioStream = preload("res://sounds/effects/health_potion.wav")
+@onready var switch_sound : AudioStream = preload("res://sounds/effects/switch_sound.wav")
+@onready var bridge : AudioStream = preload("res://sounds/effects/bridge.wav")
+@onready var get_item : AudioStream = preload("res://sounds/effects/get_item.wav")
+@onready var jump : AudioStream = preload("res://sounds/effects/jump.wav")
+@onready var wake_undead : AudioStream = preload("res://sounds/effects/zombie.wav")
+@onready var undead : AudioStream = preload("res://sounds/effects/undead.wav")
 
 func stop_sound():
 	stop()
@@ -19,7 +19,7 @@ func play_sound(sound : AudioStream):
 	get_parent().add_child(audio_stream_player)
 	audio_stream_player.stream = sound
 	audio_stream_player.play()
-	audio_stream_player.connect("finished", audio_stream_player, "queue_free")
+	audio_stream_player.connect("finished", Callable(audio_stream_player, "queue_free"))
 
 
 func _on_SoundEffects_finished():

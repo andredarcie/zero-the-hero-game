@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/open_down_switch.wav-7c9be466fe345ad5c3b4cc31932b9caf.sample"
+type="AudioStreamWAV"
+uid="uid://uy642gxc0h4f"
+path="res://.godot/imported/open_down_switch.wav-7c9be466fe345ad5c3b4cc31932b9caf.sample"
 
 [deps]
 
 source_file="res://pickups/thorn/open_down_switch.wav"
-dest_files=[ "res://.import/open_down_switch.wav-7c9be466fe345ad5c3b4cc31932b9caf.sample" ]
+dest_files=["res://.godot/imported/open_down_switch.wav-7c9be466fe345ad5c3b4cc31932b9caf.sample"]
 
 [params]
 
@@ -17,5 +18,7 @@ force/max_rate=false
 force/max_rate_hz=44100
 edit/trim=false
 edit/normalize=false
-edit/loop=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
 compress/mode=0
