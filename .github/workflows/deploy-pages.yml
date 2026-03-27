@@ -1,0 +1,77 @@
+name: Deploy Godot Web to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: true
+
+env:
+  GODOT_VERSION: 4.6-stable
+  GODOT_VERSION_DIR: 4.6.stable
+  EXPORT_NAME: index
+
+jobs:
+  export-web:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Install Godot
+        shell: bash
+        run: |
+          set -euxo pipefail
+
+          GODOT_ZIP="Godot_v${GODOT_VERSION}_linux.x86_64.zip"
+          TEMPLATES_TPZ="Godot_v${GODOT_VERSION}_export_templates.tpz"
+          RELEASE_BASE="https://github.com/godotengine/godot/releases/download/${GODOT_VERSION}"
+
+          curl -L "${RELEASE_BASE}/${GODOT_ZIP}" -o "$RUNNER_TEMP/${GODOT_ZIP}"
+          curl -L "${RELEASE_BASE}/${TEMPLATES_TPZ}" -o "$RUNNER_TEMP/${TEMPLATES_TPZ}"
+
+          mkdir -p "$RUNNER_TEMP/godot"
+          unzip -q "$RUNNER_TEMP/${GODOT_ZIP}" -d "$RUNNER_TEMP/godot"
+          chmod +x "$RUNNER_TEMP"/godot/Godot_v"${GODOT_VERSION}"_linux.x86_64
+          sudo mv "$RUNNER_TEMP"/godot/Godot_v"${GODOT_VERSION}"_linux.x86_64 /usr/local/bin/godot
+
+          mkdir -p "$HOME/.local/share/godot/export_templates/${GODOT_VERSION_DIR}"
+          mkdir -p "$RUNNER_TEMP/export_templates"
+          unzip -q "$RUNNER_TEMP/${TEMPLATES_TPZ}" -d "$RUNNER_TEMP/export_templates"
+          cp -r "$RUNNER_TEMP"/export_templates/templates/* "$HOME/.local/share/godot/export_templates/${GODOT_VERSION_DIR}/"
+
+      - name: Import assets
+        run: godot --headless --editor --quit
+
+      - name: Export HTML5 build
+        shell: bash
+        run: |
+          set -euxo pipefail
+          mkdir -p build/web
+          godot --headless --export-release "Web" "build/web/${EXPORT_NAME}.html"
+          touch build/web/.nojekyll
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: build/web
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

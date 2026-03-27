@@ -57,9 +57,18 @@ The main autoload singletons registered in the project are:
 
 ## Development
 
-There is no build pipeline, linter, or automated test suite in this repository. The normal workflow is:
+There is a GitHub Actions deploy pipeline for the web export, but there is still no linter or automated test suite in this repository. The normal local workflow is:
 
 1. Open the project in the Godot editor.
 2. Edit scenes and scripts.
 3. Run the project or a specific scene.
 4. Validate behavior visually and through gameplay.
+
+## Deploy
+
+The repository now includes a GitHub Actions workflow at [`.github/workflows/deploy-pages.yml`](/C:/repos/zero-the-hero-game/.github/workflows/deploy-pages.yml) that exports the project for Web and deploys it to GitHub Pages on every push to `main`.
+
+Before the first deploy, set Pages to use GitHub Actions in the repository settings:
+
+1. Open `Settings -> Pages`.
+2. Under `Build and deployment`, set `Source` to `GitHub Actions`.
