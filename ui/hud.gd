@@ -146,9 +146,13 @@ func _process(_delta: float) -> void:
 			
 			
 	show_coins()
+	show_level()
 	
 func show_coins():
 	$Base/VBoxContainer/CoinTextLabel.text = " " + str(GameState.coins)
+
+func show_level():
+	$Base/MapTextLabel.text = " Level " + str(LevelManager.current_level)
 
 func _on_slot_icon_tween_finished():
 	SoundEffects.play_get_item()
