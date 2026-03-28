@@ -36,6 +36,12 @@ func go_to_first_level(start_position: Vector2 = DEFAULT_PLAYER_POSITION) -> voi
 	change_scene_to_file(FIRST_LEVEL_PATH)
 
 
+func go_to_current_level() -> void:
+	current_player_position = DEFAULT_PLAYER_POSITION
+	_reset_player_item_for_level_start()
+	change_scene_to_file("res://levels/" + str(max(current_level, 1)) + ".tscn")
+
+
 func go_to_next_level() -> void:
 	var next_level := current_level + 1
 

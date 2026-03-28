@@ -122,7 +122,7 @@ func restart_game():
 		player_max_health = 3
 		
 	Hud.hud_visible(true)
-	LevelManager.go_to_first_level()
+	LevelManager.go_to_current_level()
 
 func goto_title_screen():
 	Hud.hud_visible(false)
