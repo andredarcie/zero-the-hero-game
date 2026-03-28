@@ -66,6 +66,10 @@ var unique_ids = {
 	}
 		
 	
+func _ready() -> void:
+	if DisplayServer.is_touchscreen_available():
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+
 func go_to_scene(x: int, y: int, name: String):
 	start_position_x = x
 	start_position_y = y

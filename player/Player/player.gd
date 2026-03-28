@@ -13,6 +13,7 @@ var max_health: int = 0
 var health: int = 100
 var speed: float = 90
 var movedir := Vector2.ZERO
+var raw_movedir := Vector2.ZERO
 var sprite_direction: String = 'down'
 var hitstun: int = 0
 var knockdir: Vector2 = Vector2.ZERO
@@ -182,18 +183,19 @@ func throw_bomb() -> void:
 	get_node('..').add_child(bomb)
 	
 
-func controls_loop() -> void:	
+func controls_loop() -> void:
 	if DisplayServer.is_touchscreen_available():
-		movedir = JoystickButton.get_value()
-		movedir = Vector2(int(round(movedir.x)), int(round(movedir.y)))
+		raw_movedir = JoystickButton.get_value()
+		movedir = Vector2(int(round(raw_movedir.x)), int(round(raw_movedir.y)))
 	else:
 		var LEFT: bool  = Input.is_action_pressed("ui_left")
 		var RIGHT: bool = Input.is_action_pressed("ui_right")
 		var UP: bool    = Input.is_action_pressed("ui_up")
 		var DOWN: bool  = Input.is_action_pressed("ui_down")
-		
+
 		movedir.x = -int(LEFT) + int(RIGHT)
 		movedir.y = -int(UP) + int(DOWN)
+		raw_movedir = movedir
 
 
 func wood_catch_fire():
@@ -254,7 +256,7 @@ func _on_BowTimer_timeout() -> void:
 func movement_loop() -> void:
 	var motion
 	if hitstun == 0:
-		motion = movedir.normalized() * speed
+		motion = raw_movedir.normalized() * speed
 	else:
 		motion = knockdir.normalized() * 200
 		

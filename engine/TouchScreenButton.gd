@@ -1,42 +1,45 @@
 extends TouchScreenButton
 
-# Gonkee's joystick script for Godot 3 - full tutorial https://youtu.be/uGyEP2LUFPg
-# If you use this script, I would prefer if you gave credit to me and my channel
+var boundary: float = 64.0
+var threshold: float = 10.0
+var return_speed: float = 20.0
 
-# Change these based on the size of your button and outer sprite
-var radius = Vector2(32, 32)
-var boundary = 64
+var ongoing_drag: int = -1
+var joystick_origin: Vector2 = Vector2.ZERO
+var handle_offset: Vector2 = Vector2.ZERO
+var original_parent_pos: Vector2
 
-var ongoing_drag = -1
+func _ready() -> void:
+	original_parent_pos = get_parent().position
 
-var return_accel = 20
+func _process(delta: float) -> void:
+	if ongoing_drag == -1 and handle_offset.length() > 0.5:
+		handle_offset = handle_offset.lerp(Vector2.ZERO, return_speed * delta)
+		global_position = joystick_origin + handle_offset
 
-var threshold = 10
+func _input(event: InputEvent) -> void:
+	if event is InputEventScreenTouch:
+		if event.is_pressed() and ongoing_drag == -1:
+			var half_screen = get_viewport().get_visible_rect().size.x / 2.0
+			if event.position.x < half_screen:
+				joystick_origin = event.position
+				handle_offset = Vector2.ZERO
+				get_parent().global_position = event.position
+				global_position = event.position
+				ongoing_drag = event.get_index()
+		elif not event.is_pressed() and event.get_index() == ongoing_drag:
+			ongoing_drag = -1
+			handle_offset = Vector2.ZERO
+			get_parent().position = original_parent_pos
 
-func _process(delta):
-	if ongoing_drag == -1:
-		var pos_difference = (Vector2(0, 0) - radius) - position
-		position += pos_difference * return_accel * delta
+	if event is InputEventScreenDrag and event.get_index() == ongoing_drag:
+		var delta_pos = event.position - joystick_origin
+		if delta_pos.length() > boundary:
+			delta_pos = delta_pos.normalized() * boundary
+		handle_offset = delta_pos
+		global_position = joystick_origin + handle_offset
 
-func get_button_pos():
-	return position + radius
-
-func _input(event):
-	if event is InputEventScreenDrag: #or (event is InputEventScreenTouch and event.is_pressed()):
-		var event_dist_from_centre = (event.position - get_parent().global_position).length()
-
-		if event_dist_from_centre <= boundary * global_scale.x or event.get_index() == ongoing_drag:
-			set_global_position(event.position - radius * global_scale)
-
-			if get_button_pos().length() > boundary:
-				set_position( get_button_pos().normalized() * boundary - radius)
-
-			ongoing_drag = event.get_index()
-
-	if event is InputEventScreenTouch and !event.is_pressed() and event.get_index() == ongoing_drag:
-		ongoing_drag = -1
-
-func get_value():
-	if get_button_pos().length() > threshold:
-		return get_button_pos().normalized()
-	return Vector2(0, 0)
+func get_value() -> Vector2:
+	if handle_offset.length() > threshold:
+		return handle_offset.normalized()
+	return Vector2.ZERO
