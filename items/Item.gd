@@ -1,5 +1,7 @@
 class_name Item extends Node2D
 
+@onready var sprite: Sprite2D = $Sprite2D
+
 var texture = null
 
 enum ItemSlot {
@@ -31,7 +33,10 @@ func _ready():
 
 func set_item_texture(item):
 	var texture = GameState.get_item_texture(item)
-	$Sprite2D.texture = texture
+	if sprite == null:
+		push_error("Item: Sprite2D node not found. Make sure to instantiate Item.tscn, not Item.new().")
+		return
+	sprite.texture = texture
 	
 	
 func _on_Area2D_body_entered(body):

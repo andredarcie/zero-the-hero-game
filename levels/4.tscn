@@ -1,4 +1,4 @@
-[gd_scene format=3]
+[gd_scene format=4 uid="uid://cdal0ulc2weom"]
 
 [ext_resource type="PackedScene" path="res://levels/base/LevelBaseForest.tscn" id="1"]
 [ext_resource type="PackedScene" path="res://pickups/portal/Portal.tscn" id="2"]
@@ -6,74 +6,83 @@
 [ext_resource type="PackedScene" path="res://tiles/grass/CutGrass/CutGrass.tscn" id="4"]
 [ext_resource type="PackedScene" path="res://tiles/TileMaps/forest_tile_map/ForestTileMap.tscn" id="5"]
 [ext_resource type="PackedScene" path="res://enemies/Undead/Undead.tscn" id="6"]
+[ext_resource type="PackedScene" path="res://pickups/heart/Heart.tscn" id="7_qesyf"]
 
-[node name="4" instance=ExtResource("1")]
+[node name="4" unique_id=1202798359 instance=ExtResource("1")]
 
-[node name="ForestTileMap" parent="." index="2" instance=ExtResource("5")]
-tile_map_data = PackedByteArray(0, 0, 0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 9, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 26, 0, 0, 0, 0, 0, 0, 0, 6, 0, 0, 0, 27, 0, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 0, 8, 0, 0, 0, 23, 0, 0, 0, 0, 0, 0, 0, 9, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 10, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 11, 0, 0, 0, 27, 0, 0, 0, 0, 0, 0, 0, 12, 0, 0, 0, 27, 0, 0, 0, 0, 0, 0, 0, 15, 0, 0, 0, 19, 0, 0, 0, 0, 0, 0, 0, 16, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 17, 0, 0, 0, 27, 0, 0, 0, 0, 0, 0, 0, 18, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 19, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 27, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 3, 0, 0, 0, 0, 0, 0, 0, 2, 0, 1, 0, 27, 0, 0, 0, 0, 0, 0, 0, 4, 0, 1, 0, 27, 0, 0, 0, 0, 0, 0, 0, 5, 0, 1, 0, 26, 0, 0, 0, 0, 0, 0, 0, 7, 0, 1, 0, 27, 0, 0, 0, 0, 0, 0, 0, 8, 0, 1, 0, 27, 0, 0, 0, 0, 0, 0, 0, 9, 0, 1, 0, 3, 0, 0, 0, 0, 0, 0, 0, 10, 0, 1, 0, 3, 0, 0, 0, 0, 0, 0, 0, 11, 0, 1, 0, 27, 0, 0, 0, 0, 0, 0, 0, 15, 0, 1, 0, 17, 0, 0, 0, 0, 0, 0, 0, 16, 0, 1, 0, 10, 0, 0, 0, 0, 0, 0, 0, 17, 0, 1, 0, 3, 0, 0, 0, 0, 0, 0, 0, 18, 0, 1, 0, 27, 0, 0, 0, 0, 0, 0, 0, 19, 0, 1, 0, 27, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 3, 0, 0, 0, 0, 0, 0, 0, 1, 0, 2, 0, 27, 0, 0, 0, 0, 0, 0, 0, 2, 0, 2, 0, 27, 0, 0, 0, 0, 0, 0, 0, 3, 0, 2, 0, 26, 0, 0, 0, 0, 0, 0, 0, 4, 0, 2, 0, 26, 0, 0, 0, 0, 0, 0, 0, 8, 0, 2, 0, 26, 0, 0, 0, 0, 0, 0, 0, 9, 0, 2, 0, 8, 0, 0, 0, 0, 0, 0, 0, 10, 0, 2, 0, 3, 0, 0, 0, 0, 0, 0, 0, 11, 0, 2, 0, 16, 0, 0, 0, 0, 0, 0, 0, 15, 0, 2, 0, 3, 0, 0, 0, 0, 0, 0, 0, 16, 0, 2, 0, 3, 0, 0, 0, 0, 0, 0, 0, 17, 0, 2, 0, 3, 0, 0, 0, 0, 0, 0, 0, 18, 0, 2, 0, 22, 0, 0, 0, 0, 0, 0, 0, 19, 0, 2, 0, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 8, 0, 0, 0, 0, 0, 0, 0, 1, 0, 3, 0, 27, 0, 0, 0, 0, 0, 0, 0, 2, 0, 3, 0, 26, 0, 0, 0, 0, 0, 0, 0, 3, 0, 3, 0, 27, 0, 0, 0, 0, 0, 0, 0, 9, 0, 3, 0, 26, 0, 0, 0, 0, 0, 0, 0, 10, 0, 3, 0, 3, 0, 0, 0, 0, 0, 0, 0, 11, 0, 3, 0, 23, 0, 0, 0, 0, 0, 0, 0, 12, 0, 3, 0, 3, 0, 0, 0, 0, 0, 0, 0, 13, 0, 3, 0, 3, 0, 0, 0, 0, 0, 0, 0, 15, 0, 3, 0, 3, 0, 0, 0, 0, 0, 0, 0, 16, 0, 3, 0, 27, 0, 0, 0, 0, 0, 0, 0, 17, 0, 3, 0, 8, 0, 0, 0, 0, 0, 0, 0, 18, 0, 3, 0, 7, 0, 0, 0, 0, 0, 0, 0, 19, 0, 3, 0, 29, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 26, 0, 0, 0, 0, 0, 0, 0, 1, 0, 4, 0, 3, 0, 0, 0, 0, 0, 0, 0, 10, 0, 4, 0, 3, 0, 0, 0, 0, 0, 0, 0, 17, 0, 4, 0, 3, 0, 0, 0, 0, 0, 0, 0, 18, 0, 4, 0, 8, 0, 0, 0, 0, 0, 0, 0, 19, 0, 4, 0, 26, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 27, 0, 0, 0, 0, 0, 0, 0, 10, 0, 5, 0, 3, 0, 0, 0, 0, 0, 0, 0, 11, 0, 5, 0, 3, 0, 0, 0, 0, 0, 0, 0, 16, 0, 5, 0, 7, 0, 0, 0, 0, 0, 0, 0, 17, 0, 5, 0, 27, 0, 0, 0, 0, 0, 0, 0, 18, 0, 5, 0, 26, 0, 0, 0, 0, 0, 0, 0, 19, 0, 5, 0, 27, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 0, 8, 0, 0, 0, 0, 0, 0, 0, 1, 0, 6, 0, 27, 0, 0, 0, 0, 0, 0, 0, 18, 0, 6, 0, 8, 0, 0, 0, 0, 0, 0, 0, 19, 0, 6, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 0, 3, 0, 0, 0, 0, 0, 0, 0, 3, 0, 7, 0, 27, 0, 0, 0, 0, 0, 0, 0, 7, 0, 7, 0, 26, 0, 0, 0, 0, 0, 0, 0, 9, 0, 7, 0, 26, 0, 0, 0, 0, 0, 0, 0, 13, 0, 7, 0, 7, 0, 0, 0, 0, 0, 0, 0, 15, 0, 7, 0, 7, 0, 0, 0, 0, 0, 0, 0, 17, 0, 7, 0, 3, 0, 0, 0, 0, 0, 0, 0, 19, 0, 7, 0, 21, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 0, 3, 0, 0, 0, 0, 0, 0, 0, 2, 0, 8, 0, 3, 0, 0, 0, 0, 0, 0, 0, 3, 0, 8, 0, 27, 0, 0, 0, 0, 0, 0, 0, 5, 0, 8, 0, 3, 0, 0, 0, 0, 0, 0, 0, 6, 0, 8, 0, 3, 0, 0, 0, 0, 0, 0, 0, 8, 0, 8, 0, 26, 0, 0, 0, 0, 0, 0, 0, 10, 0, 8, 0, 3, 0, 0, 0, 0, 0, 0, 0, 17, 0, 8, 0, 8, 0, 0, 0, 0, 0, 0, 0, 18, 0, 8, 0, 26, 0, 0, 0, 0, 0, 0, 0, 19, 0, 8, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 0, 3, 0, 0, 0, 0, 0, 0, 0, 1, 0, 9, 0, 27, 0, 0, 0, 0, 0, 0, 0, 2, 0, 9, 0, 3, 0, 0, 0, 0, 0, 0, 0, 6, 0, 9, 0, 3, 0, 0, 0, 0, 0, 0, 0, 7, 0, 9, 0, 26, 0, 0, 0, 0, 0, 0, 0, 8, 0, 9, 0, 8, 0, 0, 0, 0, 0, 0, 0, 9, 0, 9, 0, 8, 0, 0, 0, 0, 0, 0, 0, 10, 0, 9, 0, 3, 0, 0, 0, 0, 0, 0, 0, 18, 0, 9, 0, 27, 0, 0, 0, 0, 0, 0, 0, 19, 0, 9, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 0, 27, 0, 0, 0, 0, 0, 0, 0, 1, 0, 10, 0, 27, 0, 0, 0, 0, 0, 0, 0, 2, 0, 10, 0, 3, 0, 0, 0, 0, 0, 0, 0, 4, 0, 10, 0, 27, 0, 0, 0, 0, 0, 0, 0, 6, 0, 10, 0, 3, 0, 0, 0, 0, 0, 0, 0, 7, 0, 10, 0, 3, 0, 0, 0, 0, 0, 0, 0, 8, 0, 10, 0, 3, 0, 0, 0, 0, 0, 0, 0, 9, 0, 10, 0, 22, 0, 0, 0, 0, 0, 0, 0, 10, 0, 10, 0, 3, 0, 0, 0, 0, 0, 0, 0, 11, 0, 10, 0, 3, 0, 0, 0, 0, 0, 0, 0, 12, 0, 10, 0, 3, 0, 0, 0, 0, 0, 0, 0, 17, 0, 10, 0, 26, 0, 0, 0, 0, 0, 0, 0, 18, 0, 10, 0, 3, 0, 0, 0, 0, 0, 0, 0, 19, 0, 10, 0, 22, 0, 0, 0, 0, 0, 0, 0, 2, 0, 11, 0, 3, 0, 0, 0, 0, 0, 0, 0, 5, 0, 11, 0, 3, 0, 0, 0, 0, 0, 0, 0, 6, 0, 11, 0, 3, 0, 0, 0, 0, 0, 0, 0, 7, 0, 11, 0, 3, 0, 0, 0, 0, 0, 0, 0, 9, 0, 11, 0, 26, 0, 0, 0, 0, 0, 0, 0, 10, 0, 11, 0, 26, 0, 0, 0, 0, 0, 0, 0, 11, 0, 11, 0, 27, 0, 0, 0, 0, 0, 0, 0, 12, 0, 11, 0, 3, 0, 0, 0, 0, 0, 0, 0, 13, 0, 11, 0, 3, 0, 0, 0, 0, 0, 0, 0, 16, 0, 11, 0, 27, 0, 0, 0, 0, 0, 0, 0, 18, 0, 11, 0, 16, 0, 0, 0, 0, 0, 0, 0, 19, 0, 11, 0, 27, 0, 0, 0, 0, 0, 0, 0, 2, 0, 12, 0, 27, 0, 0, 0, 0, 0, 0, 0, 4, 0, 12, 0, 27, 0, 0, 0, 0, 0, 0, 0, 8, 0, 12, 0, 27, 0, 0, 0, 0, 0, 0, 0, 10, 0, 12, 0, 27, 0, 0, 0, 0, 0, 0, 0, 11, 0, 12, 0, 8, 0, 0, 0, 0, 0, 0, 0, 12, 0, 12, 0, 27, 0, 0, 0, 0, 0, 0, 0, 16, 0, 12, 0, 3, 0, 0, 0, 0, 0, 0, 0, 17, 0, 12, 0, 3, 0, 0, 0, 0, 0, 0, 0, 18, 0, 12, 0, 27, 0, 0, 0, 0, 0, 0, 0, 19, 0, 12, 0, 27, 0, 0, 0, 0, 0, 0, 0, 0, 0, 13, 0, 27, 0, 0, 0, 0, 0, 0, 0, 1, 0, 13, 0, 27, 0, 0, 0, 0, 0, 0, 0, 5, 0, 13, 0, 27, 0, 0, 0, 0, 0, 0, 0, 7, 0, 13, 0, 4, 0, 0, 0, 0, 0, 0, 0, 9, 0, 13, 0, 4, 0, 0, 0, 0, 0, 0, 0, 12, 0, 13, 0, 27, 0, 0, 0, 0, 0, 0, 0, 15, 0, 13, 0, 26, 0, 0, 0, 0, 0, 0, 0, 16, 0, 13, 0, 27, 0, 0, 0, 0, 0, 0, 0, 17, 0, 13, 0, 3, 0, 0, 0, 0, 0, 0, 0, 18, 0, 13, 0, 3, 0, 0, 0, 0, 0, 0, 0, 19, 0, 13, 0, 27, 0, 0, 0, 0, 0, 0, 0, 0, 0, 14, 0, 19, 0, 0, 0, 0, 0, 0, 0, 1, 0, 14, 0, 26, 0, 0, 0, 0, 0, 0, 0, 2, 0, 14, 0, 10, 0, 0, 0, 0, 0, 0, 0, 3, 0, 14, 0, 26, 0, 0, 0, 0, 0, 0, 0, 4, 0, 14, 0, 18, 0, 0, 0, 0, 0, 0, 0, 5, 0, 14, 0, 26, 0, 0, 0, 0, 0, 0, 0, 6, 0, 14, 0, 27, 0, 0, 0, 0, 0, 0, 0, 7, 0, 14, 0, 26, 0, 0, 0, 0, 0, 0, 0, 8, 0, 14, 0, 27, 0, 0, 0, 0, 0, 0, 0, 9, 0, 14, 0, 4, 0, 0, 0, 0, 0, 0, 0, 10, 0, 14, 0, 4, 0, 0, 0, 0, 0, 0, 0, 11, 0, 14, 0, 27, 0, 0, 0, 0, 0, 0, 0, 12, 0, 14, 0, 26, 0, 0, 0, 0, 0, 0, 0, 14, 0, 14, 0, 27, 0, 0, 0, 0, 0, 0, 0, 15, 0, 14, 0, 27, 0, 0, 0, 0, 0, 0, 0, 16, 0, 14, 0, 3, 0, 0, 0, 0, 0, 0, 0, 17, 0, 14, 0, 19, 0, 0, 0, 0, 0, 0, 0, 18, 0, 14, 0, 3, 0, 0, 0, 0, 0, 0, 0, 19, 0, 14, 0, 27, 0, 0, 0, 0, 0, 0, 0)
+[node name="ForestTileMap" parent="." index="2" unique_id=484041992 instance=ExtResource("5")]
+tile_map_data = PackedByteArray("AAAAAAAACAAAAAAAAAABAAAAAwAAAAAAAAACAAAACAAAAAAAAAADAAAAAwAAAAAAAAAEAAAACQAAAAAAAAAFAAAAGgAAAAAAAAAGAAAAGwAAAAAAAAAHAAAACAAAAAAAAAAIAAAAFwAAAAAAAAAJAAAAAwAAAAAAAAAKAAAAAwAAAAAAAAALAAAAGwAAAAAAAAAMAAAAGwAAAAAAAAAPAAAAEwAAAAAAAAAQAAAAAwAAAAAAAAARAAAAGwAAAAAAAAASAAAAAwAAAAAAAAATAAAAAwAAAAAAAAAAAAEAGwAAAAAAAAABAAEAAwAAAAAAAAACAAEAGwAAAAAAAAAEAAEAGwAAAAAAAAAFAAEAGgAAAAAAAAAHAAEAGwAAAAAAAAAIAAEAGwAAAAAAAAAJAAEAAwAAAAAAAAAKAAEAAwAAAAAAAAALAAEAGwAAAAAAAAAPAAEAEQAAAAAAAAAQAAEACgAAAAAAAAARAAEAAwAAAAAAAAASAAEAGwAAAAAAAAATAAEAGwAAAAAAAAAAAAIAAwAAAAAAAAABAAIAGwAAAAAAAAACAAIAGwAAAAAAAAADAAIAGgAAAAAAAAAEAAIAGgAAAAAAAAAIAAIAGgAAAAAAAAAJAAIACAAAAAAAAAAKAAIAAwAAAAAAAAALAAIAEAAAAAAAAAAPAAIAAwAAAAAAAAAQAAIAAwAAAAAAAAARAAIAAwAAAAAAAAASAAIAFgAAAAAAAAATAAIACQAAAAAAAAAAAAMACAAAAAAAAAABAAMAGwAAAAAAAAACAAMAGgAAAAAAAAADAAMAGwAAAAAAAAAJAAMAGgAAAAAAAAAKAAMAAwAAAAAAAAALAAMAFwAAAAAAAAAMAAMAAwAAAAAAAAANAAMAAwAAAAAAAAAPAAMAAwAAAAAAAAAQAAMAGwAAAAAAAAARAAMACAAAAAAAAAASAAMABwAAAAAAAAATAAMAHQAAAAAAAAAAAAQAGgAAAAAAAAABAAQAAwAAAAAAAAAKAAQAAwAAAAAAAAARAAQAAwAAAAAAAAASAAQACAAAAAAAAAATAAQAGgAAAAAAAAAAAAUAGwAAAAAAAAAKAAUAAwAAAAAAAAALAAUAAwAAAAAAAAAQAAUABwAAAAAAAAARAAUAGwAAAAAAAAASAAUAGgAAAAAAAAATAAUAGwAAAAAAAAAAAAYACAAAAAAAAAABAAYAGwAAAAAAAAASAAYACAAAAAAAAAATAAYAAwAAAAAAAAAAAAcAAwAAAAAAAAADAAcAGwAAAAAAAAAHAAcAGgAAAAAAAAAJAAcAGgAAAAAAAAANAAcABwAAAAAAAAAPAAcABwAAAAAAAAARAAcAAwAAAAAAAAATAAcAFQAAAAAAAAAAAAgAAwAAAAAAAAACAAgAAwAAAAAAAAADAAgAGwAAAAAAAAAFAAgAAwAAAAAAAAAGAAgAAwAAAAAAAAAIAAgAGgAAAAAAAAAKAAgAAwAAAAAAAAARAAgACAAAAAAAAAASAAgAGgAAAAAAAAATAAgABwAAAAAAAAAAAAkAAwAAAAAAAAABAAkAGwAAAAAAAAACAAkAAwAAAAAAAAAGAAkAAwAAAAAAAAAHAAkAGgAAAAAAAAAIAAkACAAAAAAAAAAJAAkACAAAAAAAAAAKAAkAAwAAAAAAAAASAAkAGwAAAAAAAAATAAkABwAAAAAAAAAAAAoAGwAAAAAAAAABAAoAGwAAAAAAAAACAAoAAwAAAAAAAAAEAAoAGwAAAAAAAAAGAAoAAwAAAAAAAAAHAAoAAwAAAAAAAAAIAAoAAwAAAAAAAAAJAAoAFgAAAAAAAAAKAAoAAwAAAAAAAAALAAoAAwAAAAAAAAAMAAoAAwAAAAAAAAARAAoAGgAAAAAAAAASAAoAAwAAAAAAAAATAAoAFgAAAAAAAAACAAsAAwAAAAAAAAAFAAsAAwAAAAAAAAAGAAsAAwAAAAAAAAAHAAsAAwAAAAAAAAAJAAsAGgAAAAAAAAAKAAsAGgAAAAAAAAALAAsAGwAAAAAAAAAMAAsAAwAAAAAAAAANAAsAAwAAAAAAAAAQAAsAGwAAAAAAAAASAAsAEAAAAAAAAAATAAsAGwAAAAAAAAACAAwAGwAAAAAAAAAEAAwAGwAAAAAAAAAIAAwAGwAAAAAAAAAKAAwAGwAAAAAAAAALAAwACAAAAAAAAAAMAAwAGwAAAAAAAAAQAAwAAwAAAAAAAAARAAwAAwAAAAAAAAASAAwAGwAAAAAAAAATAAwAGwAAAAAAAAAAAA0AGwAAAAAAAAABAA0AGwAAAAAAAAAFAA0AGwAAAAAAAAAHAA0ABAAAAAAAAAAJAA0ABAAAAAAAAAAMAA0AGwAAAAAAAAAPAA0AGgAAAAAAAAAQAA0AGwAAAAAAAAARAA0AAwAAAAAAAAASAA0AAwAAAAAAAAATAA0AGwAAAAAAAAAAAA4AEwAAAAAAAAABAA4AGgAAAAAAAAACAA4ACgAAAAAAAAADAA4AGgAAAAAAAAAEAA4AEgAAAAAAAAAFAA4AGgAAAAAAAAAGAA4AGwAAAAAAAAAHAA4AGgAAAAAAAAAIAA4AGwAAAAAAAAAJAA4ABAAAAAAAAAAKAA4ABAAAAAAAAAALAA4AGwAAAAAAAAAMAA4AGgAAAAAAAAAOAA4AGwAAAAAAAAAPAA4AGwAAAAAAAAAQAA4AAwAAAAAAAAARAA4AEwAAAAAAAAASAA4AAwAAAAAAAAATAA4AGwAAAAAAAAA=")
 
-[node name="Portal" parent="." index="3" instance=ExtResource("2")]
+[node name="Portal" parent="." index="3" unique_id=793882307 instance=ExtResource("2")]
 position = Vector2(216, 16)
 
-[node name="Item" parent="." index="4" instance=ExtResource("3")]
+[node name="Item" parent="." index="4" unique_id=1740848244 instance=ExtResource("3")]
 position = Vector2(120, 72)
 item = 2
 
-[node name="Item2" parent="." index="5" instance=ExtResource("3")]
-position = Vector2(208, 184)
+[node name="Item2" parent="." index="5" unique_id=933160735 instance=ExtResource("3")]
+position = Vector2(200, 200)
 item = 3
 
-[node name="Objects" type="Node2D" parent="." index="6"]
+[node name="Item3" parent="." index="6" unique_id=704970945 instance=ExtResource("3")]
+position = Vector2(184, 72)
+item = 3
 
-[node name="CutGrass" parent="Objects" index="0" instance=ExtResource("4")]
+[node name="Item4" parent="." index="7" unique_id=657946974 instance=ExtResource("3")]
+position = Vector2(72, 40)
+item = 1
+
+[node name="Objects" type="Node2D" parent="." index="8" unique_id=891969505]
+
+[node name="CutGrass" parent="Objects" index="0" unique_id=350523211 instance=ExtResource("4")]
 position = Vector2(72, 56)
 
-[node name="CutGrass2" parent="Objects" index="1" instance=ExtResource("4")]
+[node name="CutGrass2" parent="Objects" index="1" unique_id=1027283524 instance=ExtResource("4")]
 position = Vector2(88, 56)
 
-[node name="CutGrass3" parent="Objects" index="2" instance=ExtResource("4")]
+[node name="CutGrass3" parent="Objects" index="2" unique_id=1657606768 instance=ExtResource("4")]
 position = Vector2(232, 56)
 
-[node name="CutGrass4" parent="Objects" index="3" instance=ExtResource("4")]
+[node name="CutGrass4" parent="Objects" index="3" unique_id=1610999416 instance=ExtResource("4")]
 position = Vector2(248, 56)
 
-[node name="CutGrass5" parent="Objects" index="4" instance=ExtResource("4")]
+[node name="CutGrass5" parent="Objects" index="4" unique_id=1220318153 instance=ExtResource("4")]
 position = Vector2(104, 120)
 
-[node name="CutGrass6" parent="Objects" index="5" instance=ExtResource("4")]
+[node name="CutGrass6" parent="Objects" index="5" unique_id=98147269 instance=ExtResource("4")]
 position = Vector2(120, 120)
 
-[node name="CutGrass7" parent="Objects" index="6" instance=ExtResource("4")]
+[node name="CutGrass7" parent="Objects" index="6" unique_id=369629506 instance=ExtResource("4")]
 position = Vector2(200, 120)
 
-[node name="CutGrass8" parent="Objects" index="7" instance=ExtResource("4")]
+[node name="CutGrass8" parent="Objects" index="7" unique_id=503115096 instance=ExtResource("4")]
 position = Vector2(216, 120)
 
-[node name="CutGrass9" parent="Objects" index="8" instance=ExtResource("4")]
+[node name="CutGrass9" parent="Objects" index="8" unique_id=1270698283 instance=ExtResource("4")]
 position = Vector2(56, 184)
 
-[node name="CutGrass10" parent="Objects" index="9" instance=ExtResource("4")]
+[node name="CutGrass10" parent="Objects" index="9" unique_id=1060119940 instance=ExtResource("4")]
 position = Vector2(72, 184)
 
-[node name="CutGrass11" parent="Objects" index="10" instance=ExtResource("4")]
+[node name="CutGrass11" parent="Objects" index="10" unique_id=2138732134 instance=ExtResource("4")]
 position = Vector2(248, 184)
 
-[node name="CutGrass12" parent="Objects" index="11" instance=ExtResource("4")]
+[node name="CutGrass12" parent="Objects" index="11" unique_id=661687595 instance=ExtResource("4")]
 position = Vector2(264, 184)
 
-[node name="Enemies" type="Node2D" parent="." index="7"]
+[node name="Enemies" type="Node2D" parent="." index="9" unique_id=1370469615]
 
-[node name="Undead" parent="Enemies" index="0" instance=ExtResource("6")]
+[node name="Undead" parent="Enemies" index="0" unique_id=104283959 instance=ExtResource("6")]
 position = Vector2(96, 88)
 
-[node name="Undead2" parent="Enemies" index="1" instance=ExtResource("6")]
-position = Vector2(224, 88)
-
-[node name="Undead3" parent="Enemies" index="2" instance=ExtResource("6")]
+[node name="Undead3" parent="Enemies" index="1" unique_id=148643616 instance=ExtResource("6")]
 position = Vector2(96, 160)
 
-[node name="Undead4" parent="Enemies" index="3" instance=ExtResource("6")]
-position = Vector2(224, 160)
+[node name="Undead4" parent="Enemies" index="2" unique_id=824144481 instance=ExtResource("6")]
+position = Vector2(232, 152)
 
-[node name="Undead5" parent="Enemies" index="4" instance=ExtResource("6")]
-position = Vector2(160, 120)
+[node name="Heart" parent="." index="10" unique_id=1701399204 instance=ExtResource("7_qesyf")]
+position = Vector2(280, 104)
+
+[node name="Heart2" parent="." index="11" unique_id=812611544 instance=ExtResource("7_qesyf")]
+position = Vector2(24, 88)

@@ -10,7 +10,7 @@ var old_max_health
 @onready var tile_hide_mini_map_texture = preload("res://ui/mini_map/tile_hide_mini_map.png")
 
 var mini_map_grid = []
-var old_player_position_on_mini_map = Vector2(0, 0)
+var old_player_position_on_mini_map = Vector2i(0, 0)
 
 func _ready() -> void:
 	add_to_group('Hud')
@@ -22,15 +22,16 @@ func _ready() -> void:
 	
 
 func set_player_position_on_mini_map(position_x, position_y):
-	
+	if mini_map_grid.is_empty():
+		restart_mini_map()
 	mini_map_grid[old_player_position_on_mini_map.x][old_player_position_on_mini_map.y][2] = 0
-	old_player_position_on_mini_map.x = position_x
-	old_player_position_on_mini_map.y = position_y
-	
+	old_player_position_on_mini_map = Vector2i(position_x, position_y)
 	mini_map_grid[position_x][position_y][2] = 1
 	draw_mini_map()
-	
+
 func set_place_discovered_on_mini_map(position_x, position_y):
+	if mini_map_grid.is_empty():
+		restart_mini_map()
 	mini_map_grid[position_x][position_y][0] = 1
 	draw_mini_map()
 	
@@ -51,8 +52,7 @@ func restart_mini_map():
 			mini_map_grid[x].append([])
 			mini_map_grid[x][y] = [0, 0, 0]
 			
-	old_player_position_on_mini_map.x = 4
-	old_player_position_on_mini_map.y = 3
+	old_player_position_on_mini_map = Vector2i(4, 3)
 	mini_map_grid[4][3][2] = 1
 	mini_map_grid[4][3][0] = 1
 	

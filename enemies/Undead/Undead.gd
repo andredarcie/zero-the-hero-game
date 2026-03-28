@@ -15,7 +15,7 @@ func _ready():
 	$AnimatedSprite2D.play()
 	
 	speed = 20
-	health = 2
+	health = 1
 	move_random_direction = false
 	get_hurt_sound = preload("res://sounds/effects/undead.wav")
 	dying_sound = preload("res://sounds/effects/undead_dying.wav")

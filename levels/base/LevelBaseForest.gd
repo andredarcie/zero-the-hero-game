@@ -8,8 +8,15 @@ func set_current_level_position():
 	return
 
 func _enter_tree():
+	if LevelManager.current_level == 0:
+		BackgroundMusic.play_main_sound()
+		LevelManager.current_player_position = LevelManager.DEFAULT_PLAYER_POSITION
+		Hud.draw_mini_map()
+		Hud.set_player_position_on_mini_map(LevelManager.DEFAULT_MAP_POSITION.x, LevelManager.DEFAULT_MAP_POSITION.y)
+		Hud.set_place_discovered_on_mini_map(LevelManager.DEFAULT_MAP_POSITION.x, LevelManager.DEFAULT_MAP_POSITION.y)
+
 	Hud.hud_visible(true)
-		
+
 	LevelManager.set_current_level_position()
 	
 	var player = player_scene.instantiate()

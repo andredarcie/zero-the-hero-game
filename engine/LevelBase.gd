@@ -4,7 +4,7 @@ var player_scene = preload("res://player/Player/Player.tscn")
 
 func _enter_tree():
 	Hud.hud_visible(true)
-		
+
 	LevelManager.set_current_level_position()
 	
 	var player = player_scene.instantiate()

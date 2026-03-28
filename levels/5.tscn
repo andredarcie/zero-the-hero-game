@@ -1,129 +1,73 @@
-[gd_scene format=3]
+[gd_scene format=4 uid="uid://be2jfrpqo4e0"]
 
 [ext_resource type="PackedScene" path="res://levels/base/LevelBaseForest.tscn" id="1"]
 [ext_resource type="PackedScene" path="res://pickups/portal/Portal.tscn" id="2"]
 [ext_resource type="PackedScene" path="res://items/Item.tscn" id="3"]
 [ext_resource type="PackedScene" path="res://tiles/grass/CutGrass/CutGrass.tscn" id="4"]
 [ext_resource type="PackedScene" path="res://tiles/TileMaps/forest_tile_map/ForestTileMap.tscn" id="5"]
-[ext_resource type="PackedScene" path="res://enemies/Undead/Undead.tscn" id="6"]
-[ext_resource type="PackedScene" path="res://pickups/coin/Coin.tscn" id="7"]
-[ext_resource type="PackedScene" path="res://pickups/heart/Heart.tscn" id="8"]
-[ext_resource type="PackedScene" path="res://pickups/heart/HeartContainer.tscn" id="9"]
-[ext_resource type="PackedScene" path="res://pickups/key/Key.tscn" id="10"]
-[ext_resource type="PackedScene" path="res://pickups/mushroom/Mushroom.tscn" id="11"]
+[ext_resource type="PackedScene" path="res://tiles/bonfire/Bonfire.tscn" id="5_ymyy0"]
+[ext_resource type="PackedScene" path="res://tiles/grass/Grass.tscn" id="6_dc30n"]
+[ext_resource type="PackedScene" path="res://npcs/npc/Npc.tscn" id="8_dc30n"]
+[ext_resource type="PackedScene" path="res://pickups/wood/CuttableTree.tscn" id="9_l2qoq"]
 
-[node name="5" instance=ExtResource("1")]
+[node name="5" unique_id=1624438596 instance=ExtResource("1")]
 
-[node name="ForestTileMap" parent="." index="2" instance=ExtResource("5")]
-tile_map_data = PackedByteArray(0, 0, 0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 9, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 26, 0, 0, 0, 0, 0, 0, 0, 6, 0, 0, 0, 27, 0, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 0, 8, 0, 0, 0, 23, 0, 0, 0, 0, 0, 0, 0, 9, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 10, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 11, 0, 0, 0, 27, 0, 0, 0, 0, 0, 0, 0, 12, 0, 0, 0, 27, 0, 0, 0, 0, 0, 0, 0, 15, 0, 0, 0, 19, 0, 0, 0, 0, 0, 0, 0, 16, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 17, 0, 0, 0, 27, 0, 0, 0, 0, 0, 0, 0, 18, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 19, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 27, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 3, 0, 0, 0, 0, 0, 0, 0, 2, 0, 1, 0, 27, 0, 0, 0, 0, 0, 0, 0, 4, 0, 1, 0, 27, 0, 0, 0, 0, 0, 0, 0, 5, 0, 1, 0, 26, 0, 0, 0, 0, 0, 0, 0, 7, 0, 1, 0, 27, 0, 0, 0, 0, 0, 0, 0, 8, 0, 1, 0, 27, 0, 0, 0, 0, 0, 0, 0, 9, 0, 1, 0, 3, 0, 0, 0, 0, 0, 0, 0, 10, 0, 1, 0, 3, 0, 0, 0, 0, 0, 0, 0, 11, 0, 1, 0, 27, 0, 0, 0, 0, 0, 0, 0, 15, 0, 1, 0, 17, 0, 0, 0, 0, 0, 0, 0, 16, 0, 1, 0, 10, 0, 0, 0, 0, 0, 0, 0, 17, 0, 1, 0, 3, 0, 0, 0, 0, 0, 0, 0, 18, 0, 1, 0, 27, 0, 0, 0, 0, 0, 0, 0, 19, 0, 1, 0, 27, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 3, 0, 0, 0, 0, 0, 0, 0, 1, 0, 2, 0, 27, 0, 0, 0, 0, 0, 0, 0, 2, 0, 2, 0, 27, 0, 0, 0, 0, 0, 0, 0, 3, 0, 2, 0, 26, 0, 0, 0, 0, 0, 0, 0, 4, 0, 2, 0, 26, 0, 0, 0, 0, 0, 0, 0, 8, 0, 2, 0, 26, 0, 0, 0, 0, 0, 0, 0, 9, 0, 2, 0, 8, 0, 0, 0, 0, 0, 0, 0, 10, 0, 2, 0, 3, 0, 0, 0, 0, 0, 0, 0, 11, 0, 2, 0, 16, 0, 0, 0, 0, 0, 0, 0, 15, 0, 2, 0, 3, 0, 0, 0, 0, 0, 0, 0, 16, 0, 2, 0, 3, 0, 0, 0, 0, 0, 0, 0, 17, 0, 2, 0, 3, 0, 0, 0, 0, 0, 0, 0, 18, 0, 2, 0, 22, 0, 0, 0, 0, 0, 0, 0, 19, 0, 2, 0, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 8, 0, 0, 0, 0, 0, 0, 0, 1, 0, 3, 0, 27, 0, 0, 0, 0, 0, 0, 0, 2, 0, 3, 0, 26, 0, 0, 0, 0, 0, 0, 0, 3, 0, 3, 0, 27, 0, 0, 0, 0, 0, 0, 0, 9, 0, 3, 0, 26, 0, 0, 0, 0, 0, 0, 0, 10, 0, 3, 0, 3, 0, 0, 0, 0, 0, 0, 0, 11, 0, 3, 0, 23, 0, 0, 0, 0, 0, 0, 0, 12, 0, 3, 0, 3, 0, 0, 0, 0, 0, 0, 0, 13, 0, 3, 0, 3, 0, 0, 0, 0, 0, 0, 0, 15, 0, 3, 0, 3, 0, 0, 0, 0, 0, 0, 0, 16, 0, 3, 0, 27, 0, 0, 0, 0, 0, 0, 0, 17, 0, 3, 0, 8, 0, 0, 0, 0, 0, 0, 0, 18, 0, 3, 0, 7, 0, 0, 0, 0, 0, 0, 0, 19, 0, 3, 0, 29, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 26, 0, 0, 0, 0, 0, 0, 0, 1, 0, 4, 0, 3, 0, 0, 0, 0, 0, 0, 0, 10, 0, 4, 0, 3, 0, 0, 0, 0, 0, 0, 0, 17, 0, 4, 0, 3, 0, 0, 0, 0, 0, 0, 0, 18, 0, 4, 0, 8, 0, 0, 0, 0, 0, 0, 0, 19, 0, 4, 0, 26, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 27, 0, 0, 0, 0, 0, 0, 0, 10, 0, 5, 0, 3, 0, 0, 0, 0, 0, 0, 0, 11, 0, 5, 0, 3, 0, 0, 0, 0, 0, 0, 0, 16, 0, 5, 0, 7, 0, 0, 0, 0, 0, 0, 0, 17, 0, 5, 0, 27, 0, 0, 0, 0, 0, 0, 0, 18, 0, 5, 0, 26, 0, 0, 0, 0, 0, 0, 0, 19, 0, 5, 0, 27, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 0, 8, 0, 0, 0, 0, 0, 0, 0, 1, 0, 6, 0, 27, 0, 0, 0, 0, 0, 0, 0, 18, 0, 6, 0, 8, 0, 0, 0, 0, 0, 0, 0, 19, 0, 6, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 0, 3, 0, 0, 0, 0, 0, 0, 0, 3, 0, 7, 0, 27, 0, 0, 0, 0, 0, 0, 0, 7, 0, 7, 0, 26, 0, 0, 0, 0, 0, 0, 0, 9, 0, 7, 0, 26, 0, 0, 0, 0, 0, 0, 0, 13, 0, 7, 0, 7, 0, 0, 0, 0, 0, 0, 0, 15, 0, 7, 0, 7, 0, 0, 0, 0, 0, 0, 0, 17, 0, 7, 0, 3, 0, 0, 0, 0, 0, 0, 0, 19, 0, 7, 0, 21, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 0, 3, 0, 0, 0, 0, 0, 0, 0, 2, 0, 8, 0, 3, 0, 0, 0, 0, 0, 0, 0, 3, 0, 8, 0, 27, 0, 0, 0, 0, 0, 0, 0, 5, 0, 8, 0, 3, 0, 0, 0, 0, 0, 0, 0, 6, 0, 8, 0, 3, 0, 0, 0, 0, 0, 0, 0, 8, 0, 8, 0, 26, 0, 0, 0, 0, 0, 0, 0, 10, 0, 8, 0, 3, 0, 0, 0, 0, 0, 0, 0, 17, 0, 8, 0, 8, 0, 0, 0, 0, 0, 0, 0, 18, 0, 8, 0, 26, 0, 0, 0, 0, 0, 0, 0, 19, 0, 8, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 0, 3, 0, 0, 0, 0, 0, 0, 0, 1, 0, 9, 0, 27, 0, 0, 0, 0, 0, 0, 0, 2, 0, 9, 0, 3, 0, 0, 0, 0, 0, 0, 0, 6, 0, 9, 0, 3, 0, 0, 0, 0, 0, 0, 0, 7, 0, 9, 0, 26, 0, 0, 0, 0, 0, 0, 0, 8, 0, 9, 0, 8, 0, 0, 0, 0, 0, 0, 0, 9, 0, 9, 0, 8, 0, 0, 0, 0, 0, 0, 0, 10, 0, 9, 0, 3, 0, 0, 0, 0, 0, 0, 0, 18, 0, 9, 0, 27, 0, 0, 0, 0, 0, 0, 0, 19, 0, 9, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 0, 27, 0, 0, 0, 0, 0, 0, 0, 1, 0, 10, 0, 27, 0, 0, 0, 0, 0, 0, 0, 2, 0, 10, 0, 3, 0, 0, 0, 0, 0, 0, 0, 4, 0, 10, 0, 27, 0, 0, 0, 0, 0, 0, 0, 6, 0, 10, 0, 3, 0, 0, 0, 0, 0, 0, 0, 7, 0, 10, 0, 3, 0, 0, 0, 0, 0, 0, 0, 8, 0, 10, 0, 3, 0, 0, 0, 0, 0, 0, 0, 9, 0, 10, 0, 22, 0, 0, 0, 0, 0, 0, 0, 10, 0, 10, 0, 3, 0, 0, 0, 0, 0, 0, 0, 11, 0, 10, 0, 3, 0, 0, 0, 0, 0, 0, 0, 12, 0, 10, 0, 3, 0, 0, 0, 0, 0, 0, 0, 17, 0, 10, 0, 26, 0, 0, 0, 0, 0, 0, 0, 18, 0, 10, 0, 3, 0, 0, 0, 0, 0, 0, 0, 19, 0, 10, 0, 22, 0, 0, 0, 0, 0, 0, 0, 2, 0, 11, 0, 3, 0, 0, 0, 0, 0, 0, 0, 5, 0, 11, 0, 3, 0, 0, 0, 0, 0, 0, 0, 6, 0, 11, 0, 3, 0, 0, 0, 0, 0, 0, 0, 7, 0, 11, 0, 3, 0, 0, 0, 0, 0, 0, 0, 9, 0, 11, 0, 26, 0, 0, 0, 0, 0, 0, 0, 10, 0, 11, 0, 26, 0, 0, 0, 0, 0, 0, 0, 11, 0, 11, 0, 27, 0, 0, 0, 0, 0, 0, 0, 12, 0, 11, 0, 3, 0, 0, 0, 0, 0, 0, 0, 13, 0, 11, 0, 3, 0, 0, 0, 0, 0, 0, 0, 16, 0, 11, 0, 27, 0, 0, 0, 0, 0, 0, 0, 18, 0, 11, 0, 16, 0, 0, 0, 0, 0, 0, 0, 19, 0, 11, 0, 27, 0, 0, 0, 0, 0, 0, 0, 2, 0, 12, 0, 27, 0, 0, 0, 0, 0, 0, 0, 4, 0, 12, 0, 27, 0, 0, 0, 0, 0, 0, 0, 8, 0, 12, 0, 27, 0, 0, 0, 0, 0, 0, 0, 10, 0, 12, 0, 27, 0, 0, 0, 0, 0, 0, 0, 11, 0, 12, 0, 8, 0, 0, 0, 0, 0, 0, 0, 12, 0, 12, 0, 27, 0, 0, 0, 0, 0, 0, 0, 16, 0, 12, 0, 3, 0, 0, 0, 0, 0, 0, 0, 17, 0, 12, 0, 3, 0, 0, 0, 0, 0, 0, 0, 18, 0, 12, 0, 27, 0, 0, 0, 0, 0, 0, 0, 19, 0, 12, 0, 27, 0, 0, 0, 0, 0, 0, 0, 0, 0, 13, 0, 27, 0, 0, 0, 0, 0, 0, 0, 1, 0, 13, 0, 27, 0, 0, 0, 0, 0, 0, 0, 5, 0, 13, 0, 27, 0, 0, 0, 0, 0, 0, 0, 7, 0, 13, 0, 4, 0, 0, 0, 0, 0, 0, 0, 9, 0, 13, 0, 4, 0, 0, 0, 0, 0, 0, 0, 12, 0, 13, 0, 27, 0, 0, 0, 0, 0, 0, 0, 15, 0, 13, 0, 26, 0, 0, 0, 0, 0, 0, 0, 16, 0, 13, 0, 27, 0, 0, 0, 0, 0, 0, 0, 17, 0, 13, 0, 3, 0, 0, 0, 0, 0, 0, 0, 18, 0, 13, 0, 3, 0, 0, 0, 0, 0, 0, 0, 19, 0, 13, 0, 27, 0, 0, 0, 0, 0, 0, 0, 0, 0, 14, 0, 19, 0, 0, 0, 0, 0, 0, 0, 1, 0, 14, 0, 26, 0, 0, 0, 0, 0, 0, 0, 2, 0, 14, 0, 10, 0, 0, 0, 0, 0, 0, 0, 3, 0, 14, 0, 26, 0, 0, 0, 0, 0, 0, 0, 4, 0, 14, 0, 18, 0, 0, 0, 0, 0, 0, 0, 5, 0, 14, 0, 26, 0, 0, 0, 0, 0, 0, 0, 6, 0, 14, 0, 27, 0, 0, 0, 0, 0, 0, 0, 7, 0, 14, 0, 26, 0, 0, 0, 0, 0, 0, 0, 8, 0, 14, 0, 27, 0, 0, 0, 0, 0, 0, 0, 9, 0, 14, 0, 4, 0, 0, 0, 0, 0, 0, 0, 10, 0, 14, 0, 4, 0, 0, 0, 0, 0, 0, 0, 11, 0, 14, 0, 27, 0, 0, 0, 0, 0, 0, 0, 12, 0, 14, 0, 26, 0, 0, 0, 0, 0, 0, 0, 14, 0, 14, 0, 27, 0, 0, 0, 0, 0, 0, 0, 15, 0, 14, 0, 27, 0, 0, 0, 0, 0, 0, 0, 16, 0, 14, 0, 3, 0, 0, 0, 0, 0, 0, 0, 17, 0, 14, 0, 19, 0, 0, 0, 0, 0, 0, 0, 18, 0, 14, 0, 3, 0, 0, 0, 0, 0, 0, 0, 19, 0, 14, 0, 27, 0, 0, 0, 0, 0, 0, 0)
+[node name="ForestTileMap" parent="." index="2" unique_id=289324824 instance=ExtResource("5")]
+tile_map_data = PackedByteArray("AAAAAAAACAAAAAAAAAABAAAAAwAAAAAAAAACAAAACAAAAAAAAAADAAAAAwAAAAAAAAAEAAAACQAAAAAAAAAFAAAAGgAAAAAAAAAGAAAAGwAAAAAAAAAHAAAACAAAAAAAAAAIAAAAFwAAAAAAAAAJAAAAAwAAAAAAAAAKAAAAAwAAAAAAAAALAAAAGwAAAAAAAAAMAAAAGwAAAAAAAAAPAAAAEwAAAAAAAAAQAAAAAwAAAAAAAAARAAAAGwAAAAAAAAASAAAAAwAAAAAAAAATAAAAAwAAAAAAAAAAAAEAGwAAAAAAAAABAAEAAwAAAAAAAAACAAEAGwAAAAAAAAAEAAEAGwAAAAAAAAAFAAEAGgAAAAAAAAAHAAEAGwAAAAAAAAAIAAEAGwAAAAAAAAAJAAEAAwAAAAAAAAAKAAEAAwAAAAAAAAALAAEAGwAAAAAAAAAPAAEAEQAAAAAAAAAQAAEACgAAAAAAAAARAAEAAwAAAAAAAAASAAEAGwAAAAAAAAATAAEAGwAAAAAAAAAAAAIAAwAAAAAAAAABAAIAGwAAAAAAAAACAAIAGwAAAAAAAAADAAIAGgAAAAAAAAAEAAIAGgAAAAAAAAAIAAIAGgAAAAAAAAAJAAIACAAAAAAAAAAKAAIAAwAAAAAAAAALAAIAEAAAAAAAAAAPAAIAAwAAAAAAAAAQAAIAAwAAAAAAAAARAAIAAwAAAAAAAAASAAIAFgAAAAAAAAATAAIACQAAAAAAAAAAAAMACAAAAAAAAAABAAMAGwAAAAAAAAACAAMAGgAAAAAAAAADAAMAGwAAAAAAAAAJAAMAGgAAAAAAAAAKAAMAAwAAAAAAAAALAAMAFwAAAAAAAAAMAAMAAwAAAAAAAAANAAMAAwAAAAAAAAAPAAMAAwAAAAAAAAAQAAMAGwAAAAAAAAARAAMACAAAAAAAAAASAAMABwAAAAAAAAATAAMAHQAAAAAAAAAAAAQAGgAAAAAAAAABAAQAAwAAAAAAAAAKAAQAAwAAAAAAAAARAAQAAwAAAAAAAAASAAQACAAAAAAAAAATAAQAGgAAAAAAAAAAAAUAGwAAAAAAAAAKAAUAAwAAAAAAAAALAAUAAwAAAAAAAAAQAAUABwAAAAAAAAARAAUAGwAAAAAAAAASAAUAGgAAAAAAAAATAAUAGwAAAAAAAAAAAAYACAAAAAAAAAABAAYAGwAAAAAAAAASAAYACAAAAAAAAAATAAYAAwAAAAAAAAAAAAcAAwAAAAAAAAADAAcAGwAAAAAAAAAHAAcAGgAAAAAAAAAJAAcAGgAAAAAAAAANAAcABwAAAAAAAAAPAAcABwAAAAAAAAARAAcAAwAAAAAAAAATAAcAFQAAAAAAAAAAAAgAAwAAAAAAAAACAAgAAwAAAAAAAAADAAgAGwAAAAAAAAAFAAgAAwAAAAAAAAAGAAgAAwAAAAAAAAAIAAgAGgAAAAAAAAAKAAgAAwAAAAAAAAARAAgACAAAAAAAAAASAAgAGgAAAAAAAAATAAgABwAAAAAAAAAAAAkAAwAAAAAAAAABAAkAGwAAAAAAAAACAAkAAwAAAAAAAAAGAAkAAwAAAAAAAAAHAAkAGgAAAAAAAAAIAAkACAAAAAAAAAAJAAkACAAAAAAAAAAKAAkAAwAAAAAAAAASAAkAGwAAAAAAAAATAAkABwAAAAAAAAAAAAoAGwAAAAAAAAABAAoAGwAAAAAAAAACAAoAAwAAAAAAAAAEAAoAGwAAAAAAAAAGAAoAAwAAAAAAAAAHAAoAAwAAAAAAAAAIAAoAAwAAAAAAAAAJAAoAFgAAAAAAAAAKAAoAAwAAAAAAAAALAAoAAwAAAAAAAAAMAAoAAwAAAAAAAAARAAoAGgAAAAAAAAASAAoAAwAAAAAAAAATAAoAFgAAAAAAAAACAAsAAwAAAAAAAAAFAAsAAwAAAAAAAAAGAAsAAwAAAAAAAAAHAAsAAwAAAAAAAAAJAAsAGgAAAAAAAAAKAAsAGgAAAAAAAAALAAsAGwAAAAAAAAAMAAsAAwAAAAAAAAANAAsAAwAAAAAAAAAQAAsAGwAAAAAAAAASAAsAEAAAAAAAAAATAAsAGwAAAAAAAAACAAwAGwAAAAAAAAAEAAwAGwAAAAAAAAAIAAwAGwAAAAAAAAAKAAwAGwAAAAAAAAALAAwACAAAAAAAAAAMAAwAGwAAAAAAAAAQAAwAAwAAAAAAAAARAAwAAwAAAAAAAAASAAwAGwAAAAAAAAATAAwAGwAAAAAAAAAAAA0AGwAAAAAAAAABAA0AGwAAAAAAAAAFAA0AGwAAAAAAAAAHAA0ABAAAAAAAAAAJAA0ABAAAAAAAAAAMAA0AGwAAAAAAAAAPAA0AGgAAAAAAAAAQAA0AGwAAAAAAAAARAA0AAwAAAAAAAAASAA0AAwAAAAAAAAATAA0AGwAAAAAAAAAAAA4AEwAAAAAAAAABAA4AGgAAAAAAAAACAA4ACgAAAAAAAAADAA4AGgAAAAAAAAAEAA4AEgAAAAAAAAAFAA4AGgAAAAAAAAAGAA4AGwAAAAAAAAAHAA4AGgAAAAAAAAAIAA4AGwAAAAAAAAAJAA4ABAAAAAAAAAAKAA4ABAAAAAAAAAALAA4AGwAAAAAAAAAMAA4AGgAAAAAAAAAOAA4AGwAAAAAAAAAPAA4AGwAAAAAAAAAQAA4AAwAAAAAAAAARAA4AEwAAAAAAAAASAA4AAwAAAAAAAAATAA4AGwAAAAAAAAA=")
 
-[node name="Portal" parent="." index="3" instance=ExtResource("2")]
+[node name="Portal" parent="." index="3" unique_id=664062212 instance=ExtResource("2")]
 position = Vector2(216, 16)
 
-[node name="Items" type="Node2D" parent="." index="4"]
+[node name="Objects" type="Node2D" parent="." index="4" unique_id=1712206923]
 
-[node name="SwordItem" parent="Items" index="0" instance=ExtResource("3")]
-position = Vector2(56, 72)
-item = 1
-
-[node name="BowItem" parent="Items" index="1" instance=ExtResource("3")]
-position = Vector2(88, 72)
-item = 2
-
-[node name="BombItem" parent="Items" index="2" instance=ExtResource("3")]
-position = Vector2(120, 72)
-item = 3
-
-[node name="ScytheItem" parent="Items" index="3" instance=ExtResource("3")]
-position = Vector2(152, 72)
-item = 4
-
-[node name="AxeItem" parent="Items" index="4" instance=ExtResource("3")]
-position = Vector2(184, 72)
-item = 5
-
-[node name="KeyItem" parent="Items" index="5" instance=ExtResource("3")]
-position = Vector2(216, 72)
-item = 6
-
-[node name="PickaxeItem" parent="Items" index="6" instance=ExtResource("3")]
-position = Vector2(248, 72)
-item = 7
-
-[node name="WoodItem" parent="Items" index="7" instance=ExtResource("3")]
-position = Vector2(88, 184)
-item = 8
-
-[node name="WoodOnFireItem" parent="Items" index="8" instance=ExtResource("3")]
-position = Vector2(152, 184)
-item = 9
-
-[node name="LavaBootsItem" parent="Items" index="9" instance=ExtResource("3")]
-position = Vector2(216, 184)
-item = 10
-
-[node name="Pickups" type="Node2D" parent="." index="5"]
-
-[node name="Coin" parent="Pickups" index="0" instance=ExtResource("7")]
-position = Vector2(72, 120)
-
-[node name="Coin2" parent="Pickups" index="1" instance=ExtResource("7")]
-position = Vector2(248, 120)
-
-[node name="Heart" parent="Pickups" index="2" instance=ExtResource("8")]
-position = Vector2(104, 120)
-
-[node name="HeartContainer" parent="Pickups" index="3" instance=ExtResource("9")]
-position = Vector2(216, 120)
-
-[node name="Key" parent="Pickups" index="4" instance=ExtResource("10")]
-position = Vector2(136, 120)
-
-[node name="Mushroom" parent="Pickups" index="5" instance=ExtResource("11")]
-position = Vector2(184, 120)
-
-[node name="Objects" type="Node2D" parent="." index="6"]
-
-[node name="CutGrass" parent="Objects" index="0" instance=ExtResource("4")]
+[node name="CutGrass" parent="Objects" index="0" unique_id=1297087180 instance=ExtResource("4")]
 position = Vector2(56, 56)
 
-[node name="CutGrass2" parent="Objects" index="1" instance=ExtResource("4")]
+[node name="CutGrass2" parent="Objects" index="1" unique_id=122835189 instance=ExtResource("4")]
 position = Vector2(72, 56)
 
-[node name="CutGrass3" parent="Objects" index="2" instance=ExtResource("4")]
-position = Vector2(232, 56)
-
-[node name="CutGrass4" parent="Objects" index="3" instance=ExtResource("4")]
-position = Vector2(248, 56)
-
-[node name="CutGrass5" parent="Objects" index="4" instance=ExtResource("4")]
+[node name="CutGrass5" parent="Objects" index="2" unique_id=770177481 instance=ExtResource("4")]
 position = Vector2(40, 120)
 
-[node name="CutGrass6" parent="Objects" index="5" instance=ExtResource("4")]
+[node name="CutGrass6" parent="Objects" index="3" unique_id=1825155162 instance=ExtResource("4")]
 position = Vector2(264, 120)
 
-[node name="CutGrass7" parent="Objects" index="6" instance=ExtResource("4")]
+[node name="CutGrass7" parent="Objects" index="4" unique_id=1819286767 instance=ExtResource("4")]
 position = Vector2(88, 200)
 
-[node name="CutGrass8" parent="Objects" index="7" instance=ExtResource("4")]
+[node name="CutGrass8" parent="Objects" index="5" unique_id=1542682020 instance=ExtResource("4")]
 position = Vector2(104, 200)
 
-[node name="CutGrass9" parent="Objects" index="8" instance=ExtResource("4")]
+[node name="CutGrass9" parent="Objects" index="6" unique_id=768762576 instance=ExtResource("4")]
 position = Vector2(200, 200)
 
-[node name="CutGrass10" parent="Objects" index="9" instance=ExtResource("4")]
+[node name="CutGrass10" parent="Objects" index="7" unique_id=359973482 instance=ExtResource("4")]
 position = Vector2(216, 200)
 
-[node name="Enemies" type="Node2D" parent="." index="7"]
+[node name="Bonfire" parent="." index="5" unique_id=1361484228 instance=ExtResource("5_ymyy0")]
+position = Vector2(152, 135)
 
-[node name="Undead" parent="Enemies" index="0" instance=ExtResource("6")]
-position = Vector2(64, 152)
+[node name="Grass" parent="." index="6" unique_id=1995844033 instance=ExtResource("6_dc30n")]
+position = Vector2(233, 56)
+is_brush = true
 
-[node name="Undead2" parent="Enemies" index="1" instance=ExtResource("6")]
-position = Vector2(256, 152)
+[node name="Item" parent="." index="7" unique_id=1871122918 instance=ExtResource("3")]
+position = Vector2(91, 115)
+item = 1
 
-[node name="Undead3" parent="Enemies" index="2" instance=ExtResource("6")]
-position = Vector2(96, 40)
+[node name="Item2" parent="." index="8" unique_id=857487615 instance=ExtResource("3")]
+position = Vector2(299, 75)
+item = 5
 
-[node name="Undead4" parent="Enemies" index="3" instance=ExtResource("6")]
-position = Vector2(224, 40)
+[node name="Npc" parent="." index="9" unique_id=91526688 instance=ExtResource("8_dc30n")]
+position = Vector2(59, 75)
+npc = 2
+
+[node name="CuttableTree" parent="." index="10" unique_id=678324923 instance=ExtResource("9_l2qoq")]
+position = Vector2(107, 27)
+
+[node name="CuttableTree2" parent="." index="11" unique_id=1891016229 instance=ExtResource("9_l2qoq")]
+position = Vector2(203, 91)
+
+[node name="CuttableTree3" parent="." index="12" unique_id=248392884 instance=ExtResource("9_l2qoq")]
+position = Vector2(123, 91)
