@@ -179,8 +179,11 @@ func state_swing() -> void:
 	
 	
 func throw_bomb() -> void:
+	if get_tree().get_nodes_in_group("active_bomb").size() > 0:
+		return
 	var bomb = Bomb.instantiate()
 	bomb.global_position = $BombPlace.global_position
+	bomb.add_to_group("active_bomb")
 	get_node('..').add_child(bomb)
 	
 
