@@ -175,6 +175,7 @@ func state_swing() -> void:
 	movement_loop()
 	damage_loop()
 	movedir = Vector2.ZERO
+	raw_movedir = Vector2.ZERO
 	
 	
 func throw_bomb() -> void:

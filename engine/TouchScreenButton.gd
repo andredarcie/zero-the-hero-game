@@ -15,7 +15,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if ongoing_drag == -1 and handle_offset.length() > 0.5:
 		handle_offset = handle_offset.lerp(Vector2.ZERO, return_speed * delta)
-		global_position = joystick_origin + handle_offset
+		global_position = get_parent().global_position + handle_offset
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventScreenTouch:
@@ -29,7 +29,6 @@ func _input(event: InputEvent) -> void:
 				ongoing_drag = event.get_index()
 		elif not event.is_pressed() and event.get_index() == ongoing_drag:
 			ongoing_drag = -1
-			handle_offset = Vector2.ZERO
 			get_parent().position = original_parent_pos
 
 	if event is InputEventScreenDrag and event.get_index() == ongoing_drag:
@@ -40,6 +39,6 @@ func _input(event: InputEvent) -> void:
 		global_position = joystick_origin + handle_offset
 
 func get_value() -> Vector2:
-	if handle_offset.length() > threshold:
+	if ongoing_drag != -1 and handle_offset.length() > threshold:
 		return handle_offset.normalized()
 	return Vector2.ZERO
